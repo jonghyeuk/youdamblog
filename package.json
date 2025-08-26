@@ -1,0 +1,36 @@
+{
+  "name": "yudam-life-blog",
+  "version": "1.0.0",
+  "description": "Yudam's Life - Health, Fitness & Lifestyle Blog",
+  "main": "public/index.html",
+  "scripts": {
+    "build": "npm run copy-files",
+    "copy-files": "cp -r src/* public/",
+    "serve": "firebase serve",
+    "deploy": "firebase deploy",
+    "start": "firebase serve --only hosting",
+    "init": "firebase init",
+    "generate-sitemap": "node scripts/generate-sitemap.js"
+  },
+  "keywords": [
+    "blog",
+    "health",
+    "fitness",
+    "lifestyle",
+    "wellness",
+    "personal-development"
+  ],
+  "author": "Yudam",
+  "license": "MIT",
+  "devDependencies": {
+    "firebase-tools": "^13.0.0"
+  },
+  "dependencies": {
+    "sitemap": "^7.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/yudam-life-blog"
+  },
+  "homepage": "https://yudam-life.web.app"
+}
