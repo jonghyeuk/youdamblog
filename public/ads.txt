@@ -1,0 +1,17 @@
+# ads.txt file for Yudam's Life Blog
+# This file is required by Google AdSense for ad serving authorization
+# Replace "YOUR_PUBLISHER_ID" with your actual AdSense publisher ID
+
+google.com, pub-YOUR_PUBLISHER_ID, DIRECT, f08c47fec0942fa0
+
+# Example format:
+# google.com, pub-1234567890123456, DIRECT, f08c47fec0942fa0
+
+# Additional authorized sellers can be added here
+# Format: domain, publisher_account_id, account_type, tag_id
+
+# Instructions:
+# 1. Replace YOUR_PUBLISHER_ID with your actual Google AdSense Publisher ID
+# 2. You can find your Publisher ID in your AdSense account settings
+# 3. It usually starts with "pub-" followed by numbers
+# 4. Keep the certification authority ID "f08c47fec0942fa0" for Google
