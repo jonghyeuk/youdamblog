@@ -1,0 +1,33 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://yudam-life.web.app/sitemap.xml
+
+# AdSense crawler
+User-agent: Mediapartners-Google
+Allow: /
+
+# Google crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Disallow admin functionality (security)
+Disallow: /admin
+Disallow: /#admin
+
+# Allow all other content
+Allow: /*.css
+Allow: /*.js
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.gif
+Allow: /*.webp
+Allow: /*.svg
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
