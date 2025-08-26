@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yudam's Life | Health, Fitness & Lifestyle Blog</title>
+    <meta name="description" content="Discover insights on health, fitness, lifestyle, self-development, and daily life. Join our community of wellness enthusiasts for evidence-based tips and personal experiences.">
+    <meta name="keywords" content="health blog, fitness tips, lifestyle advice, self development, wellness, healthy living, personal growth, daily habits, nutrition, exercise">
+    <meta name="author" content="Yudam">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yudam-life.web.app">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Yudam's Life | Health, Fitness & Lifestyle Blog">
+    <meta property="og:description" content="Discover insights on health, fitness, lifestyle, self-development, and daily life. Join our community of wellness enthusiasts.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yudam-life.web.app">
+    <meta property="og:image" content="https://yudam-life.web.app/og-image.jpg">
+    <meta property="og:site_name" content="Yudam's Life">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Yudam's Life | Health, Fitness & Lifestyle Blog">
+    <meta name="twitter:description" content="Discover insights on health, fitness, lifestyle, self-development, and daily life.">
+    <meta name="twitter:image" content="https://yudam-life.web.app/og-image.jpg">
+    <meta name="twitter:creator" content="@yudam_life">
+    
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE_HERE">
+    
+    <!-- Bing Webmaster Verification -->
+    <meta name="msvalidate.01" content="YOUR_BING_VERIFICATION_CODE_HERE">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID" crossorigin="anonymous"></script>
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Yudam's Life",
+        "description": "A personal blog about health, fitness, lifestyle, and self-development",
+        "url": "https://yudam-life.web.app",
+        "author": {
+            "@type": "Person",
+            "name": "Yudam"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Yudam's Life",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://yudam-life.web.app/logo.png"
+            }
+        },
+        "inLanguage": "en-US",
+        "blogPost": []
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #0ea5e9;
+            --accent-color: #10b981;
+            --text-dark: #1f2937;
+            --text-medium: #4b5563;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border-light: #e5e7eb;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            font-size: 16px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-medium);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+            background: var(--bg-light);
+        }
+
+        /* Admin Button - Bottom Right */
+        .admin-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 9999;
+        }
+
+        .admin-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .admin-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-primary);
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="25" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="25" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 3rem;
+        }
+
+        .content-area {
+            min-height: 400px;
+        }
+
+        /* Categories */
+        .categories {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            background: var(--bg-white);
+            border: 2px solid var(--border-light);
+            color: var(--text-medium);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Blog Posts Grid */
+        .posts-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .post-card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid var(--border-light);
+        }
+
+        .post-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .post-image {
+            width: 100%;
+            height: 250px;
+            background: var(--gradient-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .post-content {
+            padding: 2rem;
+        }
+
+        .post-category {
+            display: inline-block;
+            background: var(--bg-light);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .post-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .post-excerpt {
+            color: var(--text-medium);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .post-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .post-date {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .post-views {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+        }
+
+        .sidebar h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .popular-posts {
+            list-style: none;
+        }
+
+        .popular-post {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .popular-post:last-child {
+            border-bottom: none;
+        }
+
+        .popular-post:hover {
+            background: var(--bg-light);
+            margin: 0 -1rem;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .popular-post-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .popular-post-meta {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        /* AdSense Ad Slots */
+        .ad-slot {
+            background: var(--bg-light);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 2rem 0;
+            text-align: center;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        .ad-slot-sidebar {
+            margin-top: 2rem;
+            min-height: 300px;
+        }
+
+        /* No Posts State */
+        .no-posts {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--bg-white);
+            border-radius: 16px;
+            border: 2px dashed var(--border-light);
+        }
+
+        .no-posts i {
+            font-size: 4rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .no-posts h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-medium);
+        }
+
+        .no-posts p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        /* Admin Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 10000;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 2rem;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--border-light);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 200px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .image-upload {
+            border: 2px dashed var(--border-light);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .image-upload:hover {
+            border-color: var(--primary-color);
+            background: var(--bg-light);
+        }
+
+        .image-upload.has-image {
+            border-style: solid;
+            border-color: var(--accent-color);
+            background: #ecfdf5;
+        }
+
+        .upload-preview {
+            max-width: 100%;
+            max-height: 200px;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background: var(--bg-light);
+            color: var(--text-medium);
+            border: 2px solid var(--border-light);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-white);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* Search */
+        .search-container {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid var(--border-light);
+            border-radius: 50px;
+            font-size: 1rem;
+            background: var(--bg-white);
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+            font-size: 1.125rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer p {
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            opacity: 0.6;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem 1rem;
+            }
+
+            .categories {
+                gap: 0.5rem;
+            }
+
+            .category-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .admin-float {
+                bottom: 1rem;
+                right: 1rem;
+            }
+
+            .admin-btn {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Article View */
+        .article-view {
+            background: var(--bg-white);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+        }
+
+        .article-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .article-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            color: var(--text-light);
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-body {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .article-body h2,
+        .article-body h3,
+        .article-body h4 {
+            margin: 2rem 0 1rem;
+            color: var(--text-dark);
+        }
+
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-body img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .back-btn {
+            margin-bottom: 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            color: #1d4ed8;
+            transform: translateX(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo" onclick="showHome()">
+                <div class="logo-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <span class="logo-text">Yudam's Life</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#" onclick="showHome()">Home</a></li>
+                <li><a href="#" onclick="showCategory('Health')">Health</a></li>
+                <li><a href="#" onclick="showCategory('Fitness')">Fitness</a></li>
+                <li><a href="#" onclick="showCategory('Lifestyle')">Lifestyle</a></li>
+                <li><a href="#" onclick="showCategory('Self-Development')">Growth</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Yudam's Life</h1>
+            <p class="subtitle">Sharing insights on health, fitness, lifestyle, and personal growth. Join me on this journey to better living.</p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="total-posts">0</span>
+                    <span class="stat-label">Articles</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="total-views">0</span>
+                    <span class="stat-label">Total Views</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Categories</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="content-area">
+            <!-- Search -->
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Search articles..." id="search-input">
+            </div>
+
+            <!-- Categories -->
+            <div class="categories">
+                <button class="category-btn active" onclick="filterPosts('all')">All Posts</button>
+                <button class="category-btn" onclick="filterPosts('Health')">Health</button>
+                <button class="category-btn" onclick="filterPosts('Fitness')">Fitness</button>
+                <button class="category-btn" onclick="filterPosts('Lifestyle')">Lifestyle</button>
+                <button class="category-btn" onclick="filterPosts('Self-Development')">Growth</button>
+                <button class="category-btn" onclick="filterPosts('Daily Life')">Daily Life</button>
+            </div>
+
+            <!-- Posts Grid -->
+            <div class="posts-grid" id="posts-container">
+                <div class="no-posts">
+                    <i class="fas fa-pen-fancy"></i>
+                    <h3>Loading Posts...</h3>
+                    <p>Please wait while we load your content.</p>
+                </div>
+            </div>
+
+            <!-- AdSense Display Ad -->
+            <div class="ad-slot">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                     data-ad-slot="YOUR_AD_SLOT_ID"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h3>Popular Posts</h3>
+            <ul class="popular-posts" id="popular-posts">
+                <li class="popular-post">
+                    <div class="popular-post-title">Loading popular posts...</div>
+                    <div class="popular-post-meta">Please wait</div>
+                </li>
+            </ul>
+
+            <h3 style="margin-top: 2rem;">Categories</h3>
+            <div style="margin-top: 1rem;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span>Health</span>
+                    <span id="count-Health" style="color: var(--text-light);">0</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span>Fitness</span>
+                    <span id="count-Fitness" style="color: var(--text-light);">0</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span>Lifestyle</span>
+                    <span id="count-Lifestyle" style="color: var(--text-light);">0</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span>Growth</span>
+                    <span id="count-Self-Development" style="color: var(--text-light);">0</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span>Daily Life</span>
+                    <span id="count-Daily Life" style="color: var(--text-light);">0</span>
+                </div>
+            </div>
+
+            <!-- AdSense Sidebar Ad -->
+            <div class="ad-slot ad-slot-sidebar">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                     data-ad-slot="YOUR_SIDEBAR_AD_SLOT_ID"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Stay Connected</h3>
+            <p>Follow along for the latest updates on health, fitness, and lifestyle tips</p>
+            <div class="social-links">
+                <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Yudam's Life. All rights reserved. | Made with ❤️ for better living</p>
+        </div>
+    </footer>
+
+    <!-- Floating Admin Button -->
+    <div class="admin-float">
+        <button class="admin-btn" onclick="showAdmin()">
+            <i class="fas fa-cog"></i>
+            admin
+        </button>
+    </div>
+
+    <!-- Admin Modal (Korean Interface) -->
+    <div class="modal" id="admin-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">새 포스트 작성</h2>
+                <button class="close-btn" onclick="closeAdmin()">&times;</button>
+            </div>
+            
+            <div id="admin-form">
+                <div class="form-group">
+                    <label class="form-label">제목 (영어)</label>
+                    <input type="text" class="form-input" id="post-title" placeholder="예: 5 Morning Habits That Changed My Life">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">카테고리</label>
+                    <select class="form-select" id="post-category">
+                        <option value="Health">Health</option>
+                        <option value="Fitness">Fitness</option>
+                        <option value="Lifestyle">Lifestyle</option>
+                        <option value="Self-Development">Self-Development</option>
+                        <option value="Daily Life">Daily Life</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">요약 (영어)</label>
+                    <input type="text" class="form-input" id="post-excerpt" placeholder="Brief description of the article content...">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">이미지 업로드</label>
+                    <div class="image-upload" onclick="document.getElementById('image-input').click()">
+                        <i class="fas fa-image" style="font-size: 2rem; color: var(--text-light); margin-bottom: 1rem;"></i>
+                        <p style="color: var(--text-medium);">클릭하여 이미지 업로드</p>
+                        <p style="font-size: 0.875rem; color: var(--text-light);">JPG, PNG, GIF (최대 5MB)</p>
+                        <img id="image-preview" class="upload-preview" style="display: none;">
+                    </div>
+                    <input type="file" id="image-input" accept="image/*" style="display: none;">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">내용 (HTML 형식)</label>
+                    <textarea class="form-textarea" id="post-content" placeholder="HTML 형식으로 내용을 작성하세요...
+
+예시:
+<h2>Introduction</h2>
+<p>This is the beginning of my article...</p>
+
+<h3>Key Points</h3>
+<ul>
+<li>First important point</li>
+<li>Second important point</li>
+</ul>
+
+<p>More content here...</p>"></textarea>
+                </div>
+
+                <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+                    <button class="btn btn-secondary" onclick="closeAdmin()">취소</button>
+                    <button class="btn btn-primary" onclick="createPost()">
+                        <i class="fas fa-save"></i>
+                        포스트 발행
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Blog data
+        var posts = JSON.parse(localStorage.getItem('yudam-posts') || '[]');
+        var currentFilter = 'all';
+        var currentView = 'home';
+        var currentPost = null;
+
+        // Sample data for demo
+        if (posts.length === 0) {
+            posts = [
+                {
+                    id: 1,
+                    title: "5 Morning Habits That Transformed My Health",
+                    category: "Health",
+                    excerpt: "Discover the simple morning routine that helped me boost energy, improve focus, and feel amazing every day.",
+                    content: "<h2>The Power of Morning Routines</h2><p>After years of feeling sluggish and unfocused, I discovered that the secret to better health wasn't in expensive supplements or complicated diets—it was in how I started each day.</p><h3>1. Wake Up Early (5:30 AM)</h3><p>Getting up early gives me precious quiet time before the world demands my attention. This peaceful start sets a positive tone for the entire day.</p><h3>2. Drink Water First Thing</h3><p>Before coffee, before anything else, I drink a full glass of water. After 6-8 hours without hydration, your body needs this boost more than caffeine.</p><h3>3. 10 Minutes of Meditation</h3><p>Just 10 minutes of mindful breathing or guided meditation helps center my thoughts and reduce stress before the day begins.</p><h3>4. Light Exercise or Stretching</h3><p>I don't need a full workout—even 15 minutes of gentle yoga or a walk around the block gets my blood flowing and energy up.</p><h3>5. Nutritious Breakfast</h3><p>I fuel my body with protein, healthy fats, and complex carbs. My go-to: Greek yogurt with berries, nuts, and a drizzle of honey.</p><h2>The Results</h2><p>Within just two weeks of this routine, I noticed:</p><ul><li>More sustained energy throughout the day</li><li>Better focus and productivity at work</li><li>Improved mood and less stress</li><li>Better sleep quality at night</li></ul><p>The key is consistency. Start with just one habit and gradually add others. Your future self will thank you!</p>",
+                    date: "2024-08-20",
+                    views: 1247,
+                    image: null
+                },
+                {
+                    id: 2,
+                    title: "My Journey from Couch Potato to Marathon Finisher",
+                    category: "Fitness",
+                    excerpt: "From barely running 5 minutes to completing a full marathon—here's the step-by-step plan that worked for me.",
+                    content: "<h2>The Beginning: A Reluctant Runner</h2><p>Two years ago, I couldn't run for 5 minutes without gasping for air. The idea of running 26.2 miles seemed absolutely impossible. But here I am, fresh from crossing my first marathon finish line!</p><h3>Week 1-4: Building the Foundation</h3><p>I started with the Couch to 5K program. The beauty of this program is that it meets you exactly where you are. Week 1 alternated between 60 seconds of running and 90 seconds of walking.</p><h3>Month 2-3: Finding My Rhythm</h3><p>Once I could run 5K continuously, I focused on building my weekly mileage gradually. I followed the 10% rule—never increasing weekly distance by more than 10%.</p><h3>Month 4-8: Half Marathon Training</h3><p>My first major goal was a half marathon. I followed a structured 12-week training plan that included:</p><ul><li>3-4 easy runs per week</li><li>One long run every weekend</li><li>Cross-training (cycling, swimming)</li><li>Strength training 2x per week</li></ul><h3>Month 9-14: Marathon Training</h3><p>After successfully completing my half marathon, I felt ready for the full distance. Marathon training was intense but incredibly rewarding.</p><h2>Key Lessons Learned</h2><p><strong>Consistency beats intensity:</strong> Showing up for easy runs was more important than crushing every workout.</p><p><strong>Listen to your body:</strong> I learned to distinguish between normal training fatigue and potential injury.</p><p><strong>Fuel matters:</strong> Proper nutrition and hydration became crucial as distances increased.</p><h2>Race Day Success</h2><p>Crossing that finish line was one of the most emotional moments of my life. Not because I was fast (I wasn't!), but because I had proven to myself that with patience and persistence, seemingly impossible goals become achievable.</p><p>If you're thinking about starting to run, start today. Even if it's just for 5 minutes. Your marathon journey begins with a single step.</p>",
+                    date: "2024-08-15",
+                    views: 892,
+                    image: null
+                }
+            ];
+            localStorage.setItem('yudam-posts', JSON.stringify(posts));
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateStats();
+            updateCategoryCounts();
+            loadPosts();
+            setupSearch();
+            setupImageUpload();
+            updateStructuredData();
+            
+            // Initialize AdSense
+            if (window.adsbygoogle) {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            }
+        });
+
+        // Update structured data for SEO
+        function updateStructuredData() {
+            var structuredData = {
+                "@context": "https://schema.org",
+                "@type": "Blog",
+                "name": "Yudam's Life",
+                "description": "A personal blog about health, fitness, lifestyle, and self-development",
+                "url": "https://yudam-life.web.app",
+                "author": {
+                    "@type": "Person",
+                    "name": "Yudam"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Yudam's Life",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://yudam-life.web.app/logo.png"
+                    }
+                },
+                "inLanguage": "en-US",
+                "blogPost": []
+            };
+
+            // Add posts to structured data
+            for (var i = 0; i < posts.length; i++) {
+                var post = posts[i];
+                structuredData.blogPost.push({
+                    "@type": "BlogPosting",
+                    "headline": post.title,
+                    "description": post.excerpt,
+                    "datePublished": post.date,
+                    "dateModified": post.date,
+                    "author": {
+                        "@type": "Person",
+                        "name": "Yudam"
+                    },
+                    "publisher": {
+                        "@type": "Organization", 
+                        "name": "Yudam's Life"
+                    },
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://yudam-life.web.app/post/" + post.id
+                    },
+                    "articleSection": post.category,
+                    "wordCount": post.content.replace(/<[^>]*>/g, '').split(' ').length,
+                    "interactionStatistic": {
+                        "@type": "InteractionCounter",
+                        "interactionType": "https://schema.org/ReadAction",
+                        "userInteractionCount": post.views
+                    }
+                });
+            }
+
+            // Update JSON-LD
+            var existingScript = document.querySelector('script[type="application/ld+json"]');
+            if (existingScript) {
+                existingScript.textContent = JSON.stringify(structuredData, null, 2);
+            }
+        }
+
+        // Admin functions
+        function showAdmin() {
+            document.getElementById('admin-modal').classList.add('active');
+        }
+
+        function closeAdmin() {
+            document.getElementById('admin-modal').classList.remove('active');
+            clearForm();
+        }
+
+        function clearForm() {
+            document.getElementById('post-title').value = '';
+            document.getElementById('post-excerpt').value = '';
+            document.getElementById('post-content').value = '';
+            document.getElementById('post-category').value = 'Health';
+            document.getElementById('image-input').value = '';
+            document.getElementById('image-preview').style.display = 'none';
+            document.querySelector('.image-upload').classList.remove('has-image');
+        }
+
+        function setupImageUpload() {
+            document.getElementById('image-input').addEventListener('change', function(e) {
+                var file = e.target.files[0];
+                if (file) {
+                    // Check file size (5MB limit)
+                    if (file.size > 5 * 1024 * 1024) {
+                        alert('파일 크기가 5MB를 초과합니다.');
+                        return;
+                    }
+                    
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        var preview = document.getElementById('image-preview');
+                        preview.src = e.target.result;
+                        preview.style.display = 'block';
+                        document.querySelector('.image-upload').classList.add('has-image');
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
+
+        function createPost() {
+            var title = document.getElementById('post-title').value.trim();
+            var category = document.getElementById('post-category').value;
+            var excerpt = document.getElementById('post-excerpt').value.trim();
+            var content = document.getElementById('post-content').value.trim();
+            var imageFile = document.getElementById('image-input').files[0];
+
+            if (!title || !excerpt || !content) {
+                alert('제목, 요약, 내용을 모두 입력해주세요.');
+                return;
+            }
+
+            var newPost = {
+                id: Date.now(),
+                title: title,
+                category: category,
+                excerpt: excerpt,
+                content: content,
+                date: new Date().toISOString().split('T')[0],
+                views: Math.floor(Math.random() * 100) + 1,
+                image: null
+            };
+
+            // Handle image if uploaded
+            if (imageFile) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    newPost.image = e.target.result;
+                    posts.unshift(newPost);
+                    savePosts();
+                    loadPosts();
+                    updateStats();
+                    updateCategoryCounts();
+                    updateStructuredData();
+                    closeAdmin();
+                    
+                    // Track event for Google Analytics
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'post_created', {
+                            'event_category': 'content',
+                            'event_label': category,
+                            'value': 1
+                        });
+                    }
+                };
+                reader.readAsDataURL(imageFile);
+            } else {
+                posts.unshift(newPost);
+                savePosts();
+                loadPosts();
+                updateStats();
+                updateCategoryCounts();
+                updateStructuredData();
+                closeAdmin();
+                
+                // Track event for Google Analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'post_created', {
+                        'event_category': 'content',
+                        'event_label': category,
+                        'value': 1
+                    });
+                }
+            }
+        }
+
+        function savePosts() {
+            localStorage.setItem('yudam-posts', JSON.stringify(posts));
+        }
+
+        // Display functions
+        function loadPosts() {
+            var container = document.getElementById('posts-container');
+            var filteredPosts = currentFilter === 'all' 
+                ? posts 
+                : posts.filter(function(post) { return post.category === currentFilter; });
+
+            if (filteredPosts.length === 0) {
+                var noPostsTitle = currentFilter === 'all' ? 'No Posts Yet' : 'No ' + currentFilter + ' Posts';
+                var noPostsText = currentFilter === 'all' ? 'Start sharing your insights!' : 'Create your first ' + currentFilter.toLowerCase() + ' post!';
+                
+                container.innerHTML = '<div class="no-posts">' +
+                    '<i class="fas fa-search"></i>' +
+                    '<h3>' + noPostsTitle + '</h3>' +
+                    '<p>' + noPostsText + '</p>' +
+                    '<button class="btn btn-primary" onclick="showAdmin()">' +
+                        '<i class="fas fa-plus"></i>' +
+                        'Create Post' +
+                    '</button>' +
+                '</div>';
+                return;
+            }
+
+            var postsHTML = '';
+            for (var i = 0; i < filteredPosts.length; i++) {
+                var post = filteredPosts[i];
+                var imageHTML = post.image 
+                    ? '<img src="' + post.image + '" alt="' + post.title + '" itemprop="image">'
+                    : getCategoryIcon(post.category);
+                
+                postsHTML += '<article class="post-card" onclick="showPost(' + post.id + ')" itemscope itemtype="https://schema.org/BlogPosting">' +
+                    '<div class="post-image">' + imageHTML + '</div>' +
+                    '<div class="post-content">' +
+                        '<span class="post-category" itemprop="articleSection">' + post.category + '</span>' +
+                        '<h2 class="post-title" itemprop="headline">' + post.title + '</h2>' +
+                        '<p class="post-excerpt" itemprop="description">' + post.excerpt + '</p>' +
+                        '<div class="post-meta">' +
+                            '<div class="post-date">' +
+                                '<i class="fas fa-calendar"></i>' +
+                                '<time datetime="' + post.date + '" itemprop="datePublished">' + formatDate(post.date) + '</time>' +
+                            '</div>' +
+                            '<div class="post-views">' +
+                                '<i class="fas fa-eye"></i>' +
+                                '<span itemprop="interactionStatistic" itemscope itemtype="https://schema.org/InteractionCounter">' +
+                                    '<meta itemprop="interactionType" content="https://schema.org/ReadAction">' +
+                                    '<span itemprop="userInteractionCount">' + post.views + '</span>' +
+                                '</span> views' +
+                            '</div>' +
+                        '</div>' +
+                        '<meta itemprop="author" content="Yudam">' +
+                        '<meta itemprop="dateModified" content="' + post.date + '">' +
+                    '</div>' +
+                '</article>';
+            }
+
+            container.innerHTML = postsHTML;
+
+            // Re-initialize AdSense ads after content change
+            if (window.adsbygoogle) {
+                try {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                } catch (e) {
+                    console.log('AdSense not ready yet');
+                }
+            }
+        }
+
+        function showPost(id) {
+            var post = null;
+            for (var i = 0; i < posts.length; i++) {
+                if (posts[i].id === id) {
+                    post = posts[i];
+                    break;
+                }
+            }
+            if (!post) return;
+
+            // Increment views
+            post.views++;
+            savePosts();
+
+            currentPost = post;
+            currentView = 'post';
+
+            // Update page title and meta description for SEO
+            document.title = post.title + ' | Yudam\'s Life';
+            document.querySelector('meta[name="description"]').content = post.excerpt;
+
+            var container = document.getElementById('posts-container');
+            var imageHTML = post.image 
+                ? '<img src="' + post.image + '" alt="' + post.title + '" itemprop="image" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-bottom: 2rem;">'
+                : '';
+            
+            container.innerHTML = '<article class="article-view" itemscope itemtype="https://schema.org/BlogPosting">' +
+                '<a href="#" class="back-btn" onclick="showHome()">' +
+                    '<i class="fas fa-arrow-left"></i>' +
+                    'Back to Posts' +
+                '</a>' +
+                '<div class="article-header">' +
+                    '<h1 class="article-title" itemprop="headline">' + post.title + '</h1>' +
+                    '<div class="article-meta">' +
+                        '<span><i class="fas fa-folder"></i> <span itemprop="articleSection">' + post.category + '</span></span>' +
+                        '<span><i class="fas fa-calendar"></i> <time datetime="' + post.date + '" itemprop="datePublished">' + formatDate(post.date) + '</time></span>' +
+                        '<span><i class="fas fa-eye"></i> ' + post.views + ' views</span>' +
+                    '</div>' +
+                '</div>' +
+                imageHTML +
+                '<div class="article-body" itemprop="articleBody">' +
+                    post.content +
+                '</div>' +
+                '<div class="ad-slot">' +
+                    '<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-YOUR_ADSENSE_ID" data-ad-slot="YOUR_IN_ARTICLE_AD_SLOT_ID"></ins>' +
+                '</div>' +
+                '<meta itemprop="author" content="Yudam">' +
+                '<meta itemprop="dateModified" content="' + post.date + '">' +
+                '<meta itemprop="publisher" content="Yudam\'s Life">' +
+            '</article>';
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            updatePopularPosts();
+
+            // Track page view for Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('config', 'GA_MEASUREMENT_ID', {
+                    page_title: post.title,
+                    page_location: 'https://yudam-life.web.app/post/' + post.id,
+                    content_group1: post.category
+                });
+                
+                gtag('event', 'page_view', {
+                    'event_category': 'content',
+                    'event_label': post.title,
+                    'custom_map': {'custom_parameter_1': post.category}
+                });
+            }
+        }
+
+        function showHome() {
+            currentView = 'home';
+            currentPost = null;
+            
+            // Reset page title and description
+            document.title = "Yudam's Life | Health, Fitness & Lifestyle Blog";
+            document.querySelector('meta[name="description"]').content = "Discover insights on health, fitness, lifestyle, self-development, and daily life. Join our community of wellness enthusiasts for evidence-based tips and personal experiences.";
+            
+            loadPosts();
+        }
+
+        function showCategory(category) {
+            filterPosts(category);
+        }
+
+        function filterPosts(filter) {
+            currentFilter = filter;
+            currentView = 'home';
+            
+            // Update active category button
+            var buttons = document.querySelectorAll('.category-btn');
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('active');
+            }
+            
+            if (filter === 'all') {
+                document.querySelector('.category-btn').classList.add('active');
+            } else {
+                var targetBtn = null;
+                for (var i = 0; i < buttons.length; i++) {
+                    var btnText = buttons[i].textContent;
+                    if (btnText.includes(filter === 'Self-Development' ? 'Growth' : filter)) {
+                        targetBtn = buttons[i];
+                        break;
+                    }
+                }
+                if (targetBtn) targetBtn.classList.add('active');
+            }
+
+            loadPosts();
+
+            // Track category filtering for analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'category_filter', {
+                    'event_category': 'navigation',
+                    'event_label': filter,
+                    'value': 1
+                });
+            }
+        }
+
+        function getCategoryIcon(category) {
+            var icons = {
+                'Health': '<i class="fas fa-heart"></i>',
+                'Fitness': '<i class="fas fa-dumbbell"></i>',
+                'Lifestyle': '<i class="fas fa-home"></i>',
+                'Self-Development': '<i class="fas fa-brain"></i>',
+                'Daily Life': '<i class="fas fa-coffee"></i>'
+            };
+            return icons[category] || '<i class="fas fa-file-alt"></i>';
+        }
+
+        function formatDate(dateString) {
+            var date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+        }
+
+        function updateStats() {
+            document.getElementById('total-posts').textContent = posts.length;
+            var totalViews = 0;
+            for (var i = 0; i < posts.length; i++) {
+                totalViews += posts[i].views;
+            }
+            document.getElementById('total-views').textContent = totalViews.toLocaleString();
+        }
+
+        function updateCategoryCounts() {
+            var categories = ['Health', 'Fitness', 'Lifestyle', 'Self-Development', 'Daily Life'];
+            for (var i = 0; i < categories.length; i++) {
+                var category = categories[i];
+                var count = 0;
+                for (var j = 0; j < posts.length; j++) {
+                    if (posts[j].category === category) {
+                        count++;
+                    }
+                }
+                var element = document.getElementById('count-' + category);
+                if (element) {
+                    element.textContent = count;
+                }
+            }
+        }
+
+        function updatePopularPosts() {
+            var popularContainer = document.getElementById('popular-posts');
+            var sortedPosts = posts.slice().sort(function(a, b) { return b.views - a.views; }).slice(0, 5);
+            
+            if (sortedPosts.length === 0) {
+                popularContainer.innerHTML = '<li class="popular-post">' +
+                    '<div class="popular-post-title">No posts yet</div>' +
+                    '<div class="popular-post-meta">Create your first post!</div>' +
+                '</li>';
+                return;
+            }
+
+            var popularHTML = '';
+            for (var i = 0; i < sortedPosts.length; i++) {
+                var post = sortedPosts[i];
+                popularHTML += '<li class="popular-post" onclick="showPost(' + post.id + ')">' +
+                    '<div class="popular-post-title">' + post.title + '</div>' +
+                    '<div class="popular-post-meta">' + post.views + ' views • ' + formatDate(post.date) + '</div>' +
+                '</li>';
+            }
+
+            popularContainer.innerHTML = popularHTML;
+        }
+
+        function setupSearch() {
+            var searchInput = document.getElementById('search-input');
+            var searchTimeout;
+            
+            searchInput.addEventListener('input', function(e) {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(function() {
+                    var query = e.target.value.toLowerCase().trim();
+                    
+                    if (query === '') {
+                        loadPosts();
+                        return;
+                    }
+
+                    var filtered = [];
+                    for (var i = 0; i < posts.length; i++) {
+                        var post = posts[i];
+                        if (post.title.toLowerCase().indexOf(query) !== -1 ||
+                            post.excerpt.toLowerCase().indexOf(query) !== -1 ||
+                            post.category.toLowerCase().indexOf(query) !== -1 ||
+                            post.content.toLowerCase().indexOf(query) !== -1) {
+                            filtered.push(post);
+                        }
+                    }
+
+                    displayFilteredPosts(filtered, 'Search results for "' + query + '"');
+
+                    // Track search for analytics
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'search', {
+                            'search_term': query,
+                            'event_category': 'engagement'
+                        });
+                    }
+                }, 300);
+            });
+        }
+
+        function displayFilteredPosts(filteredPosts, title) {
+            var container = document.getElementById('posts-container');
+            
+            if (filteredPosts.length === 0) {
+                container.innerHTML = '<div class="no-posts">' +
+                    '<i class="fas fa-search"></i>' +
+                    '<h3>No Results Found</h3>' +
+                    '<p>Try different keywords or browse all posts</p>' +
+                    '<button class="btn btn-primary" onclick="clearSearch()">' +
+                        '<i class="fas fa-times"></i>' +
+                        'Clear Search' +
+                    '</button>' +
+                '</div>';
+                return;
+            }
+
+            var postsHTML = '';
+            for (var i = 0; i < filteredPosts.length; i++) {
+                var post = filteredPosts[i];
+                var imageHTML = post.image 
+                    ? '<img src="' + post.image + '" alt="' + post.title + '" itemprop="image">'
+                    : getCategoryIcon(post.category);
+                
+                postsHTML += '<article class="post-card" onclick="showPost(' + post.id + ')" itemscope itemtype="https://schema.org/BlogPosting">' +
+                    '<div class="post-image">' + imageHTML + '</div>' +
+                    '<div class="post-content">' +
+                        '<span class="post-category" itemprop="articleSection">' + post.category + '</span>' +
+                        '<h2 class="post-title" itemprop="headline">' + post.title + '</h2>' +
+                        '<p class="post-excerpt" itemprop="description">' + post.excerpt + '</p>' +
+                        '<div class="post-meta">' +
+                            '<div class="post-date">' +
+                                '<i class="fas fa-calendar"></i>' +
+                                '<time datetime="' + post.date + '" itemprop="datePublished">' + formatDate(post.date) + '</time>' +
+                            '</div>' +
+                            '<div class="post-views">' +
+                                '<i class="fas fa-eye"></i>' +
+                                post.views + ' views' +
+                            '</div>' +
+                        '</div>' +
+                        '<meta itemprop="author" content="Yudam">' +
+                    '</div>' +
+                '</article>';
+            }
+
+            container.innerHTML = postsHTML;
+        }
+
+        function clearSearch() {
+            document.getElementById('search-input').value = '';
+            loadPosts();
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('admin-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeAdmin();
+            }
+        });
+
+        // SEO and Performance optimizations
+        window.addEventListener('load', function() {
+            // Lazy load images
+            var images = document.querySelectorAll('img');
+            if ('IntersectionObserver' in window) {
+                var imageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            var img = entry.target;
+                            if (img.dataset.src) {
+                                img.src = img.dataset.src;
+                                img.removeAttribute('data-src');
+                            }
+                            observer.unobserve(img);
+                        }
+                    });
+                });
+
+                images.forEach(function(img) {
+                    imageObserver.observe(img);
+                });
+            }
+
+            // Track site engagement
+            if (typeof gtag !== 'undefined') {
+                // Track scroll depth
+                var maxScroll = 0;
+                window.addEventListener('scroll', function() {
+                    var scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+                    if (scrollPercent > maxScroll && scrollPercent % 25 === 0) {
+                        maxScroll = scrollPercent;
+                        gtag('event', 'scroll_depth', {
+                            'event_category': 'engagement',
+                            'value': scrollPercent
+                        });
+                    }
+                });
+            }
+        });
+
+        console.log('✅ Yudam\'s Life Blog Loaded Successfully');
+    </script>
+</body>
+</html>
