@@ -1,33 +1,41 @@
-User-agent: *
-Allow: /
-
-# Sitemap location
-Sitemap: https://yudam-life.web.app/sitemap.xml
-
-# AdSense crawler
-User-agent: Mediapartners-Google
-Allow: /
-
-# Google crawlers
-User-agent: Googlebot
-Allow: /
-
-User-agent: Googlebot-Image
-Allow: /
-
-# Disallow admin functionality (security)
-Disallow: /admin
-Disallow: /#admin
-
-# Allow all other content
-Allow: /*.css
-Allow: /*.js
-Allow: /*.jpg
-Allow: /*.jpeg
-Allow: /*.png
-Allow: /*.gif
-Allow: /*.webp
-Allow: /*.svg
-
-# Crawl-delay for polite crawling
-Crawl-delay: 1
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://yudam-life.web.app/</loc>
+    <lastmod>2024-08-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://yudam-life.web.app/#health</loc>
+    <lastmod>2024-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yudam-life.web.app/#fitness</loc>
+    <lastmod>2024-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yudam-life.web.app/#lifestyle</loc>
+    <lastmod>2024-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yudam-life.web.app/#self-development</loc>
+    <lastmod>2024-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yudam-life.web.app/#daily-life</loc>
+    <lastmod>2024-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Individual blog posts will be automatically added here -->
+  <!-- Update this file when new posts are created -->
+</urlset>
