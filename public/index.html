@@ -12,14 +12,14 @@
     <meta name="revisit-after" content="7 days">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href=" ">
+    <link rel="canonical" href="https://youdam.com/">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Yudam's Life | Health, Fitness & Lifestyle Blog">
     <meta property="og:description" content="Discover insights on health, fitness, lifestyle, self-development, and daily life. Join our community of wellness enthusiasts.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content=" ">
-    <meta property="og:image" content="https://youdam.com/og-image.jpg">
+    <meta property="og:url" content="https://youdam.com/">
+    <meta property="og:image" content="https://youdam.com/images/og-image.jpg">
     <meta property="og:site_name" content="Yudam's Life">
     <meta property="og:locale" content="en_US">
     
@@ -27,8 +27,16 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Yudam's Life | Health, Fitness & Lifestyle Blog">
     <meta name="twitter:description" content="Discover insights on health, fitness, lifestyle, self-development, and daily life.">
-    <meta name="twitter:image" content="https://youdam.com/og-image.jpg">
+    <meta name="twitter:image" content="https://youdam.com/images/og-image.jpg">
     <meta name="twitter:creator" content="@yudam_life">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-title" content="Yudam's Life">
+    <meta name="application-name" content="Yudam's Life">
+    <meta name="msapplication-TileColor" content="#2563eb">>
     
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE_HERE">
@@ -66,20 +74,34 @@
         "@type": "Blog",
         "name": "Yudam's Life",
         "description": "A personal blog about health, fitness, lifestyle, and self-development",
-        "url": " ",
+        "url": "https://youdam.com/",
         "author": {
             "@type": "Person",
-            "name": "Yudam"
+            "name": "Yudam",
+            "url": "https://youdam.com/about"
         },
         "publisher": {
             "@type": "Organization",
             "name": "Yudam's Life",
             "logo": {
                 "@type": "ImageObject",
-                "url": " /logo.png"
-            }
+                "url": "https://youdam.com/images/logo.png",
+                "width": 600,
+                "height": 315
+            },
+            "url": "https://youdam.com/"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://youdam.com/"
         },
         "inLanguage": "en-US",
+        "copyrightYear": "2024",
+        "copyrightHolder": {
+            "@type": "Person",
+            "name": "Yudam"
+        },
+        "keywords": ["health", "fitness", "lifestyle", "self-development", "wellness", "personal growth"],
         "blogPost": []
     }
     </script>
@@ -182,35 +204,41 @@
             background: var(--bg-light);
         }
 
-        /* Admin Button - Bottom Right */
+        /* Admin Button - Bottom Right (Small & Discreet) */
         .admin-float {
             position: fixed;
-            bottom: 2rem;
-            right: 2rem;
+            bottom: 1rem;
+            right: 1rem;
             z-index: 9999;
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
+        }
+
+        .admin-float:hover {
+            opacity: 1;
         }
 
         .admin-btn {
-            background: var(--primary-color);
+            background: var(--text-light);
             color: white;
             border: none;
-            padding: 0.75rem 1rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.875rem;
+            padding: 0.4rem 0.6rem;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 0.7rem;
             cursor: pointer;
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-sm);
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.3rem;
             text-decoration: none;
         }
 
         .admin-btn:hover {
-            background: #1d4ed8;
-            transform: translateY(-2px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            background: var(--primary-color);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
         }
 
         /* Hero Section */
@@ -802,8 +830,8 @@
             }
 
             .admin-btn {
-                padding: 0.5rem 0.75rem;
-                font-size: 0.8rem;
+                padding: 0.3rem 0.5rem;
+                font-size: 0.65rem;
             }
         }
 
@@ -1015,13 +1043,19 @@
             <h3>Stay Connected</h3>
             <p>Follow along for the latest updates on health, fitness, and lifestyle tips</p>
             <div class="social-links">
-                <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://instagram.com/yudam_life" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/yudam_life" class="social-link" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                <a href="https://youtube.com/@yudam_life" class="social-link" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                <a href="https://facebook.com/yudam.life" class="social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
             </div>
         </div>
         <div class="footer-bottom">
+            <div style="margin-bottom: 1rem;">
+                <a href="https://youdam.com/privacy-policy" style="color: rgba(255,255,255,0.8); text-decoration: none; margin: 0 1rem; font-size: 0.875rem;">Privacy Policy</a>
+                <a href="https://youdam.com/terms-of-service" style="color: rgba(255,255,255,0.8); text-decoration: none; margin: 0 1rem; font-size: 0.875rem;">Terms of Service</a>
+                <a href="https://youdam.com/about" style="color: rgba(255,255,255,0.8); text-decoration: none; margin: 0 1rem; font-size: 0.875rem;">About</a>
+                <a href="https://youdam.com/contact" style="color: rgba(255,255,255,0.8); text-decoration: none; margin: 0 1rem; font-size: 0.875rem;">Contact</a>
+            </div>
             <p>&copy; 2024 Yudam's Life. All rights reserved. | Made with ❤️ for better living</p>
         </div>
     </footer>
@@ -1110,6 +1144,10 @@
         var currentView = 'home';
         var currentPost = null;
 
+        // Simple authentication (client-side only - not secure for production)
+        var adminPassword = "489253"; // 이 부분을 원하는 암호로 변경하세요
+        var isAuthenticated = sessionStorage.getItem('admin-auth') === 'true';
+
         // Sample data for demo
         if (posts.length === 0) {
             posts = [
@@ -1159,20 +1197,34 @@
                 "@type": "Blog",
                 "name": "Yudam's Life",
                 "description": "A personal blog about health, fitness, lifestyle, and self-development",
-                "url": " ",
+                "url": "https://youdam.com/",
                 "author": {
                     "@type": "Person",
-                    "name": "Yudam"
+                    "name": "Yudam",
+                    "url": "https://youdam.com/about"
                 },
                 "publisher": {
                     "@type": "Organization",
                     "name": "Yudam's Life",
                     "logo": {
                         "@type": "ImageObject",
-                        "url": " /logo.png"
-                    }
+                        "url": "https://youdam.com/images/logo.png",
+                        "width": 600,
+                        "height": 315
+                    },
+                    "url": "https://youdam.com/"
+                },
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://youdam.com/"
                 },
                 "inLanguage": "en-US",
+                "copyrightYear": "2024",
+                "copyrightHolder": {
+                    "@type": "Person",
+                    "name": "Yudam"
+                },
+                "keywords": ["health", "fitness", "lifestyle", "self-development", "wellness", "personal growth"],
                 "blogPost": []
             };
 
@@ -1187,15 +1239,22 @@
                     "dateModified": post.date,
                     "author": {
                         "@type": "Person",
-                        "name": "Yudam"
+                        "name": "Yudam",
+                        "url": "https://youdam.com/about"
                     },
                     "publisher": {
                         "@type": "Organization", 
-                        "name": "Yudam's Life"
+                        "name": "Yudam's Life",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://youdam.com/images/logo.png",
+                            "width": 600,
+                            "height": 315
+                        }
                     },
                     "mainEntityOfPage": {
                         "@type": "WebPage",
-                        "@id": " /post/" + post.id
+                        "@id": "https://youdam.com/post/" + post.id
                     },
                     "articleSection": post.category,
                     "wordCount": post.content.replace(/<[^>]*>/g, '').split(' ').length,
@@ -1203,7 +1262,19 @@
                         "@type": "InteractionCounter",
                         "interactionType": "https://schema.org/ReadAction",
                         "userInteractionCount": post.views
-                    }
+                    },
+                    "image": post.image ? {
+                        "@type": "ImageObject",
+                        "url": post.image,
+                        "width": 1200,
+                        "height": 630
+                    } : {
+                        "@type": "ImageObject",
+                        "url": "https://youdam.com/images/default-post-image.jpg",
+                        "width": 1200,
+                        "height": 630
+                    },
+                    "url": "https://youdam.com/post/" + post.id
                 });
             }
 
@@ -1216,7 +1287,23 @@
 
         // Admin functions
         function showAdmin() {
+            if (!isAuthenticated) {
+                var password = prompt('관리자 암호를 입력하세요:');
+                if (password !== adminPassword) {
+                    alert('잘못된 암호입니다.');
+                    return;
+                }
+                sessionStorage.setItem('admin-auth', 'true');
+                isAuthenticated = true;
+            }
             document.getElementById('admin-modal').classList.add('active');
+        }
+
+        // 로그아웃 함수 (필요시 사용)
+        function logoutAdmin() {
+            sessionStorage.removeItem('admin-auth');
+            isAuthenticated = false;
+            alert('로그아웃되었습니다.');
         }
 
         function closeAdmin() {
