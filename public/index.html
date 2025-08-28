@@ -36,7 +36,7 @@
     <meta name="theme-color" content="#2563eb">
     <meta name="apple-mobile-web-app-title" content="Yudam's Life">
     <meta name="application-name" content="Yudam's Life">
-    <meta name="msapplication-TileColor" content="#2563eb">>
+    <meta name="msapplication-TileColor" content="#2563eb">
     
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE_HERE">
@@ -62,6 +62,58 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-KTLD09Z6DB');
+    </script>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js';
+        import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js';
+        import { 
+            getFirestore, 
+            collection, 
+            addDoc, 
+            getDocs, 
+            doc, 
+            updateDoc, 
+            deleteDoc, 
+            query, 
+            orderBy,
+            where,
+            limit 
+        } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js';
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyA-I1lfNy57idBTkj2NYxt2-yHQvHJGPlM",
+            authDomain: "youdammain.firebaseapp.com",
+            projectId: "youdammain",
+            storageBucket: "youdammain.firebasestorage.app",
+            messagingSenderId: "923242680713",
+            appId: "1:923242680713:web:fb85da2af29598ec775158",
+            measurementId: "G-KTLD09Z6DB"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
+        
+        // Make Firebase available globally
+        window.db = db;
+        window.firestore = { 
+            collection, 
+            addDoc, 
+            getDocs, 
+            doc, 
+            updateDoc, 
+            deleteDoc, 
+            query, 
+            orderBy,
+            where,
+            limit 
+        };
+        
+        console.log("🔥 Firebase connected successfully!");
     </script>
     
     <!-- Google AdSense -->
@@ -993,6 +1045,109 @@
             color: #1d4ed8;
             transform: translateX(-2px);
         }
+
+        /* Admin Tabs */
+        .admin-tabs {
+            display: flex;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .admin-tab {
+            background: none;
+            border: none;
+            padding: 1rem 1.5rem;
+            font-weight: 500;
+            color: var(--text-medium);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .admin-tab:hover {
+            color: var(--primary-color);
+            background: var(--bg-light);
+        }
+
+        .admin-tab.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        /* Posts Management */
+        .posts-management {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .post-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            background: var(--bg-white);
+            transition: all 0.3s ease;
+        }
+
+        .post-item:hover {
+            box-shadow: var(--shadow-sm);
+            border-color: var(--primary-color);
+        }
+
+        .post-info {
+            flex: 1;
+        }
+
+        .post-item-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .post-item-meta {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        .post-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-small {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.75rem;
+            border-radius: 4px;
+        }
+
+        .btn-edit {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+        }
+
+        .btn-edit:hover {
+            background: #059669;
+        }
+
+        .btn-delete {
+            background: #dc2626;
+            color: white;
+            border: none;
+        }
+
+        .btn-delete:hover {
+            background: #b91c1c;
+        }
+
+        .no-posts-admin {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-light);
+        }
     </style>
 </head>
 <body>
@@ -1176,22 +1331,30 @@
         </button>
     </div>
 
-    <!-- Admin Modal (Korean Interface) -->
+    <!-- Admin Modal -->
     <div class="modal" id="admin-modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">새 포스트 작성</h2>
+                <h2 class="modal-title" id="modal-title">Create New Post</h2>
                 <button class="close-btn" onclick="closeAdmin()">&times;</button>
             </div>
             
+            <!-- Admin Menu Tabs -->
+            <div class="admin-tabs">
+                <button class="admin-tab active" onclick="showCreateForm()">Create Post</button>
+                <button class="admin-tab" onclick="showPostsList()">Manage Posts</button>
+                <button class="admin-tab" onclick="showDataMigration()">Migrate Data</button>
+            </div>
+            
+            <!-- Create/Edit Form -->
             <div id="admin-form">
                 <div class="form-group">
-                    <label class="form-label">제목 (영어)</label>
-                    <input type="text" class="form-input" id="post-title" placeholder="예: 5 Morning Habits That Changed My Life">
+                    <label class="form-label">Title</label>
+                    <input type="text" class="form-input" id="post-title" placeholder="e.g. 5 Morning Habits That Changed My Life">
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">카테고리</label>
+                    <label class="form-label">Category</label>
                     <select class="form-select" id="post-category">
                         <option value="Health">Health</option>
                         <option value="Fitness">Fitness</option>
@@ -1202,26 +1365,26 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">요약 (영어)</label>
+                    <label class="form-label">Excerpt</label>
                     <input type="text" class="form-input" id="post-excerpt" placeholder="Brief description of the article content...">
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">이미지 업로드</label>
+                    <label class="form-label">Upload Image</label>
                     <div class="image-upload" onclick="document.getElementById('image-input').click()">
                         <i class="fas fa-image" style="font-size: 2rem; color: var(--text-light); margin-bottom: 1rem;"></i>
-                        <p style="color: var(--text-medium);">클릭하여 이미지 업로드</p>
-                        <p style="font-size: 0.875rem; color: var(--text-light);">JPG, PNG, GIF (최대 5MB)</p>
+                        <p style="color: var(--text-medium);">Click to upload image</p>
+                        <p style="font-size: 0.875rem; color: var(--text-light);">JPG, PNG, GIF (Max 5MB)</p>
                         <img id="image-preview" class="upload-preview" style="display: none;">
                     </div>
                     <input type="file" id="image-input" accept="image/*" style="display: none;">
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">내용 (HTML 형식)</label>
-                    <textarea class="form-textarea" id="post-content" placeholder="HTML 형식으로 내용을 작성하세요...
+                    <label class="form-label">Content (HTML format)</label>
+                    <textarea class="form-textarea" id="post-content" placeholder="Write your content in HTML format...
 
-예시:
+Example:
 <h2>Introduction</h2>
 <p>This is the beginning of my article...</p>
 
@@ -1235,29 +1398,117 @@
                 </div>
 
                 <div style="display: flex; gap: 1rem; justify-content: flex-end;">
-                    <button class="btn btn-secondary" onclick="closeAdmin()">취소</button>
-                    <button class="btn btn-primary" onclick="createPost()">
+                    <button class="btn btn-secondary" onclick="closeAdmin()">Cancel</button>
+                    <button class="btn btn-primary" id="submit-btn" onclick="createPost()">
                         <i class="fas fa-save"></i>
-                        포스트 발행
+                        Publish Post
                     </button>
                 </div>
+            </div>
+
+            <!-- Posts Management List -->
+            <div id="posts-list" style="display: none;">
+                <div class="posts-management">
+                    <div id="posts-table">
+                        <!-- Posts will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Migration Tab -->
+            <div id="data-migration" style="display: none;">
+                <div style="background: var(--bg-light); padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
+                    <h3>Data Migration from localStorage</h3>
+                    <p>This will move your existing localStorage posts to Firebase Firestore.</p>
+                    <button class="btn btn-primary" onclick="migrateFromLocalStorage()">
+                        <i class="fas fa-database"></i>
+                        Migrate Now
+                    </button>
+                </div>
+                <div id="migration-status"></div>
             </div>
         </div>
     </div>
 
     <script>
         // Blog data
-        var posts = JSON.parse(localStorage.getItem('yudam-posts') || '[]');
+        var posts = [];
         var currentFilter = 'all';
         var currentView = 'home';
         var currentPost = null;
+        var editingPostId = null;
+        var isFirebaseReady = false;
 
-        // Simple authentication (client-side only - not secure for production)
-        var adminPassword = "489253"; // 이 부분을 원하는 암호로 변경하세요
+        // Simple authentication (client-side only)
+        var adminPassword = "489253";
         var isAuthenticated = sessionStorage.getItem('admin-auth') === 'true';
 
-        // Sample data for demo
-        if (posts.length === 0) {
+        // Wait for Firebase to be ready
+        function waitForFirebase() {
+            return new Promise((resolve) => {
+                if (window.db && window.firestore) {
+                    isFirebaseReady = true;
+                    resolve();
+                } else {
+                    setTimeout(() => waitForFirebase().then(resolve), 100);
+                }
+            });
+        }
+
+        // Firebase functions
+        async function loadPostsFromFirestore() {
+            if (!isFirebaseReady) {
+                console.log("Firebase not ready, waiting...");
+                return;
+            }
+
+            try {
+                const q = window.firestore.query(
+                    window.firestore.collection(window.db, "posts"), 
+                    window.firestore.orderBy("createdAt", "desc")
+                );
+                const querySnapshot = await window.firestore.getDocs(q);
+                
+                posts = [];
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    posts.push({
+                        id: doc.id,
+                        firebaseId: doc.id,
+                        title: data.title,
+                        category: data.category,
+                        excerpt: data.excerpt,
+                        content: data.content,
+                        date: data.date,
+                        views: data.views || 0,
+                        image: data.image || null,
+                        createdAt: data.createdAt
+                    });
+                });
+                
+                console.log("✅ Posts loaded from Firestore:", posts.length + " posts");
+                loadPosts();
+            } catch (error) {
+                console.error("❌ Failed to load posts:", error);
+                // Fallback to localStorage if Firebase fails
+                loadFromLocalStorageFallback();
+            }
+        }
+
+        function loadFromLocalStorageFallback() {
+            console.log("🔄 Falling back to localStorage");
+            const localPosts = JSON.parse(localStorage.getItem('yudam-posts') || '[]');
+            if (localPosts.length > 0) {
+                posts = localPosts;
+                loadPosts();
+                console.log("📁 Loaded from localStorage:", posts.length + " posts");
+            } else {
+                // Load sample data if nothing exists
+                loadSampleData();
+            }
+        }
+
+        function loadSampleData() {
             posts = [
                 {
                     id: 1,
@@ -1268,19 +1519,172 @@
                     date: "2024-08-20",
                     views: 1247,
                     image: null
-                },
-                {
-                    id: 2,
-                    title: "My Journey from Couch Potato to Marathon Finisher",
-                    category: "Fitness",
-                    excerpt: "From barely running 5 minutes to completing a full marathon—here's the step-by-step plan that worked for me.",
-                    content: "<h2>The Beginning: A Reluctant Runner</h2><p>Two years ago, I couldn't run for 5 minutes without gasping for air. The idea of running 26.2 miles seemed absolutely impossible. But here I am, fresh from crossing my first marathon finish line!</p><h3>Week 1-4: Building the Foundation</h3><p>I started with the Couch to 5K program. The beauty of this program is that it meets you exactly where you are. Week 1 alternated between 60 seconds of running and 90 seconds of walking.</p><h3>Month 2-3: Finding My Rhythm</h3><p>Once I could run 5K continuously, I focused on building my weekly mileage gradually. I followed the 10% rule—never increasing weekly distance by more than 10%.</p><h3>Month 4-8: Half Marathon Training</h3><p>My first major goal was a half marathon. I followed a structured 12-week training plan that included:</p><ul><li>3-4 easy runs per week</li><li>One long run every weekend</li><li>Cross-training (cycling, swimming)</li><li>Strength training 2x per week</li></ul><h3>Month 9-14: Marathon Training</h3><p>After successfully completing my half marathon, I felt ready for the full distance. Marathon training was intense but incredibly rewarding.</p><h2>Key Lessons Learned</h2><p><strong>Consistency beats intensity:</strong> Showing up for easy runs was more important than crushing every workout.</p><p><strong>Listen to your body:</strong> I learned to distinguish between normal training fatigue and potential injury.</p><p><strong>Fuel matters:</strong> Proper nutrition and hydration became crucial as distances increased.</p><h2>Race Day Success</h2><p>Crossing that finish line was one of the most emotional moments of my life. Not because I was fast (I wasn't!), but because I had proven to myself that with patience and persistence, seemingly impossible goals become achievable.</p><p>If you're thinking about starting to run, start today. Even if it's just for 5 minutes. Your marathon journey begins with a single step.</p>",
-                    date: "2024-08-15",
-                    views: 892,
-                    image: null
                 }
             ];
-            localStorage.setItem('yudam-posts', JSON.stringify(posts));
+            loadPosts();
+        }
+
+        async function savePostToFirestore(post) {
+            if (!isFirebaseReady) {
+                alert('Firebase not ready. Please try again.');
+                return;
+            }
+
+            try {
+                document.getElementById('submit-btn').innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
+                
+                const docRef = await window.firestore.addDoc(
+                    window.firestore.collection(window.db, "posts"), 
+                    post
+                );
+                
+                console.log("✅ Post saved with ID:", docRef.id);
+                
+                await loadPostsFromFirestore();
+                updateStats();
+                updateCategoryCounts();
+                updateStructuredData();
+                updatePopularPosts();
+                closeAdmin();
+                
+                alert('Post published successfully!');
+                
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'post_created', {
+                        'event_category': 'content',
+                        'event_label': post.category,
+                        'value': 1
+                    });
+                }
+            } catch (error) {
+                console.error("❌ Save failed:", error);
+                alert('Failed to save post: ' + error.message);
+                document.getElementById('submit-btn').innerHTML = '<i class="fas fa-save"></i> Publish Post';
+            }
+        }
+
+        async function updatePostInFirestore(postId, updateData) {
+            if (!isFirebaseReady) {
+                alert('Firebase not ready. Please try again.');
+                return;
+            }
+
+            try {
+                document.getElementById('submit-btn').innerHTML = '<i class="fas fa-spinner fa-spin"></i> Updating...';
+                
+                const postRef = window.firestore.doc(window.db, "posts", postId);
+                await window.firestore.updateDoc(postRef, updateData);
+                
+                console.log("✅ Post updated");
+                
+                await loadPostsFromFirestore();
+                updateStats();
+                updateCategoryCounts();
+                updateStructuredData();
+                updatePopularPosts();
+                closeAdmin();
+                
+                alert('Post updated successfully!');
+            } catch (error) {
+                console.error("❌ Update failed:", error);
+                alert('Failed to update post: ' + error.message);
+                document.getElementById('submit-btn').innerHTML = '<i class="fas fa-save"></i> Update Post';
+            }
+        }
+
+        async function deletePostFromFirestore(firebaseId) {
+            if (!isFirebaseReady) {
+                alert('Firebase not ready. Please try again.');
+                return;
+            }
+
+            if (!confirm('Are you sure you want to delete this post? This action cannot be undone.')) {
+                return;
+            }
+            
+            try {
+                await window.firestore.deleteDoc(
+                    window.firestore.doc(window.db, "posts", firebaseId)
+                );
+                
+                console.log("✅ Post deleted");
+                
+                await loadPostsFromFirestore();
+                updateStats();
+                updateCategoryCounts();
+                updateStructuredData();
+                updatePopularPosts();
+                loadPostsForManagement();
+                
+                alert('Post deleted successfully.');
+                
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'post_deleted', {
+                        'event_category': 'content',
+                        'value': 1
+                    });
+                }
+            } catch (error) {
+                console.error("❌ Delete failed:", error);
+                alert('Failed to delete post: ' + error.message);
+            }
+        }
+
+        // Data migration function
+        async function migrateFromLocalStorage() {
+            const statusDiv = document.getElementById('migration-status');
+            statusDiv.innerHTML = '<div style="padding: 1rem; background: var(--bg-light); border-radius: 4px;">🔄 Checking localStorage...</div>';
+
+            const oldPosts = JSON.parse(localStorage.getItem('yudam-posts') || '[]');
+            
+            if (oldPosts.length === 0) {
+                statusDiv.innerHTML = '<div style="padding: 1rem; background: #fef2f2; border-radius: 4px; color: #dc2626;">No data found in localStorage.</div>';
+                return;
+            }
+
+            statusDiv.innerHTML = '<div style="padding: 1rem; background: var(--bg-light); border-radius: 4px;">🔄 Migrating ' + oldPosts.length + ' posts...</div>';
+
+            let successCount = 0;
+            let failCount = 0;
+
+            for (let post of oldPosts) {
+                try {
+                    const firestorePost = {
+                        title: post.title,
+                        category: post.category,
+                        excerpt: post.excerpt,
+                        content: post.content,
+                        date: post.date,
+                        views: post.views || 0,
+                        image: post.image || null,
+                        createdAt: new Date(post.date || new Date())
+                    };
+                    
+                    const docRef = await window.firestore.addDoc(
+                        window.firestore.collection(window.db, "posts"),
+                        firestorePost
+                    );
+                    
+                    successCount++;
+                    console.log("✅ Migrated:", post.title, "->", docRef.id);
+                } catch (error) {
+                    failCount++;
+                    console.error("❌ Migration failed:", post.title, error);
+                }
+            }
+
+            statusDiv.innerHTML = '<div style="padding: 1rem; background: #f0fdf4; border-radius: 4px; color: #15803d;">' +
+                '✅ Migration complete!<br>' +
+                'Success: ' + successCount + ' posts<br>' +
+                'Failed: ' + failCount + ' posts<br><br>' +
+                '<button class="btn btn-secondary" onclick="localStorage.removeItem(\'yudam-posts\'); alert(\'localStorage cleared!\');">Clear localStorage</button>' +
+                '</div>';
+
+            await loadPostsFromFirestore();
+            updateStats();
+            updateCategoryCounts();
+            updateStructuredData();
+            updatePopularPosts();
         }
 
         // Mobile menu functions
@@ -1306,7 +1710,6 @@
             toggle.classList.add('fa-bars');
         }
 
-        // Close mobile menu when clicking outside
         document.addEventListener('click', function(event) {
             var mobileMenu = document.getElementById('mobile-menu');
             var toggle = document.querySelector('.mobile-menu-toggle');
@@ -1317,135 +1720,147 @@
         });
 
         // Initialize page
-        document.addEventListener('DOMContentLoaded', function() {
-            updateStats();
-            updateCategoryCounts();
-            loadPosts();
-            setupSearch();
-            setupImageUpload();
-            updateStructuredData();
-            updatePopularPosts();
+        document.addEventListener('DOMContentLoaded', async function() {
+            console.log("🚀 Page loading...");
             
-            // Initialize AdSense
+            try {
+                await waitForFirebase();
+                console.log("🔥 Firebase ready");
+                
+                await loadPostsFromFirestore();
+                updateStats();
+                updateCategoryCounts();
+                setupSearch();
+                setupImageUpload();
+                updateStructuredData();
+                updatePopularPosts();
+                
+                console.log("✅ Page initialization complete");
+            } catch (error) {
+                console.error("❌ Initialization failed:", error);
+                loadFromLocalStorageFallback();
+            }
+            
             if (window.adsbygoogle) {
                 (adsbygoogle = window.adsbygoogle || []).push({});
             }
         });
 
-        // Update structured data for SEO
-        function updateStructuredData() {
-            var structuredData = {
-                "@context": "https://schema.org",
-                "@type": "Blog",
-                "name": "Yudam's Life",
-                "description": "A personal blog about health, fitness, lifestyle, and self-development",
-                "url": "https://youdam.com/",
-                "author": {
-                    "@type": "Person",
-                    "name": "Yudam",
-                    "url": "https://youdam.com/about"
-                },
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "Yudam's Life",
-                    "logo": {
-                        "@type": "ImageObject",
-                        "url": "https://youdam.com/images/logo.png",
-                        "width": 600,
-                        "height": 315
-                    },
-                    "url": "https://youdam.com/"
-                },
-                "mainEntityOfPage": {
-                    "@type": "WebPage",
-                    "@id": "https://youdam.com/"
-                },
-                "inLanguage": "en-US",
-                "copyrightYear": "2024",
-                "copyrightHolder": {
-                    "@type": "Person",
-                    "name": "Yudam"
-                },
-                "keywords": ["health", "fitness", "lifestyle", "self-development", "wellness", "personal growth"],
-                "blogPost": []
-            };
-
-            // Add posts to structured data
-            for (var i = 0; i < posts.length; i++) {
-                var post = posts[i];
-                structuredData.blogPost.push({
-                    "@type": "BlogPosting",
-                    "headline": post.title,
-                    "description": post.excerpt,
-                    "datePublished": post.date,
-                    "dateModified": post.date,
-                    "author": {
-                        "@type": "Person",
-                        "name": "Yudam",
-                        "url": "https://youdam.com/about"
-                    },
-                    "publisher": {
-                        "@type": "Organization", 
-                        "name": "Yudam's Life",
-                        "logo": {
-                            "@type": "ImageObject",
-                            "url": "https://youdam.com/images/logo.png",
-                            "width": 600,
-                            "height": 315
-                        }
-                    },
-                    "mainEntityOfPage": {
-                        "@type": "WebPage",
-                        "@id": "https://youdam.com/post/" + post.id
-                    },
-                    "articleSection": post.category,
-                    "wordCount": post.content.replace(/<[^>]*>/g, '').split(' ').length,
-                    "interactionStatistic": {
-                        "@type": "InteractionCounter",
-                        "interactionType": "https://schema.org/ReadAction",
-                        "userInteractionCount": post.views
-                    },
-                    "image": post.image ? {
-                        "@type": "ImageObject",
-                        "url": post.image,
-                        "width": 1200,
-                        "height": 630
-                    } : {
-                        "@type": "ImageObject",
-                        "url": "https://youdam.com/images/default-post-image.jpg",
-                        "width": 1200,
-                        "height": 630
-                    },
-                    "url": "https://youdam.com/post/" + post.id
-                });
-            }
-
-            // Update JSON-LD
-            var existingScript = document.querySelector('script[type="application/ld+json"]');
-            if (existingScript) {
-                existingScript.textContent = JSON.stringify(structuredData, null, 2);
-            }
-        }
-
         // Admin functions
         function showAdmin() {
             if (!isAuthenticated) {
-                var password = prompt('관리자 암호를 입력하세요:');
+                var password = prompt('Enter admin password:');
                 if (password !== adminPassword) {
-                    alert('잘못된 암호입니다.');
+                    alert('Incorrect password.');
                     return;
                 }
                 sessionStorage.setItem('admin-auth', 'true');
                 isAuthenticated = true;
             }
             document.getElementById('admin-modal').classList.add('active');
+            showCreateForm();
         }
 
-        // 로그아웃 함수 (필요시 사용)
-        function logoutAdmin() {
-            sessionStorage.removeItem('admin-auth');
-            isAuthenticated = false;
-            alert('로그아웃되었습니다.');
+        function showCreateForm() {
+            document.getElementById('admin-form').style.display = 'block';
+            document.getElementById('posts-list').style.display = 'none';
+            document.getElementById('data-migration').style.display = 'none';
+            
+            var tabs = document.querySelectorAll('.admin-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            tabs[0].classList.add('active');
+            
+            editingPostId = null;
+            document.getElementById('modal-title').textContent = 'Create New Post';
+            document.getElementById('submit-btn').innerHTML = '<i class="fas fa-save"></i> Publish Post';
+            document.getElementById('submit-btn').onclick = createPost;
+            clearForm();
+        }
+
+        function showPostsList() {
+            document.getElementById('admin-form').style.display = 'none';
+            document.getElementById('posts-list').style.display = 'block';
+            document.getElementById('data-migration').style.display = 'none';
+            
+            var tabs = document.querySelectorAll('.admin-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            tabs[1].classList.add('active');
+            
+            loadPostsForManagement();
+        }
+
+        function showDataMigration() {
+            document.getElementById('admin-form').style.display = 'none';
+            document.getElementById('posts-list').style.display = 'none';
+            document.getElementById('data-migration').style.display = 'block';
+            
+            var tabs = document.querySelectorAll('.admin-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            tabs[2].classList.add('active');
+        }
+
+        function loadPostsForManagement() {
+            var container = document.getElementById('posts-table');
+            
+            if (posts.length === 0) {
+                container.innerHTML = '<div class="no-posts-admin">' +
+                    '<i class="fas fa-inbox"></i>' +
+                    '<p>No posts yet.</p>' +
+                '</div>';
+                return;
+            }
+
+            var postsHTML = '';
+            for (var i = 0; i < posts.length; i++) {
+                var post = posts[i];
+                postsHTML += '<div class="post-item">' +
+                    '<div class="post-info">' +
+                        '<div class="post-item-title">' + post.title + '</div>' +
+                        '<div class="post-item-meta">' + post.category + ' • ' + formatDate(post.date) + ' • ' + post.views + ' views</div>' +
+                    '</div>' +
+                    '<div class="post-actions">' +
+                        '<button class="btn btn-small btn-edit" onclick="editPost(\'' + post.firebaseId + '\')">' +
+                            '<i class="fas fa-edit"></i> Edit' +
+                        '</button>' +
+                        '<button class="btn btn-small btn-delete" onclick="deletePostFromFirestore(\'' + post.firebaseId + '\')">' +
+                            '<i class="fas fa-trash"></i> Delete' +
+                        '</button>' +
+                    '</div>' +
+                '</div>';
+            }
+            
+            container.innerHTML = postsHTML;
+        }
+
+        function editPost(firebaseId) {
+            var post = null;
+            for (var i = 0; i < posts.length; i++) {
+                if (posts[i].firebaseId === firebaseId) {
+                    post = posts[i];
+                    break;
+                }
+            }
+            
+            if (!post) return;
+            
+            showCreateForm();
+            
+            editingPostId = firebaseId;
+            document.getElementById('modal-title').textContent = 'Edit Post';
+            document.getElementById('submit-btn').innerHTML = '<i class="fas fa-save"></i> Update Post';
+            document.getElementById('submit-btn').onclick = updatePost;
+            
+            document.getElementById('post-title').value = post.title;
+            document.getElementById('post-category').value = post.category;
+            document.getElementById('post-excerpt').value = post.excerpt;
+            document.getElementById('post-content').value = post.content;
+            
+            if (post.image) {
+                var preview = document.getElementById('image-preview');
+                preview.src = post.image;
+                preview.style.display = 'block';
+                document.querySelector('.image-upload').classList.add('has-image');
+            }
         }
 
         function closeAdmin() {
@@ -1454,6 +1869,7 @@
         }
 
         function clearForm() {
+            editingPostId = null;
             document.getElementById('post-title').value = '';
             document.getElementById('post-excerpt').value = '';
             document.getElementById('post-content').value = '';
@@ -1461,15 +1877,18 @@
             document.getElementById('image-input').value = '';
             document.getElementById('image-preview').style.display = 'none';
             document.querySelector('.image-upload').classList.remove('has-image');
+            
+            document.getElementById('modal-title').textContent = 'Create New Post';
+            document.getElementById('submit-btn').innerHTML = '<i class="fas fa-save"></i> Publish Post';
+            document.getElementById('submit-btn').onclick = createPost;
         }
 
         function setupImageUpload() {
             document.getElementById('image-input').addEventListener('change', function(e) {
                 var file = e.target.files[0];
                 if (file) {
-                    // Check file size (5MB limit)
                     if (file.size > 5 * 1024 * 1024) {
-                        alert('파일 크기가 5MB를 초과합니다.');
+                        alert('File size exceeds 5MB limit.');
                         return;
                     }
                     
@@ -1485,7 +1904,7 @@
             });
         }
 
-        function createPost() {
+        async function createPost() {
             var title = document.getElementById('post-title').value.trim();
             var category = document.getElementById('post-category').value;
             var excerpt = document.getElementById('post-excerpt').value.trim();
@@ -1493,68 +1912,63 @@
             var imageFile = document.getElementById('image-input').files[0];
 
             if (!title || !excerpt || !content) {
-                alert('제목, 요약, 내용을 모두 입력해주세요.');
+                alert('Please fill in all required fields.');
                 return;
             }
 
             var newPost = {
-                id: Date.now(),
                 title: title,
                 category: category,
                 excerpt: excerpt,
                 content: content,
                 date: new Date().toISOString().split('T')[0],
-                views: Math.floor(Math.random() * 100) + 1,
-                image: null
+                views: 0,
+                image: null,
+                createdAt: new Date()
             };
 
-            // Handle image if uploaded
             if (imageFile) {
                 var reader = new FileReader();
-                reader.onload = function(e) {
+                reader.onload = async function(e) {
                     newPost.image = e.target.result;
-                    posts.unshift(newPost);
-                    savePosts();
-                    loadPosts();
-                    updateStats();
-                    updateCategoryCounts();
-                    updateStructuredData();
-                    updatePopularPosts();
-                    closeAdmin();
-                    
-                    // Track event for Google Analytics
-                    if (typeof gtag !== 'undefined') {
-                        gtag('event', 'post_created', {
-                            'event_category': 'content',
-                            'event_label': category,
-                            'value': 1
-                        });
-                    }
+                    await savePostToFirestore(newPost);
                 };
                 reader.readAsDataURL(imageFile);
             } else {
-                posts.unshift(newPost);
-                savePosts();
-                loadPosts();
-                updateStats();
-                updateCategoryCounts();
-                updateStructuredData();
-                updatePopularPosts();
-                closeAdmin();
-                
-                // Track event for Google Analytics
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'post_created', {
-                        'event_category': 'content',
-                        'event_label': category,
-                        'value': 1
-                    });
-                }
+                await savePostToFirestore(newPost);
             }
         }
 
-        function savePosts() {
-            localStorage.setItem('yudam-posts', JSON.stringify(posts));
+        async function updatePost() {
+            var title = document.getElementById('post-title').value.trim();
+            var category = document.getElementById('post-category').value;
+            var excerpt = document.getElementById('post-excerpt').value.trim();
+            var content = document.getElementById('post-content').value.trim();
+            var imageFile = document.getElementById('image-input').files[0];
+
+            if (!title || !excerpt || !content) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            var updateData = {
+                title: title,
+                category: category,
+                excerpt: excerpt,
+                content: content,
+                updatedAt: new Date()
+            };
+
+            if (imageFile) {
+                var reader = new FileReader();
+                reader.onload = async function(e) {
+                    updateData.image = e.target.result;
+                    await updatePostInFirestore(editingPostId, updateData);
+                };
+                reader.readAsDataURL(imageFile);
+            } else {
+                await updatePostInFirestore(editingPostId, updateData);
+            }
         }
 
         // Display functions
@@ -1587,7 +2001,7 @@
                     ? '<img src="' + post.image + '" alt="' + post.title + '" itemprop="image">'
                     : getCategoryIcon(post.category);
                 
-                postsHTML += '<article class="post-card" onclick="showPost(' + post.id + ')" itemscope itemtype="https://schema.org/BlogPosting">' +
+                postsHTML += '<article class="post-card" onclick="showPost(\'' + (post.firebaseId || post.id) + '\')" itemscope itemtype="https://schema.org/BlogPosting">' +
                     '<div class="post-image">' + imageHTML + '</div>' +
                     '<div class="post-content">' +
                         '<span class="post-category" itemprop="articleSection">' + post.category + '</span>' +
@@ -1614,7 +2028,6 @@
 
             container.innerHTML = postsHTML;
 
-            // Re-initialize AdSense ads after content change
             if (window.adsbygoogle) {
                 try {
                     (adsbygoogle = window.adsbygoogle || []).push({});
@@ -1627,27 +2040,35 @@
         function showPost(id) {
             var post = null;
             for (var i = 0; i < posts.length; i++) {
-                if (posts[i].id === id) {
+                if (posts[i].firebaseId === id || posts[i].id == id) {
                     post = posts[i];
                     break;
                 }
             }
             if (!post) return;
 
-            // Increment views
+            // Increment views and update Firebase
             post.views++;
-            savePosts();
+            if (isFirebaseReady && post.firebaseId) {
+                window.firestore.updateDoc(
+                    window.firestore.doc(window.db, "posts", post.firebaseId),
+                    { views: post.views }
+                ).catch(console.error);
+            }
 
             currentPost = post;
             currentView = 'post';
 
-            // Update page title and meta description for SEO
             document.title = post.title + ' | Yudam\'s Life';
             document.querySelector('meta[name="description"]').content = post.excerpt;
 
             var container = document.getElementById('posts-container');
+            
             var imageHTML = post.image 
-                ? '<img src="' + post.image + '" alt="' + post.title + '" itemprop="image" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-bottom: 2rem;">'
+                ? '<div style="text-align: center; margin-bottom: 2rem;">' +
+                  '<img src="' + post.image + '" alt="' + post.title + '" itemprop="image" ' +
+                  'style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; box-shadow: var(--shadow-md);">' +
+                  '</div>'
                 : '';
             
             container.innerHTML = '<article class="article-view" itemscope itemtype="https://schema.org/BlogPosting">' +
@@ -1675,22 +2096,20 @@
                 '<meta itemprop="publisher" content="Yudam\'s Life">' +
             '</article>';
 
-            // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
             updatePopularPosts();
 
-            // Track page view for Google Analytics
             if (typeof gtag !== 'undefined') {
                 gtag('config', 'G-KTLD09Z6DB', {
                     page_title: post.title,
-                    page_location: ' /post/' + post.id,
+                    page_location: window.location.origin + '/post/' + post.id,
                     content_group1: post.category
                 });
                 
                 gtag('event', 'page_view', {
                     'event_category': 'content',
                     'event_label': post.title,
-                    'custom_map': {'custom_parameter_1': post.category}
+                    'custom_parameter_1': post.category
                 });
             }
         }
@@ -1699,7 +2118,6 @@
             currentView = 'home';
             currentPost = null;
             
-            // Reset page title and description
             document.title = "Yudam's Life | Health, Fitness & Lifestyle Blog";
             document.querySelector('meta[name="description"]').content = "Discover insights on health, fitness, lifestyle, self-development, and daily life. Join our community of wellness enthusiasts for evidence-based tips and personal experiences.";
             
@@ -1714,7 +2132,6 @@
             currentFilter = filter;
             currentView = 'home';
             
-            // Update active category button
             var buttons = document.querySelectorAll('.category-btn');
             for (var i = 0; i < buttons.length; i++) {
                 buttons[i].classList.remove('active');
@@ -1736,7 +2153,6 @@
 
             loadPosts();
 
-            // Track category filtering for analytics
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'category_filter', {
                     'event_category': 'navigation',
@@ -1807,13 +2223,105 @@
             var popularHTML = '';
             for (var i = 0; i < sortedPosts.length; i++) {
                 var post = sortedPosts[i];
-                popularHTML += '<li class="popular-post" onclick="showPost(' + post.id + ')">' +
+                popularHTML += '<li class="popular-post" onclick="showPost(\'' + (post.firebaseId || post.id) + '\')">' +
                     '<div class="popular-post-title">' + post.title + '</div>' +
                     '<div class="popular-post-meta">' + post.views + ' views • ' + formatDate(post.date) + '</div>' +
                 '</li>';
             }
 
             popularContainer.innerHTML = popularHTML;
+        }
+
+        function updateStructuredData() {
+            var structuredData = {
+                "@context": "https://schema.org",
+                "@type": "Blog",
+                "name": "Yudam's Life",
+                "description": "A personal blog about health, fitness, lifestyle, and self-development",
+                "url": "https://youdam.com/",
+                "author": {
+                    "@type": "Person",
+                    "name": "Yudam",
+                    "url": "https://youdam.com/about"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Yudam's Life",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://youdam.com/images/logo.png",
+                        "width": 600,
+                        "height": 315
+                    },
+                    "url": "https://youdam.com/"
+                },
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://youdam.com/"
+                },
+                "inLanguage": "en-US",
+                "copyrightYear": "2024",
+                "copyrightHolder": {
+                    "@type": "Person",
+                    "name": "Yudam"
+                },
+                "keywords": ["health", "fitness", "lifestyle", "self-development", "wellness", "personal growth"],
+                "blogPost": []
+            };
+
+            for (var i = 0; i < posts.length; i++) {
+                var post = posts[i];
+                structuredData.blogPost.push({
+                    "@type": "BlogPosting",
+                    "headline": post.title,
+                    "description": post.excerpt,
+                    "datePublished": post.date,
+                    "dateModified": post.date,
+                    "author": {
+                        "@type": "Person",
+                        "name": "Yudam",
+                        "url": "https://youdam.com/about"
+                    },
+                    "publisher": {
+                        "@type": "Organization", 
+                        "name": "Yudam's Life",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://youdam.com/images/logo.png",
+                            "width": 600,
+                            "height": 315
+                        }
+                    },
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": "https://youdam.com/post/" + post.id
+                    },
+                    "articleSection": post.category,
+                    "wordCount": post.content.replace(/<[^>]*>/g, '').split(' ').length,
+                    "interactionStatistic": {
+                        "@type": "InteractionCounter",
+                        "interactionType": "https://schema.org/ReadAction",
+                        "userInteractionCount": post.views
+                    },
+                    "image": post.image ? {
+                        "@type": "ImageObject",
+                        "url": post.image,
+                        "width": 1200,
+                        "height": 630
+                    } : {
+                        "@type": "ImageObject",
+                        "url": "https://youdam.com/images/default-post-image.jpg",
+                        "width": 1200,
+                        "height": 630
+                    },
+                    "url": "https://youdam.com/post/" + post.id
+                });
+            }
+
+            var existingScript = document.querySelector('script[type="application/ld+json"]');
+            if (existingScript) {
+                existingScript.textContent = JSON.stringify(structuredData, null, 2);
+            }
         }
 
         function setupSearch() {
@@ -1843,7 +2351,6 @@
 
                     displayFilteredPosts(filtered, 'Search results for "' + query + '"');
 
-                    // Track search for analytics
                     if (typeof gtag !== 'undefined') {
                         gtag('event', 'search', {
                             'search_term': query,
@@ -1877,7 +2384,7 @@
                     ? '<img src="' + post.image + '" alt="' + post.title + '" itemprop="image">'
                     : getCategoryIcon(post.category);
                 
-                postsHTML += '<article class="post-card" onclick="showPost(' + post.id + ')" itemscope itemtype="https://schema.org/BlogPosting">' +
+                postsHTML += '<article class="post-card" onclick="showPost(\'' + (post.firebaseId || post.id) + '\')" itemscope itemtype="https://schema.org/BlogPosting">' +
                     '<div class="post-image">' + imageHTML + '</div>' +
                     '<div class="post-content">' +
                         '<span class="post-category" itemprop="articleSection">' + post.category + '</span>' +
@@ -1906,17 +2413,13 @@
             loadPosts();
         }
 
-        // Close modal when clicking outside
         document.getElementById('admin-modal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeAdmin();
             }
         });
 
-        // SEO and Performance optimizations
         window.addEventListener('load', function() {
-            // Lazy load images
-            var images = document.querySelectorAll('img');
             if ('IntersectionObserver' in window) {
                 var imageObserver = new IntersectionObserver(function(entries, observer) {
                     entries.forEach(function(entry) {
@@ -1931,14 +2434,13 @@
                     });
                 });
 
+                var images = document.querySelectorAll('img');
                 images.forEach(function(img) {
                     imageObserver.observe(img);
                 });
             }
 
-            // Track site engagement
             if (typeof gtag !== 'undefined') {
-                // Track scroll depth
                 var maxScroll = 0;
                 window.addEventListener('scroll', function() {
                     var scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
@@ -1953,7 +2455,7 @@
             }
         });
 
-        console.log('✅ Yudam\'s Life Blog Loaded Successfully');
+        console.log('✅ Yudam\'s Life Blog with Firebase Loaded Successfully');
     </script>
 </body>
 </html>
