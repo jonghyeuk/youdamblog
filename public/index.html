@@ -116,8 +116,8 @@
         console.log("🔥 Firebase connected successfully!");
     </script>
     
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID" crossorigin="anonymous"></script>
+    <!-- Google AdSense - Disabled until real AdSense ID is available -->
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID" crossorigin="anonymous"></script> -->
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -1268,15 +1268,15 @@
                 </div>
             </div>
 
-            <!-- AdSense Display Ad -->
-            <div class="ad-slot">
+            <!-- AdSense Display Ad - Disabled -->
+            <!-- <div class="ad-slot">
                 <ins class="adsbygoogle"
                      style="display:block"
                      data-ad-client="ca-pub-YOUR_ADSENSE_ID"
                      data-ad-slot="YOUR_AD_SLOT_ID"
                      data-ad-format="auto"
                      data-full-width-responsive="true"></ins>
-            </div>
+            </div> -->
         </div>
 
         <!-- Sidebar -->
@@ -1313,15 +1313,15 @@
                 </div>
             </div>
 
-            <!-- AdSense Sidebar Ad -->
-            <div class="ad-slot ad-slot-sidebar">
+            <!-- AdSense Sidebar Ad - Disabled -->
+            <!-- <div class="ad-slot ad-slot-sidebar">
                 <ins class="adsbygoogle"
                      style="display:block"
                      data-ad-client="ca-pub-YOUR_ADSENSE_ID"
                      data-ad-slot="YOUR_SIDEBAR_AD_SLOT_ID"
                      data-ad-format="auto"
                      data-full-width-responsive="true"></ins>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -1908,23 +1908,58 @@ Example:
             document.getElementById('submit-btn').onclick = createPost;
         }
 
+        // Image compression function
+        function compressImage(file, maxWidth = 1200, quality = 0.8) {
+            return new Promise((resolve) => {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                const img = new Image();
+                
+                img.onload = function() {
+                    // Calculate new dimensions
+                    let { width, height } = img;
+                    if (width > maxWidth) {
+                        height = (height * maxWidth) / width;
+                        width = maxWidth;
+                    }
+                    
+                    canvas.width = width;
+                    canvas.height = height;
+                    
+                    // Draw and compress
+                    ctx.drawImage(img, 0, 0, width, height);
+                    const compressedDataUrl = canvas.toDataURL('image/jpeg', quality);
+                    
+                    console.log('Image compressed:', {
+                        originalSize: (file.size / 1024).toFixed(1) + 'KB',
+                        compressedSize: (compressedDataUrl.length * 0.75 / 1024).toFixed(1) + 'KB'
+                    });
+                    
+                    resolve(compressedDataUrl);
+                };
+                
+                img.src = URL.createObjectURL(file);
+            });
+        }
+
         function setupImageUpload() {
-            document.getElementById('image-input').addEventListener('change', function(e) {
+            document.getElementById('image-input').addEventListener('change', async function(e) {
                 var file = e.target.files[0];
                 if (file) {
-                    if (file.size > 5 * 1024 * 1024) {
-                        alert('File size exceeds 5MB limit.');
+                    if (file.size > 10 * 1024 * 1024) {
+                        alert('File size exceeds 10MB limit.');
                         return;
                     }
                     
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                        var preview = document.getElementById('image-preview');
-                        preview.src = e.target.result;
-                        preview.style.display = 'block';
-                        document.querySelector('.image-upload').classList.add('has-image');
-                    };
-                    reader.readAsDataURL(file);
+                    // Compress image before displaying preview
+                    const compressedDataUrl = await compressImage(file);
+                    
+                    var preview = document.getElementById('image-preview');
+                    preview.src = compressedDataUrl;
+                    preview.style.display = 'block';
+                    document.querySelector('.image-upload').classList.add('has-image');
+                    
+                    console.log('Image compressed and ready for upload');
                 }
             });
         }
@@ -1934,7 +1969,7 @@ Example:
             var category = document.getElementById('post-category').value;
             var excerpt = document.getElementById('post-excerpt').value.trim();
             var content = document.getElementById('post-content').value.trim();
-            var imageFile = document.getElementById('image-input').files[0];
+            var imagePreview = document.getElementById('image-preview');
 
             if (!title || !excerpt || !content) {
                 alert('Please fill in all required fields.');
@@ -1948,20 +1983,11 @@ Example:
                 content: content,
                 date: new Date().toISOString().split('T')[0],
                 views: 0,
-                image: null,
+                image: imagePreview.style.display === 'block' ? imagePreview.src : null,
                 createdAt: new Date()
             };
 
-            if (imageFile) {
-                var reader = new FileReader();
-                reader.onload = async function(e) {
-                    newPost.image = e.target.result;
-                    await savePostToFirestore(newPost);
-                };
-                reader.readAsDataURL(imageFile);
-            } else {
-                await savePostToFirestore(newPost);
-            }
+            await savePostToFirestore(newPost);
         }
 
         async function updatePost() {
@@ -1969,7 +1995,7 @@ Example:
             var category = document.getElementById('post-category').value;
             var excerpt = document.getElementById('post-excerpt').value.trim();
             var content = document.getElementById('post-content').value.trim();
-            var imageFile = document.getElementById('image-input').files[0];
+            var imagePreview = document.getElementById('image-preview');
 
             if (!title || !excerpt || !content) {
                 alert('Please fill in all required fields.');
@@ -1984,16 +2010,12 @@ Example:
                 updatedAt: new Date()
             };
 
-            if (imageFile) {
-                var reader = new FileReader();
-                reader.onload = async function(e) {
-                    updateData.image = e.target.result;
-                    await updatePostInFirestore(editingPostId, updateData);
-                };
-                reader.readAsDataURL(imageFile);
-            } else {
-                await updatePostInFirestore(editingPostId, updateData);
+            // Use compressed image from preview if available
+            if (imagePreview.style.display === 'block') {
+                updateData.image = imagePreview.src;
             }
+
+            await updatePostInFirestore(editingPostId, updateData);
         }
 
         // Display functions
@@ -2120,7 +2142,8 @@ Example:
                     post.content +
                 '</div>' +
                 '<div class="ad-slot">' +
-                    '<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-YOUR_ADSENSE_ID" data-ad-slot="YOUR_IN_ARTICLE_AD_SLOT_ID"></ins>' +
+                    '<!-- AdSense In-Article Ad - Disabled -->' +
+                    '<!-- <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-YOUR_ADSENSE_ID" data-ad-slot="YOUR_IN_ARTICLE_AD_SLOT_ID"></ins> -->' +
                 '</div>' +
                 '<meta itemprop="author" content="Yudam">' +
                 '<meta itemprop="dateModified" content="' + post.date + '">' +
