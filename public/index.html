@@ -257,7 +257,7 @@
             background: var(--bg-light);
         }
 
-        /* Mobile Menu Toggle */
+        /* Navigation styling */
         .mobile-menu-toggle {
             display: none;
             background: none;
@@ -422,7 +422,7 @@
             font-weight: 300;
         }
 
-        /* Main Content */
+        /* Update hero stats for health focus */
         .main-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -1190,9 +1190,6 @@
             <ul class="nav-menu">
                 <li><a href="#" onclick="showHome()">Home</a></li>
                 <li><a href="#" onclick="showCategory('Health')">Health</a></li>
-                <li><a href="#" onclick="showCategory('Fitness')">Fitness</a></li>
-                <li><a href="#" onclick="showCategory('Lifestyle')">Lifestyle</a></li>
-                <li><a href="#" onclick="showCategory('Self-Development')">Growth</a></li>
                 <li><a href="/about.html">About</a></li>
                 <li><a href="/contact.html">Contact</a></li>
             </ul>
@@ -1207,9 +1204,6 @@
                 <ul>
                     <li><a href="#" onclick="showHome(); closeMobileMenu();">Home</a></li>
                     <li><a href="#" onclick="showCategory('Health'); closeMobileMenu();">Health</a></li>
-                    <li><a href="#" onclick="showCategory('Fitness'); closeMobileMenu();">Fitness</a></li>
-                    <li><a href="#" onclick="showCategory('Lifestyle'); closeMobileMenu();">Lifestyle</a></li>
-                    <li><a href="#" onclick="showCategory('Self-Development'); closeMobileMenu();">Growth</a></li>
                     <li><a href="/about.html" onclick="closeMobileMenu();">About</a></li>
                     <li><a href="/contact.html" onclick="closeMobileMenu();">Contact</a></li>
                 </ul>
@@ -1232,10 +1226,6 @@
                     <span class="stat-number" id="total-views">0</span>
                     <span class="stat-label">Total Views</span>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">5</span>
-                    <span class="stat-label">Categories</span>
-                </div>
             </div>
         </div>
     </section>
@@ -1253,10 +1243,6 @@
             <div class="categories">
                 <button class="category-btn active" onclick="filterPosts('all')">All Posts</button>
                 <button class="category-btn" onclick="filterPosts('Health')">Health</button>
-                <button class="category-btn" onclick="filterPosts('Fitness')">Fitness</button>
-                <button class="category-btn" onclick="filterPosts('Lifestyle')">Lifestyle</button>
-                <button class="category-btn" onclick="filterPosts('Self-Development')">Growth</button>
-                <button class="category-btn" onclick="filterPosts('Daily Life')">Daily Life</button>
             </div>
 
             <!-- Posts Grid -->
@@ -1290,26 +1276,10 @@
             </ul>
 
             <h3 style="margin-top: 2rem;">Categories</h3>
-            <div style="margin-top: 1rem;">
+            <div class="sidebar-categories" style="margin-top: 1rem;">
                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
                     <span>Health</span>
                     <span id="count-Health" style="color: var(--text-light);">0</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                    <span>Fitness</span>
-                    <span id="count-Fitness" style="color: var(--text-light);">0</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                    <span>Lifestyle</span>
-                    <span id="count-Lifestyle" style="color: var(--text-light);">0</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                    <span>Growth</span>
-                    <span id="count-Self-Development" style="color: var(--text-light);">0</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                    <span>Daily Life</span>
-                    <span id="count-Daily Life" style="color: var(--text-light);">0</span>
                 </div>
             </div>
 
@@ -1382,10 +1352,6 @@
                     <label class="form-label">Category</label>
                     <select class="form-select" id="post-category">
                         <option value="Health">Health</option>
-                        <option value="Fitness">Fitness</option>
-                        <option value="Lifestyle">Lifestyle</option>
-                        <option value="Self-Development">Self-Development</option>
-                        <option value="Daily Life">Daily Life</option>
                     </select>
                 </div>
 
@@ -1464,9 +1430,36 @@ Example:
         var editingPostId = null;
         var isFirebaseReady = false;
 
-        // Simple authentication (client-side only)
-        var adminPassword = "489253";
+        // Simple authentication with hashed password
+        var adminPasswordHash = "5d41402abc4b2a76b9719d911017c592"; // "hello" hashed with MD5 - change this!
         var isAuthenticated = sessionStorage.getItem('admin-auth') === 'true';
+
+        // Simple authentication with hashed password
+        var adminPasswordHash = "489253"; // Change this to your desired password hash
+        var isAuthenticated = sessionStorage.getItem('admin-auth') === 'true';
+
+        // AdSense mode configuration - for easy restoration later
+        var adsenseMode = true; // Set to false to restore all categories
+
+        // Simple hash function
+        async function simpleHash(str) {
+            if (crypto && crypto.subtle) {
+                const encoder = new TextEncoder();
+                const data = encoder.encode(str);
+                const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                return hashArray.map(b => b.toString(16).padStart(2, '0')).join('').substring(0, 16);
+            } else {
+                // Fallback simple hash for older browsers
+                let hash = 0;
+                for (let i = 0; i < str.length; i++) {
+                    const char = str.charCodeAt(i);
+                    hash = ((hash << 5) - hash) + char;
+                    hash = hash & hash; // Convert to 32-bit integer
+                }
+                return Math.abs(hash).toString(16).substring(0, 8);
+            }
+        }
 
         // Wait for Firebase to be ready
         function waitForFirebase() {
@@ -1748,6 +1741,11 @@ Example:
         document.addEventListener('DOMContentLoaded', async function() {
             console.log("🚀 Page loading...");
             
+            // Display AdSense mode notification for admin
+            if (adsenseMode) {
+                console.log("🎯 AdSense mode active - only Health category visible");
+            }
+            
             try {
                 await waitForFirebase();
                 console.log("🔥 Firebase ready");
@@ -1772,10 +1770,13 @@ Example:
         });
 
         // Admin functions
-        function showAdmin() {
+        async function showAdmin() {
             if (!isAuthenticated) {
                 var password = prompt('Enter admin password:');
-                if (password !== adminPassword) {
+                if (!password) return;
+                
+                const hashedInput = await simpleHash(password);
+                if (hashedInput !== adminPasswordHash) {
                     alert('Incorrect password.');
                     return;
                 }
@@ -2179,6 +2180,11 @@ Example:
         }
 
         function showCategory(category) {
+            // In AdSense mode, only allow Health category or show all
+            if (adsenseMode && category !== 'Health' && category !== 'all') {
+                console.log('🎯 AdSense mode: Category ' + category + ' is disabled');
+                return;
+            }
             filterPosts(category);
         }
 
@@ -2515,7 +2521,103 @@ Example:
             }
         });
 
-        console.log('✅ Yudam\'s Life Blog with Firebase Loaded Successfully');
+        // Function to restore all categories (for after AdSense approval)
+        function restoreAllCategories() {
+            console.log("🔄 Restoring all categories...");
+            adsenseMode = false;
+            
+            // Restore desktop navigation
+            const desktopNav = document.querySelector('.nav-menu');
+            const aboutLink = desktopNav.querySelector('a[href="/about.html"]').parentElement;
+            
+            // Add missing nav items before About link
+            const navItems = [
+                { text: 'Fitness', onclick: 'showCategory(\'Fitness\')' },
+                { text: 'Lifestyle', onclick: 'showCategory(\'Lifestyle\')' },
+                { text: 'Growth', onclick: 'showCategory(\'Self-Development\')' }
+            ];
+            
+            navItems.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="#" onclick="${item.onclick}">${item.text}</a>`;
+                desktopNav.insertBefore(li, aboutLink);
+            });
+            
+            // Restore mobile navigation  
+            const mobileNav = document.querySelector('.mobile-menu ul');
+            const mobileAboutLink = mobileNav.querySelector('a[href="/about.html"]').parentElement;
+            
+            navItems.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="#" onclick="${item.onclick}; closeMobileMenu();">${item.text}</a>`;
+                mobileNav.insertBefore(li, mobileAboutLink);
+            });
+            
+            // Restore hero stats
+            const heroStats = document.querySelector('.hero-stats');
+            const categoriesStat = document.createElement('div');
+            categoriesStat.className = 'stat-item';
+            categoriesStat.innerHTML = '<span class="stat-number">5</span><span class="stat-label">Categories</span>';
+            heroStats.appendChild(categoriesStat);
+            
+            // Restore category buttons
+            const categories = document.querySelector('.categories');
+            const categoryButtons = [
+                { text: 'Fitness', onclick: 'filterPosts(\'Fitness\')' },
+                { text: 'Lifestyle', onclick: 'filterPosts(\'Lifestyle\')' },
+                { text: 'Growth', onclick: 'filterPosts(\'Self-Development\')' },
+                { text: 'Daily Life', onclick: 'filterPosts(\'Daily Life\')' }
+            ];
+            
+            categoryButtons.forEach(cat => {
+                const button = document.createElement('button');
+                button.className = 'category-btn';
+                button.setAttribute('onclick', cat.onclick);
+                button.textContent = cat.text;
+                categories.appendChild(button);
+            });
+            
+            // Restore sidebar categories
+            const sidebarCategories = document.querySelector('.sidebar-categories');
+            const sidebarCats = [
+                { name: 'Fitness', id: 'count-Fitness' },
+                { name: 'Lifestyle', id: 'count-Lifestyle' },
+                { name: 'Growth', id: 'count-Self-Development' },
+                { name: 'Daily Life', id: 'count-Daily Life' }
+            ];
+            
+            sidebarCats.forEach(cat => {
+                const div = document.createElement('div');
+                div.style.cssText = 'display: flex; justify-content: space-between; margin-bottom: 0.5rem;';
+                div.innerHTML = `<span>${cat.name}</span><span id="${cat.id}" style="color: var(--text-light);">0</span>`;
+                sidebarCategories.appendChild(div);
+            });
+            
+            // Restore admin form options
+            const categorySelect = document.getElementById('post-category');
+            const options = [
+                { value: 'Fitness', text: 'Fitness' },
+                { value: 'Lifestyle', text: 'Lifestyle' },
+                { value: 'Self-Development', text: 'Self-Development' },
+                { value: 'Daily Life', text: 'Daily Life' }
+            ];
+            
+            options.forEach(opt => {
+                const option = document.createElement('option');
+                option.value = opt.value;
+                option.textContent = opt.text;
+                categorySelect.appendChild(option);
+            });
+            
+            // Update category counts
+            updateCategoryCounts();
+            
+            console.log("✅ All categories restored!");
+            alert("All categories have been restored! The page has been updated.");
+        }
+
+        console.log('✅ Yudam\'s Health Blog (AdSense Mode) Loaded Successfully');
+        console.log('ℹ️  To restore all categories after AdSense approval, run: restoreAllCategories()');
     </script>
 </body>
 </html>
