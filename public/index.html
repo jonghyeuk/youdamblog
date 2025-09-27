@@ -627,27 +627,6 @@
             color: var(--text-light);
         }
 
-        /* AdSense Ad Slots */
-        .ad-slot {
-            background: var(--bg-light);
-            border: 1px solid var(--border-light);
-            border-radius: 8px;
-            padding: 1rem;
-            margin: 2rem 0;
-            text-align: center;
-            min-height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
-            font-size: 0.875rem;
-        }
-
-        .ad-slot-sidebar {
-            margin-top: 2rem;
-            min-height: 300px;
-        }
-
         /* No Posts State */
         .no-posts {
             text-align: center;
@@ -1254,15 +1233,7 @@
                 </div>
             </div>
 
-            <!-- AdSense Display Ad - Disabled -->
-            <!-- <div class="ad-slot">
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-YOUR_ADSENSE_ID"
-                     data-ad-slot="YOUR_AD_SLOT_ID"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-            </div> -->
+            <!-- AdSense Display Ad - Removed for clean layout -->
         </div>
 
         <!-- Sidebar -->
@@ -1283,15 +1254,7 @@
                 </div>
             </div>
 
-            <!-- AdSense Sidebar Ad - Disabled -->
-            <!-- <div class="ad-slot ad-slot-sidebar">
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-YOUR_ADSENSE_ID"
-                     data-ad-slot="YOUR_SIDEBAR_AD_SLOT_ID"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-            </div> -->
+            <!-- AdSense Sidebar Ad - Removed for clean layout -->
         </div>
     </div>
 
@@ -2141,10 +2104,6 @@ Example:
                 imageHTML +
                 '<div class="article-body" itemprop="articleBody">' +
                     post.content +
-                '</div>' +
-                '<div class="ad-slot">' +
-                    '<!-- AdSense In-Article Ad - Disabled -->' +
-                    '<!-- <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-YOUR_ADSENSE_ID" data-ad-slot="YOUR_IN_ARTICLE_AD_SLOT_ID"></ins> -->' +
                 '</div>' +
                 '<meta itemprop="author" content="Yudam">' +
                 '<meta itemprop="dateModified" content="' + post.date + '">' +
