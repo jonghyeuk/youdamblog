@@ -324,12 +324,12 @@
             bottom: 1rem;
             right: 1rem;
             z-index: 9999;
-            opacity: 0.3;
+            opacity: 0.1;
             transition: opacity 0.3s ease;
         }
 
         .admin-float:hover {
-            opacity: 1;
+            opacity: 0.4;
         }
 
         .admin-btn {
@@ -1393,13 +1393,8 @@ Example:
         var editingPostId = null;
         var isFirebaseReady = false;
 
-        // Simple authentication with hashed password
-        var adminPasswordHash = "5d41402abc4b2a76b9719d911017c592"; // "hello" hashed with MD5 - change this!
-        var isAuthenticated = sessionStorage.getItem('admin-auth') === 'true';
-
-        // Simple authentication with hashed password
-        var adminPasswordHash = "489153"; // Change this to your desired password hash
-        var isAuthenticated = sessionStorage.getItem('admin-auth') === 'true';
+        // Simple authentication - REMOVED
+        var isAuthenticated = true; // Always authenticated now
 
         // AdSense mode configuration - for easy restoration later
         var adsenseMode = true; // Set to false to restore all categories
@@ -1733,19 +1728,7 @@ Example:
         });
 
         // Admin functions
-        async function showAdmin() {
-            if (!isAuthenticated) {
-                var password = prompt('Enter admin password:');
-                if (!password) return;
-                
-                const hashedInput = await simpleHash(password);
-                if (hashedInput !== adminPasswordHash) {
-                    alert('Incorrect password.');
-                    return;
-                }
-                sessionStorage.setItem('admin-auth', 'true');
-                isAuthenticated = true;
-            }
+        function showAdmin() {
             document.getElementById('admin-modal').classList.add('active');
             showCreateForm();
         }
