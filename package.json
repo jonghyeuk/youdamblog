@@ -4,13 +4,13 @@
   "description": "Yudam's Life - Health, Fitness & Lifestyle Blog",
   "main": "public/index.html",
   "scripts": {
-    "build": "npm run copy-files",
-    "copy-files": "cp -r src/* public/",
+    "prebuild": "node scripts/generate-static-pages.js",
+    "build": "npm run prebuild && npm run generate-sitemap",
+    "generate-sitemap": "node scripts/generate-sitemap.js",
     "serve": "firebase serve",
-    "deploy": "firebase deploy",
+    "deploy": "npm run build && firebase deploy",
     "start": "firebase serve --only hosting",
-    "init": "firebase init",
-    "generate-sitemap": "node scripts/generate-sitemap.js"
+    "init": "firebase init"
   },
   "keywords": [
     "blog",
@@ -26,6 +26,7 @@
     "firebase-tools": "^13.0.0"
   },
   "dependencies": {
+    "firebase-admin": "^12.0.0",
     "sitemap": "^7.1.1"
   },
   "repository": {

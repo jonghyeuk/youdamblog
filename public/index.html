@@ -3,37 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Yudam's Life | Health, Fitness & Lifestyle Blog</title>
     <meta name="description" content="Discover insights on health, fitness, lifestyle, self-development, and daily life. Join our community of wellness enthusiasts for evidence-based tips and personal experiences.">
-    <meta name="keywords" content="health blog, fitness tips, lifestyle advice, self development, wellness, healthy living, personal growth, daily habits, nutrition, exercise">
     <meta name="author" content="Yudam">
     <meta name="robots" content="index, follow">
-    <meta name="language" content="English">
-    <meta name="revisit-after" content="7 days">
-    
+    <meta name="theme-color" content="#2563eb">
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://youdam.com/">
-    
+
     <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
     <meta property="og:title" content="Yudam's Life | Health, Fitness & Lifestyle Blog">
     <meta property="og:description" content="Discover insights on health, fitness, lifestyle, self-development, and daily life. Join our community of wellness enthusiasts.">
-    <meta property="og:type" content="website">
     <meta property="og:url" content="https://youdam.com/">
     <meta property="og:image" content="https://youdam.com/images/og-image.jpg">
     <meta property="og:site_name" content="Yudam's Life">
     <meta property="og:locale" content="en_US">
-    
+
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Yudam's Life | Health, Fitness & Lifestyle Blog">
     <meta name="twitter:description" content="Discover insights on health, fitness, lifestyle, self-development, and daily life.">
     <meta name="twitter:image" content="https://youdam.com/images/og-image.jpg">
     <meta name="twitter:creator" content="@yudam_life">
-    
-    <!-- Additional SEO Meta Tags -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="theme-color" content="#2563eb">
+
+    <!-- Additional Meta Tags -->
     <meta name="apple-mobile-web-app-title" content="Yudam's Life">
     <meta name="application-name" content="Yudam's Life">
     <meta name="msapplication-TileColor" content="#2563eb">
@@ -1230,11 +1226,31 @@
 
             <!-- Posts Grid -->
             <div class="posts-grid" id="posts-container">
-                <div class="no-posts">
-                    <i class="fas fa-pen-fancy"></i>
-                    <h3>Loading Posts...</h3>
-                    <p>Please wait while we load your content.</p>
-                </div>
+                <!-- Initial static content for SEO/AdSense -->
+                <article class="post-card" itemscope itemtype="https://schema.org/BlogPosting">
+                    <a href="/posts/5-morning-habits-transformed-health.html" style="text-decoration: none; color: inherit;">
+                        <div class="post-image">
+                            <div class="category-icon"><i class="fas fa-heart"></i></div>
+                        </div>
+                        <div class="post-content">
+                            <span class="post-category" itemprop="articleSection">Health</span>
+                            <h2 class="post-title" itemprop="headline">5 Morning Habits That Transformed My Health</h2>
+                            <p class="post-excerpt" itemprop="description">Discover the simple morning routine that helped me boost energy, improve focus, and feel amazing every day.</p>
+                            <div class="post-meta">
+                                <div class="post-date">
+                                    <i class="fas fa-calendar"></i>
+                                    <time datetime="2024-11-12" itemprop="datePublished">November 12, 2024</time>
+                                </div>
+                                <div class="post-views">
+                                    <i class="fas fa-eye"></i>
+                                    <span>0 views</span>
+                                </div>
+                            </div>
+                            <meta itemprop="author" content="Yudam">
+                            <meta itemprop="dateModified" content="2024-11-12">
+                        </div>
+                    </a>
+                </article>
             </div>
 
             <!-- AdSense Display Ad - Removed for clean layout -->
@@ -1285,16 +1301,10 @@
         </div>
     </footer>
 
-    <!-- Floating Admin Button -->
-    <div class="admin-float">
-        <button class="admin-btn" onclick="showAdmin()">
-            <i class="fas fa-cog"></i>
-            admin
-        </button>
-    </div>
+    <!-- Admin access: /admin.html -->
 
-    <!-- Admin Modal -->
-    <div class="modal" id="admin-modal">
+    <!-- Admin Modal (hidden on public site) -->
+    <div class="modal" id="admin-modal" style="display: none !important;">
         <div class="modal-content">
             <div class="modal-header">
                 <h2 class="modal-title" id="modal-title">Create New Post</h2>
