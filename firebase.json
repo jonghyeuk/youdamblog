@@ -35,18 +35,6 @@
           }
         ]
       }
-    ],
-    "redirects": [
-      {
-        "source": "/admin",
-        "destination": "/",
-        "type": 301
-      },
-      {
-        "source": "/admin.html",
-        "destination": "/",
-        "type": 301
-      }
     ]
   }
 }
