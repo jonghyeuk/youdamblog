@@ -1,219 +1,246 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Yudam's Life - Get in Touch</title>
-    <meta name="description" content="Contact Yudam for health, fitness, lifestyle, and personal growth inquiries. Business partnerships and collaboration opportunities welcome.">
-    <meta name="keywords" content="contact yudam, health consultation, fitness coaching, lifestyle advice, business inquiry">
-    
+    <title>문의하기 | 고등학생 과학논문 코칭</title>
+    <meta name="description" content="고등학생 과학논문 코칭에 대한 문의사항이 있으시면 연락해 주세요. 학부모님, 학생 모두 환영합니다.">
+    <meta name="keywords" content="문의, 연락처, 과학논문 코칭, 상담">
+
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Contact Yudam - Health & Lifestyle Expert">
-    <meta property="og:description" content="Get in touch for health, fitness, lifestyle, and personal growth guidance.">
+    <meta property="og:title" content="문의하기 | 고등학생 과학논문 코칭">
+    <meta property="og:description" content="과학논문 코칭에 대한 문의사항이 있으시면 연락해 주세요.">
     <meta property="og:image" content="https://youdam.com/images/og-image.svg">
     <meta property="og:url" content="https://youdam.com/contact">
     <meta property="og:type" content="website">
-    
+    <meta property="og:locale" content="ko_KR">
+
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Contact Yudam - Health & Lifestyle Expert">
-    <meta name="twitter:description" content="Get in touch for health, fitness, lifestyle, and personal growth guidance.">
-    <meta name="twitter:image" content="https://youdam.com/images/og-image.jpg">
-    
+    <meta name="twitter:title" content="문의하기 | 고등학생 과학논문 코칭">
+    <meta name="twitter:description" content="과학논문 코칭에 대한 문의사항이 있으시면 연락해 주세요.">
+    <meta name="twitter:image" content="https://youdam.com/images/og-image.svg">
+
     <link rel="canonical" href="https://youdam.com/contact">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            line-height: 1.8;
             color: #333;
             background: #f8f9fa;
         }
-        
+
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 40px 20px;
         }
-        
+
         .header {
             text-align: center;
             margin-bottom: 40px;
         }
-        
+
         .header h1 {
             font-size: 2.5em;
             color: #2c3e50;
             margin-bottom: 10px;
         }
-        
+
         .tagline {
             font-size: 1.2em;
             color: #7f8c8d;
         }
-        
+
         .content {
             background: white;
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        
+
+        .parent-notice {
+            background: #e8f5e9;
+            border-left: 4px solid #27ae60;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .parent-notice h3 {
+            color: #27ae60;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .parent-notice p {
+            color: #555;
+        }
+
         .contact-methods {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 25px;
             margin: 30px 0;
         }
-        
+
         .contact-card {
             background: #f8f9fa;
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 12px;
             text-align: center;
             border: 2px solid #e9ecef;
             transition: all 0.3s ease;
         }
-        
+
         .contact-card:hover {
             border-color: #3498db;
-            transform: translateY(-5px);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        
+
         .contact-card .icon {
             font-size: 3em;
             margin-bottom: 20px;
-            display: block;
+            color: #3498db;
         }
-        
+
         .contact-card h3 {
             color: #2c3e50;
             margin-bottom: 15px;
             font-size: 1.3em;
         }
-        
+
         .contact-card p {
             color: #666;
             margin-bottom: 15px;
         }
-        
+
         .contact-card a {
             color: #3498db;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1em;
         }
-        
+
         .contact-card a:hover {
             color: #2980b9;
         }
-        
-        .social-section {
-            background: linear-gradient(135deg, #3498db, #2c3e50);
-            color: white;
-            padding: 30px;
-            border-radius: 10px;
+
+        .faq-section {
             margin: 40px 0;
-            text-align: center;
         }
-        
-        .social-section h2 {
-            margin-bottom: 20px;
+
+        .faq-section h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
         }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .social-links a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border: 2px solid white;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .social-links a:hover {
-            background: white;
-            color: #3498db;
-        }
-        
-        .business-inquiry {
-            background: #e8f5e8;
-            padding: 30px;
-            border-radius: 10px;
-            border-left: 4px solid #27ae60;
-            margin: 30px 0;
-        }
-        
-        .business-inquiry h3 {
-            color: #27ae60;
-            margin-bottom: 15px;
-        }
-        
-        .response-time {
-            background: #fff3cd;
-            color: #856404;
+
+        .faq-item {
+            background: #f8f9fa;
             padding: 20px;
             border-radius: 8px;
-            border: 1px solid #ffeaa7;
-            margin: 30px 0;
-            text-align: center;
+            margin-bottom: 15px;
         }
-        
+
+        .faq-item h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .faq-item h4 i {
+            color: #3498db;
+            margin-right: 10px;
+        }
+
+        .faq-item p {
+            color: #666;
+            padding-left: 28px;
+        }
+
+        .response-info {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .response-info h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+        }
+
+        .guidelines {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .guidelines h4 {
+            color: #1565c0;
+            margin-bottom: 15px;
+        }
+
+        .guidelines ul {
+            margin-left: 20px;
+            color: #555;
+        }
+
+        .guidelines li {
+            margin-bottom: 8px;
+        }
+
         .back-link {
             text-align: center;
             margin-top: 40px;
         }
-        
+
         .back-link a {
             color: #3498db;
             text-decoration: none;
             font-weight: bold;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border: 2px solid #3498db;
             border-radius: 5px;
             transition: all 0.3s ease;
+            display: inline-block;
         }
-        
+
         .back-link a:hover {
             background: #3498db;
             color: white;
         }
-        
+
         @media (max-width: 768px) {
             .container {
-                padding: 20px 10px;
+                padding: 20px 15px;
             }
-            
+
             .content {
-                padding: 25px;
+                padding: 25px 20px;
             }
-            
+
             .header h1 {
-                font-size: 2em;
+                font-size: 1.8em;
             }
-            
+
             .contact-methods {
                 grid-template-columns: 1fr;
-            }
-            
-            .social-links {
-                flex-direction: column;
-                align-items: center;
             }
         }
     </style>
@@ -221,81 +248,77 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Get in Touch</h1>
-            <p class="tagline">Let's connect and grow together</p>
+            <h1>문의하기</h1>
+            <p class="tagline">궁금한 점이 있으시면 언제든 연락해 주세요</p>
         </div>
-        
+
         <div class="content">
+            <div class="parent-notice">
+                <h3><i class="fas fa-shield-alt"></i> 학부모님께 안내드립니다</h3>
+                <p>본 사이트는 고등학생의 과학논문 작성 능력 향상을 위한 교육 콘텐츠를 제공합니다. 학생들이 스스로 연구하고 논문을 작성하는 능력을 기를 수 있도록 가이드를 제공하며, 논문을 대필하거나 부정한 방법을 안내하지 않습니다. 궁금하신 점이 있으시면 언제든 문의해 주세요.</p>
+            </div>
+
             <p style="text-align: center; font-size: 1.1em; margin-bottom: 30px; color: #2c3e50;">
-                Have questions about health, fitness, lifestyle, or personal growth? Looking for collaboration opportunities? I'd love to hear from you!
+                과학논문 코칭, 사이트 이용, 또는 기타 문의사항이 있으시면<br>아래 방법으로 연락해 주세요.
             </p>
-            
+
             <div class="contact-methods">
                 <div class="contact-card">
-                    <span class="icon">📧</span>
-                    <h3>Email Me</h3>
-                    <p>For general inquiries, health questions, or collaboration opportunities</p>
+                    <div class="icon"><i class="fas fa-envelope"></i></div>
+                    <h3>이메일 문의</h3>
+                    <p>일반 문의 및 상담 요청</p>
                     <a href="mailto:youdamcompany@gmail.com">youdamcompany@gmail.com</a>
                 </div>
-                
+
                 <div class="contact-card">
-                    <span class="icon">💼</span>
-                    <h3>Business Inquiries</h3>
-                    <p>Partnerships, sponsored content, speaking engagements</p>
-                    <a href="mailto:youdamcompany@gmail.com?subject=Business Inquiry">Business Email</a>
+                    <div class="icon"><i class="fas fa-user-shield"></i></div>
+                    <h3>학부모 문의</h3>
+                    <p>사이트 운영 및 교육 방침 문의</p>
+                    <a href="mailto:youdamcompany@gmail.com?subject=[학부모 문의]">학부모 전용 문의</a>
                 </div>
             </div>
-            
-            <div class="business-inquiry">
-                <h3>🤝 Collaboration Opportunities</h3>
-                <p>I'm always interested in meaningful partnerships that align with my mission of promoting better health and lifestyle. Whether you're a brand, fellow content creator, or organization focused on wellness, education, or personal development, let's explore how we can work together.</p>
-                
-                <p style="margin-top: 15px;"><strong>Areas of Interest:</strong></p>
-                <ul style="margin: 10px 0 0 20px;">
-                    <li>Health and wellness product reviews</li>
-                    <li>Fitness equipment and CrossFit gear</li>
-                    <li>Educational resources and tools</li>
-                    <li>Mindfulness and personal growth content</li>
-                    <li>Speaking engagements and workshops</li>
-                </ul>
-            </div>
-            
-            <div class="social-section">
-                <h2>Connect on Social Media</h2>
-                <p>Follow my journey and get daily insights</p>
-                <div class="social-links">
-                    <a href="#" target="_blank">📘 Facebook</a>
-                    <a href="#" target="_blank">📷 Instagram</a>
-                    <a href="#" target="_blank">🐦 Twitter</a>
-                    <a href="#" target="_blank">💼 LinkedIn</a>
-                    <a href="#" target="_blank">📺 YouTube</a>
+
+            <div class="faq-section">
+                <h2><i class="fas fa-question-circle"></i> 자주 묻는 질문</h2>
+
+                <div class="faq-item">
+                    <h4><i class="fas fa-q"></i> 논문 작성을 대신 해주시나요?</h4>
+                    <p>아니요. 본 사이트는 학생들이 스스로 논문을 작성할 수 있도록 가이드와 방법론을 제공합니다. 논문 대필 서비스는 제공하지 않습니다.</p>
                 </div>
-                <p style="margin-top: 15px; font-size: 0.9em; opacity: 0.8;">
-                    *Social media links will be updated soon. Stay tuned!
-                </p>
+
+                <div class="faq-item">
+                    <h4><i class="fas fa-q"></i> 어떤 학생에게 적합한가요?</h4>
+                    <p>R&E, 과학탐구, 소논문 등 연구 활동을 시작하거나 진행 중인 고등학생에게 적합합니다. 과학고, 영재고, 자사고 진학을 준비하는 학생들도 도움을 받을 수 있습니다.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4><i class="fas fa-q"></i> 무료로 이용할 수 있나요?</h4>
+                    <p>네, 사이트의 모든 가이드와 콘텐츠는 무료로 제공됩니다. 추후 프로그램 다운로드도 무료로 제공될 예정입니다.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4><i class="fas fa-q"></i> 개인정보는 안전하게 보호되나요?</h4>
+                    <p>네, 학생의 실명, 학교명 등 민감한 개인정보는 수집하지 않습니다. 자세한 내용은 <a href="/privacy-policy.html">개인정보처리방침</a>을 확인해 주세요.</p>
+                </div>
             </div>
-            
-            <div class="response-time">
-                <strong>⏰ Response Time:</strong> I typically respond to emails within 24-48 hours. For urgent matters, please mention "URGENT" in your subject line.
-            </div>
-            
-            <div style="background: #f8f9fa; padding: 25px; border-radius: 8px; margin: 30px 0;">
-                <h3 style="color: #2c3e50; margin-bottom: 15px;">What to Include in Your Message</h3>
-                <ul style="color: #666; margin-left: 20px;">
-                    <li><strong>Subject line:</strong> Be specific about your inquiry</li>
-                    <li><strong>Introduction:</strong> Tell me a bit about yourself</li>
-                    <li><strong>Your question/request:</strong> Be as detailed as possible</li>
-                    <li><strong>Timeline:</strong> If applicable, let me know any deadlines</li>
+
+            <div class="guidelines">
+                <h4><i class="fas fa-lightbulb"></i> 문의 시 참고사항</h4>
+                <ul>
+                    <li>문의 내용을 구체적으로 작성해 주시면 더 정확한 답변을 드릴 수 있습니다</li>
+                    <li>학부모님의 경우 제목에 [학부모 문의]를 붙여주시면 우선 처리됩니다</li>
+                    <li>긴급한 문의는 제목에 [긴급]을 표시해 주세요</li>
                 </ul>
             </div>
-            
-            <p style="text-align: center; font-style: italic; color: #7f8c8d; margin-top: 30px;">
-                "Every email is an opportunity to connect and help each other grow. I look forward to hearing from you!"
-            </p>
+
+            <div class="response-info">
+                <h4><i class="fas fa-clock"></i> 답변 안내</h4>
+                <p>문의하신 내용은 <strong>영업일 기준 2~3일 이내</strong>에 답변드립니다.<br>주말 및 공휴일에 보내주신 문의는 다음 영업일에 확인됩니다.</p>
+            </div>
         </div>
-        
+
         <div class="back-link">
-            <a href="/">← Back to Home</a>
+            <a href="/"><i class="fas fa-arrow-left"></i> 홈으로 돌아가기</a>
         </div>
     </div>
 </body>
