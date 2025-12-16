@@ -2177,12 +2177,18 @@ Example:
         }
 
         function updateStats() {
-            document.getElementById('total-posts').textContent = posts.length;
+            var totalPostsEl = document.getElementById('total-posts');
+            if (totalPostsEl) {
+                totalPostsEl.textContent = posts.length;
+            }
             var totalViews = 0;
             for (var i = 0; i < posts.length; i++) {
                 totalViews += posts[i].views;
             }
-            document.getElementById('total-views').textContent = totalViews.toLocaleString();
+            var totalViewsEl = document.getElementById('total-views');
+            if (totalViewsEl) {
+                totalViewsEl.textContent = totalViews.toLocaleString();
+            }
         }
 
         function updateCategoryCounts() {
