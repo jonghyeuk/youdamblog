@@ -1959,11 +1959,17 @@ Example:
         }
 
         // Display functions
+        var validCategories = ['논문작성법', '연구방법론', '과학탐구', '대입준비'];
+
         function loadPosts() {
             var container = document.getElementById('posts-container');
-            var filteredPosts = currentFilter === 'all' 
-                ? posts 
-                : posts.filter(function(post) { return post.category === currentFilter; });
+            // 유효한 카테고리만 표시 (이전 Health 등 제외)
+            var validPosts = posts.filter(function(post) {
+                return validCategories.indexOf(post.category) !== -1;
+            });
+            var filteredPosts = currentFilter === 'all'
+                ? validPosts
+                : validPosts.filter(function(post) { return post.category === currentFilter; });
 
             if (filteredPosts.length === 0) {
                 var noPostsTitle = currentFilter === 'all' ? 'No Posts Yet' : 'No ' + currentFilter + ' Posts';
