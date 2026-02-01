@@ -35,14 +35,13 @@
     <meta name="application-name" content="과학논문코칭">
     <meta name="msapplication-TileColor" content="#2563eb">
     
-    <!-- Google Search Console Verification -->
-    <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE_HERE">
-
     <!-- Google AdSense -->
     <meta name="google-adsense-account" content="ca-pub-3718064189631211">
 
-    <!-- Bing Webmaster Verification -->
-    <meta name="msvalidate.01" content="YOUR_BING_VERIFICATION_CODE_HERE">
+    <!--
+    Google Search Console 인증 후 아래 주석 해제하고 실제 코드 입력:
+    <meta name="google-site-verification" content="실제_인증_코드">
+    -->
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -2114,18 +2113,13 @@ Example:
             currentView = 'home';
             currentPost = null;
             
-            document.title = "Yudam's Life | Health, Fitness & Lifestyle Blog";
-            document.querySelector('meta[name="description"]').content = "Discover insights on health, fitness, lifestyle, self-development, and daily life. Join our community of wellness enthusiasts for evidence-based tips and personal experiences.";
+            document.title = "고등학생 과학논문 코칭 | 10년 대학강사의 논문 작성 가이드";
+            document.querySelector('meta[name="description"]').content = "10년 경력 대학 강사가 알려주는 고등학생 과학논문 작성법. R&E, 과학탐구, 소논문 작성부터 대입 준비까지 체계적인 코칭을 제공합니다.";
             
             loadPosts();
         }
 
         function showCategory(category) {
-            // In AdSense mode, only allow Health category or show all
-            if (adsenseMode && category !== 'Health' && category !== 'all') {
-                console.log('🎯 AdSense mode: Category ' + category + ' is disabled');
-                return;
-            }
             filterPosts(category);
         }
 
@@ -2242,17 +2236,17 @@ Example:
             var structuredData = {
                 "@context": "https://schema.org",
                 "@type": "Blog",
-                "name": "Yudam's Life",
-                "description": "A personal blog about health, fitness, lifestyle, and self-development",
+                "name": "고등학생 과학논문 코칭",
+                "description": "10년 경력 대학 강사가 운영하는 고등학생 과학논문 작성 코칭 서비스",
                 "url": "https://youdam.com/",
                 "author": {
                     "@type": "Person",
-                    "name": "Yudam",
+                    "name": "Youdam",
                     "url": "https://youdam.com/about"
                 },
                 "publisher": {
                     "@type": "Organization",
-                    "name": "Yudam's Life",
+                    "name": "고등학생 과학논문 코칭",
                     "logo": {
                         "@type": "ImageObject",
                         "url": "https://youdam.com/images/logo.png",
@@ -2265,13 +2259,13 @@ Example:
                     "@type": "WebPage",
                     "@id": "https://youdam.com/"
                 },
-                "inLanguage": "en-US",
+                "inLanguage": "ko-KR",
                 "copyrightYear": "2024",
                 "copyrightHolder": {
                     "@type": "Person",
-                    "name": "Yudam"
+                    "name": "Youdam"
                 },
-                "keywords": ["health", "fitness", "lifestyle", "self-development", "wellness", "personal growth"],
+                "keywords": ["고등학생 논문", "과학논문", "R&E", "소논문", "과학탐구", "대입준비", "논문작성법"],
                 "blogPost": []
             };
 
@@ -2289,8 +2283,8 @@ Example:
                         "url": "https://youdam.com/about"
                     },
                     "publisher": {
-                        "@type": "Organization", 
-                        "name": "Yudam's Life",
+                        "@type": "Organization",
+                        "name": "고등학생 과학논문 코칭",
                         "logo": {
                             "@type": "ImageObject",
                             "url": "https://youdam.com/images/logo.png",
