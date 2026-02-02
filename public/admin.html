@@ -21,19 +21,25 @@
     <!-- Firebase SDK -->
     <script type="module">
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js';
-        import { 
-            getFirestore, 
-            collection, 
-            addDoc, 
-            getDocs, 
-            doc, 
-            updateDoc, 
-            deleteDoc, 
-            query, 
+        import {
+            getFirestore,
+            collection,
+            addDoc,
+            getDocs,
+            doc,
+            updateDoc,
+            deleteDoc,
+            query,
             orderBy,
             where,
-            limit 
+            limit
         } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js';
+        import {
+            getStorage,
+            ref,
+            uploadBytes,
+            getDownloadURL
+        } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js';
 
         const firebaseConfig = {
             apiKey: "AIzaSyA-I1lfNy57idBTkj2NYxt2-yHQvHJGPlM",
@@ -47,21 +53,28 @@
 
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
-        
+        const storage = getStorage(app);
+
         window.db = db;
-        window.firestore = { 
-            collection, 
-            addDoc, 
-            getDocs, 
-            doc, 
-            updateDoc, 
-            deleteDoc, 
-            query, 
+        window.storage = storage;
+        window.firestore = {
+            collection,
+            addDoc,
+            getDocs,
+            doc,
+            updateDoc,
+            deleteDoc,
+            query,
             orderBy,
             where,
-            limit 
+            limit
         };
-        
+        window.storageUtils = {
+            ref,
+            uploadBytes,
+            getDownloadURL
+        };
+
         console.log("🔥 Firebase connected successfully!");
     </script>
     
@@ -534,6 +547,9 @@
                 <button class="admin-tab" onclick="showTab('manage')">
                     <i class="fas fa-list"></i> Manage Posts
                 </button>
+                <button class="admin-tab" onclick="showTab('imageurl')">
+                    <i class="fas fa-image"></i> 이미지 URL
+                </button>
             </div>
             
             <!-- Create Post Tab -->
@@ -593,6 +609,52 @@
                     <p style="text-align: center; color: var(--text-medium); padding: 2rem;">Loading posts...</p>
                 </div>
             </div>
+
+            <!-- Image URL Tab -->
+            <div id="imageurl-tab" class="tab-content">
+                <div style="background: var(--bg-light); padding: 2rem; border-radius: 8px; margin-bottom: 1rem;">
+                    <h3 style="margin-bottom: 1rem; color: var(--text-dark);">
+                        <i class="fas fa-cloud-upload-alt"></i> 이미지 업로드 → URL 복사
+                    </h3>
+                    <p style="color: var(--text-medium); margin-bottom: 1.5rem;">
+                        이미지를 업로드하면 URL이 생성됩니다. 이 URL을 Claude에게 전달하세요.
+                    </p>
+
+                    <div class="image-upload" id="url-image-upload" onclick="document.getElementById('url-image-input').click()" style="cursor: pointer;">
+                        <i class="fas fa-cloud-upload-alt" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                        <p style="color: var(--text-medium); margin-bottom: 0.5rem;">클릭하여 이미지 선택</p>
+                        <p style="font-size: 0.875rem; color: var(--text-light);">JPG, PNG, GIF (Max 5MB)</p>
+                    </div>
+                    <input type="file" id="url-image-input" accept="image/*" style="display: none;">
+
+                    <div id="url-upload-progress" style="display: none; margin-top: 1rem;">
+                        <div style="background: var(--border-light); border-radius: 4px; height: 8px; overflow: hidden;">
+                            <div id="url-progress-bar" style="background: var(--primary-color); height: 100%; width: 0%; transition: width 0.3s;"></div>
+                        </div>
+                        <p style="text-align: center; margin-top: 0.5rem; color: var(--text-medium);">업로드 중...</p>
+                    </div>
+
+                    <div id="url-result" style="display: none; margin-top: 1.5rem;">
+                        <label style="font-weight: 600; display: block; margin-bottom: 0.5rem; color: var(--text-dark);">생성된 이미지 URL:</label>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <input type="text" id="generated-url" readonly class="form-input" style="flex: 1; font-size: 0.875rem;">
+                            <button class="btn btn-primary" onclick="copyImageUrl()" style="white-space: nowrap;">
+                                <i class="fas fa-copy"></i> 복사
+                            </button>
+                        </div>
+                        <img id="url-image-preview" style="max-width: 100%; max-height: 200px; margin-top: 1rem; border-radius: 8px; display: none;">
+                        <p id="copy-success" style="display: none; color: var(--accent-color); margin-top: 0.5rem; text-align: center;">
+                            <i class="fas fa-check"></i> URL이 클립보드에 복사되었습니다!
+                        </p>
+                    </div>
+                </div>
+
+                <div style="background: #fff3cd; padding: 1rem; border-radius: 8px; border-left: 4px solid #ffc107;">
+                    <p style="margin: 0; font-size: 0.875rem; color: #856404;">
+                        <i class="fas fa-info-circle"></i> <strong>사용법:</strong> URL 복사 후 Claude Code에 "이 이미지를 최근 글에 추가해줘: [URL]" 형식으로 전달하세요.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -631,6 +693,7 @@
             }
             
             setupImageUpload();
+            setupUrlImageUpload();
         });
 
         // Handle login
@@ -941,6 +1004,82 @@
             document.getElementById('image-preview').style.display = 'none';
             document.querySelector('.image-upload').classList.remove('has-image');
             document.getElementById('submit-btn').innerHTML = '<i class="fas fa-save"></i> Publish Post';
+        }
+
+        // Image URL upload functionality
+        function setupUrlImageUpload() {
+            var input = document.getElementById('url-image-input');
+            if (!input) return;
+
+            input.addEventListener('change', async function(e) {
+                var file = e.target.files[0];
+                if (!file) return;
+
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('파일 크기가 5MB를 초과합니다.');
+                    return;
+                }
+
+                // Show progress
+                document.getElementById('url-upload-progress').style.display = 'block';
+                document.getElementById('url-result').style.display = 'none';
+                var progressBar = document.getElementById('url-progress-bar');
+                progressBar.style.width = '30%';
+
+                try {
+                    // Generate unique filename
+                    var timestamp = Date.now();
+                    var filename = 'blog-images/' + timestamp + '-' + file.name.replace(/[^a-zA-Z0-9.]/g, '_');
+
+                    progressBar.style.width = '50%';
+
+                    // Upload to Firebase Storage
+                    var storageRef = window.storageUtils.ref(window.storage, filename);
+                    await window.storageUtils.uploadBytes(storageRef, file);
+
+                    progressBar.style.width = '80%';
+
+                    // Get download URL
+                    var downloadURL = await window.storageUtils.getDownloadURL(storageRef);
+
+                    progressBar.style.width = '100%';
+
+                    // Show result
+                    setTimeout(function() {
+                        document.getElementById('url-upload-progress').style.display = 'none';
+                        document.getElementById('generated-url').value = downloadURL;
+                        document.getElementById('url-result').style.display = 'block';
+
+                        // Show preview
+                        var preview = document.getElementById('url-image-preview');
+                        preview.src = downloadURL;
+                        preview.style.display = 'block';
+                    }, 300);
+
+                    console.log('✅ Image uploaded:', downloadURL);
+
+                } catch (error) {
+                    console.error('❌ Upload failed:', error);
+                    document.getElementById('url-upload-progress').style.display = 'none';
+                    alert('업로드 실패: ' + error.message);
+                }
+
+                // Reset input
+                input.value = '';
+            });
+        }
+
+        function copyImageUrl() {
+            var urlInput = document.getElementById('generated-url');
+            urlInput.select();
+            urlInput.setSelectionRange(0, 99999);
+            document.execCommand('copy');
+
+            // Show success message
+            document.getElementById('copy-success').style.display = 'block';
+            setTimeout(function() {
+                document.getElementById('copy-success').style.display = 'none';
+            }, 2000);
         }
     </script>
 </body>
