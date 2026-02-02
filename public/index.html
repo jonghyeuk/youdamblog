@@ -2434,13 +2434,17 @@ Example:
         }
 
         function updateStats() {
+            // 유효한 카테고리의 포스트만 카운트
+            var validPosts = posts.filter(function(post) {
+                return validCategories.indexOf(post.category) !== -1;
+            });
             var totalPostsEl = document.getElementById('total-posts');
             if (totalPostsEl) {
-                totalPostsEl.textContent = posts.length;
+                totalPostsEl.textContent = validPosts.length;
             }
             var totalViews = 0;
-            for (var i = 0; i < posts.length; i++) {
-                totalViews += posts[i].views;
+            for (var i = 0; i < validPosts.length; i++) {
+                totalViews += validPosts[i].views;
             }
             var totalViewsEl = document.getElementById('total-views');
             if (totalViewsEl) {
@@ -2467,7 +2471,11 @@ Example:
 
         function updatePopularPosts() {
             var popularContainer = document.getElementById('popular-posts');
-            var sortedPosts = posts.slice().sort(function(a, b) { return b.views - a.views; }).slice(0, 5);
+            // 유효한 카테고리의 포스트만 필터링
+            var validPosts = posts.filter(function(post) {
+                return validCategories.indexOf(post.category) !== -1;
+            });
+            var sortedPosts = validPosts.slice().sort(function(a, b) { return b.views - a.views; }).slice(0, 5);
             
             if (sortedPosts.length === 0) {
                 popularContainer.innerHTML = '<li class="popular-post">' +
