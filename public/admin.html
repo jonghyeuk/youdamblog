@@ -1091,15 +1091,26 @@
 
         function copyImageUrl() {
             var urlInput = document.getElementById('generated-url');
-            urlInput.select();
-            urlInput.setSelectionRange(0, 99999);
-            document.execCommand('copy');
+            var url = urlInput.value;
 
-            // Show success message
-            document.getElementById('copy-success').style.display = 'block';
-            setTimeout(function() {
-                document.getElementById('copy-success').style.display = 'none';
-            }, 2000);
+            // Modern Clipboard API
+            navigator.clipboard.writeText(url).then(function() {
+                // Show success message
+                document.getElementById('copy-success').style.display = 'block';
+                setTimeout(function() {
+                    document.getElementById('copy-success').style.display = 'none';
+                }, 2000);
+            }).catch(function(err) {
+                // Fallback for older browsers
+                urlInput.select();
+                urlInput.setSelectionRange(0, 99999);
+                document.execCommand('copy');
+
+                document.getElementById('copy-success').style.display = 'block';
+                setTimeout(function() {
+                    document.getElementById('copy-success').style.display = 'none';
+                }, 2000);
+            });
         }
     </script>
 </body>
