@@ -1854,7 +1854,7 @@ Example:
             
             // Display AdSense mode notification for admin
             if (adsenseMode) {
-                console.log("🎯 AdSense mode active - only Health category visible");
+                console.log("🎯 AdSense mode active");
             }
             
             try {
@@ -2219,7 +2219,7 @@ Example:
 
         function loadPosts() {
             var container = document.getElementById('posts-container');
-            // 유효한 카테고리만 표시 (이전 Health 등 제외)
+            // 유효한 카테고리만 표시
             var validPosts = posts.filter(function(post) {
                 return validCategories.indexOf(post.category) !== -1;
             });
@@ -2718,103 +2718,7 @@ Example:
             }
         });
 
-        // Function to restore all categories (for after AdSense approval)
-        function restoreAllCategories() {
-            console.log("🔄 Restoring all categories...");
-            adsenseMode = false;
-            
-            // Restore desktop navigation
-            const desktopNav = document.querySelector('.nav-menu');
-            const aboutLink = desktopNav.querySelector('a[href="/about.html"]').parentElement;
-            
-            // Add missing nav items before About link
-            const navItems = [
-                { text: 'Fitness', onclick: 'showCategory(\'Fitness\')' },
-                { text: 'Lifestyle', onclick: 'showCategory(\'Lifestyle\')' },
-                { text: 'Growth', onclick: 'showCategory(\'Self-Development\')' }
-            ];
-            
-            navItems.forEach(item => {
-                const li = document.createElement('li');
-                li.innerHTML = `<a href="#" onclick="${item.onclick}">${item.text}</a>`;
-                desktopNav.insertBefore(li, aboutLink);
-            });
-            
-            // Restore mobile navigation  
-            const mobileNav = document.querySelector('.mobile-menu ul');
-            const mobileAboutLink = mobileNav.querySelector('a[href="/about.html"]').parentElement;
-            
-            navItems.forEach(item => {
-                const li = document.createElement('li');
-                li.innerHTML = `<a href="#" onclick="${item.onclick}; closeMobileMenu();">${item.text}</a>`;
-                mobileNav.insertBefore(li, mobileAboutLink);
-            });
-            
-            // Restore hero stats
-            const heroStats = document.querySelector('.hero-stats');
-            const categoriesStat = document.createElement('div');
-            categoriesStat.className = 'stat-item';
-            categoriesStat.innerHTML = '<span class="stat-number">5</span><span class="stat-label">Categories</span>';
-            heroStats.appendChild(categoriesStat);
-            
-            // Restore category buttons
-            const categories = document.querySelector('.categories');
-            const categoryButtons = [
-                { text: 'Fitness', onclick: 'filterPosts(\'Fitness\')' },
-                { text: 'Lifestyle', onclick: 'filterPosts(\'Lifestyle\')' },
-                { text: 'Growth', onclick: 'filterPosts(\'Self-Development\')' },
-                { text: 'Daily Life', onclick: 'filterPosts(\'Daily Life\')' }
-            ];
-            
-            categoryButtons.forEach(cat => {
-                const button = document.createElement('button');
-                button.className = 'category-btn';
-                button.setAttribute('onclick', cat.onclick);
-                button.textContent = cat.text;
-                categories.appendChild(button);
-            });
-            
-            // Restore sidebar categories
-            const sidebarCategories = document.querySelector('.sidebar-categories');
-            const sidebarCats = [
-                { name: 'Fitness', id: 'count-Fitness' },
-                { name: 'Lifestyle', id: 'count-Lifestyle' },
-                { name: 'Growth', id: 'count-Self-Development' },
-                { name: 'Daily Life', id: 'count-Daily Life' }
-            ];
-            
-            sidebarCats.forEach(cat => {
-                const div = document.createElement('div');
-                div.style.cssText = 'display: flex; justify-content: space-between; margin-bottom: 0.5rem;';
-                div.innerHTML = `<span>${cat.name}</span><span id="${cat.id}" style="color: var(--text-light);">0</span>`;
-                sidebarCategories.appendChild(div);
-            });
-            
-            // Restore admin form options
-            const categorySelect = document.getElementById('post-category');
-            const options = [
-                { value: 'Fitness', text: 'Fitness' },
-                { value: 'Lifestyle', text: 'Lifestyle' },
-                { value: 'Self-Development', text: 'Self-Development' },
-                { value: 'Daily Life', text: 'Daily Life' }
-            ];
-            
-            options.forEach(opt => {
-                const option = document.createElement('option');
-                option.value = opt.value;
-                option.textContent = opt.text;
-                categorySelect.appendChild(option);
-            });
-            
-            // Update category counts
-            updateCategoryCounts();
-            
-            console.log("✅ All categories restored!");
-            alert("All categories have been restored! The page has been updated.");
-        }
-
-        console.log('✅ Yudam\'s Health Blog (AdSense Mode) Loaded Successfully');
-        console.log('ℹ️  To restore all categories after AdSense approval, run: restoreAllCategories()');
+        console.log('✅ 고등학생 과학논문 코칭 블로그 로드 완료');
     </script>
 </body>
 </html>
