@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Not Found | Yudam's Life</title>
+    <title>페이지를 찾을 수 없습니다 | 고등학생 과학논문 코칭</title>
     <meta name="robots" content="noindex, nofollow">
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         * {
             margin: 0;
@@ -22,7 +22,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -42,7 +42,7 @@
 
         .error-icon {
             font-size: 6rem;
-            color: #667eea;
+            color: #2563eb;
             margin-bottom: 1.5rem;
             animation: float 3s ease-in-out infinite;
         }
@@ -53,7 +53,6 @@
         }
 
         h1 {
-            font-family: 'Playfair Display', serif;
             font-size: 4rem;
             color: #1f2937;
             margin-bottom: 1rem;
@@ -95,13 +94,13 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
             color: white;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
         }
 
         .btn-secondary {
@@ -146,20 +145,20 @@
 <body>
     <div class="container">
         <div class="error-icon">
-            <i class="fas fa-map-marked-alt"></i>
+            <i class="fas fa-search"></i>
         </div>
         <h1>404</h1>
-        <h2>Oops! Page Not Found</h2>
-        <p>The page you're looking for seems to have wandered off. Don't worry, even the best explorers get lost sometimes!</p>
-        
+        <h2>페이지를 찾을 수 없습니다</h2>
+        <p>요청하신 페이지가 존재하지 않거나 이동되었을 수 있습니다. 주소를 다시 확인해주세요.</p>
+
         <div class="btn-group">
             <a href="/" class="btn btn-primary">
                 <i class="fas fa-home"></i>
-                Back to Home
+                홈으로 가기
             </a>
             <a href="javascript:history.back()" class="btn btn-secondary">
                 <i class="fas fa-arrow-left"></i>
-                Go Back
+                이전 페이지
             </a>
         </div>
     </div>
