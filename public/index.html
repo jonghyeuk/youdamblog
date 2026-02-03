@@ -1261,39 +1261,9 @@
                 <button class="category-btn" onclick="filterPosts('대입준비')">대입준비</button>
             </div>
 
-            <!-- Posts Grid - 정적 HTML (SEO용, 구글봇이 볼 수 있음) -->
+            <!-- Posts Grid - Firestore 데이터로 동적 로딩 -->
             <div class="posts-grid" id="posts-container">
-                <!-- 포스트 1: 선행연구 조사법 (최신) -->
-                <article class="post-card" data-category="연구방법론">
-                    <div class="post-image" style="background-image: url('https://i.ibb.co/XfPXxt6f/7260c67f6a22.png'); background-size: cover; background-position: center;">
-                    </div>
-                    <div class="post-content">
-                        <span class="post-category">연구방법론</span>
-                        <h2 class="post-title"><a href="/posts/how-to-research-prior-studies.html">선행연구 조사법: Introduction만 읽어도 연구 흐름이 보인다</a></h2>
-                        <p class="post-excerpt">연구 주제를 구체화하려면 선행연구 조사가 필수입니다. 구글 스칼라, RISS 활용법부터 논문의 서론을 효과적으로 읽는 방법까지 알려드립니다.</p>
-                        <div class="post-meta">
-                            <span><i class="fas fa-calendar"></i> 2026년 2월 2일</span>
-                            <span><i class="fas fa-eye"></i> 0 views</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- 포스트 2: 연구 주제 찾는 법 -->
-                <article class="post-card" data-category="연구방법론">
-                    <div class="post-image" style="background-image: url('https://i.ibb.co/4nfJkWR4/f9dd4447fce3.png'); background-size: cover; background-position: center;">
-                    </div>
-                    <div class="post-content">
-                        <span class="post-category">연구방법론</span>
-                        <h2 class="post-title"><a href="/posts/how-to-find-research-topic.html">연구 주제 찾는 법: 엄마의 비닐봉지에서 시작된 과학탐구</a></h2>
-                        <p class="post-excerpt">막연하게 느껴지는 연구 주제 선정. 거창한 곳이 아닌 일상의 작은 의문에서 시작해 꼬리에 꼬리를 물며 구체화하는 방법을 알려드립니다.</p>
-                        <div class="post-meta">
-                            <span><i class="fas fa-calendar"></i> 2026년 2월 1일</span>
-                            <span><i class="fas fa-eye"></i> 0 views</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- 추가 포스트는 JavaScript로 동적 로딩됨 (Firestore 데이터) -->
+                <!-- 포스트는 JavaScript로 동적 로딩됨 (Firestore 데이터) -->
             </div>
 
             <!-- AdSense Display Ad - Removed for clean layout -->
@@ -1303,15 +1273,7 @@
         <div class="sidebar">
             <h3>인기 가이드</h3>
             <ul class="popular-posts" id="popular-posts">
-                <li class="popular-post">
-                    <a href="/posts/how-to-research-prior-studies.html" class="popular-post-title">선행연구 조사법: Introduction 읽기</a>
-                    <div class="popular-post-meta">2026년 2월 2일</div>
-                </li>
-                <li class="popular-post">
-                    <a href="/posts/how-to-find-research-topic.html" class="popular-post-title">연구 주제 찾는 법: 꼬리물기 기법</a>
-                    <div class="popular-post-meta">2026년 2월 1일</div>
-                </li>
-                <!-- 인기 포스트는 JavaScript로 동적 업데이트됨 -->
+                <!-- 인기 포스트는 JavaScript로 동적 업데이트됨 (Firestore 데이터) -->
             </ul>
 
             <h3 style="margin-top: 2rem;">카테고리</h3>
@@ -1602,32 +1564,9 @@ Example:
             }
         }
 
-        // 샘플 포스트 데이터 반환 (새로 작성한 글만 포함)
+        // 샘플 포스트 없음 - 모든 데이터는 Firestore에서 로드
         function getSamplePosts() {
-            return [
-                {
-                    id: 'how-to-research-prior-studies',
-                    title: '선행연구 조사법: Introduction만 읽어도 연구 흐름이 보인다',
-                    slug: 'how-to-research-prior-studies',
-                    category: '연구방법론',
-                    excerpt: '연구 주제를 구체화하려면 선행연구 조사가 필수입니다. 구글 스칼라, RISS 활용법부터 논문의 서론(Introduction)을 효과적으로 읽는 방법까지 알려드립니다.',
-                    content: '',
-                    date: '2026-02-02',
-                    views: 0,
-                    image: 'https://i.ibb.co/XfPXxt6f/7260c67f6a22.png'
-                },
-                {
-                    id: 'how-to-find-research-topic',
-                    title: '연구 주제 찾는 법: 엄마의 비닐봉지에서 시작된 과학탐구',
-                    slug: 'how-to-find-research-topic',
-                    category: '연구방법론',
-                    excerpt: '막연하게 느껴지는 연구 주제 선정. 거창한 곳이 아닌 일상의 작은 의문에서 시작해 꼬리에 꼬리를 물며 구체화하는 방법을 알려드립니다.',
-                    content: '',
-                    date: '2026-02-01',
-                    views: 0,
-                    image: 'https://i.ibb.co/4nfJkWR4/f9dd4447fce3.png'
-                }
-            ];
+            return [];
         }
 
         // Firestore 데이터와 샘플 데이터 병합
