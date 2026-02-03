@@ -2,8 +2,8 @@
   <!-- Background gradient matching site colors -->
   <defs>
     <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
     </linearGradient>
   </defs>
 
@@ -11,16 +11,20 @@
   <rect width="1200" height="630" fill="url(#grad)"/>
 
   <!-- Content -->
-  <text x="600" y="280" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="white" text-anchor="middle">
-    Yudam's Life
+  <text x="600" y="250" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="white" text-anchor="middle">
+    고등학생 과학논문 코칭
   </text>
 
-  <text x="600" y="350" font-family="Arial, sans-serif" font-size="36" fill="rgba(255,255,255,0.9)" text-anchor="middle">
-    Health, Fitness &amp; Lifestyle
+  <text x="600" y="340" font-family="Arial, sans-serif" font-size="32" fill="rgba(255,255,255,0.9)" text-anchor="middle">
+    10년 경력 대학 강사의 체계적인 논문 작성 가이드
+  </text>
+
+  <text x="600" y="420" font-family="Arial, sans-serif" font-size="28" fill="rgba(255,255,255,0.8)" text-anchor="middle">
+    논문작성법 | 연구방법론 | 과학탐구 | 대입준비
   </text>
 
   <!-- Website URL -->
-  <text x="600" y="520" font-family="Arial, sans-serif" font-size="28" fill="rgba(255,255,255,0.8)" text-anchor="middle">
+  <text x="600" y="540" font-family="Arial, sans-serif" font-size="28" fill="rgba(255,255,255,0.7)" text-anchor="middle">
     youdam.com
   </text>
 </svg>

@@ -2,8 +2,8 @@
   <!-- Background gradient -->
   <defs>
     <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
     </linearGradient>
   </defs>
 
@@ -11,21 +11,21 @@
   <rect width="600" height="315" fill="url(#logoGrad)"/>
 
   <!-- Logo Circle -->
-  <circle cx="300" cy="120" r="50" fill="white" opacity="0.2"/>
-  <circle cx="300" cy="120" r="35" fill="white"/>
+  <circle cx="300" cy="100" r="50" fill="white" opacity="0.2"/>
+  <circle cx="300" cy="100" r="35" fill="white"/>
 
-  <!-- Y letter in circle -->
-  <text x="300" y="145" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#7c3aed" text-anchor="middle">
-    Y
+  <!-- Book icon in circle -->
+  <text x="300" y="115" font-family="Arial, sans-serif" font-size="36" fill="#2563eb" text-anchor="middle">
+    📚
   </text>
 
   <!-- Brand name -->
-  <text x="300" y="220" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle">
-    Yudam's Life
+  <text x="300" y="200" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle">
+    과학논문코칭
   </text>
 
   <!-- Tagline -->
-  <text x="300" y="260" font-family="Arial, sans-serif" font-size="20" fill="rgba(255,255,255,0.9)" text-anchor="middle">
-    Health, Fitness &amp; Lifestyle
+  <text x="300" y="250" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.9)" text-anchor="middle">
+    고등학생을 위한 체계적인 논문 작성 가이드
   </text>
 </svg>

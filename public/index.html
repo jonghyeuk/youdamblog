@@ -454,7 +454,7 @@
             font-weight: 300;
         }
 
-        /* Update hero stats for health focus */
+        /* Main content layout */
         .main-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -1814,10 +1814,6 @@ Example:
                 console.error("❌ Initialization failed:", error);
                 loadFromLocalStorageFallback();
             }
-            
-            if (window.adsbygoogle) {
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            }
         });
 
         // Admin functions
@@ -2221,14 +2217,6 @@ Example:
             }
 
             container.innerHTML = postsHTML;
-
-            if (window.adsbygoogle) {
-                try {
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                } catch (e) {
-                    console.log('AdSense not ready yet');
-                }
-            }
         }
 
         function showPost(id) {
