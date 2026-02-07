@@ -578,6 +578,357 @@ const samplePosts = [
     date: '2025-02-01',
     views: 0,
     image: null
+  },
+  {
+    id: 'school-activity-yearly-focusing-strategy',
+    title: '학교 내부 활동의 중요성: 고1부터 고3까지 학년별 포커싱 전략',
+    slug: 'school-activity-yearly-focusing-strategy',
+    category: '대입준비',
+    excerpt: '학생부종합전형은 선생님이 쓰는 기록입니다. 고1의 다양한 탐색에서 고3의 집중까지, 학년별 활동 전략과 선생님과의 소통이 왜 핵심인지 알려드립니다.',
+    content: `
+      <h2>학종의 본질: 선생님이 쓰는 기록</h2>
+      <p>학생부종합전형(학종)을 준비하는 학생들이 가장 먼저 이해해야 할 사실이 있습니다. <strong>학생부는 선생님이 쓰는 것</strong>이라는 점입니다.</p>
+      <p>아무리 대단한 활동을 했어도, 그것이 학생부에 담기지 않으면 입학사정관은 알 수 없습니다. 그리고 학생부를 쓰는 것은 선생님입니다. 그렇기 때문에 학교 내부 활동과 선생님과의 소통은 학종 준비의 <strong>가장 핵심적인 요소</strong>입니다.</p>
+
+      <h2>왜 학교 내부 활동이 중요한가?</h2>
+      <p>외부 활동(대회 수상, 외부 R&E 등)이 아무리 화려해도, 학생부에 기록될 수 있는 것은 <strong>학교 내부에서 이루어진 활동</strong>이 중심입니다. 교육부 정책 변화로 외부 수상 실적의 기재가 제한되면서, 학교 안에서 무엇을 했는지가 더욱 중요해졌습니다.</p>
+      <ul>
+        <li><strong>교과 세특(세부능력 및 특기사항)</strong>: 수업 시간에 보여준 탐구 역량</li>
+        <li><strong>창의적 체험활동</strong>: 동아리, 봉사, 진로 활동 기록</li>
+        <li><strong>행동특성 및 종합의견</strong>: 담임선생님이 작성하는 총평</li>
+      </ul>
+      <p>이 모든 것이 <strong>학교 안에서</strong> 만들어지는 기록입니다.</p>
+
+      <h2>고1: 다양한 탐색의 시기</h2>
+      <p>고등학교 1학년은 <strong>탐색의 시기</strong>입니다. 이때 가장 중요한 것은 다양한 프로그램에 적극적으로 참여하는 것입니다.</p>
+
+      <h3>왜 다양하게 해야 하는가?</h3>
+      <p>고1 때 여러 분야를 경험하는 것은 단순한 방황이 아닙니다. 이것은 <strong>진로 탐색의 과정</strong>이며, 나중에 "왜 이 분야를 선택했는가"에 대한 스토리의 시작점이 됩니다.</p>
+      <ul>
+        <li>교내 과학탐구대회, 수학경시대회, 독서토론대회 등 <strong>다양한 대회 참가</strong></li>
+        <li>여러 동아리 체험 또는 자율동아리 만들기</li>
+        <li>수업 시간 발표, 보고서 작성에 적극 참여</li>
+        <li>관심 분야 독서 후 독서 기록 남기기</li>
+      </ul>
+      <p>이 시기에는 "깊이"보다 <strong>"폭"</strong>이 중요합니다. 다양한 경험 속에서 자신이 진짜 흥미를 느끼는 분야를 발견하는 것이 목표입니다.</p>
+
+      <h2>고2: 포커싱의 시작</h2>
+      <p>고1에서 다양하게 탐색했다면, 고2에서는 <strong>방향을 좁혀야</strong> 합니다. 입학사정관이 보고 싶어하는 것은 "이 학생이 어떤 분야에 진심인가"입니다.</p>
+
+      <h3>포커싱 전략</h3>
+      <ol>
+        <li><strong>관심 분야 2-3개로 축소</strong>: 고1에서 경험한 것 중 가장 흥미로웠던 분야 선택</li>
+        <li><strong>심화 탐구 시작</strong>: 교과 연계 보고서, 소논문, 심화 실험</li>
+        <li><strong>동아리 활동 집중</strong>: 관련 동아리에서 리더십 발휘</li>
+        <li><strong>교과 세특 전략적 관리</strong>: 희망 전공과 연결되는 탐구 활동 수행</li>
+      </ol>
+      <p>고2의 활동은 고1의 다양한 경험에서 <strong>자연스럽게 이어지는 스토리</strong>여야 합니다. "고1 때 여러 분야를 접하다가 특히 OO에 관심이 생겨서 깊이 파고들었다"는 서사가 만들어져야 합니다.</p>
+
+      <h2>고3: 완성과 집중</h2>
+      <p>고3은 지금까지의 활동을 <strong>하나의 이야기로 완성</strong>하는 시기입니다.</p>
+      <ul>
+        <li><strong>핵심 분야 1-2개에 올인</strong>: 가장 자신 있는 분야에 집중</li>
+        <li><strong>기존 탐구의 심화/확장</strong>: 고2에서 한 연구를 더 깊이 파고들기</li>
+        <li><strong>자기소개서 연계</strong>: 활동이 자기소개서의 소재가 될 수 있도록 정리</li>
+        <li><strong>면접 대비</strong>: 자신의 활동에 대해 논리적으로 설명하는 연습</li>
+      </ul>
+
+      <h2>선생님과의 소통: 학종의 숨은 핵심</h2>
+      <p>여기서 가장 중요한 이야기를 하겠습니다. <strong>선생님과의 소통</strong>입니다.</p>
+      <p>학생부는 선생님이 씁니다. 선생님이 여러분의 활동과 성장을 <strong>알아야</strong> 기록할 수 있습니다. 그런데 선생님은 한 반에 30명, 여러 반을 담당하십니다. 모든 학생의 활동을 자동으로 파악하기는 어렵습니다.</p>
+
+      <h3>선생님에게 관심을 인식시키는 방법</h3>
+      <blockquote style="background: #f0f7ff; padding: 20px; border-left: 4px solid #2563eb; margin: 20px 0;">
+      "선생님, 저 이런 분야에 관심이 많은데요. 이번 수업 내용과 관련해서 더 알아보고 싶어요."
+      </blockquote>
+      <p>이 한마디가 만들어내는 변화는 큽니다. 선생님 입장에서는 학생에 대한 <strong>"관심 인식"</strong>이 생깁니다.</p>
+      <ul>
+        <li><strong>수업 후 질문</strong>: 수업 내용에서 궁금한 점을 찾아 질문하세요</li>
+        <li><strong>탐구 계획 공유</strong>: "이런 주제로 더 알아보려고 하는데 조언 부탁드립니다"</li>
+        <li><strong>중간 결과 보고</strong>: 탐구 과정에서 발견한 것을 선생님과 공유</li>
+        <li><strong>피드백 반영</strong>: 선생님의 조언을 실제로 반영하고 그 결과를 보여주기</li>
+      </ul>
+      <p>어떤 피드백을 받든, 중요한 것은 선생님이 여러분에 대해 <strong>"이 학생은 OO에 진심이구나"</strong>라는 인식을 갖게 되는 것입니다. 이 인식이 학생부 기록에 자연스럽게 반영됩니다.</p>
+
+      <h3>담임선생님과의 관계</h3>
+      <p>담임선생님은 "행동특성 및 종합의견"을 작성합니다. 이것은 학생의 전체적인 모습을 보여주는 기록입니다.</p>
+      <ul>
+        <li>정기적으로 진로 상담을 요청하세요</li>
+        <li>자신의 활동과 고민을 솔직하게 이야기하세요</li>
+        <li>담임선생님이 여러분의 성장 과정을 <strong>직접 목격</strong>할 수 있게 하세요</li>
+      </ul>
+
+      <h2>학년별 활동 요약표</h2>
+      <table style="width:100%; border-collapse: collapse; margin: 20px 0;">
+        <tr style="background: #f0f0f0;">
+          <th style="border: 1px solid #ddd; padding: 10px;">학년</th>
+          <th style="border: 1px solid #ddd; padding: 10px;">활동 방향</th>
+          <th style="border: 1px solid #ddd; padding: 10px;">선생님 소통</th>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #ddd; padding: 10px;"><strong>고1</strong></td>
+          <td style="border: 1px solid #ddd; padding: 10px;">다양한 탐색, 폭넓은 경험</td>
+          <td style="border: 1px solid #ddd; padding: 10px;">"여러 분야에 관심이 많아요"</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #ddd; padding: 10px;"><strong>고2</strong></td>
+          <td style="border: 1px solid #ddd; padding: 10px;">2-3개 분야로 포커싱, 심화 탐구</td>
+          <td style="border: 1px solid #ddd; padding: 10px;">"이 분야를 더 깊이 하고 싶어요"</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #ddd; padding: 10px;"><strong>고3</strong></td>
+          <td style="border: 1px solid #ddd; padding: 10px;">핵심 1-2개 집중, 스토리 완성</td>
+          <td style="border: 1px solid #ddd; padding: 10px;">"이 활동이 저를 이렇게 성장시켰어요"</td>
+        </tr>
+      </table>
+
+      <h2>마무리: 활동 관리는 전략이다</h2>
+      <p>학종 준비는 단순히 "많이 하는 것"이 아닙니다. <strong>고1의 다양한 탐색 → 고2의 포커싱 → 고3의 완성</strong>이라는 큰 흐름 속에서, 일관된 성장 스토리를 만들어 가는 것입니다.</p>
+      <p>그리고 이 모든 과정에서 <strong>선생님과의 소통</strong>은 필수입니다. 학생부는 선생님이 쓰는 기록이니까요. 선생님이 여러분의 관심과 노력과 성장을 직접 알고 계셔야, 그 이야기가 학생부에 생생하게 담깁니다.</p>
+      <p>오늘부터 시작해보세요. 다음 수업 후, 선생님께 한 가지 질문을 던져보는 것부터요.</p>
+    `,
+    date: '2025-02-07',
+    views: 0,
+    image: null
+  },
+  {
+    id: 'bean-sprout-growth-experiment',
+    title: '콩나물 성장 조건 탐구: 일상 속 실험에서 식량 전략까지',
+    slug: 'bean-sprout-growth-experiment',
+    category: '과학탐구',
+    excerpt: '콩나물 키우기는 누구나 할 수 있는 가장 쉬운 과학 실험입니다. 빛, 온도, 수분 조건을 바꿔가며 성장을 관찰하고, 이를 식량 생산 전략으로 확장하는 탐구 과정을 소개합니다.',
+    content: `
+      <h2>왜 콩나물인가?</h2>
+      <p>과학탐구 주제를 고민할 때 가장 어려운 것이 "실현 가능성"입니다. 비싼 장비, 특수한 재료, 복잡한 실험 절차... 이런 조건 때문에 많은 학생들이 주제 선정 단계에서 막힙니다.</p>
+      <p><strong>콩나물은 이 모든 고민을 해결합니다.</strong></p>
+      <ul>
+        <li>재료비: 콩 한 봉지 2,000원</li>
+        <li>장비: 페트병, 거즈, 물만 있으면 됨</li>
+        <li>기간: 5-7일이면 충분한 데이터 수집</li>
+        <li>난이도: 초등학생도 할 수 있을 만큼 쉬움</li>
+      </ul>
+      <p>하지만 쉽다고 해서 가치가 없는 것은 아닙니다. 중요한 것은 <strong>어떤 질문을 던지느냐</strong>입니다.</p>
+
+      <h2>실험 설계: 변인 설정하기</h2>
+      <p>콩나물 성장 실험의 핵심은 <strong>조건을 하나씩 바꿔가며</strong> 성장 차이를 관찰하는 것입니다.</p>
+
+      <h3>실험 1: 빛의 영향</h3>
+      <table style="width:100%; border-collapse: collapse; margin: 20px 0;">
+        <tr style="background: #f0f0f0;">
+          <th style="border: 1px solid #ddd; padding: 10px;">변인</th>
+          <th style="border: 1px solid #ddd; padding: 10px;">내용</th>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #ddd; padding: 10px;">독립변인</td>
+          <td style="border: 1px solid #ddd; padding: 10px;">빛의 유무 (어둠 / 자연광 / 형광등)</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #ddd; padding: 10px;">종속변인</td>
+          <td style="border: 1px solid #ddd; padding: 10px;">콩나물 길이(cm), 줄기 굵기, 색깔</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #ddd; padding: 10px;">통제변인</td>
+          <td style="border: 1px solid #ddd; padding: 10px;">물 주는 양, 온도, 콩 품종, 용기 크기</td>
+        </tr>
+      </table>
+      <p><strong>예상 결과:</strong> 어두운 곳에서 자란 콩나물이 더 길지만 줄기가 가늘고 노란색, 빛을 받은 콩나물은 짧지만 굵고 초록색일 것입니다. 이것이 바로 <strong>황화현상(etiolation)</strong>입니다.</p>
+
+      <h3>실험 2: 물 주는 빈도의 영향</h3>
+      <ul>
+        <li>조건 A: 하루 1회 물주기</li>
+        <li>조건 B: 하루 3회 물주기</li>
+        <li>조건 C: 하루 6회 물주기</li>
+      </ul>
+      <p>수분 공급 빈도에 따라 성장 속도와 뿌리 발달이 어떻게 달라지는지 관찰합니다.</p>
+
+      <h3>실험 3: 온도의 영향</h3>
+      <ul>
+        <li>조건 A: 냉장고 안 (약 5도C)</li>
+        <li>조건 B: 실온 (약 22도C)</li>
+        <li>조건 C: 따뜻한 곳 (약 30도C)</li>
+      </ul>
+      <p>온도에 따른 발아율과 성장 속도를 비교합니다. 효소 활성 온도와 연결 지어 해석할 수 있습니다.</p>
+
+      <h2>데이터 수집과 기록</h2>
+      <p>매일 같은 시간에 다음을 측정하고 기록합니다:</p>
+      <ol>
+        <li><strong>길이 측정</strong>: 자로 줄기 길이를 밀리미터 단위로 측정</li>
+        <li><strong>사진 촬영</strong>: 같은 각도, 같은 배경에서 촬영 (비교용)</li>
+        <li><strong>색깔 관찰</strong>: 노랑, 연두, 초록 등 색 변화 기록</li>
+        <li><strong>뿌리 발달</strong>: 뿌리 길이와 밀도 관찰</li>
+        <li><strong>발아율</strong>: 전체 콩 중 발아한 비율 계산</li>
+      </ol>
+      <blockquote style="background: #f0f7ff; padding: 20px; border-left: 4px solid #2563eb; margin: 20px 0;">
+      <strong>팁:</strong> 최소 10개 이상의 콩나물을 각 조건에 배치하세요. 개체 차이에 의한 오차를 줄이기 위해 평균값을 사용하는 것이 중요합니다.
+      </blockquote>
+
+      <h2>결과 분석: 그래프로 보여주기</h2>
+      <p>수집한 데이터는 <strong>성장 곡선 그래프</strong>로 정리합니다.</p>
+      <ul>
+        <li><strong>X축</strong>: 날짜 (1일, 2일, 3일...)</li>
+        <li><strong>Y축</strong>: 콩나물 평균 길이 (cm)</li>
+        <li><strong>선</strong>: 각 조건별로 다른 색 또는 선 스타일</li>
+      </ul>
+      <p>그래프에서 조건별 성장 속도 차이가 시각적으로 드러나면, 설득력 있는 결과가 됩니다.</p>
+
+      <h2>식량 전략으로의 확장</h2>
+      <p>여기서 탐구가 끝나면 "콩나물 키우기 보고서"에 불과합니다. <strong>진짜 과학탐구</strong>는 이 결과를 더 큰 맥락으로 연결하는 데 있습니다.</p>
+
+      <h3>도시 농업과 식량 안보</h3>
+      <p>콩나물은 토양 없이, 좁은 공간에서, 짧은 기간에 재배할 수 있는 작물입니다. 이 특성은 다음과 같은 실제 문제와 연결됩니다:</p>
+      <ul>
+        <li><strong>도시 농업</strong>: 아파트에서도 가능한 식량 생산</li>
+        <li><strong>식량 위기 대비</strong>: 재난 상황에서 빠르게 재배 가능한 작물 연구</li>
+        <li><strong>우주 식량</strong>: NASA의 우주 식물 재배 연구와 연결</li>
+        <li><strong>개발도상국 영양 공급</strong>: 저비용 고영양 식품으로서의 가능성</li>
+      </ul>
+      <p>"최적의 콩나물 성장 조건을 찾는 것"이 곧 <strong>"제한된 자원으로 최대의 식량을 생산하는 전략"</strong>이 됩니다.</p>
+
+      <h3>논문 제목 예시</h3>
+      <p>같은 실험이라도 제목에 따라 깊이가 달라집니다:</p>
+      <table style="width:100%; border-collapse: collapse; margin: 20px 0;">
+        <tr style="background: #ffebee;">
+          <td style="border: 1px solid #ddd; padding: 10px;"><strong>평범한 제목</strong></td>
+          <td style="border: 1px solid #ddd; padding: 10px;">콩나물 성장에 영향을 미치는 요인</td>
+        </tr>
+        <tr style="background: #e8f5e9;">
+          <td style="border: 1px solid #ddd; padding: 10px;"><strong>전략적 제목</strong></td>
+          <td style="border: 1px solid #ddd; padding: 10px;">도시 환경에서의 효율적 콩나물 재배 조건 최적화: 빛, 온도, 수분 변인 분석</td>
+        </tr>
+      </table>
+
+      <h2>주의사항과 실험 윤리</h2>
+      <ol>
+        <li><strong>반복 실험</strong>: 최소 3회 이상 반복하여 결과의 신뢰도를 확보하세요</li>
+        <li><strong>대조군 설정</strong>: 반드시 아무 조작도 하지 않은 대조군을 포함하세요</li>
+        <li><strong>정직한 기록</strong>: 예상과 다른 결과가 나와도 그대로 기록하세요</li>
+        <li><strong>위생 관리</strong>: 곰팡이 발생에 주의하고, 오염된 시료는 제외 이유를 기록하세요</li>
+      </ol>
+
+      <h2>마무리</h2>
+      <p>콩나물 실험은 <strong>과학탐구의 모든 요소</strong>를 연습할 수 있는 최고의 입문 주제입니다. 변인 설정, 데이터 수집, 그래프 분석, 결론 도출 그리고 실제 문제와의 연결까지.</p>
+      <p>시작이 쉽다는 것은 약점이 아니라 <strong>강점</strong>입니다. 쉽게 시작해서 깊이 있게 파고드는 것, 그것이 진짜 과학적 사고입니다. 오늘 마트에서 콩 한 봉지를 사오는 것부터 시작해보세요.</p>
+    `,
+    date: '2025-02-07',
+    views: 0,
+    image: null
+  },
+  {
+    id: 'village-event-statistical-analysis',
+    title: '마을 속 사건의 연관성 분석: 통계적 가설 검증으로 진실 찾기',
+    slug: 'village-event-statistical-analysis',
+    category: '과학탐구',
+    excerpt: '드라마에서 영감을 받은 과학탐구 주제입니다. 한 마을에서 벌어지는 사건들의 연관성을 통계적으로 분석하고, 가설을 세우고 검증하며 하나씩 지워가는 논리적 탐구 과정을 소개합니다.',
+    content: `
+      <h2>드라마에서 시작된 과학적 질문</h2>
+      <p>추리 드라마를 보면 이런 장면이 나옵니다. 한 마을에서 특이한 사건들이 연달아 벌어집니다. 주민들은 "우연이겠지"라고 말하지만, 주인공은 "이건 우연이 아니야"라고 직감합니다.</p>
+      <p>그런데 이 질문을 과학적으로 던져봅시다. <strong>"정말 우연이 아닌지, 어떻게 증명할 수 있을까?"</strong></p>
+      <p>이것이 바로 <strong>통계적 가설 검증</strong>의 핵심 질문입니다. 그리고 이 과정은 취미처럼 조금씩, 논리적으로 사고하며 진행할 수 있는 매력적인 탐구 주제입니다.</p>
+
+      <h2>가설 검증의 기본 구조</h2>
+      <p>통계적 가설 검증은 <strong>"가정을 세우고, 데이터로 검증하며, 맞지 않는 가정을 하나씩 지워가는 과정"</strong>입니다.</p>
+
+      <h3>귀무가설과 대립가설</h3>
+      <table style="width:100%; border-collapse: collapse; margin: 20px 0;">
+        <tr style="background: #f0f0f0;">
+          <th style="border: 1px solid #ddd; padding: 10px;">용어</th>
+          <th style="border: 1px solid #ddd; padding: 10px;">의미</th>
+          <th style="border: 1px solid #ddd; padding: 10px;">마을 사건 예시</th>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #ddd; padding: 10px;"><strong>귀무가설 (H0)</strong></td>
+          <td style="border: 1px solid #ddd; padding: 10px;">"아무 관계가 없다"는 가정</td>
+          <td style="border: 1px solid #ddd; padding: 10px;">마을의 질병 발생과 공장 위치는 관련이 없다</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #ddd; padding: 10px;"><strong>대립가설 (H1)</strong></td>
+          <td style="border: 1px solid #ddd; padding: 10px;">"관계가 있다"는 주장</td>
+          <td style="border: 1px solid #ddd; padding: 10px;">공장에 가까울수록 질병 발생률이 높다</td>
+        </tr>
+      </table>
+      <p>과학에서는 "있다"를 증명하는 것이 아니라, <strong>"없다"는 가정이 틀렸음을 보이는 방식</strong>으로 접근합니다. 이것이 가설 검증의 핵심 논리입니다.</p>
+
+      <h2>마을 사건 분석: 구체적 예시</h2>
+      <p>가상의 시나리오를 만들어 봅시다.</p>
+      <blockquote style="background: #f0f7ff; padding: 20px; border-left: 4px solid #2563eb; margin: 20px 0;">
+      <strong>시나리오:</strong> A마을에서 최근 5년간 특정 질환 환자가 인근 마을보다 많이 발생하고 있다. 마을 주민들은 3년 전 마을 근처에 들어선 시설과 관련이 있다고 의심하고 있다.
+      </blockquote>
+
+      <h3>단계 1: 데이터 수집</h3>
+      <p>객관적인 숫자를 모읍니다:</p>
+      <ul>
+        <li>A마을과 비교 마을(B, C)의 연도별 해당 질환 발생 건수</li>
+        <li>각 마을의 인구수 (발생률 계산을 위해)</li>
+        <li>시설 가동 전후의 데이터 분리</li>
+        <li>환자 거주지의 시설과의 거리</li>
+      </ul>
+
+      <h3>단계 2: 기초 통계 분석</h3>
+      <p>먼저 <strong>기술 통계</strong>로 전체 그림을 봅니다:</p>
+      <ul>
+        <li><strong>평균</strong>: A마을의 평균 발생률 vs B, C 마을의 평균 발생률</li>
+        <li><strong>표준편차</strong>: 데이터가 얼마나 흩어져 있는가</li>
+        <li><strong>추세</strong>: 시간에 따라 증가하고 있는가</li>
+      </ul>
+
+      <h3>단계 3: 유의성 검정</h3>
+      <p>여기서 <strong>유효숫자</strong>와 <strong>통계적 유의성</strong>이 중요해집니다.</p>
+      <p>"A마을의 발생률이 더 높아 보이는데, 이것이 우연일 확률은 얼마인가?"</p>
+      <ul>
+        <li><strong>카이제곱 검정</strong>: 마을별 발생 빈도가 기대값과 유의미하게 다른지 확인</li>
+        <li><strong>t-검정</strong>: 두 마을 간 평균 발생률 차이가 통계적으로 유의한지 확인</li>
+        <li><strong>p-value</strong>: 0.05보다 작으면 "우연이 아닐 가능성이 높다"고 판단</li>
+      </ul>
+      <blockquote style="background: #fff3e0; padding: 20px; border-left: 4px solid #ff9800; margin: 20px 0;">
+      <strong>유효숫자의 중요성:</strong> 발생률이 3.2%와 3.7%라면 차이가 있는 것처럼 보이지만, 표본 수가 30명이라면 이 차이는 통계적으로 의미가 없을 수 있습니다. 숫자의 정밀도와 표본 크기를 함께 고려해야 합니다.
+      </blockquote>
+
+      <h2>가정을 세우고 지워가는 과정</h2>
+      <p>이 탐구의 가장 매력적인 부분은 <strong>소거법</strong>입니다. 여러 가정(가설)을 세우고, 데이터로 하나씩 검증하며 맞지 않는 것을 지워갑니다.</p>
+
+      <h3>가정 목록 예시</h3>
+      <ol>
+        <li><strong>가정 1</strong>: 시설에서 배출되는 물질이 원인이다 → 거리별 발생률 분석으로 검증</li>
+        <li><strong>가정 2</strong>: 마을의 고령화가 원인이다 → 연령별 보정 후 재분석</li>
+        <li><strong>가정 3</strong>: 식수원이 다르기 때문이다 → 식수원별 수질 데이터 비교</li>
+        <li><strong>가정 4</strong>: 단순한 우연의 일치다 → 통계적 유의성 검정</li>
+      </ol>
+      <p>각 가정을 데이터로 검증하여 <strong>"이 가정은 데이터와 맞지 않으므로 기각한다"</strong>고 결론 내리는 과정이 반복됩니다. 마치 탐정이 용의자를 하나씩 제외하듯이요.</p>
+
+      <h2>이 탐구가 특별한 이유</h2>
+
+      <h3>1. 논리적 사고 훈련</h3>
+      <p>감이 아닌 <strong>데이터</strong>로 판단하는 습관을 기릅니다. "느낌상 그런 것 같다"가 아니라, "p-value가 0.03이므로 95% 신뢰수준에서 유의하다"로 말할 수 있게 됩니다.</p>
+
+      <h3>2. 취미처럼 조금씩 가능</h3>
+      <p>이 탐구는 한 번에 끝내지 않아도 됩니다:</p>
+      <ul>
+        <li>1주차: 시나리오 설정, 가설 수립</li>
+        <li>2주차: 데이터 수집 방법 설계</li>
+        <li>3주차: 가상 데이터 생성 또는 공공 데이터 수집</li>
+        <li>4주차: 기초 통계 분석</li>
+        <li>5-6주차: 가설 검증, 결론 도출</li>
+      </ul>
+
+      <h3>3. 실제 사회 문제와 연결</h3>
+      <p>이 방법론은 실제로 역학 조사, 환경 영향 평가, 범죄 분석 등에서 사용됩니다. 고등학생 수준에서 이런 방법론을 경험하는 것은 매우 의미 있습니다.</p>
+
+      <h2>주의사항</h2>
+      <ul>
+        <li><strong>상관관계 ≠ 인과관계</strong>: 두 변수가 함께 변한다고 해서 하나가 원인이라고 단정할 수 없습니다</li>
+        <li><strong>표본 크기</strong>: 너무 적은 데이터로 결론 내리지 마세요</li>
+        <li><strong>교란 변수</strong>: 다른 요인이 결과에 영향을 줄 수 있음을 항상 고려하세요</li>
+        <li><strong>윤리적 고려</strong>: 실제 마을이나 개인을 특정하지 않도록 주의하세요</li>
+      </ul>
+
+      <h2>마무리</h2>
+      <p>통계적 가설 검증은 어렵게 느껴질 수 있지만, <strong>본질은 단순합니다</strong>. "가정을 세우고, 데이터로 확인하고, 맞지 않으면 지운다." 이 과정을 반복하는 것입니다.</p>
+      <p>드라마 속 탐정처럼, 데이터라는 증거를 가지고 논리적으로 진실에 다가가는 과정. 그 자체가 과학이고, 그 과정에서 기르는 논리적 사고력은 어떤 분야에서든 빛을 발합니다.</p>
+      <p>흥미로운 시나리오 하나를 설정하고, 오늘부터 조금씩 시작해보세요. 결론에 도달하는 그 순간의 쾌감은 드라마 못지않습니다.</p>
+    `,
+    date: '2025-02-07',
+    views: 0,
+    image: null
   }
 ];
 
