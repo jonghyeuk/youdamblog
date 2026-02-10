@@ -932,6 +932,29 @@ const samplePosts = [
   }
 ];
 
+// 관련 글 링크 생성 함수
+function getRelatedPostsHTML(currentPost) {
+  // 같은 카테고리 우선, 그 다음 다른 카테고리
+  const sameCategory = samplePosts.filter(p => p.id !== currentPost.id && p.category === currentPost.category);
+  const otherCategory = samplePosts.filter(p => p.id !== currentPost.id && p.category !== currentPost.category);
+  const related = [...sameCategory, ...otherCategory].slice(0, 3);
+
+  if (related.length === 0) return '<p><a href="/">← 전체 글 목록으로 돌아가기</a></p>';
+
+  let html = '<ul style="list-style: none; padding: 0;">';
+  related.forEach(p => {
+    html += `<li style="margin-bottom: 1rem; padding: 1rem; background: var(--bg-light); border-radius: 8px;">
+      <a href="/posts/${p.slug}.html" style="text-decoration: none; color: var(--text-dark);">
+        <span style="display: inline-block; background: var(--primary-color); color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.8rem; margin-bottom: 0.3rem;">${p.category}</span><br>
+        <strong>${p.title}</strong>
+      </a>
+    </li>`;
+  });
+  html += '</ul>';
+  html += '<p style="margin-top: 1rem;"><a href="/">← 전체 글 목록으로 돌아가기</a></p>';
+  return html;
+}
+
 // 포스트 템플릿 생성 함수
 function generatePostHTML(post) {
   const imageSection = post.image
@@ -1407,8 +1430,8 @@ function generatePostHTML(post) {
         </article>
 
         <section class="related-posts">
-            <h3>다른 글 보기</h3>
-            <p><a href="/">← 전체 글 목록으로 돌아가기</a></p>
+            <h3>관련 글 추천</h3>
+            ${getRelatedPostsHTML(post)}
         </section>
     </main>
 

@@ -1,7 +1,7 @@
 {
   "name": "yudam-life-blog",
   "version": "1.0.0",
-  "description": "Yudam's Life - Health, Fitness & Lifestyle Blog",
+  "description": "고등학생 과학논문 코칭 - 10년 경력 대학 강사의 논문 작성 가이드",
   "main": "public/index.html",
   "scripts": {
     "prebuild": "node scripts/generate-static-pages.js",
@@ -13,12 +13,12 @@
     "init": "firebase init"
   },
   "keywords": [
-    "blog",
-    "health",
-    "fitness",
-    "lifestyle",
-    "wellness",
-    "personal-development"
+    "과학논문",
+    "고등학생",
+    "R&E",
+    "논문작성법",
+    "과학탐구",
+    "대입준비"
   ],
   "author": "Yudam",
   "license": "MIT",
@@ -33,5 +33,5 @@
     "type": "git",
     "url": "https://github.com/yourusername/yudam-life-blog"
   },
-  "homepage": "https://yudam-life.web.app"
+  "homepage": "https://youdam.com"
 }
