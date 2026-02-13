@@ -15,6 +15,13 @@ Allow: /
 User-agent: Googlebot-Image
 Allow: /
 
+# Naver crawlers
+User-agent: Yeti
+Allow: /
+
+User-agent: Naverbot
+Allow: /
+
 # Disallow admin functionality (security)
 Disallow: /admin
 Disallow: /#admin
@@ -28,6 +35,3 @@ Allow: /*.png
 Allow: /*.gif
 Allow: /*.webp
 Allow: /*.svg
-
-# Crawl-delay for polite crawling
-Crawl-delay: 1
