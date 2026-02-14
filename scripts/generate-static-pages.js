@@ -76,7 +76,7 @@ function getRelatedPostsHTML(currentPost) {
   let html = '<ul style="list-style: none; padding: 0;">';
   related.forEach(p => {
     html += `<li style="margin-bottom: 1rem; padding: 1rem; background: var(--bg-light); border-radius: 8px;">
-      <a href="/posts/${p.slug}.html" style="text-decoration: none; color: var(--text-dark);">
+      <a href="/posts/${p.slug}" style="text-decoration: none; color: var(--text-dark);">
         <span style="display: inline-block; background: var(--primary-color); color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.8rem; margin-bottom: 0.3rem;">${p.category}</span><br>
         <strong>${p.title}</strong>
       </a>
@@ -104,13 +104,13 @@ function generatePostHTML(post) {
     <meta name="description" content="${post.excerpt}">
     <meta name="author" content="Youdam">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://youdam.com/posts/${post.slug}.html">
+    <link rel="canonical" href="https://youdam.com/posts/${post.slug}">
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="article">
     <meta property="og:title" content="${post.title}">
     <meta property="og:description" content="${post.excerpt}">
-    <meta property="og:url" content="https://youdam.com/posts/${post.slug}.html">
+    <meta property="og:url" content="https://youdam.com/posts/${post.slug}">
     ${post.image ? `<meta property="og:image" content="${post.image}">` : '<meta property="og:image" content="https://youdam.com/images/og-image.svg">'}
     <meta property="og:site_name" content="고등학생 과학논문 코칭">
     <meta property="og:locale" content="ko_KR">
@@ -151,7 +151,7 @@ function generatePostHTML(post) {
       "author": {
         "@type": "Person",
         "name": "Youdam",
-        "url": "https://youdam.com/about.html"
+        "url": "https://youdam.com/about"
       },
       "publisher": {
         "@type": "Organization",
@@ -165,7 +165,7 @@ function generatePostHTML(post) {
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://youdam.com/posts/${post.slug}.html"
+        "@id": "https://youdam.com/posts/${post.slug}"
       },
       "articleSection": "${post.category}",
       "inLanguage": "ko-KR",
@@ -516,8 +516,8 @@ function generatePostHTML(post) {
 
             <ul class="nav-menu">
                 <li><a href="/">홈</a></li>
-                <li><a href="/about.html">소개</a></li>
-                <li><a href="/contact.html">문의</a></li>
+                <li><a href="/about">소개</a></li>
+                <li><a href="/contact">문의</a></li>
             </ul>
         </nav>
     </header>
@@ -573,10 +573,10 @@ function generatePostHTML(post) {
             <h3>고등학생 과학논문 코칭</h3>
             <p>10년 경력 대학 강사의 체계적인 논문 작성 가이드</p>
             <div class="footer-links">
-                <a href="/about.html">소개</a>
-                <a href="/contact.html">문의</a>
-                <a href="/privacy-policy.html">개인정보처리방침</a>
-                <a href="/terms-of-service.html">이용약관</a>
+                <a href="/about">소개</a>
+                <a href="/contact">문의</a>
+                <a href="/privacy-policy">개인정보처리방침</a>
+                <a href="/terms-of-service">이용약관</a>
             </div>
         </div>
         <div class="footer-bottom">
