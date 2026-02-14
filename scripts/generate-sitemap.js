@@ -8,10 +8,10 @@ console.log('🗺️  Generating sitemap.xml...');
 // 정적 페이지 목록
 const staticPages = [
   { url: '/', priority: 1.0, changefreq: 'daily' },
-  { url: '/about.html', priority: 0.8, changefreq: 'monthly' },
-  { url: '/contact.html', priority: 0.7, changefreq: 'monthly' },
-  { url: '/privacy-policy.html', priority: 0.5, changefreq: 'yearly' },
-  { url: '/terms-of-service.html', priority: 0.5, changefreq: 'yearly' }
+  { url: '/about', priority: 0.8, changefreq: 'monthly' },
+  { url: '/contact', priority: 0.7, changefreq: 'monthly' },
+  { url: '/privacy-policy', priority: 0.5, changefreq: 'yearly' },
+  { url: '/terms-of-service', priority: 0.5, changefreq: 'yearly' }
 ];
 
 // 포스트 디렉토리에서 HTML 파일 읽기
@@ -23,7 +23,7 @@ if (fs.existsSync(postsDir)) {
   postPages = files
     .filter(file => file.endsWith('.html'))
     .map(file => ({
-      url: `/posts/${file}`,
+      url: `/posts/${file.replace('.html', '')}`,
       priority: 0.9,
       changefreq: 'weekly'
     }));
