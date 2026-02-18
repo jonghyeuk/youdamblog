@@ -5,8 +5,9 @@
   "main": "public/index.html",
   "scripts": {
     "prebuild": "node scripts/generate-static-pages.js",
-    "build": "npm run prebuild && npm run generate-sitemap",
+    "build": "npm run prebuild && npm run generate-sitemap && npm run generate-rss",
     "generate-sitemap": "node scripts/generate-sitemap.js",
+    "generate-rss": "node scripts/generate-rss.js",
     "serve": "firebase serve",
     "deploy": "npm run build && firebase deploy",
     "start": "firebase serve --only hosting",

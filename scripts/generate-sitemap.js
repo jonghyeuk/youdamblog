@@ -11,7 +11,8 @@ const staticPages = [
   { url: '/about', priority: 0.8, changefreq: 'monthly' },
   { url: '/contact', priority: 0.7, changefreq: 'monthly' },
   { url: '/privacy-policy', priority: 0.5, changefreq: 'yearly' },
-  { url: '/terms-of-service', priority: 0.5, changefreq: 'yearly' }
+  { url: '/terms-of-service', priority: 0.5, changefreq: 'yearly' },
+  { url: '/download', priority: 0.7, changefreq: 'monthly' }
 ];
 
 // 포스트 디렉토리에서 HTML 파일 읽기

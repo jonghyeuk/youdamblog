@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin
 
 # Sitemap location
 Sitemap: https://youdam.com/sitemap.xml
@@ -21,17 +22,3 @@ Allow: /
 
 User-agent: Naverbot
 Allow: /
-
-# Disallow admin functionality (security)
-Disallow: /admin
-Disallow: /#admin
-
-# Allow all other content
-Allow: /*.css
-Allow: /*.js
-Allow: /*.jpg
-Allow: /*.jpeg
-Allow: /*.png
-Allow: /*.gif
-Allow: /*.webp
-Allow: /*.svg
