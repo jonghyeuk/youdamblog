@@ -33,14 +33,21 @@
     <meta name="google-adsense-account" content="ca-pub-3718064189631211">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3718064189631211" crossorigin="anonymous"></script>
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KTLD09Z6DB"></script>
+    <!-- Google Analytics (with Consent Mode v2) -->
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
+        gtag('consent', 'default', {
+            'analytics_storage': 'denied',
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'wait_for_update': 500
+        });
         gtag('js', new Date());
         gtag('config', 'G-KTLD09Z6DB');
     </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KTLD09Z6DB"></script>
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -609,7 +616,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 고등학생 과학논문 코칭. All rights reserved.</p>
+            <p>&copy; 2025 고등학생 과학논문 코칭. All rights reserved.</p>
         </div>
     </footer>
     <!-- Naver Analytics -->
@@ -618,6 +625,45 @@
     if(!wcs_add) var wcs_add = {};
     wcs_add["wa"] = "6e3835670e2324";
     if(window.wcs) { wcs_do(); }
+    </script>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-consent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1e293b;color:#fff;padding:1rem 1.5rem;z-index:10000;box-shadow:0 -2px 10px rgba(0,0,0,0.2);font-size:0.9rem;">
+        <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+            <p style="margin:0;flex:1;min-width:250px;line-height:1.5;">이 웹사이트는 Google Analytics 및 Google AdSense를 통해 쿠키를 사용합니다. 사이트 이용 시 쿠키 사용에 동의하게 됩니다. <a href="/privacy-policy" style="color:#60a5fa;text-decoration:underline;">개인정보처리방침</a></p>
+            <div style="display:flex;gap:0.5rem;flex-shrink:0;">
+                <button onclick="acceptCookies()" style="background:#2563eb;color:#fff;border:none;padding:0.5rem 1.5rem;border-radius:6px;cursor:pointer;font-size:0.9rem;font-weight:600;">모두 허용</button>
+                <button onclick="rejectCookies()" style="background:#475569;color:#fff;border:none;padding:0.5rem 1.5rem;border-radius:6px;cursor:pointer;font-size:0.9rem;font-weight:600;">모두 거부</button>
+            </div>
+        </div>
+    </div>
+    <script>
+    (function(){
+        var consent = localStorage.getItem('cookie_consent');
+        if (consent === 'accepted') { updateConsent(true); }
+        else if (consent === 'rejected') { updateConsent(false); }
+        else { document.getElementById('cookie-consent').style.display = 'block'; }
+    })();
+    function updateConsent(granted) {
+        if (typeof gtag === 'function') {
+            gtag('consent', 'update', {
+                'analytics_storage': granted ? 'granted' : 'denied',
+                'ad_storage': granted ? 'granted' : 'denied',
+                'ad_user_data': granted ? 'granted' : 'denied',
+                'ad_personalization': granted ? 'granted' : 'denied'
+            });
+        }
+    }
+    function acceptCookies() {
+        localStorage.setItem('cookie_consent', 'accepted');
+        updateConsent(true);
+        document.getElementById('cookie-consent').style.display = 'none';
+    }
+    function rejectCookies() {
+        localStorage.setItem('cookie_consent', 'rejected');
+        updateConsent(false);
+        document.getElementById('cookie-consent').style.display = 'none';
+    }
     </script>
 </body>
 </html>

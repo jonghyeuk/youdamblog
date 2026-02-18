@@ -16,6 +16,13 @@ Allow: /
 User-agent: Googlebot-Image
 Allow: /
 
+# Google AdsBot (must be explicitly named - wildcards don't match)
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: AdsBot-Google-Mobile
+Allow: /
+
 # Naver crawlers
 User-agent: Yeti
 Allow: /
