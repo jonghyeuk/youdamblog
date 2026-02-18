@@ -87,8 +87,25 @@ function getRelatedPostsHTML(currentPost) {
   return html;
 }
 
+// 네이버 SEO 정책: 타이틀 40자, description 80자 제한
+const BRAND_SUFFIX = ' | 과학논문코칭';
+function makeTitle(title) {
+  if ((title + BRAND_SUFFIX).length <= 40) return title + BRAND_SUFFIX;
+  return title.length <= 40 ? title : title.slice(0, 39) + '…';
+}
+function truncateDesc(text, maxLen) {
+  if (!text || text.length <= maxLen) return text;
+  return text.slice(0, maxLen - 1) + '…';
+}
+
 // 포스트 템플릿 생성 함수
 function generatePostHTML(post) {
+  const pageTitle = makeTitle(post.title);
+  const metaDesc = truncateDesc(post.excerpt, 80);
+  const ogTitle = post.title.length <= 40 ? post.title : post.title.slice(0, 39) + '…';
+  const ogDesc = metaDesc;
+  const defaultOgImage = 'https://youdam.com/images/og-image.png';
+
   const imageSection = post.image
     ? `<div style="text-align: center; margin-bottom: 2rem;">
          <img src="${post.image}" alt="${post.title}" class="article-featured-image" width="1200" height="630" loading="lazy">
@@ -100,18 +117,18 @@ function generatePostHTML(post) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${post.title} | 고등학생 과학논문 코칭</title>
-    <meta name="description" content="${post.excerpt}">
+    <title>${pageTitle}</title>
+    <meta name="description" content="${metaDesc}">
     <meta name="author" content="Youdam">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://youdam.com/posts/${post.slug}">
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="article">
-    <meta property="og:title" content="${post.title}">
-    <meta property="og:description" content="${post.excerpt}">
+    <meta property="og:title" content="${ogTitle}">
+    <meta property="og:description" content="${ogDesc}">
     <meta property="og:url" content="https://youdam.com/posts/${post.slug}">
-    ${post.image ? `<meta property="og:image" content="${post.image}">` : '<meta property="og:image" content="https://youdam.com/images/og-image.svg">'}
+    ${post.image ? `<meta property="og:image" content="${post.image}">` : `<meta property="og:image" content="${defaultOgImage}">`}
     <meta property="og:site_name" content="고등학생 과학논문 코칭">
     <meta property="og:locale" content="ko_KR">
     <meta property="article:published_time" content="${post.date}">
@@ -119,9 +136,9 @@ function generatePostHTML(post) {
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="${post.title}">
-    <meta name="twitter:description" content="${post.excerpt}">
-    ${post.image ? `<meta name="twitter:image" content="${post.image}">` : '<meta name="twitter:image" content="https://youdam.com/images/og-image.svg">'}
+    <meta name="twitter:title" content="${ogTitle}">
+    <meta name="twitter:description" content="${ogDesc}">
+    ${post.image ? `<meta name="twitter:image" content="${post.image}">` : `<meta name="twitter:image" content="${defaultOgImage}">`}
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#2563eb">
