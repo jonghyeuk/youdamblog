@@ -2385,7 +2385,7 @@ Example:
             if (typeof gtag !== 'undefined') {
                 gtag('config', 'G-KTLD09Z6DB', {
                     page_title: post.title,
-                    page_location: window.location.origin + '/post/' + post.id,
+                    page_location: window.location.origin + '/posts/' + post.id,
                     content_group1: post.category
                 });
                 
@@ -2590,7 +2590,7 @@ Example:
                     },
                     "mainEntityOfPage": {
                         "@type": "WebPage",
-                        "@id": "https://youdam.com/post/" + post.id
+                        "@id": "https://youdam.com/posts/" + post.id
                     },
                     "articleSection": post.category,
                     "wordCount": post.content.replace(/<[^>]*>/g, '').split(' ').length,
@@ -2610,7 +2610,7 @@ Example:
                         "width": 1200,
                         "height": 630
                     },
-                    "url": "https://youdam.com/post/" + post.id
+                    "url": "https://youdam.com/posts/" + post.id
                 });
             }
 
