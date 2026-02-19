@@ -1171,8 +1171,177 @@
             }
         }
 
-        // 기본 대기 글 목록 (비어있음 - 새 글은 관리자가 직접 추가)
-        var defaultDraftPosts = [];
+        // 기본 대기 글 목록
+        var defaultDraftPosts = [
+            {
+                id: 'draft-energy-1',
+                title: '전기에너지 효율 비교 실험: LED vs 백열등, 데이터로 증명하기',
+                category: '과학탐구 예시',
+                excerpt: '에너지 효율이라는 개념을 실험으로 직접 확인해봅니다. LED와 백열등의 전력 소비와 밝기를 측정하고, 효율을 계산하는 과정을 통해 과학탐구의 접근법을 배워보세요.',
+                content: '<h2>왜 이 주제가 좋은가?</h2>' +
+                    '<p>"에너지 효율"은 뉴스에서 맨날 나오는 단어지만, 정작 <strong>직접 측정해본 사람은 거의 없습니다.</strong> 이 실험은 그걸 숫자로 증명합니다.</p>' +
+                    '<p>과학탐구에서 가장 높은 점수를 받는 주제의 공통점이 있습니다:</p>' +
+                    '<ul>' +
+                    '<li>일상에서 출발한 궁금증</li>' +
+                    '<li>직접 측정 가능한 데이터</li>' +
+                    '<li>명확한 비교 구조</li>' +
+                    '</ul>' +
+                    '<p>전기에너지 효율 비교는 이 세 가지를 모두 갖추고 있어요.</p>' +
+
+                    '<h2>실험의 핵심 아이디어</h2>' +
+                    '<p><strong>"같은 밝기를 내는 데 어떤 전구가 전기를 덜 쓸까?"</strong></p>' +
+                    '<p>이게 핵심 질문입니다. 단순하죠? 하지만 이걸 제대로 실험하려면 생각보다 꽤 체계적인 설계가 필요합니다.</p>' +
+                    '<blockquote style="background: #f0f7ff; padding: 20px; border-left: 4px solid #2563eb; margin: 20px 0;">' +
+                    '좋은 과학탐구는 질문이 단순하고, 실험이 체계적이고, 결론이 명확합니다.</blockquote>' +
+
+                    '<h2>이렇게 접근하면 좋습니다</h2>' +
+                    '<h3>Step 1: 변인 설정</h3>' +
+                    '<table style="width: 100%; border-collapse: collapse; margin: 20px 0;">' +
+                    '<tr style="background: #f0f7ff;"><td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">변인</td><td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">내용</td></tr>' +
+                    '<tr><td style="border: 1px solid #ddd; padding: 10px;">독립변인</td><td style="border: 1px solid #ddd; padding: 10px;">전구의 종류 (LED, 백열등, 형광등)</td></tr>' +
+                    '<tr><td style="border: 1px solid #ddd; padding: 10px;">종속변인</td><td style="border: 1px solid #ddd; padding: 10px;">소비 전력(W), 조도(lux), 발열 온도(°C)</td></tr>' +
+                    '<tr><td style="border: 1px solid #ddd; padding: 10px;">통제변인</td><td style="border: 1px solid #ddd; padding: 10px;">측정 거리, 측정 시간, 전원 전압, 주변 조도</td></tr>' +
+                    '</table>' +
+
+                    '<h3>Step 2: 측정 도구</h3>' +
+                    '<p>비싼 장비가 필요 없습니다:</p>' +
+                    '<ul>' +
+                    '<li><strong>전력 측정</strong>: 가정용 전력 측정기 (콘센트형, 1만원대)</li>' +
+                    '<li><strong>밝기 측정</strong>: 스마트폰 조도계 앱 (무료) — 정밀하진 않지만 비교 실험에는 충분</li>' +
+                    '<li><strong>온도 측정</strong>: 적외선 온도계 또는 일반 온도계</li>' +
+                    '</ul>' +
+                    '<p>핵심은 <strong>동일한 조건에서 비교</strong>하는 것이지, 절대값의 정밀도가 아닙니다.</p>' +
+
+                    '<h3>Step 3: 실험 설계</h3>' +
+                    '<ol>' +
+                    '<li>암실(어두운 방)에서 전구를 동일한 소켓에 장착</li>' +
+                    '<li>30cm 거리에서 조도 측정 (3회 반복)</li>' +
+                    '<li>전력 측정기로 실제 소비 전력 기록</li>' +
+                    '<li>10분 점등 후 전구 표면 온도 측정</li>' +
+                    '<li><strong>에너지 효율 계산: 조도(lux) ÷ 소비전력(W) = lux/W</strong></li>' +
+                    '</ol>' +
+
+                    '<h3>Step 4: 결과 정리의 포인트</h3>' +
+                    '<p>단순히 "LED가 효율이 좋다"로 끝내면 아쉽습니다. 이렇게 확장해보세요:</p>' +
+                    '<ul>' +
+                    '<li><strong>정량적 비교</strong>: "LED는 백열등 대비 약 ○배 높은 효율을 보였다"</li>' +
+                    '<li><strong>발열과의 관계</strong>: "백열등은 전기에너지의 대부분을 열로 방출했다 → 에너지 전환 효율의 차이"</li>' +
+                    '<li><strong>경제적 환산</strong>: "하루 8시간 사용 시 한 달 전기요금 차이는 약 ○원"</li>' +
+                    '</ul>' +
+                    '<blockquote style="background: #f0fff4; padding: 20px; border-left: 4px solid #10b981; margin: 20px 0;">' +
+                    '심사위원 포인트: 단순 비교에서 끝나지 않고 "에너지 전환" 개념과 연결하면 물리학적 깊이가 생깁니다. 전기에너지 → 빛에너지 + 열에너지 전환 비율을 논하면 훨씬 수준 높은 탐구가 됩니다.</blockquote>' +
+
+                    '<h2>더 발전시키려면?</h2>' +
+                    '<p>기본 실험이 끝나면 이런 방향으로 확장할 수 있습니다:</p>' +
+                    '<ul>' +
+                    '<li>전구 수명 동안의 총 비용(구매가 + 전기료) 비교 → 경제성 분석</li>' +
+                    '<li>색온도에 따른 조도 차이 분석 → 빛의 스펙트럼 개념 도입</li>' +
+                    '<li>시간에 따른 밝기 변화 측정 → 열화(degradation) 분석</li>' +
+                    '</ul>' +
+
+                    '<h2>마무리</h2>' +
+                    '<p>이 실험의 강점은 <strong>누구나 할 수 있으면서도, 깊이를 얼마든지 더할 수 있다</strong>는 점입니다. 시작은 "어떤 전구가 좋아?" 같은 단순한 질문이지만, 에너지 전환 효율, 경제성 분석, 환경적 영향까지 확장하면 상당히 수준 높은 과학탐구가 됩니다.</p>' +
+                    '<p>핵심은 <strong>측정하고, 비교하고, 해석하는 것</strong>. 이 세 단계만 충실히 하면 됩니다.</p>'
+            },
+            {
+                id: 'draft-energy-2',
+                title: '위치에너지→운동에너지 전환 실험: 경사면 굴림으로 에너지 보존 확인하기',
+                category: '과학탐구 예시',
+                excerpt: '경사면에서 구슬을 굴리는 간단한 실험으로 위치에너지와 운동에너지의 전환, 그리고 역학적 에너지 보존 법칙을 직접 확인합니다. 접근 방법과 실험 설계를 단계별로 안내합니다.',
+                content: '<h2>왜 이 주제가 좋은가?</h2>' +
+                    '<p>높은 곳에서 공을 떨어뜨리면 빨라집니다. 당연한 거죠?</p>' +
+                    '<p>그런데 <strong>"얼마나 빨라지는지"를 예측하고, 실제로 측정해서 맞는지 확인</strong>하면 — 그게 과학탐구입니다.</p>' +
+                    '<p>위치에너지→운동에너지 전환 실험이 과학탐구로 좋은 이유:</p>' +
+                    '<ul>' +
+                    '<li><strong>이론값을 계산할 수 있다</strong> → 예측과 실험값 비교가 가능</li>' +
+                    '<li><strong>변인 통제가 명확하다</strong> → 높이만 바꾸면 됨</li>' +
+                    '<li><strong>오차 분석이 풍부하다</strong> → 마찰, 공기저항, 회전에너지 등 토론 거리가 많음</li>' +
+                    '</ul>' +
+                    '<blockquote style="background: #f0f7ff; padding: 20px; border-left: 4px solid #2563eb; margin: 20px 0;">' +
+                    '과학탐구에서 "이론과 실험이 딱 맞는 것"보다 더 좋은 건, "왜 안 맞는지 분석하는 것"입니다. 오차 분석을 잘하면 심사위원 점수가 확 올라갑니다.</blockquote>' +
+
+                    '<h2>핵심 원리 (간단하게)</h2>' +
+                    '<p>에너지 보존 법칙에 따라:</p>' +
+                    '<p style="text-align: center; font-size: 1.2rem; margin: 20px 0; padding: 15px; background: #f8fafc; border-radius: 8px;"><strong>mgh = ½mv²</strong></p>' +
+                    '<p>양변의 m(질량)이 소거되므로:</p>' +
+                    '<p style="text-align: center; font-size: 1.2rem; margin: 20px 0; padding: 15px; background: #f8fafc; border-radius: 8px;"><strong>v = √(2gh)</strong></p>' +
+                    '<p>즉, <strong>질량에 관계없이 높이만으로 속도가 결정</strong>됩니다. 이걸 실험으로 확인하는 거예요.</p>' +
+
+                    '<h2>이렇게 접근하면 좋습니다</h2>' +
+                    '<h3>Step 1: 변인 설정</h3>' +
+                    '<table style="width: 100%; border-collapse: collapse; margin: 20px 0;">' +
+                    '<tr style="background: #f0f7ff;"><td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">변인</td><td style="border: 1px solid #ddd; padding: 10px; font-weight: bold;">내용</td></tr>' +
+                    '<tr><td style="border: 1px solid #ddd; padding: 10px;">독립변인</td><td style="border: 1px solid #ddd; padding: 10px;">경사면 출발 높이 (10cm, 20cm, 30cm, 40cm, 50cm)</td></tr>' +
+                    '<tr><td style="border: 1px solid #ddd; padding: 10px;">종속변인</td><td style="border: 1px solid #ddd; padding: 10px;">경사면 끝에서의 구슬 속도 (m/s)</td></tr>' +
+                    '<tr><td style="border: 1px solid #ddd; padding: 10px;">통제변인</td><td style="border: 1px solid #ddd; padding: 10px;">구슬의 종류·질량, 경사면 재질, 출발 방법(정지 상태에서 놓기)</td></tr>' +
+                    '</table>' +
+
+                    '<h3>Step 2: 속도는 어떻게 측정할까?</h3>' +
+                    '<p>고등학생이 속도를 직접 측정하는 건 까다롭습니다. 이렇게 우회할 수 있어요:</p>' +
+                    '<p><strong>방법 A: 수평 도달 거리 이용 (추천!)</strong></p>' +
+                    '<ol>' +
+                    '<li>경사면 끝을 테이블 모서리에 맞춤</li>' +
+                    '<li>구슬이 경사면을 내려와 테이블 끝에서 수평으로 발사됨</li>' +
+                    '<li>바닥까지 떨어지는 동안의 수평 거리(x)를 측정</li>' +
+                    '<li>테이블 높이(H)를 알면: 낙하 시간 t = √(2H/g)</li>' +
+                    '<li>수평 속도 v = x / t</li>' +
+                    '</ol>' +
+                    '<p>이 방법이면 <strong>스톱워치 없이도 속도를 구할 수 있습니다!</strong></p>' +
+                    '<p><strong>방법 B: 스마트폰 슬로모션 영상</strong></p>' +
+                    '<ul>' +
+                    '<li>경사면 옆에 자를 놓고 슬로모션(240fps)으로 촬영</li>' +
+                    '<li>영상 프레임 분석으로 속도 계산</li>' +
+                    '</ul>' +
+
+                    '<h3>Step 3: 실험 절차</h3>' +
+                    '<ol>' +
+                    '<li>경사면(레일 또는 매끈한 판)을 설치하고, 높이별로 출발점 표시</li>' +
+                    '<li>각 높이에서 구슬을 <strong>정지 상태에서 놓기</strong> (밀면 안 됨!)</li>' +
+                    '<li>수평 도달 거리 측정 (먹지 또는 카본지를 바닥에 깔면 착지 지점 표시됨)</li>' +
+                    '<li><strong>각 높이에서 최소 5회 반복</strong> → 평균값 사용</li>' +
+                    '<li>이론값 v = √(2gh)와 실험값 비교</li>' +
+                    '</ol>' +
+
+                    '<h3>Step 4: 결과 분석의 핵심</h3>' +
+                    '<p>여기서 탐구의 깊이가 갈립니다:</p>' +
+                    '<p><strong>기본 분석:</strong></p>' +
+                    '<ul>' +
+                    '<li>높이별 이론 속도 vs 실험 속도 비교 표</li>' +
+                    '<li>높이-속도 그래프 (√ 함수 형태가 나와야 함)</li>' +
+                    '</ul>' +
+                    '<p><strong>심화 분석 (이걸 하면 점수가 올라갑니다):</strong></p>' +
+                    '<ul>' +
+                    '<li><strong>오차율 계산</strong>: (|이론값 - 실험값| / 이론값) × 100%</li>' +
+                    '<li><strong>오차 원인 분석</strong>: 왜 실험값이 이론값보다 작을까?</li>' +
+                    '</ul>' +
+                    '<blockquote style="background: #fff3e0; padding: 20px; border-left: 4px solid #ff9800; margin: 20px 0;">' +
+                    '실험값이 이론값보다 항상 작게 나옵니다. 그 이유를 정량적으로 설명할 수 있으면 최고입니다:<br><br>' +
+                    '• <strong>마찰력</strong>: 경사면과 구슬 사이의 마찰 → 열에너지로 손실<br>' +
+                    '• <strong>회전에너지</strong>: 구슬이 미끄러지지 않고 굴러가면, 위치에너지 일부가 회전에너지로 전환됨 (mgh = ½mv² + ½Iω²)<br>' +
+                    '• <strong>공기저항</strong>: 이 실험에서는 거의 무시 가능</blockquote>' +
+
+                    '<h2>질량을 바꿔보면?</h2>' +
+                    '<p>추가 실험으로 <strong>질량이 다른 구슬</strong>(쇠구슬, 유리구슬, 플라스틱 공)을 사용해보세요.</p>' +
+                    '<p>이론적으로는 질량과 무관하게 속도가 같아야 합니다. 실제로는?</p>' +
+                    '<ul>' +
+                    '<li>가벼운 공일수록 공기저항의 영향이 상대적으로 큼</li>' +
+                    '<li>재질에 따라 마찰계수가 다름</li>' +
+                    '<li>이 차이를 분석하면 "이론과 현실의 간극"을 논할 수 있음</li>' +
+                    '</ul>' +
+
+                    '<h2>보고서에서 강조할 점</h2>' +
+                    '<ol>' +
+                    '<li><strong>예측 → 실험 → 비교</strong> 구조를 명확히</li>' +
+                    '<li>반복 측정과 평균값 사용 (신뢰성)</li>' +
+                    '<li>오차 분석에서 물리적 원인을 구체적으로 서술</li>' +
+                    '<li>그래프에 이론 곡선과 실험 데이터를 함께 표시</li>' +
+                    '</ol>' +
+
+                    '<h2>마무리</h2>' +
+                    '<p>경사면 구슬 굴리기는 초등학교에서도 하는 실험입니다. 하지만 <strong>이론값 예측, 정밀 측정, 오차 분석, 에너지 손실 원인 규명</strong>까지 하면 — 고등학교 수준의 탐구가 됩니다.</p>' +
+                    '<p>쉬운 실험을 깊게 파는 게 어려운 실험을 대충 하는 것보다 훨씬 낫습니다. 이 주제로 시작해서 역학적 에너지 보존의 "한계"까지 논해보세요.</p>'
+            }
+        ];
 
         // Legacy default posts removed
         var _legacyRemoved = [
