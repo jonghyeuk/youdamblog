@@ -74,11 +74,13 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     
-    <!-- Fonts -->
+    <!-- Fonts (non-render-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     
     <!-- Google Analytics (deferred until cookie consent) -->
     <script>
@@ -96,70 +98,7 @@
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KTLD09Z6DB"></script>
 
-    <!-- Firebase SDK -->
-    <script type="module">
-        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js';
-        import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js';
-        import { 
-            getFirestore, 
-            collection, 
-            addDoc, 
-            getDocs, 
-            doc, 
-            updateDoc, 
-            deleteDoc, 
-            query, 
-            orderBy,
-            where,
-            limit 
-        } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js';
-        import {
-            getStorage,
-            ref,
-            uploadBytes,
-            getDownloadURL
-        } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js';
-
-        // Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyA-I1lfNy57idBTkj2NYxt2-yHQvHJGPlM",
-            authDomain: "youdammain.firebaseapp.com",
-            projectId: "youdammain",
-            storageBucket: "youdammain.firebasestorage.app",
-            messagingSenderId: "923242680713",
-            appId: "1:923242680713:web:fb85da2af29598ec775158",
-            measurementId: "G-KTLD09Z6DB"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        const db = getFirestore(app);
-        const storage = getStorage(app);
-
-        // Make Firebase available globally
-        window.db = db;
-        window.storage = storage;
-        window.firestore = {
-            collection,
-            addDoc,
-            getDocs,
-            doc,
-            updateDoc,
-            deleteDoc,
-            query,
-            orderBy,
-            where,
-            limit
-        };
-        window.storageUtils = {
-            ref,
-            uploadBytes,
-            getDownloadURL
-        };
-
-        console.log("🔥 Firebase connected successfully!");
-    </script>
+    <!-- Firebase SDK: loaded lazily after first paint (see bottom of body) -->
     
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3718064189631211"
@@ -2767,6 +2706,51 @@ Example:
 
         console.log('✅ 고등학생 과학논문 코칭 블로그 로드 완료');
     </script>
+    <!-- Firebase SDK (lazy loaded after first paint) -->
+    <script type="module">
+        (async function() {
+            try {
+                const [
+                    { initializeApp },
+                    { getAnalytics },
+                    { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc, query, orderBy, where, limit },
+                    { getStorage, ref, uploadBytes, getDownloadURL }
+                ] = await Promise.all([
+                    import('https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js'),
+                    import('https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js'),
+                    import('https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js'),
+                    import('https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js')
+                ]);
+
+                const firebaseConfig = {
+                    apiKey: "AIzaSyA-I1lfNy57idBTkj2NYxt2-yHQvHJGPlM",
+                    authDomain: "youdammain.firebaseapp.com",
+                    projectId: "youdammain",
+                    storageBucket: "youdammain.firebasestorage.app",
+                    messagingSenderId: "923242680713",
+                    appId: "1:923242680713:web:fb85da2af29598ec775158",
+                    measurementId: "G-KTLD09Z6DB"
+                };
+
+                const app = initializeApp(firebaseConfig);
+                const analytics = getAnalytics(app);
+                const db = getFirestore(app);
+                const storage = getStorage(app);
+
+                window.db = db;
+                window.storage = storage;
+                window.firestore = {
+                    collection, addDoc, getDocs, doc, updateDoc, deleteDoc, query, orderBy, where, limit
+                };
+                window.storageUtils = { ref, uploadBytes, getDownloadURL };
+
+                console.log("🔥 Firebase connected successfully!");
+            } catch (e) {
+                console.error("Firebase load failed:", e);
+            }
+        })();
+    </script>
+
     <!-- Naver Analytics -->
     <script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
     <script type="text/javascript">
