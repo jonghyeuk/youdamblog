@@ -568,8 +568,8 @@
                                 아래 글을 클릭하면 폼에 자동으로 채워집니다. 이미지를 추가하고 "게시" 버튼을 눌러주세요.
                             </p>
                         </div>
-                        <button onclick="resetDrafts()" style="background: #f59e0b; color: white; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 0.85rem; white-space: nowrap;">
-                            <i class="fas fa-undo"></i> 초기화
+                        <button onclick="resetDrafts()" style="background: #ef4444; color: white; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 0.85rem; white-space: nowrap;">
+                            <i class="fas fa-trash"></i> 전체 삭제
                         </button>
                     </div>
                 </div>
@@ -1171,8 +1171,11 @@
             }
         }
 
-        // 기본 대기 글 목록
-        var defaultDraftPosts = [
+        // 기본 대기 글 목록 (비어있음 - 새 글은 관리자가 직접 추가)
+        var defaultDraftPosts = [];
+
+        // Legacy default posts removed
+        var _legacyRemoved = [
             {
                 id: 'draft-1',
                 title: '연구 계획서 작성법: 심사위원이 보는 5가지 핵심',
@@ -1867,8 +1870,9 @@
             }
         ];
 
-        // localStorage에서 로드하거나 기본값 사용
-        var draftPosts = loadDraftsFromStorage() || defaultDraftPosts;
+        // localStorage에서 로드하거나 기본값 사용 (빈 배열도 falsy이므로 명시적 null 체크)
+        var storedDrafts = loadDraftsFromStorage();
+        var draftPosts = storedDrafts !== null ? storedDrafts : defaultDraftPosts;
 
         // 대기 글 목록 표시
         function loadDrafts() {
@@ -1942,10 +1946,10 @@
             loadDrafts();
         }
 
-        // 대기 글 초기화 (기본값으로 복원)
+        // 대기 글 전체 삭제
         function resetDrafts() {
-            if (!confirm('모든 대기 글을 기본값으로 복원하시겠습니까?\n\n삭제된 글이 다시 나타납니다.')) return;
-            draftPosts = defaultDraftPosts.slice(); // 기본값 복사
+            if (!confirm('모든 대기 글을 삭제하시겠습니까?')) return;
+            draftPosts = [];
             saveDraftsToStorage();
             loadDrafts();
         }
