@@ -57,7 +57,8 @@ const posts = mdFiles.map(file => {
     content: htmlContent,
     date: data.date,
     views: 0,
-    image: data.image || null
+    image: data.image || null,
+    keywords: data.keywords || ''
   };
 });
 
@@ -121,7 +122,9 @@ function generatePostHTML(post) {
     <meta name="description" content="${metaDesc}">
     <meta name="author" content="Youdam">
     <meta name="robots" content="index, follow">
+    ${post.keywords ? `<meta name="keywords" content="${post.keywords}">` : ''}
     <link rel="canonical" href="https://youdam.com/posts/${post.slug}">
+    <link rel="alternate" type="application/rss+xml" title="고등학생 과학논문 코칭 RSS" href="https://youdam.com/rss.xml">
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="article">
@@ -133,6 +136,7 @@ function generatePostHTML(post) {
     <meta property="og:locale" content="ko_KR">
     <meta property="article:published_time" content="${post.date}">
     <meta property="article:section" content="${post.category}">
+    ${post.keywords ? post.keywords.split(', ').map(tag => `<meta property="article:tag" content="${tag}">`).join('\n    ') : ''}
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
@@ -193,7 +197,7 @@ function generatePostHTML(post) {
       },
       "articleSection": "${post.category}",
       "inLanguage": "ko-KR",
-      "keywords": ["${post.category}", "과학논문", "고등학생", "R&E", "논문작성"]
+      "keywords": ${post.keywords ? JSON.stringify(post.keywords.split(', ')) : `["${post.category}", "과학논문", "고등학생"]`}
     }
     </script>
 
