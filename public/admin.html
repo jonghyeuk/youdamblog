@@ -1146,29 +1146,23 @@
         // 대기 글 (Draft Posts) 관리
         // ============================================
 
-        // 대기 글 목록 - localStorage에서 로드하거나 기본값 사용
-        var DRAFT_STORAGE_KEY = 'youdamblog_draft_posts';
+        // 대기 글 목록 - 삭제한 ID를 기억해서 새 대기글은 자동으로 표시
+        var DISMISSED_KEY = 'youdamblog_dismissed_drafts';
 
-        // localStorage에서 대기 글 로드
-        function loadDraftsFromStorage() {
+        // 삭제한 대기글 ID 목록 로드
+        function loadDismissedIds() {
             try {
-                var stored = localStorage.getItem(DRAFT_STORAGE_KEY);
-                if (stored) {
-                    return JSON.parse(stored);
-                }
-            } catch (e) {
-                console.error('대기 글 로드 실패:', e);
-            }
-            return null;
+                var stored = localStorage.getItem(DISMISSED_KEY);
+                if (stored) return JSON.parse(stored);
+            } catch (e) {}
+            return [];
         }
 
-        // localStorage에 대기 글 저장
-        function saveDraftsToStorage() {
+        // 삭제한 대기글 ID 목록 저장
+        function saveDismissedIds(ids) {
             try {
-                localStorage.setItem(DRAFT_STORAGE_KEY, JSON.stringify(draftPosts));
-            } catch (e) {
-                console.error('대기 글 저장 실패:', e);
-            }
+                localStorage.setItem(DISMISSED_KEY, JSON.stringify(ids));
+            } catch (e) {}
         }
 
         // 기본 대기 글 목록
@@ -2039,9 +2033,11 @@
             }
         ];
 
-        // localStorage에서 로드하거나 기본값 사용 (빈 배열도 falsy이므로 명시적 null 체크)
-        var storedDrafts = loadDraftsFromStorage();
-        var draftPosts = storedDrafts !== null ? storedDrafts : defaultDraftPosts;
+        // 삭제한 적 없는 기본 대기글만 자동으로 표시
+        var dismissedIds = loadDismissedIds();
+        var draftPosts = defaultDraftPosts.filter(function(d) {
+            return dismissedIds.indexOf(d.id) === -1;
+        });
 
         // 대기 글 목록 표시
         function loadDrafts() {
@@ -2111,24 +2107,28 @@
             if (!confirm('이 대기 글을 삭제하시겠습니까?')) return;
 
             draftPosts = draftPosts.filter(function(d) { return d.id !== draftId; });
-            saveDraftsToStorage(); // localStorage에 변경사항 저장
+            // 삭제한 ID 기억
+            var dismissed = loadDismissedIds();
+            if (dismissed.indexOf(draftId) === -1) dismissed.push(draftId);
+            saveDismissedIds(dismissed);
             loadDrafts();
         }
 
         // 대기 글 전체 삭제
         function resetDrafts() {
             if (!confirm('모든 대기 글을 삭제하시겠습니까?')) return;
+            // 현재 보이는 대기글 ID를 모두 삭제 목록에 추가
+            var dismissed = loadDismissedIds();
+            draftPosts.forEach(function(d) {
+                if (dismissed.indexOf(d.id) === -1) dismissed.push(d.id);
+            });
+            saveDismissedIds(dismissed);
             draftPosts = [];
-            saveDraftsToStorage();
             loadDrafts();
         }
 
         // 페이지 로드 시 대기 글 목록 표시
         document.addEventListener('DOMContentLoaded', function() {
-            // 첫 방문 시 localStorage에 기본값 저장
-            if (!loadDraftsFromStorage()) {
-                saveDraftsToStorage();
-            }
             setTimeout(loadDrafts, 500);
         });
     </script>
