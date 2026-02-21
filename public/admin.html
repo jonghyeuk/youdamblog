@@ -40,6 +40,12 @@
             uploadBytes,
             getDownloadURL
         } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js';
+        import {
+            getAuth,
+            signInWithEmailAndPassword,
+            signOut,
+            onAuthStateChanged
+        } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js';
 
         const firebaseConfig = {
             apiKey: "AIzaSyA-I1lfNy57idBTkj2NYxt2-yHQvHJGPlM",
@@ -54,9 +60,11 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
         const storage = getStorage(app);
+        const auth = getAuth(app);
 
         window.db = db;
         window.storage = storage;
+        window.auth = auth;
         window.firestore = {
             collection,
             addDoc,
@@ -74,8 +82,13 @@
             uploadBytes,
             getDownloadURL
         };
+        window.firebaseAuth = {
+            signInWithEmailAndPassword,
+            signOut,
+            onAuthStateChanged
+        };
 
-        console.log("🔥 Firebase connected successfully!");
+        console.log("Firebase connected successfully!");
     </script>
     
     <style>
@@ -501,20 +514,31 @@
         
         <form class="login-form" id="login-form" onsubmit="handleLogin(event)">
             <div class="form-group">
+                <label class="form-label" for="email">Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    class="form-input"
+                    placeholder="admin@example.com"
+                    autocomplete="email"
+                    required
+                >
+            </div>
+            <div class="form-group">
                 <label class="form-label" for="password">Password</label>
-                <input 
-                    type="password" 
-                    id="password" 
-                    class="form-input" 
+                <input
+                    type="password"
+                    id="password"
+                    class="form-input"
                     placeholder="Enter admin password"
                     autocomplete="current-password"
                     required
                 >
                 <div class="error-message" id="error-message">
-                    <i class="fas fa-exclamation-circle"></i> Incorrect password. Please try again.
+                    <i class="fas fa-exclamation-circle"></i> <span id="error-text">Incorrect email or password.</span>
                 </div>
             </div>
-            
+
             <button type="submit" class="btn btn-primary">
                 <i class="fas fa-sign-in-alt"></i>
                 Login
@@ -685,73 +709,54 @@
     </div>
 
     <script>
-        // Simple password hash (SHA-256)
-        async function hashPassword(password) {
-            const encoder = new TextEncoder();
-            const data = encoder.encode(password);
-            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-            const hashArray = Array.from(new Uint8Array(hashBuffer));
-            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-        }
-
-        // Store the correct password hash (for "admin2024")
-        const ADMIN_PASSWORD_HASH = 'b8b8eb83374c0bf3b1c3224159f6119dbfff1b7ed6dfecdd80d4e8a895790a34';
-        
-        // Check if already logged in
+        // Firebase Auth 상태 감지 — 로그인/로그아웃 자동 처리
         window.addEventListener('DOMContentLoaded', function() {
-            const authToken = localStorage.getItem('admin_auth_token');
-            const authTime = localStorage.getItem('admin_auth_time');
-            
-            // Session expires after 24 hours
-            if (authToken === ADMIN_PASSWORD_HASH && authTime) {
-                const now = Date.now();
-                const sessionAge = now - parseInt(authTime);
-                const twentyFourHours = 24 * 60 * 60 * 1000;
-                
-                if (sessionAge < twentyFourHours) {
+            window.firebaseAuth.onAuthStateChanged(window.auth, function(user) {
+                if (user) {
                     showAdminPanel();
                     loadPosts();
                 } else {
-                    // Session expired
-                    localStorage.removeItem('admin_auth_token');
-                    localStorage.removeItem('admin_auth_time');
+                    document.getElementById('admin-panel').classList.remove('show');
+                    document.getElementById('login-container').style.display = 'block';
                 }
-            }
-            
+            });
+
             setupImageUpload();
             setupUrlImageUpload();
         });
 
-        // Handle login
+        // Handle login (Firebase Auth)
         async function handleLogin(event) {
             event.preventDefault();
-            
+
+            const emailInput = document.getElementById('email');
             const passwordInput = document.getElementById('password');
             const errorMessage = document.getElementById('error-message');
+            const errorText = document.getElementById('error-text');
             const submitBtn = event.target.querySelector('button[type="submit"]');
-            
+
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
-            
-            const enteredPassword = passwordInput.value;
-            const enteredHash = await hashPassword(enteredPassword);
-            
-            if (enteredHash === ADMIN_PASSWORD_HASH) {
-                // Successful login
-                localStorage.setItem('admin_auth_token', enteredHash);
-                localStorage.setItem('admin_auth_time', Date.now().toString());
-                
+            errorMessage.classList.remove('show');
+
+            try {
+                await window.firebaseAuth.signInWithEmailAndPassword(
+                    window.auth,
+                    emailInput.value,
+                    passwordInput.value
+                );
+                // onAuthStateChanged가 자동으로 showAdminPanel() 호출
                 passwordInput.value = '';
-                errorMessage.classList.remove('show');
-                
-                showAdminPanel();
-                loadPosts();
-            } else {
-                // Failed login
+            } catch (error) {
+                let msg = 'Incorrect email or password.';
+                if (error.code === 'auth/too-many-requests') {
+                    msg = 'Too many attempts. Please try again later.';
+                }
+                errorText.textContent = msg;
                 errorMessage.classList.add('show');
                 passwordInput.value = '';
                 passwordInput.focus();
-                
+            } finally {
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Login';
             }
@@ -763,15 +768,11 @@
             document.getElementById('admin-panel').classList.add('show');
         }
 
-        // Handle logout
-        function handleLogout() {
+        // Handle logout (Firebase Auth)
+        async function handleLogout() {
             if (confirm('Are you sure you want to logout?')) {
-                localStorage.removeItem('admin_auth_token');
-                localStorage.removeItem('admin_auth_time');
-                
-                document.getElementById('admin-panel').classList.remove('show');
-                document.getElementById('login-container').style.display = 'block';
-                document.getElementById('password').focus();
+                await window.firebaseAuth.signOut(window.auth);
+                // onAuthStateChanged가 자동으로 로그인 화면 표시
             }
         }
 
