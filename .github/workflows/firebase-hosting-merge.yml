@@ -21,7 +21,6 @@ jobs:
       - name: Deploy Storage rules
         env:
           GOOGLE_APPLICATION_CREDENTIALS_JSON: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_YOUDAMMAIN }}'
-        continue-on-error: true
         run: |
           echo "$GOOGLE_APPLICATION_CREDENTIALS_JSON" > /tmp/sa.json
           export GOOGLE_APPLICATION_CREDENTIALS=/tmp/sa.json

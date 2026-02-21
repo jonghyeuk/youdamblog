@@ -794,6 +794,9 @@
             }
         }
 
+        // 선택된 이미지 파일을 저장 시점에 Storage에 올리기 위해 임시 보관
+        window._pendingImageFile = null;
+
         // Image upload setup
         function setupImageUpload() {
             document.getElementById('image-input').addEventListener('change', async function(e) {
@@ -803,12 +806,15 @@
                         alert('File size exceeds 10MB limit.');
                         return;
                     }
-                    
+
                     const compressedDataUrl = await compressImage(file);
                     const preview = document.getElementById('image-preview');
                     preview.src = compressedDataUrl;
                     preview.style.display = 'block';
                     document.querySelector('.image-upload').classList.add('has-image');
+
+                    // 저장 시 Storage 업로드를 위해 파일 정보 보관
+                    window._pendingImageFile = { dataUrl: compressedDataUrl, filename: file.name };
                 }
             });
         }
@@ -939,6 +945,29 @@
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
 
+            // 새로 선택한 이미지가 있으면 Firebase Storage에 업로드
+            let imageValue = imagePreview.style.display === 'block' ? imagePreview.src : null;
+            if (window._pendingImageFile) {
+                try {
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 이미지 업로드 중...';
+                    const { dataUrl, filename } = window._pendingImageFile;
+                    const res = await fetch(dataUrl);
+                    const blob = await res.blob();
+                    const storagePath = `blog-images/${Date.now()}_${filename}`;
+                    const storageRef = window.storageUtils.ref(window.storage, storagePath);
+                    await window.storageUtils.uploadBytes(storageRef, blob);
+                    imageValue = await window.storageUtils.getDownloadURL(storageRef);
+                    window._pendingImageFile = null;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
+                } catch (uploadErr) {
+                    console.error('Storage 업로드 실패:', uploadErr);
+                    alert('이미지 업로드에 실패했습니다: ' + uploadErr.message);
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-save"></i> Publish Post';
+                    return;
+                }
+            }
+
             const postData = {
                 title: title,
                 category: category,
@@ -946,7 +975,7 @@
                 content: content,
                 date: new Date().toISOString().split('T')[0],
                 views: 0,
-                image: imagePreview.style.display === 'block' ? imagePreview.src : null,
+                image: imageValue,
                 createdAt: new Date()
             };
 
@@ -1030,6 +1059,7 @@
         // Clear form
         function clearForm() {
             editingPostId = null;
+            window._pendingImageFile = null;
             document.getElementById('post-form').reset();
             document.getElementById('image-preview').style.display = 'none';
             document.querySelector('.image-upload').classList.remove('has-image');
