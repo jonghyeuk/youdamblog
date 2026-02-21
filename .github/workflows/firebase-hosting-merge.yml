@@ -8,7 +8,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Deploy to Firebase
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+      - name: Deploy Firestore & Storage rules
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS_JSON: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_YOUDAMMAIN }}'
+        run: |
+          echo "$GOOGLE_APPLICATION_CREDENTIALS_JSON" > /tmp/sa.json
+          export GOOGLE_APPLICATION_CREDENTIALS=/tmp/sa.json
+          firebase deploy --only firestore:rules,storage --project youdammain
+          rm /tmp/sa.json
+      - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
