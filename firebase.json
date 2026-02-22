@@ -3,7 +3,6 @@
     "rules": "firestore.rules"
   },
   "storage": {
-    "bucket": "youdammain.firebasestorage.app",
     "rules": "storage.rules"
   },
   "hosting": {

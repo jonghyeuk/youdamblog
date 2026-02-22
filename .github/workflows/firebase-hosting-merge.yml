@@ -22,7 +22,6 @@ jobs:
           GOOGLE_APPLICATION_CREDENTIALS: /tmp/sa.json
       - name: Deploy Storage Rules
         run: firebase deploy --only storage --project youdammain
-        continue-on-error: true  # Firebase Console에서 Storage 초기화 후 제거할 것
         env:
           GOOGLE_APPLICATION_CREDENTIALS: /tmp/sa.json
       - name: Deploy to Firebase Hosting
