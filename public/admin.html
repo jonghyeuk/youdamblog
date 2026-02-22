@@ -778,14 +778,20 @@
 
         // Tab switching
         function showTab(tabName) {
-            // Update tabs
-            document.querySelectorAll('.admin-tab').forEach(tab => tab.classList.remove('active'));
-            event.target.closest('.admin-tab').classList.add('active');
-            
+            // Update tabs — onclick 속성으로 해당 탭 버튼을 직접 찾아 활성화
+            document.querySelectorAll('.admin-tab').forEach(function(tab) {
+                tab.classList.remove('active');
+                if (tab.getAttribute('onclick') === "showTab('" + tabName + "')") {
+                    tab.classList.add('active');
+                }
+            });
+
             // Update content
-            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(function(content) {
+                content.classList.remove('active');
+            });
             document.getElementById(tabName + '-tab').classList.add('active');
-            
+
             if (tabName === 'manage') {
                 loadPosts();
             }
@@ -1031,8 +1037,6 @@
             
             // Switch to create tab
             showTab('create');
-            document.querySelectorAll('.admin-tab')[0].classList.add('active');
-            document.querySelectorAll('.admin-tab')[1].classList.remove('active');
             
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
