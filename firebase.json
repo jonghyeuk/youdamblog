@@ -2,10 +2,12 @@
   "firestore": {
     "rules": "firestore.rules"
   },
-  "storage": {
-    "rules": "storage.rules",
-    "bucket": "youdammain.firebasestorage.app"
-  },
+  "storage": [
+    {
+      "rules": "storage.rules",
+      "bucket": "youdammain.firebasestorage.app"
+    }
+  ],
   "hosting": {
     "public": "public",
     "ignore": [
