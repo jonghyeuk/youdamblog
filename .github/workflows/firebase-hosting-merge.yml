@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: '20'
       - name: Install Firebase CLI
-        run: npm install -g firebase-tools
+        run: npm install -g firebase-tools@latest
       - name: Write service account key
         run: echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT_YOUDAMMAIN }}' > /tmp/sa.json
       - name: Deploy Firestore Rules
