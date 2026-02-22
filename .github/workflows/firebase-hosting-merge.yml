@@ -21,8 +21,7 @@ jobs:
         env:
           GOOGLE_APPLICATION_CREDENTIALS: /tmp/sa.json
       - name: Deploy Storage Rules
-        run: firebase deploy --only storage --project youdammain --debug
-        continue-on-error: true
+        run: firebase deploy --only storage --project youdammain
         env:
           GOOGLE_APPLICATION_CREDENTIALS: /tmp/sa.json
       - name: Deploy to Firebase Hosting
