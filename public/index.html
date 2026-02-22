@@ -68,6 +68,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     
+    <!-- Preconnect: Firebase SDK CDN (핵심 성능 최적화) -->
+    <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://firestore.googleapis.com" crossorigin>
     <!-- Fonts (non-render-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1204,6 +1207,11 @@
             <div class="posts-grid" id="posts-container">
                 <!-- 포스트는 JavaScript로 동적 로딩됨 (Firestore 데이터) -->
             </div>
+            <div style="text-align:center; margin: 2rem 0;">
+                <button id="load-more-btn" onclick="loadPostsFromFirestore(true)" style="display:none; padding: 0.75rem 2.5rem; background: var(--primary); color: #fff; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer;">
+                    글 더 보기
+                </button>
+            </div>
 
             <!-- SEO: 구글봇이 JS를 실행하지 못할 때 보여줄 정적 콘텐츠 -->
             <noscript>
@@ -1554,20 +1562,32 @@ Example:
         }
 
         // Firebase functions
-        async function loadPostsFromFirestore() {
+        var lastFirestoreDoc = null;  // 페이지네이션 커서
+        var allPostsLoaded = false;   // 더 이상 불러올 글 없음 플래그
+        var POSTS_PER_PAGE = 20;
+
+        async function loadPostsFromFirestore(loadMore) {
             if (!isFirebaseReady) {
                 console.log("Firebase not ready, waiting...");
                 return;
             }
 
             try {
+                var constraints = [
+                    window.firestore.orderBy("createdAt", "desc"),
+                    window.firestore.limit(POSTS_PER_PAGE)
+                ];
+                if (loadMore && lastFirestoreDoc) {
+                    constraints.push(window.firestore.startAfter(lastFirestoreDoc));
+                }
                 const q = window.firestore.query(
-                    window.firestore.collection(window.db, "posts"), 
-                    window.firestore.orderBy("createdAt", "desc")
+                    window.firestore.collection(window.db, "posts"),
+                    ...constraints
                 );
                 const querySnapshot = await window.firestore.getDocs(q);
-                
-                posts = [];
+
+                if (!loadMore) posts = [];
+
                 querySnapshot.forEach((doc) => {
                     const data = doc.data();
                     posts.push({
@@ -1582,18 +1602,27 @@ Example:
                         image: data.image || null,
                         createdAt: data.createdAt
                     });
+                    lastFirestoreDoc = doc;
                 });
-                
+
+                allPostsLoaded = querySnapshot.size < POSTS_PER_PAGE;
                 console.log("✅ Posts loaded from Firestore:", posts.length + " posts");
 
                 // Firestore 데이터 + 샘플 데이터 병합
-                mergeSamplePosts();
+                if (!loadMore) mergeSamplePosts();
                 loadPosts();
+                updateLoadMoreButton();
             } catch (error) {
                 console.error("❌ Failed to load posts:", error);
                 // Fallback to localStorage if Firebase fails
                 loadFromLocalStorageFallback();
             }
+        }
+
+        function updateLoadMoreButton() {
+            var btn = document.getElementById('load-more-btn');
+            if (!btn) return;
+            btn.style.display = allPostsLoaded ? 'none' : 'block';
         }
 
         function loadFromLocalStorageFallback() {
@@ -2760,7 +2789,7 @@ Example:
                 const [
                     { initializeApp },
                     { getAnalytics },
-                    { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc, query, orderBy, where, limit },
+                    { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc, query, orderBy, where, limit, startAfter },
                     { getStorage, ref, uploadBytes, getDownloadURL }
                 ] = await Promise.all([
                     import('https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js'),
@@ -2787,7 +2816,7 @@ Example:
                 window.db = db;
                 window.storage = storage;
                 window.firestore = {
-                    collection, addDoc, getDocs, doc, updateDoc, deleteDoc, query, orderBy, where, limit
+                    collection, addDoc, getDocs, doc, updateDoc, deleteDoc, query, orderBy, where, limit, startAfter
                 };
                 window.storageUtils = { ref, uploadBytes, getDownloadURL };
 
@@ -2799,7 +2828,7 @@ Example:
     </script>
 
     <!-- Naver Analytics -->
-    <script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
+    <script async type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
     <script type="text/javascript">
     if(!wcs_add) var wcs_add = {};
     wcs_add["wa"] = "6e3835670e2324";
