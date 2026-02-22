@@ -987,17 +987,21 @@
 
             try {
                 if (editingPostId) {
-                    // Update existing post
+                    // Update existing post — views/createdAt은 덮어쓰지 않음
                     const postRef = window.firestore.doc(window.db, "posts", editingPostId);
                     await window.firestore.updateDoc(postRef, {
-                        ...postData,
+                        title: title,
+                        category: category,
+                        excerpt: excerpt,
+                        content: content,
+                        image: imageValue,
                         updatedAt: new Date()
                     });
                     alert('Post updated successfully!');
                 } else {
                     // Create new post
                     await window.firestore.addDoc(
-                        window.firestore.collection(window.db, "posts"), 
+                        window.firestore.collection(window.db, "posts"),
                         postData
                     );
                     alert('Post published successfully!');
@@ -1205,7 +1209,7 @@
             {
                 id: 'draft-teukmokgo-2026-01',
                 title: '특목고, 정말 가야 할까? 중학생 부모가 꼭 알아야 할 장단점과 유의사항',
-                category: '교육',
+                category: '대입준비',
                 excerpt: '과학고, 외고, 자사고… 주변에서 다 간다고 하는데 우리 아이도 가야 할까요? 특목고·자사고의 실제 장단점과, 입학 전에 반드시 확인해야 할 체크리스트를 정리했습니다.',
                 content:
                     '<p>중학교 2~3학년이 되면 부모님들 사이에서 자연스럽게 나오는 말이 있습니다.</p>' +
