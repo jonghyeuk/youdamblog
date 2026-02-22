@@ -21,9 +21,15 @@ jobs:
         env:
           GOOGLE_APPLICATION_CREDENTIALS: /tmp/sa.json
       - name: Deploy Storage Rules
-        run: firebase deploy --only storage --project youdammain
+        run: firebase deploy --only storage --project youdammain --debug 2>&1 | tee /tmp/storage-debug.log; exit ${PIPESTATUS[0]}
         env:
           GOOGLE_APPLICATION_CREDENTIALS: /tmp/sa.json
+      - name: Upload Storage Debug Log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: storage-debug-log
+          path: /tmp/storage-debug.log
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
