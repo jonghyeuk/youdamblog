@@ -2071,6 +2071,7 @@ Example:
 
         function clearForm() {
             editingPostId = null;
+            window._pendingImageFile = null;
             document.getElementById('post-title').value = '';
             document.getElementById('post-excerpt').value = '';
             document.getElementById('post-content').value = '';
@@ -2129,12 +2130,15 @@ Example:
                     
                     // Compress image before displaying preview
                     const compressedDataUrl = await compressImage(file);
-                    
+
                     var preview = document.getElementById('image-preview');
                     preview.src = compressedDataUrl;
                     preview.style.display = 'block';
                     document.querySelector('.image-upload').classList.add('has-image');
-                    
+
+                    // Firebase Storage 업로드를 위해 파일 정보 보관
+                    window._pendingImageFile = { dataUrl: compressedDataUrl, filename: file.name };
+
                     console.log('Image compressed and ready for upload');
                 }
             });
@@ -2152,6 +2156,31 @@ Example:
                 return;
             }
 
+            var submitBtn = document.getElementById('submit-btn');
+            submitBtn.disabled = true;
+
+            // 이미지가 있으면 Firebase Storage에 업로드 후 URL 사용
+            var imageValue = null;
+            if (window._pendingImageFile) {
+                try {
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 이미지 업로드 중...';
+                    var { dataUrl, filename } = window._pendingImageFile;
+                    var res = await fetch(dataUrl);
+                    var blob = await res.blob();
+                    var storagePath = 'blog-images/' + Date.now() + '_' + filename;
+                    var storageRef = window.storageUtils.ref(window.storage, storagePath);
+                    await window.storageUtils.uploadBytes(storageRef, blob);
+                    imageValue = await window.storageUtils.getDownloadURL(storageRef);
+                    window._pendingImageFile = null;
+                } catch (uploadErr) {
+                    console.error('Storage 업로드 실패:', uploadErr);
+                    alert('이미지 업로드에 실패했습니다: ' + uploadErr.message);
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-save"></i> Publish Post';
+                    return;
+                }
+            }
+
             var newPost = {
                 title: title,
                 category: category,
@@ -2159,10 +2188,11 @@ Example:
                 content: content,
                 date: new Date().toISOString().split('T')[0],
                 views: 0,
-                image: imagePreview.style.display === 'block' ? imagePreview.src : null,
+                image: imageValue,
                 createdAt: new Date()
             };
 
+            submitBtn.disabled = false;
             await savePostToFirestore(newPost);
         }
 
@@ -2178,6 +2208,9 @@ Example:
                 return;
             }
 
+            var submitBtn = document.getElementById('submit-btn');
+            submitBtn.disabled = true;
+
             var updateData = {
                 title: title,
                 category: category,
@@ -2186,11 +2219,31 @@ Example:
                 updatedAt: new Date()
             };
 
-            // Use compressed image from preview if available
-            if (imagePreview.style.display === 'block') {
+            // 새로 선택한 이미지가 있으면 Firebase Storage에 업로드
+            if (window._pendingImageFile) {
+                try {
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 이미지 업로드 중...';
+                    var { dataUrl, filename } = window._pendingImageFile;
+                    var res = await fetch(dataUrl);
+                    var blob = await res.blob();
+                    var storagePath = 'blog-images/' + Date.now() + '_' + filename;
+                    var storageRef = window.storageUtils.ref(window.storage, storagePath);
+                    await window.storageUtils.uploadBytes(storageRef, blob);
+                    updateData.image = await window.storageUtils.getDownloadURL(storageRef);
+                    window._pendingImageFile = null;
+                } catch (uploadErr) {
+                    console.error('Storage 업로드 실패:', uploadErr);
+                    alert('이미지 업로드에 실패했습니다: ' + uploadErr.message);
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-save"></i> Update Post';
+                    return;
+                }
+            } else if (imagePreview.style.display === 'block' && imagePreview.src.startsWith('https://')) {
+                // 기존 Firebase Storage URL 유지
                 updateData.image = imagePreview.src;
             }
 
+            submitBtn.disabled = false;
             await updatePostInFirestore(editingPostId, updateData);
         }
 
