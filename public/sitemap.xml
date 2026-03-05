@@ -2,139 +2,151 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://youdam.com/</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://youdam.com/about</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://youdam.com/contact</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://youdam.com/privacy-policy</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://youdam.com/terms-of-service</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://youdam.com/download</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://youdam.com/posts/advice-for-new-grade3-students</loc>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://youdam.com/posts/bean-sprout-growth-experiment</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://youdam.com/posts/boarding-school-pros-cons-middle-to-high</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://youdam.com/posts/college-admission-self-introduction-letter-guide</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://youdam.com/posts/free-semester-subject-selection-class-strategy</loc>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://youdam.com/posts/grade2-to-grade3-golden-time-before-new-semester</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://youdam.com/posts/how-to-cite-references-correctly</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://youdam.com/posts/how-to-find-research-topic</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://youdam.com/posts/how-to-write-lab-notebook</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://youdam.com/posts/how-to-write-materials-and-methods-section</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://youdam.com/posts/how-to-write-science-paper-introduction</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://youdam.com/posts/paper-introduction-structure-analysis</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://youdam.com/posts/ph-indicator-color-change-experiment</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://youdam.com/posts/re-project-step-by-step-guide</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://youdam.com/posts/research-proposal-writing-guide</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://youdam.com/posts/school-activity-yearly-focusing-strategy</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://youdam.com/posts/student-record-research-strategy</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://youdam.com/posts/understanding-variables-in-experiments</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://youdam.com/posts/village-event-statistical-analysis</loc>
-    <lastmod>2026-02-22</lastmod>
+    <lastmod>2026-03-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
