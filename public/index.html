@@ -1,2878 +1,529 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>고등학생 과학논문 코칭 | 10년 대학강사의 논문 작성 가이드</title>
-    <meta name="description" content="10년 경력 대학 강사가 알려주는 고등학생 과학논문 작성법. R&E, 과학탐구, 소논문 작성부터 대입 준비까지 체계적인 코칭을 제공합니다.">
-    <meta name="author" content="Youdam">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#2563eb">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://youdam.com/">
-    <link rel="alternate" type="application/rss+xml" title="고등학생 과학논문 코칭 RSS" href="https://youdam.com/rss.xml">
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="고등학생 과학논문 코칭 | 10년 대학강사의 논문 작성 가이드">
-    <meta property="og:description" content="10년 경력 대학 강사가 알려주는 고등학생 과학논문 작성법. R&E, 과학탐구, 소논문 작성부터 대입 준비까지.">
-    <meta property="og:url" content="https://youdam.com/">
-    <meta property="og:image" content="https://youdam.com/images/og-image.png">
-    <meta property="og:site_name" content="고등학생 과학논문 코칭">
-    <meta property="og:locale" content="ko_KR">
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="고등학생 과학논문 코칭 | 10년 대학강사의 논문 작성 가이드">
-    <meta name="twitter:description" content="10년 경력 대학 강사가 알려주는 고등학생 과학논문 작성법.">
-    <meta name="twitter:image" content="https://youdam.com/images/og-image.png">
-    <meta name="twitter:creator" content="@youdam_coach">
-
-    <!-- Additional Meta Tags -->
-    <meta name="apple-mobile-web-app-title" content="과학논문코칭">
-    <meta name="application-name" content="과학논문코칭">
-    <meta name="msapplication-TileColor" content="#2563eb">
-    
-    <!-- Google AdSense -->
-    <meta name="google-adsense-account" content="ca-pub-3718064189631211">
-
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "고등학생 과학논문 코칭",
-      "description": "10년 경력 대학 강사가 알려주는 고등학생 과학논문 작성법",
-      "url": "https://youdam.com/",
-      "publisher": {
-        "@type": "Organization",
-        "name": "고등학생 과학논문 코칭",
-        "url": "https://youdam.com",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://youdam.com/images/logo.svg",
-          "width": 600,
-          "height": 315
-        }
-      }
-    }
-    </script>
-
-    <meta name="naver-site-verification" content="0b8045d4dafbc0654e1b4b08da7fe34e801b103c">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    
-    <!-- Preconnect: Firebase SDK CDN (핵심 성능 최적화) -->
-    <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://firestore.googleapis.com" crossorigin>
-    <!-- Fonts (non-render-blocking) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-    
-    <!-- Google Analytics (deferred until cookie consent) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KTLD09Z6DB"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('consent', 'default', {
-            'analytics_storage': 'denied',
-            'ad_storage': 'denied',
-            'ad_user_data': 'denied',
-            'ad_personalization': 'denied',
-            'wait_for_update': 500
-        });
-        gtag('js', new Date());
-        gtag('config', 'G-KTLD09Z6DB');
-    </script>
-
-    <!-- Firebase SDK: loaded lazily after first paint (see bottom of body) -->
-    
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3718064189631211"
-     crossorigin="anonymous"></script>
-    
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "EducationalOrganization",
-        "name": "고등학생 과학논문 코칭",
-        "description": "10년 경력 대학 강사가 운영하는 고등학생 과학논문 작성 코칭 서비스",
-        "url": "https://youdam.com/",
-        "founder": {
-            "@type": "Person",
-            "name": "Youdam",
-            "jobTitle": "대학 강사",
-            "url": "https://youdam.com/about"
-        },
-        "logo": {
-            "@type": "ImageObject",
-            "url": "https://youdam.com/images/logo.svg",
-            "width": 600,
-            "height": 315
-        },
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://youdam.com/"
-        },
-        "inLanguage": "ko-KR",
-        "copyrightYear": "2026",
-        "areaServed": "KR",
-        "keywords": ["고등학생 논문", "과학논문", "R&E", "소논문", "과학탐구", "대입준비", "논문 작성법"]
-    }
-    </script>
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #0ea5e9;
-            --accent-color: #10b981;
-            --text-dark: #1f2937;
-            --text-medium: #4b5563;
-            --text-light: #6b7280;
-            --bg-light: #f8fafc;
-            --bg-white: #ffffff;
-            --border-light: #e5e7eb;
-            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--bg-light);
-            font-size: 16px;
-        }
-
-        /* Header */
-        .header {
-            background: var(--bg-white);
-            box-shadow: var(--shadow-sm);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            position: relative;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--gradient-primary);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 18px;
-        }
-
-        .logo-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--text-medium);
-            font-weight: 500;
-            transition: color 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-        }
-
-        .nav-menu a:hover {
-            color: var(--primary-color);
-            background: var(--bg-light);
-        }
-
-        /* Navigation styling */
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--text-dark);
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu-toggle:hover {
-            background: var(--bg-light);
-            color: var(--primary-color);
-        }
-
-        /* Mobile Menu */
-        .mobile-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: var(--bg-white);
-            border-top: 1px solid var(--border-light);
-            box-shadow: var(--shadow-md);
-            padding: 1rem 2rem;
-            z-index: 999;
-        }
-
-        .mobile-menu.active {
-            display: block;
-        }
-
-        .mobile-menu ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .mobile-menu li {
-            margin-bottom: 0.5rem;
-        }
-
-        .mobile-menu a {
-            display: block;
-            text-decoration: none;
-            color: var(--text-medium);
-            font-weight: 500;
-            padding: 0.75rem 1rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu a:hover {
-            color: var(--primary-color);
-            background: var(--bg-light);
-        }
-
-        /* Admin Button - Bottom Right (Small & Discreet) */
-        .admin-float {
-            position: fixed;
-            bottom: 1rem;
-            right: 1rem;
-            z-index: 9999;
-            opacity: 0.1;
-            transition: opacity 0.3s ease;
-        }
-
-        .admin-float:hover {
-            opacity: 0.4;
-        }
-
-        .admin-btn {
-            background: var(--text-light);
-            color: white;
-            border: none;
-            padding: 0.4rem 0.6rem;
-            border-radius: 20px;
-            font-weight: 500;
-            font-size: 0.7rem;
-            cursor: pointer;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-            text-decoration: none;
-        }
-
-        .admin-btn:hover {
-            background: var(--primary-color);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: var(--gradient-primary);
-            color: white;
-            text-align: center;
-            padding: 5rem 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="25" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="25" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .hero .subtitle {
-            font-size: 1.25rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
-            opacity: 0.8;
-            font-weight: 300;
-        }
-
-        /* Main content layout */
-        .main-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 3rem;
-        }
-
-        .content-area {
-            min-height: 400px;
-        }
-
-        /* Categories */
-        .categories {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .category-btn {
-            background: var(--bg-white);
-            border: 2px solid var(--border-light);
-            color: var(--text-medium);
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            font-size: 0.875rem;
-        }
-
-        .category-btn:hover,
-        .category-btn.active {
-            background: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
-        }
-
-        /* Blog Posts Grid */
-        .posts-grid {
-            display: grid;
-            gap: 2rem;
-        }
-
-        .post-card {
-            background: var(--bg-white);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: 1px solid var(--border-light);
-        }
-
-        .post-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-color);
-        }
-
-        .post-image {
-            width: 100%;
-            height: 250px;
-            background: var(--gradient-secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .post-image.has-image {
-            background: none;
-        }
-
-        .post-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .post-image .category-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-secondary);
-            color: white;
-            font-size: 3rem;
-        }
-
-        .post-content {
-            padding: 2rem;
-        }
-
-        .post-category {
-            display: inline-block;
-            background: var(--bg-light);
-            color: var(--primary-color);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 1rem;
-        }
-
-        .post-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-            line-height: 1.4;
-        }
-
-        .post-excerpt {
-            color: var(--text-medium);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .post-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.875rem;
-            color: var(--text-light);
-        }
-
-        .post-date {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .post-views {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            background: var(--bg-white);
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-light);
-            height: fit-content;
-            position: sticky;
-            top: 120px;
-        }
-
-        .sidebar h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
-        }
-
-        .popular-posts {
-            list-style: none;
-        }
-
-        .popular-post {
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--border-light);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .popular-post:last-child {
-            border-bottom: none;
-        }
-
-        .popular-post:hover {
-            background: var(--bg-light);
-            margin: 0 -1rem;
-            padding: 1rem;
-            border-radius: 8px;
-        }
-
-        .popular-post-title {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
-        }
-
-        .popular-post-meta {
-            font-size: 0.75rem;
-            color: var(--text-light);
-        }
-
-        /* No Posts State */
-        .no-posts {
-            text-align: center;
-            padding: 4rem 2rem;
-            background: var(--bg-white);
-            border-radius: 16px;
-            border: 2px dashed var(--border-light);
-        }
-
-        .no-posts i {
-            font-size: 4rem;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-        }
-
-        .no-posts h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-medium);
-        }
-
-        .no-posts p {
-            color: var(--text-light);
-            margin-bottom: 2rem;
-        }
-
-        /* Admin Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 10000;
-            backdrop-filter: blur(4px);
-        }
-
-        .modal.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background: var(--bg-white);
-            border-radius: 16px;
-            padding: 2rem;
-            width: 90%;
-            max-width: 600px;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .modal-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .close-btn {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--text-light);
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .close-btn:hover {
-            background: var(--bg-light);
-            color: var(--text-dark);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .form-input,
-        .form-textarea,
-        .form-select {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid var(--border-light);
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-            font-family: inherit;
-        }
-
-        .form-input:focus,
-        .form-textarea:focus,
-        .form-select:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        .form-textarea {
-            resize: vertical;
-            min-height: 200px;
-            font-family: 'Courier New', monospace;
-        }
-
-        .image-upload {
-            border: 2px dashed var(--border-light);
-            border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .image-upload:hover {
-            border-color: var(--primary-color);
-            background: var(--bg-light);
-        }
-
-        .image-upload.has-image {
-            border-style: solid;
-            border-color: var(--accent-color);
-            background: #ecfdf5;
-        }
-
-        .upload-preview {
-            max-width: 100%;
-            max-height: 200px;
-            border-radius: 8px;
-            margin-top: 1rem;
-        }
-
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .btn-primary {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #1d4ed8;
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn-secondary {
-            background: var(--bg-light);
-            color: var(--text-medium);
-            border: 2px solid var(--border-light);
-        }
-
-        .btn-secondary:hover {
-            background: var(--bg-white);
-            border-color: var(--primary-color);
-            color: var(--primary-color);
-        }
-
-        /* Search */
-        .search-container {
-            margin-bottom: 2rem;
-            position: relative;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 1rem 1rem 1rem 3rem;
-            border: 2px solid var(--border-light);
-            border-radius: 50px;
-            font-size: 1rem;
-            background: var(--bg-white);
-            transition: all 0.3s ease;
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-light);
-            font-size: 1.125rem;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--text-dark);
-            color: white;
-            text-align: center;
-            padding: 3rem 2rem 2rem;
-            margin-top: 4rem;
-        }
-
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .footer h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer p {
-            opacity: 0.8;
-            margin-bottom: 2rem;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background: var(--primary-color);
-            transform: translateY(-2px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 2rem;
-            opacity: 0.6;
-            font-size: 0.875rem;
-        }
-
-        .footer-nav {
-            margin-bottom: 1rem;
-        }
-
-        .footer-nav a {
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            margin: 0 1rem;
-            font-size: 0.875rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-nav a:hover {
-            color: white;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-stats {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .main-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                padding: 2rem 1rem;
-            }
-
-            .categories {
-                gap: 0.5rem;
-            }
-
-            .category-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.8rem;
-            }
-
-            .admin-float {
-                bottom: 1rem;
-                right: 1rem;
-            }
-
-            .admin-btn {
-                padding: 0.3rem 0.5rem;
-                font-size: 0.65rem;
-            }
-
-            .footer-nav a {
-                display: block;
-                margin: 0.5rem 0;
-            }
-        }
-
-        /* Article View */
-        .article-view {
-            background: var(--bg-white);
-            border-radius: 16px;
-            padding: 3rem;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-light);
-        }
-
-        .article-header {
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .article-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-
-        .article-meta {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            color: var(--text-light);
-            font-size: 0.875rem;
-            margin-bottom: 2rem;
-        }
-
-        .article-body {
-            font-size: 1.125rem;
-            line-height: 1.8;
-            color: var(--text-dark);
-        }
-
-        .article-body h2,
-        .article-body h3,
-        .article-body h4 {
-            margin: 2rem 0 1rem;
-            color: var(--text-dark);
-        }
-
-        .article-body p {
-            margin-bottom: 1.5rem;
-        }
-
-        .article-body img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            margin: 2rem 0;
-            box-shadow: var(--shadow-md);
-        }
-
-        .article-featured-image {
-            width: 100%;
-            max-height: 500px;
-            object-fit: cover;
-            border-radius: 16px;
-            box-shadow: var(--shadow-lg);
-            margin-bottom: 2rem;
-        }
-
-        .back-btn {
-            margin-bottom: 2rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .back-btn:hover {
-            color: #1d4ed8;
-            transform: translateX(-2px);
-        }
-
-        /* Admin Tabs */
-        .admin-tabs {
-            display: flex;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .admin-tab {
-            background: none;
-            border: none;
-            padding: 1rem 1.5rem;
-            font-weight: 500;
-            color: var(--text-medium);
-            cursor: pointer;
-            border-bottom: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .admin-tab:hover {
-            color: var(--primary-color);
-            background: var(--bg-light);
-        }
-
-        .admin-tab.active {
-            color: var(--primary-color);
-            border-bottom-color: var(--primary-color);
-        }
-
-        /* Posts Management */
-        .posts-management {
-            max-height: 400px;
-            overflow-y: auto;
-        }
-
-        .post-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem;
-            border: 1px solid var(--border-light);
-            border-radius: 8px;
-            margin-bottom: 0.5rem;
-            background: var(--bg-white);
-            transition: all 0.3s ease;
-        }
-
-        .post-item:hover {
-            box-shadow: var(--shadow-sm);
-            border-color: var(--primary-color);
-        }
-
-        .post-info {
-            flex: 1;
-        }
-
-        .post-item-title {
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 0.25rem;
-        }
-
-        .post-item-meta {
-            font-size: 0.75rem;
-            color: var(--text-light);
-        }
-
-        .post-actions {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .btn-small {
-            padding: 0.375rem 0.75rem;
-            font-size: 0.75rem;
-            border-radius: 4px;
-        }
-
-        .btn-edit {
-            background: var(--accent-color);
-            color: white;
-            border: none;
-        }
-
-        .btn-edit:hover {
-            background: #059669;
-        }
-
-        .btn-delete {
-            background: #dc2626;
-            color: white;
-            border: none;
-        }
-
-        .btn-delete:hover {
-            background: #b91c1c;
-        }
-
-        .no-posts-admin {
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-light);
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08110f">
+  <meta name="description" content="SemiFab Scientific AI Workspace — multi-model design space exploration demo">
+  <title>SemiFab — Scientific AI Workspace</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22>
+<rect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%2308110f%22/>
+<path d=%22M17 42V22h30M20 37l9-9 7 6 11-14%22 fill=%22none%22 stroke=%22%2398f5ca%22 stroke-width=%225%22/>
+</svg>">
+  <link rel="stylesheet" href="styles.css">
+  <style>.model-note{font-size:9px;color:#7287a3;margin:-7px 3px 18px}</style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav-container">
-            <a href="#" class="logo" onclick="showHome()">
-                <div class="logo-icon">
-                    <i class="fas fa-flask"></i>
-                </div>
-                <span class="logo-text">과학논문코칭</span>
-            </a>
+  <div class="grain">
+</div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="SemiFab home">
+<span class="brand-mark">SF</span>
+<span>SemiFab <b>Scientific AI Workspace</b>
+</span>
+</a>
+    <div class="project-switcher">
+<span class="pulse">
+</span> HBM Thermal Design Space <kbd>⌘ K</kbd>
+</div>
+    <div class="top-actions">
+<button class="icon-button" aria-label="알림">◌</button>
+<div class="avatar">JH</div>
+</div>
+  </header>
 
-            <!-- Desktop Menu -->
-            <ul class="nav-menu">
-                <li><a href="#" onclick="showHome()">홈</a></li>
-                <li><a href="/download">무료 프로그램</a></li>
-                <li><a href="/about">소개</a></li>
-                <li><a href="/contact">문의</a></li>
-            </ul>
+  <aside class="sidebar">
+    <nav id="nav">
+      <p class="nav-label">Workspace</p>
+      <button class="nav-item active" data-view="overview">
+<span>⌂</span>Overview</button>
+      <button class="nav-item" data-view="canvas">
+<span>◇</span>Research Canvas</button>
+      <button class="nav-item" data-view="run">
+<span>▶</span>DSE Run <em>Live</em>
+</button>
+      <button class="nav-item" data-view="xray">
+<span>⌁</span>Research X-Ray</button>
+      <p class="nav-label">Control plane</p>
+      <button class="nav-item" data-view="westworld">
+<span>◎</span>Westworld</button>
+      <button class="nav-item" data-view="documents">
+<span>▤</span>Documents <i>3</i>
+</button>
+    </nav>
+    <div class="bandi-card">
+<div class="bandi-head">
+<span class="bandi-orb">✦</span>
+<b>Bandi</b>
+<small>AI copilot</small>
+</div>
+<p>4개 모델의 contract가 유효합니다. 탐색을 시작할 준비가 됐어요.</p>
+<button data-go="run">Review run plan →</button>
+</div>
+    <div class="version">DEMO v0.1 · SYSTEM HEALTHY</div>
+  </aside>
 
-            <!-- Mobile Menu Toggle -->
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="메뉴 열기">
-                <i class="fas fa-bars"></i>
-            </button>
-
-            <!-- Mobile Menu -->
-            <div class="mobile-menu" id="mobile-menu">
-                <ul>
-                    <li><a href="#" onclick="showHome(); closeMobileMenu();">홈</a></li>
-                    <li><a href="/download" onclick="closeMobileMenu();">무료 프로그램</a></li>
-                    <li><a href="/about" onclick="closeMobileMenu();">소개</a></li>
-                    <li><a href="/contact" onclick="closeMobileMenu();">문의</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Main Content -->
-    <main>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>고등학생 과학논문 코칭</h1>
-            <p class="subtitle">10년 경력 대학 강사가 알려드리는 과학논문 작성의 모든 것<br>R&E, 과학탐구, 소논문부터 대입 준비까지</p>
-
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <span class="stat-number">10+</span>
-                    <span class="stat-label">년 강의 경력</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" id="total-posts">0</span>
-                    <span class="stat-label">개 가이드</span>
-                </div>
-            </div>
+  <main>
+    <section class="view active" id="overview">
+      <div class="eyebrow">PROJECT / HBM-THERMAL-01</div>
+      <div class="hero-row">
+<div>
+<h1>좋은 다음 실험을,<br>
+<span>더 적은 계산으로.</span>
+</h1>
+<p class="lede">서로 다른 모델과 실험 데이터를 하나의 검증 가능한 연구 흐름으로 연결합니다.</p>
+</div>
+<button class="primary" data-go="canvas">Open research canvas <span>→</span>
+</button>
+</div>
+      <div class="metrics">
+        <article>
+<small>CONNECTED MODELS</small>
+<strong>04</strong>
+<span class="trend">+1 this week</span>
+</article>
+        <article>
+<small>DESIGN CANDIDATES</small>
+<strong>128</strong>
+<span>12 shortlisted</span>
+</article>
+        <article>
+<small>COMPUTE SAVED</small>
+<strong>63%</strong>
+<span>vs. full fidelity</span>
+</article>
+        <article>
+<small>CONFIDENCE</small>
+<strong>0.91</strong>
+<span class="trend">validated</span>
+</article>
+      </div>
+      <div class="grid-two">
+        <article class="panel flow-panel">
+<header>
+<div>
+<span class="overline">ACTIVE WORKFLOW</span>
+<h2>HBM Thermal Optimization</h2>
+</div>
+<span class="status running">● Running</span>
+</header>
+<div class="flow">
+          <div class="flow-node done">
+<span>ƒx</span>
+<b>Analytical</b>
+<small>0.2s · 100%</small>
+</div>
+<i>
+</i>
+          <div class="flow-node done">
+<span>Py</span>
+<b>Python model</b>
+<small>4.8s · 100%</small>
+</div>
+<i>
+</i>
+          <div class="flow-node active">
+<span>HF</span>
+<b>High fidelity</b>
+<small>18/24 · 75%</small>
+</div>
+<i>
+</i>
+          <div class="flow-node">
+<span>EX</span>
+<b>Experiment</b>
+<small>Queued</small>
+</div>
         </div>
+<div class="progress">
+<span style="width:72%">
+</span>
+</div>
+<footer>
+<span>Iteration 7 of 10</span>
+<b>Estimated 08:42 remaining</b>
+</footer>
+</article>
+        <article class="panel activity">
+<header>
+<div>
+<span class="overline">RESEARCH SIGNALS</span>
+<h2>What changed</h2>
+</div>
+<button class="ghost">View trace</button>
+</header>
+          <div class="signal">
+<span class="signal-icon green">✓</span>
+<div>
+<b>Contract validated</b>
+<p>thermal_solver.py · 14 quantities mapped</p>
+</div>
+<time>2m</time>
+</div>
+          <div class="signal">
+<span class="signal-icon amber">△</span>
+<div>
+<b>Model disagreement detected</b>
+<p>Junction temperature · region B3</p>
+</div>
+<time>7m</time>
+</div>
+          <div class="signal">
+<span class="signal-icon blue">✦</span>
+<div>
+<b>Bandi suggested 6 candidates</b>
+<p>Expected information gain: high</p>
+</div>
+<time>12m</time>
+</div>
+        </article>
+      </div>
+      <article class="panel candidates">
+<header>
+<div>
+<span class="overline">NEXT BEST CANDIDATES</span>
+<h2>Recommended experiments</h2>
+</div>
+<span class="muted">Ranked by information gain / cost</span>
+</header>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>RANK</th>
+<th>CANDIDATE</th>
+<th>MICROBUMP</th>
+<th>TIM THICKNESS</th>
+<th>EST. TEMP</th>
+<th>CONFIDENCE</th>
+<th>ROUTE</th>
+</tr>
+</thead>
+<tbody id="candidateRows">
+</tbody>
+</table>
+</div>
+</article>
     </section>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <div class="content-area">
-            <!-- Search -->
-            <div class="search-container">
-                <i class="fas fa-search search-icon"></i>
-                <input type="text" class="search-input" placeholder="가이드 검색..." id="search-input">
-            </div>
-
-            <!-- Categories -->
-            <div class="categories">
-                <button class="category-btn active" onclick="filterPosts('all')">전체</button>
-                <button class="category-btn" onclick="filterPosts('논문작성법')">논문작성법</button>
-                <button class="category-btn" onclick="filterPosts('연구방법론')">연구방법론</button>
-                <button class="category-btn" onclick="filterPosts('과학탐구')">과학탐구</button>
-                <button class="category-btn" onclick="filterPosts('대입준비')">대입준비</button>
-            </div>
-
-            <!-- Posts Grid - Firestore 데이터로 동적 로딩 -->
-            <div class="posts-grid" id="posts-container">
-                <!-- 포스트는 JavaScript로 동적 로딩됨 (Firestore 데이터) -->
-            </div>
-            <div style="text-align:center; margin: 2rem 0;">
-                <button id="load-more-btn" onclick="loadPostsFromFirestore(true)" style="display:none; padding: 0.75rem 2.5rem; background: var(--primary); color: #fff; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer;">
-                    글 더 보기
-                </button>
-            </div>
-
-            <!-- SEO: 구글봇이 JS를 실행하지 못할 때 보여줄 정적 콘텐츠 -->
-            <noscript>
-                <div style="max-width: 800px; margin: 0 auto; padding: 2rem;">
-                    <h2>최신 글 목록</h2>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 1.5rem; padding: 1rem; background: #fff; border-radius: 8px;">
-                            <a href="/posts/research-proposal-writing-guide" style="text-decoration: none; color: #1f2937;">
-                                <strong>연구 계획서 작성법: 심사위원이 보는 5가지 핵심</strong>
-                                <p style="color: #6b7280; margin-top: 0.5rem;">연구 계획서는 심사위원을 설득하는 문서입니다. 논리적 구조, 배경과의 정합성, 논지의 명확함, 가정에 맞는 설계까지 - 심사위원이 실제로 보는 핵심 요소를 알려드립니다.</p>
-                            </a>
-                        </li>
-                        <li style="margin-bottom: 1.5rem; padding: 1rem; background: #fff; border-radius: 8px;">
-                            <a href="/posts/college-admission-self-introduction-letter-guide" style="text-decoration: none; color: #1f2937;">
-                                <strong>자기소개서 작성법: '했다'가 아니라 '왜 했는지'를 써라</strong>
-                                <p style="color: #6b7280; margin-top: 0.5rem;">자기소개서는 활동 목록이 아닙니다. 입학사정관이 보고 싶은 것은 '무엇을 했는가'가 아니라 '왜 했는가, 무엇을 배웠는가, 어떻게 성장했는가'입니다.</p>
-                            </a>
-                        </li>
-                        <li style="margin-bottom: 1.5rem; padding: 1rem; background: #fff; border-radius: 8px;">
-                            <a href="/posts/ph-indicator-color-change-experiment" style="text-decoration: none; color: #1f2937;">
-                                <strong>pH 지시약 색 변화 탐구: 양배추즙으로 산성·염기성 판별하기</strong>
-                                <p style="color: #6b7280; margin-top: 0.5rem;">양배추즙은 천연 pH 지시약입니다. 집에서 구할 수 있는 다양한 용액의 pH를 양배추즙으로 측정하고, 색 변화의 과학적 원리를 탐구하는 실험을 소개합니다.</p>
-                            </a>
-                        </li>
-                        <li style="margin-bottom: 1.5rem; padding: 1rem; background: #fff; border-radius: 8px;">
-                            <a href="/posts/how-to-write-lab-notebook" style="text-decoration: none; color: #1f2937;">
-                                <strong>실험 노트 작성법: 재현 가능한 기록 남기기</strong>
-                                <p style="color: #6b7280; margin-top: 0.5rem;">기록은 과학의 생명입니다. 언제, 무엇을, 어떻게 했는지 - 다른 사람이 똑같이 재현할 수 있을 정도로 상세하게 기록하는 방법을 알려드립니다.</p>
-                            </a>
-                        </li>
-                        <li style="margin-bottom: 1.5rem; padding: 1rem; background: #fff; border-radius: 8px;">
-                            <a href="/posts/paper-introduction-structure-analysis" style="text-decoration: none; color: #1f2937;">
-                                <strong>논문 쓰기: Introduction 구조 완전 분석</strong>
-                                <p style="color: #6b7280; margin-top: 0.5rem;">서론(Introduction)은 단순한 소개가 아닙니다. '왜 이 연구를 할 수밖에 없었는가'를 설득하는 서사 구조입니다.</p>
-                            </a>
-                        </li>
-                        <li style="margin-bottom: 1.5rem; padding: 1rem; background: #fff; border-radius: 8px;">
-                            <a href="/posts/grade2-to-grade3-golden-time-before-new-semester" style="text-decoration: none; color: #1f2937;">
-                                <strong>고2에서 고3으로: 새학기 전 4주, 학종 준비의 골든타임</strong>
-                                <p style="color: #6b7280; margin-top: 0.5rem;">수능이 끝나고 겨울방학이 지나는 지금, 고2에서 고3이 되는 학생들에게 가장 중요한 시기입니다. 새학기 전 4주 동안 반드시 해야 할 학종 준비 전략을 정리합니다.</p>
-                            </a>
-                        </li>
-                        <li style="margin-bottom: 1.5rem; padding: 1rem; background: #fff; border-radius: 8px;">
-                            <a href="/posts/how-to-write-materials-and-methods-section" style="text-decoration: none; color: #1f2937;">
-                                <strong>논문 '재료 및 방법' 작성법: 장비명부터 시약 농도까지 빠짐없이 쓰는 법</strong>
-                                <p style="color: #6b7280; margin-top: 0.5rem;">실험 방법 섹션에는 의견이 들어가면 안 됩니다. 무엇을 사용했고, 어떻게 했고, 몇 번 반복했는지를 사실 그대로 정확하게 기록하는 것이 핵심입니다.</p>
-                            </a>
-                        </li>
-                        <li style="margin-bottom: 1.5rem; padding: 1rem; background: #fff; border-radius: 8px;">
-                            <a href="/posts/school-activity-yearly-focusing-strategy" style="text-decoration: none; color: #1f2937;">
-                                <strong>학교 내부 활동의 중요성: 고1부터 고3까지 학년별 포커싱 전략</strong>
-                                <p style="color: #6b7280; margin-top: 0.5rem;">학생부종합전형은 선생님이 쓰는 기록입니다. 고1의 다양한 탐색에서 고3의 집중까지, 학년별 활동 전략과 선생님과의 소통이 왜 핵심인지 알려드립니다.</p>
-                            </a>
-                        </li>
-                        <li style="margin-bottom: 1.5rem; padding: 1rem; background: #fff; border-radius: 8px;">
-                            <a href="/posts/bean-sprout-growth-experiment" style="text-decoration: none; color: #1f2937;">
-                                <strong>콩나물 성장 조건 탐구: 일상 속 실험에서 식량 전략까지</strong>
-                                <p style="color: #6b7280; margin-top: 0.5rem;">콩나물 키우기는 누구나 할 수 있는 가장 쉬운 과학 실험입니다. 빛, 온도, 수분 조건을 바꿔가며 성장을 관찰하고, 이를 식량 생산 전략으로 확장하는 탐구 과정을 소개합니다.</p>
-                            </a>
-                        </li>
-                        <li style="margin-bottom: 1.5rem; padding: 1rem; background: #fff; border-radius: 8px;">
-                            <a href="/posts/village-event-statistical-analysis" style="text-decoration: none; color: #1f2937;">
-                                <strong>마을 속 사건의 연관성 분석: 통계적 가설 검증으로 진실 찾기</strong>
-                                <p style="color: #6b7280; margin-top: 0.5rem;">드라마에서 영감을 받은 과학탐구 주제입니다. 한 마을에서 벌어지는 사건들의 연관성을 통계적으로 분석하고, 가설을 세우고 검증하며 하나씩 지워가는 논리적 탐구 과정을 소개합니다.</p>
-                            </a>
-                        </li>
-                        <li style="margin-bottom: 1.5rem; padding: 1rem; background: #fff; border-radius: 8px;">
-                            <a href="/posts/how-to-find-research-topic" style="text-decoration: none; color: #1f2937;">
-                                <strong>연구 주제 찾는 법: 엄마의 비닐봉지에서 시작된 과학탐구</strong>
-                                <p style="color: #6b7280; margin-top: 0.5rem;">막연하게 느껴지는 연구 주제 선정. 거창한 곳이 아닌 일상의 작은 의문에서 시작해 꼬리에 꼬리를 물며 구체화하는 방법을 알려드립니다.</p>
-                            </a>
-                        </li>
-                        <li style="margin-bottom: 1.5rem; padding: 1rem; background: #fff; border-radius: 8px;">
-                            <a href="/posts/how-to-write-science-paper-introduction" style="text-decoration: none; color: #1f2937;">
-                                <strong>과학논문 서론 작성법: 연구 배경부터 가설까지 완벽 가이드</strong>
-                                <p style="color: #6b7280; margin-top: 0.5rem;">과학논문에서 가장 중요한 서론 작성법을 단계별로 알려드립니다.</p>
-                            </a>
-                        </li>
-                        <li style="margin-bottom: 1.5rem; padding: 1rem; background: #fff; border-radius: 8px;">
-                            <a href="/posts/how-to-cite-references-correctly" style="text-decoration: none; color: #1f2937;">
-                                <strong>참고문헌 인용법 총정리: APA, MLA, Chicago 스타일 비교</strong>
-                                <p style="color: #6b7280; margin-top: 0.5rem;">논문 작성 시 필수인 참고문헌 인용법을 스타일별로 정리했습니다.</p>
-                            </a>
-                        </li>
-                        <li style="margin-bottom: 1.5rem; padding: 1rem; background: #fff; border-radius: 8px;">
-                            <a href="/posts/understanding-variables-in-experiments" style="text-decoration: none; color: #1f2937;">
-                                <strong>실험 설계의 기초: 독립변인, 종속변인, 통제변인 완벽 이해</strong>
-                                <p style="color: #6b7280; margin-top: 0.5rem;">과학 실험에서 가장 기본이 되는 변인의 개념을 쉽게 설명합니다.</p>
-                            </a>
-                        </li>
-                        <li style="margin-bottom: 1.5rem; padding: 1rem; background: #fff; border-radius: 8px;">
-                            <a href="/posts/re-project-step-by-step-guide" style="text-decoration: none; color: #1f2937;">
-                                <strong>R&amp;E 프로젝트 A to Z: 주제 선정부터 최종 발표까지</strong>
-                                <p style="color: #6b7280; margin-top: 0.5rem;">R&amp;E 프로젝트를 처음 시작하는 학생들을 위한 완벽 가이드입니다.</p>
-                            </a>
-                        </li>
-                        <li style="margin-bottom: 1.5rem; padding: 1rem; background: #fff; border-radius: 8px;">
-                            <a href="/posts/student-record-research-strategy" style="text-decoration: none; color: #1f2937;">
-                                <strong>학생부종합전형 연구활동 기록 전략: 이렇게 써야 합격한다</strong>
-                                <p style="color: #6b7280; margin-top: 0.5rem;">학생부종합전형에서 연구활동을 효과적으로 기록하는 방법을 알려드립니다.</p>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </noscript>
-
-            <!-- AdSense Display Ad - Removed for clean layout -->
-        </div>
-
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <h3>인기 가이드</h3>
-            <ul class="popular-posts" id="popular-posts">
-                <!-- 인기 포스트는 JavaScript로 동적 업데이트됨 (Firestore 데이터) -->
-            </ul>
-
-            <h3 style="margin-top: 2rem;">카테고리</h3>
-            <div class="sidebar-categories" style="margin-top: 1rem;">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                    <span>논문작성법</span>
-                    <span id="count-논문작성법" style="color: var(--text-light);">0</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                    <span>연구방법론</span>
-                    <span id="count-연구방법론" style="color: var(--text-light);">0</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                    <span>과학탐구</span>
-                    <span id="count-과학탐구" style="color: var(--text-light);">0</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                    <span>대입준비</span>
-                    <span id="count-대입준비" style="color: var(--text-light);">0</span>
-                </div>
-            </div>
-
-            <!-- AdSense Sidebar Ad - Removed for clean layout -->
-        </div>
-    </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <h3>고등학생 과학논문 코칭</h3>
-            <p>10년 경력 대학 강사의 체계적인 논문 작성 가이드</p>
-        </div>
-        <div class="footer-bottom">
-            <div class="footer-nav">
-                <a href="/about">소개</a>
-                <a href="/download">무료 프로그램</a>
-                <a href="/contact">문의</a>
-                <a href="/privacy-policy">개인정보처리방침</a>
-                <a href="/terms-of-service">이용약관</a>
-            </div>
-            <p>&copy; 2026 고등학생 과학논문 코칭. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Admin access: /admin -->
-
-    <!-- Admin Modal (hidden on public site) -->
-    <div class="modal" id="admin-modal" style="display: none !important;">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title" id="modal-title">Create New Post</h2>
-                <button class="close-btn" onclick="closeAdmin()">&times;</button>
-            </div>
-            
-            <!-- Admin Menu Tabs -->
-            <div class="admin-tabs">
-                <button class="admin-tab active" onclick="showCreateForm()">Create Post</button>
-                <button class="admin-tab" onclick="showPostsList()">Manage Posts</button>
-                <button class="admin-tab" onclick="showImageUploader()">이미지 URL</button>
-                <button class="admin-tab" onclick="showDataMigration()">Migrate Data</button>
-            </div>
-            
-            <!-- Create/Edit Form -->
-            <div id="admin-form">
-                <div class="form-group">
-                    <label class="form-label">Title</label>
-                    <input type="text" class="form-input" id="post-title" placeholder="e.g. 5 Morning Habits That Changed My Life">
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">카테고리</label>
-                    <select class="form-select" id="post-category">
-                        <option value="논문작성법">논문작성법</option>
-                        <option value="연구방법론">연구방법론</option>
-                        <option value="과학탐구">과학탐구</option>
-                        <option value="대입준비">대입준비</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">Excerpt</label>
-                    <input type="text" class="form-input" id="post-excerpt" placeholder="Brief description of the article content...">
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">Upload Image</label>
-                    <div class="image-upload" onclick="document.getElementById('image-input').click()">
-                        <i class="fas fa-image" style="font-size: 2rem; color: var(--text-light); margin-bottom: 1rem;"></i>
-                        <p style="color: var(--text-medium);">Click to upload image</p>
-                        <p style="font-size: 0.875rem; color: var(--text-light);">JPG, PNG, GIF (Max 5MB)</p>
-                        <img id="image-preview" class="upload-preview" style="display: none;">
-                    </div>
-                    <input type="file" id="image-input" accept="image/*" style="display: none;">
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">Content (HTML format)</label>
-                    <textarea class="form-textarea" id="post-content" placeholder="Write your content in HTML format...
-
-Example:
-<h2>Introduction</h2>
-<p>This is the beginning of my article...</p>
-
-<h3>Key Points</h3>
-<ul>
-<li>First important point</li>
-<li>Second important point</li>
-</ul>
-
-<p>More content here...</p>"></textarea>
-                </div>
-
-                <div style="display: flex; gap: 1rem; justify-content: flex-end;">
-                    <button class="btn btn-secondary" onclick="closeAdmin()">Cancel</button>
-                    <button class="btn btn-primary" id="submit-btn" onclick="createPost()">
-                        <i class="fas fa-save"></i>
-                        Publish Post
-                    </button>
-                </div>
-            </div>
-
-            <!-- Posts Management List -->
-            <div id="posts-list" style="display: none;">
-                <div class="posts-management">
-                    <div id="posts-table">
-                        <!-- Posts will be loaded here -->
-                    </div>
-                </div>
-            </div>
-
-            <!-- Data Migration Tab -->
-            <div id="data-migration" style="display: none;">
-                <div style="background: var(--bg-light); padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
-                    <h3>Data Migration from localStorage</h3>
-                    <p>This will move your existing localStorage posts to Firebase Firestore.</p>
-                    <button class="btn btn-primary" onclick="migrateFromLocalStorage()">
-                        <i class="fas fa-database"></i>
-                        Migrate Now
-                    </button>
-                </div>
-                <div id="migration-status"></div>
-            </div>
-
-            <!-- Image URL Tab -->
-            <div id="image-url-tab" style="display: none;">
-                <div style="background: var(--bg-light); padding: 2rem; border-radius: 8px; margin-bottom: 1rem;">
-                    <h3 style="margin-bottom: 1rem;">이미지 업로드 → URL 복사</h3>
-                    <p style="color: var(--text-medium); margin-bottom: 1.5rem;">이미지를 업로드하면 URL이 생성됩니다. 이 URL을 Claude에게 전달하세요.</p>
-
-                    <div class="image-upload" id="url-image-upload" onclick="document.getElementById('url-image-input').click()" style="cursor: pointer; border: 2px dashed var(--border); padding: 2rem; border-radius: 8px; text-align: center;">
-                        <i class="fas fa-cloud-upload-alt" style="font-size: 3rem; color: var(--primary); margin-bottom: 1rem;"></i>
-                        <p style="color: var(--text-medium); margin-bottom: 0.5rem;">클릭하여 이미지 선택</p>
-                        <p style="font-size: 0.875rem; color: var(--text-light);">JPG, PNG, GIF (Max 5MB)</p>
-                    </div>
-                    <input type="file" id="url-image-input" accept="image/*" style="display: none;">
-
-                    <div id="url-upload-progress" style="display: none; margin-top: 1rem;">
-                        <div style="background: var(--border); border-radius: 4px; height: 8px; overflow: hidden;">
-                            <div id="url-progress-bar" style="background: var(--primary); height: 100%; width: 0%; transition: width 0.3s;"></div>
-                        </div>
-                        <p style="text-align: center; margin-top: 0.5rem; color: var(--text-medium);">업로드 중...</p>
-                    </div>
-
-                    <div id="url-result" style="display: none; margin-top: 1.5rem;">
-                        <label style="font-weight: 600; display: block; margin-bottom: 0.5rem;">생성된 이미지 URL:</label>
-                        <div style="display: flex; gap: 0.5rem;">
-                            <input type="text" id="generated-url" readonly style="flex: 1; padding: 0.75rem; border: 1px solid var(--border); border-radius: 4px; background: white; font-size: 0.875rem;">
-                            <button class="btn btn-primary" onclick="copyImageUrl()" style="white-space: nowrap;">
-                                <i class="fas fa-copy"></i> 복사
-                            </button>
-                        </div>
-                        <img id="url-image-preview" style="max-width: 100%; max-height: 200px; margin-top: 1rem; border-radius: 8px; display: none;">
-                        <p id="copy-success" style="display: none; color: #10b981; margin-top: 0.5rem; text-align: center;">
-                            <i class="fas fa-check"></i> URL이 클립보드에 복사되었습니다!
-                        </p>
-                    </div>
-                </div>
-
-                <div style="background: #fff3cd; padding: 1rem; border-radius: 8px; border-left: 4px solid #ffc107;">
-                    <p style="margin: 0; font-size: 0.875rem; color: #856404;">
-                        <i class="fas fa-info-circle"></i> <strong>사용법:</strong> URL 복사 후 Claude Code에 "이 이미지를 최근 글에 추가해줘: [URL]" 형식으로 전달하세요.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Blog data
-        var posts = [];
-        var currentFilter = 'all';
-        var currentView = 'home';
-        var currentPost = null;
-        var editingPostId = null;
-        var isFirebaseReady = false;
-
-        // Simple authentication - REMOVED
-        var isAuthenticated = true; // Always authenticated now
-
-        // AdSense mode configuration - for easy restoration later
-        var adsenseMode = true; // Set to false to restore all categories
-
-        // Simple hash function
-        async function simpleHash(str) {
-            if (crypto && crypto.subtle) {
-                const encoder = new TextEncoder();
-                const data = encoder.encode(str);
-                const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-                const hashArray = Array.from(new Uint8Array(hashBuffer));
-                return hashArray.map(b => b.toString(16).padStart(2, '0')).join('').substring(0, 16);
-            } else {
-                // Fallback simple hash for older browsers
-                let hash = 0;
-                for (let i = 0; i < str.length; i++) {
-                    const char = str.charCodeAt(i);
-                    hash = ((hash << 5) - hash) + char;
-                    hash = hash & hash; // Convert to 32-bit integer
-                }
-                return Math.abs(hash).toString(16).substring(0, 8);
-            }
-        }
-
-        // Wait for Firebase to be ready
-        function waitForFirebase() {
-            return new Promise((resolve) => {
-                if (window.db && window.firestore) {
-                    isFirebaseReady = true;
-                    resolve();
-                } else {
-                    setTimeout(() => waitForFirebase().then(resolve), 100);
-                }
-            });
-        }
-
-        // Firebase functions
-        var lastFirestoreDoc = null;  // 페이지네이션 커서
-        var allPostsLoaded = false;   // 더 이상 불러올 글 없음 플래그
-        var POSTS_PER_PAGE = 20;
-
-        async function loadPostsFromFirestore(loadMore) {
-            if (!isFirebaseReady) {
-                console.log("Firebase not ready, waiting...");
-                return;
-            }
-
-            try {
-                var constraints = [
-                    window.firestore.orderBy("createdAt", "desc"),
-                    window.firestore.limit(POSTS_PER_PAGE)
-                ];
-                if (loadMore && lastFirestoreDoc) {
-                    constraints.push(window.firestore.startAfter(lastFirestoreDoc));
-                }
-                const q = window.firestore.query(
-                    window.firestore.collection(window.db, "posts"),
-                    ...constraints
-                );
-                const querySnapshot = await window.firestore.getDocs(q);
-
-                if (!loadMore) posts = [];
-
-                querySnapshot.forEach((doc) => {
-                    const data = doc.data();
-                    posts.push({
-                        id: doc.id,
-                        firebaseId: doc.id,
-                        title: data.title,
-                        category: data.category,
-                        excerpt: data.excerpt,
-                        content: data.content,
-                        date: data.date,
-                        views: data.views || 0,
-                        image: data.image || null,
-                        createdAt: data.createdAt
-                    });
-                    lastFirestoreDoc = doc;
-                });
-
-                allPostsLoaded = querySnapshot.size < POSTS_PER_PAGE;
-                console.log("✅ Posts loaded from Firestore:", posts.length + " posts");
-
-                // Firestore 데이터 + 샘플 데이터 병합
-                if (!loadMore) mergeSamplePosts();
-                loadPosts();
-                updateLoadMoreButton();
-            } catch (error) {
-                console.error("❌ Failed to load posts:", error);
-                // Fallback to localStorage if Firebase fails
-                loadFromLocalStorageFallback();
-            }
-        }
-
-        function updateLoadMoreButton() {
-            var btn = document.getElementById('load-more-btn');
-            if (!btn) return;
-            btn.style.display = allPostsLoaded ? 'none' : 'block';
-        }
-
-        function loadFromLocalStorageFallback() {
-            console.log("🔄 Falling back to localStorage");
-            const localPosts = JSON.parse(localStorage.getItem('yudam-posts') || '[]');
-            if (localPosts.length > 0) {
-                posts = localPosts;
-                loadPosts();
-                console.log("📁 Loaded from localStorage:", posts.length + " posts");
-            } else {
-                // Load sample data if nothing exists
-                loadSampleData();
-            }
-        }
-
-        // 샘플 포스트 없음 - 모든 데이터는 Firestore에서 로드
-        function getSamplePosts() {
-            return [];
-        }
-
-        // Firestore 데이터와 샘플 데이터 병합
-        function mergeSamplePosts() {
-            const samplePosts = getSamplePosts();
-            const existingTitles = posts.map(p => p.title);
-
-            // 중복되지 않는 샘플 포스트만 추가
-            samplePosts.forEach(sample => {
-                if (!existingTitles.includes(sample.title)) {
-                    posts.push(sample);
-                }
-            });
-
-            // 날짜순 정렬 (최신순)
-            posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-            console.log("📝 Total posts after merge:", posts.length);
-        }
-
-        function loadSampleData() {
-            // 기본 포스트 데이터 - 코드에 직접 추가하면 바로 보임
-            posts = getSamplePosts();
-            loadPosts();
-        }
-
-        async function savePostToFirestore(post) {
-            if (!isFirebaseReady) {
-                alert('Firebase not ready. Please try again.');
-                return;
-            }
-
-            try {
-                document.getElementById('submit-btn').innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
-                
-                const docRef = await window.firestore.addDoc(
-                    window.firestore.collection(window.db, "posts"), 
-                    post
-                );
-                
-                console.log("✅ Post saved with ID:", docRef.id);
-                
-                await loadPostsFromFirestore();
-                updateStats();
-                updateCategoryCounts();
-                updateStructuredData();
-                updatePopularPosts();
-                closeAdmin();
-                
-                alert('Post published successfully!');
-                
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'post_created', {
-                        'event_category': 'content',
-                        'event_label': post.category,
-                        'value': 1
-                    });
-                }
-            } catch (error) {
-                console.error("❌ Save failed:", error);
-                alert('Failed to save post: ' + error.message);
-                document.getElementById('submit-btn').innerHTML = '<i class="fas fa-save"></i> Publish Post';
-            }
-        }
-
-        async function updatePostInFirestore(postId, updateData) {
-            if (!isFirebaseReady) {
-                alert('Firebase not ready. Please try again.');
-                return;
-            }
-
-            try {
-                document.getElementById('submit-btn').innerHTML = '<i class="fas fa-spinner fa-spin"></i> Updating...';
-                
-                const postRef = window.firestore.doc(window.db, "posts", postId);
-                await window.firestore.updateDoc(postRef, updateData);
-                
-                console.log("✅ Post updated");
-                
-                await loadPostsFromFirestore();
-                updateStats();
-                updateCategoryCounts();
-                updateStructuredData();
-                updatePopularPosts();
-                closeAdmin();
-                
-                alert('Post updated successfully!');
-            } catch (error) {
-                console.error("❌ Update failed:", error);
-                alert('Failed to update post: ' + error.message);
-                document.getElementById('submit-btn').innerHTML = '<i class="fas fa-save"></i> Update Post';
-            }
-        }
-
-        async function deletePostFromFirestore(firebaseId) {
-            if (!isFirebaseReady) {
-                alert('Firebase not ready. Please try again.');
-                return;
-            }
-
-            if (!confirm('Are you sure you want to delete this post? This action cannot be undone.')) {
-                return;
-            }
-            
-            try {
-                await window.firestore.deleteDoc(
-                    window.firestore.doc(window.db, "posts", firebaseId)
-                );
-                
-                console.log("✅ Post deleted");
-                
-                await loadPostsFromFirestore();
-                updateStats();
-                updateCategoryCounts();
-                updateStructuredData();
-                updatePopularPosts();
-                loadPostsForManagement();
-                
-                alert('Post deleted successfully.');
-                
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'post_deleted', {
-                        'event_category': 'content',
-                        'value': 1
-                    });
-                }
-            } catch (error) {
-                console.error("❌ Delete failed:", error);
-                alert('Failed to delete post: ' + error.message);
-            }
-        }
-
-        // Data migration function
-        async function migrateFromLocalStorage() {
-            const statusDiv = document.getElementById('migration-status');
-            statusDiv.innerHTML = '<div style="padding: 1rem; background: var(--bg-light); border-radius: 4px;">🔄 Checking localStorage...</div>';
-
-            const oldPosts = JSON.parse(localStorage.getItem('yudam-posts') || '[]');
-            
-            if (oldPosts.length === 0) {
-                statusDiv.innerHTML = '<div style="padding: 1rem; background: #fef2f2; border-radius: 4px; color: #dc2626;">No data found in localStorage.</div>';
-                return;
-            }
-
-            statusDiv.innerHTML = '<div style="padding: 1rem; background: var(--bg-light); border-radius: 4px;">🔄 Migrating ' + oldPosts.length + ' posts...</div>';
-
-            let successCount = 0;
-            let failCount = 0;
-
-            for (let post of oldPosts) {
-                try {
-                    const firestorePost = {
-                        title: post.title,
-                        category: post.category,
-                        excerpt: post.excerpt,
-                        content: post.content,
-                        date: post.date,
-                        views: post.views || 0,
-                        image: post.image || null,
-                        createdAt: new Date(post.date || new Date())
-                    };
-                    
-                    const docRef = await window.firestore.addDoc(
-                        window.firestore.collection(window.db, "posts"),
-                        firestorePost
-                    );
-                    
-                    successCount++;
-                    console.log("✅ Migrated:", post.title, "->", docRef.id);
-                } catch (error) {
-                    failCount++;
-                    console.error("❌ Migration failed:", post.title, error);
-                }
-            }
-
-            statusDiv.innerHTML = '<div style="padding: 1rem; background: #f0fdf4; border-radius: 4px; color: #15803d;">' +
-                '✅ Migration complete!<br>' +
-                'Success: ' + successCount + ' posts<br>' +
-                'Failed: ' + failCount + ' posts<br><br>' +
-                '<button class="btn btn-secondary" onclick="localStorage.removeItem(\'yudam-posts\'); alert(\'localStorage cleared!\');">Clear localStorage</button>' +
-                '</div>';
-
-            await loadPostsFromFirestore();
-            updateStats();
-            updateCategoryCounts();
-            updateStructuredData();
-            updatePopularPosts();
-        }
-
-        // Mobile menu functions
-        function toggleMobileMenu() {
-            var mobileMenu = document.getElementById('mobile-menu');
-            var toggle = document.querySelector('.mobile-menu-toggle i');
-            
-            if (mobileMenu.classList.contains('active')) {
-                closeMobileMenu();
-            } else {
-                mobileMenu.classList.add('active');
-                toggle.classList.remove('fa-bars');
-                toggle.classList.add('fa-times');
-            }
-        }
-
-        function closeMobileMenu() {
-            var mobileMenu = document.getElementById('mobile-menu');
-            var toggle = document.querySelector('.mobile-menu-toggle i');
-            
-            mobileMenu.classList.remove('active');
-            toggle.classList.remove('fa-times');
-            toggle.classList.add('fa-bars');
-        }
-
-        document.addEventListener('click', function(event) {
-            var mobileMenu = document.getElementById('mobile-menu');
-            var toggle = document.querySelector('.mobile-menu-toggle');
-            
-            if (!mobileMenu.contains(event.target) && !toggle.contains(event.target)) {
-                closeMobileMenu();
-            }
-        });
-
-        // Initialize page
-        document.addEventListener('DOMContentLoaded', async function() {
-            console.log("🚀 Page loading...");
-            
-            // Display AdSense mode notification for admin
-            if (adsenseMode) {
-                console.log("🎯 AdSense mode active");
-            }
-            
-            try {
-                await waitForFirebase();
-                console.log("🔥 Firebase ready");
-                
-                await loadPostsFromFirestore();
-                updateStats();
-                updateCategoryCounts();
-                setupSearch();
-                setupImageUpload();
-                setupUrlImageUpload();
-                updateStructuredData();
-                updatePopularPosts();
-
-                console.log("✅ Page initialization complete");
-            } catch (error) {
-                console.error("❌ Initialization failed:", error);
-                loadFromLocalStorageFallback();
-            }
-        });
-
-        // Admin functions
-        function showAdmin() {
-            document.getElementById('admin-modal').classList.add('active');
-            showCreateForm();
-        }
-
-        function showCreateForm() {
-            document.getElementById('admin-form').style.display = 'block';
-            document.getElementById('posts-list').style.display = 'none';
-            document.getElementById('data-migration').style.display = 'none';
-            document.getElementById('image-url-tab').style.display = 'none';
-
-            var tabs = document.querySelectorAll('.admin-tab');
-            tabs.forEach(tab => tab.classList.remove('active'));
-            tabs[0].classList.add('active');
-
-            editingPostId = null;
-            document.getElementById('modal-title').textContent = 'Create New Post';
-            document.getElementById('submit-btn').innerHTML = '<i class="fas fa-save"></i> Publish Post';
-            document.getElementById('submit-btn').onclick = createPost;
-            clearForm();
-        }
-
-        function showPostsList() {
-            document.getElementById('admin-form').style.display = 'none';
-            document.getElementById('posts-list').style.display = 'block';
-            document.getElementById('data-migration').style.display = 'none';
-            document.getElementById('image-url-tab').style.display = 'none';
-
-            var tabs = document.querySelectorAll('.admin-tab');
-            tabs.forEach(tab => tab.classList.remove('active'));
-            tabs[1].classList.add('active');
-
-            loadPostsForManagement();
-        }
-
-        function showDataMigration() {
-            document.getElementById('admin-form').style.display = 'none';
-            document.getElementById('posts-list').style.display = 'none';
-            document.getElementById('image-url-tab').style.display = 'none';
-            document.getElementById('data-migration').style.display = 'block';
-
-            var tabs = document.querySelectorAll('.admin-tab');
-            tabs.forEach(tab => tab.classList.remove('active'));
-            tabs[3].classList.add('active');
-        }
-
-        function showImageUploader() {
-            document.getElementById('admin-form').style.display = 'none';
-            document.getElementById('posts-list').style.display = 'none';
-            document.getElementById('data-migration').style.display = 'none';
-            document.getElementById('image-url-tab').style.display = 'block';
-
-            var tabs = document.querySelectorAll('.admin-tab');
-            tabs.forEach(tab => tab.classList.remove('active'));
-            tabs[2].classList.add('active');
-
-            // Reset the uploader state
-            document.getElementById('url-result').style.display = 'none';
-            document.getElementById('url-upload-progress').style.display = 'none';
-            document.getElementById('copy-success').style.display = 'none';
-        }
-
-        // Image URL upload functionality
-        function setupUrlImageUpload() {
-            var input = document.getElementById('url-image-input');
-            if (!input) return;
-
-            input.addEventListener('change', async function(e) {
-                var file = e.target.files[0];
-                if (!file) return;
-
-                if (file.size > 5 * 1024 * 1024) {
-                    alert('파일 크기가 5MB를 초과합니다.');
-                    return;
-                }
-
-                // Show progress
-                document.getElementById('url-upload-progress').style.display = 'block';
-                document.getElementById('url-result').style.display = 'none';
-                var progressBar = document.getElementById('url-progress-bar');
-                progressBar.style.width = '30%';
-
-                try {
-                    // Generate unique filename
-                    var timestamp = Date.now();
-                    var filename = 'blog-images/' + timestamp + '-' + file.name.replace(/[^a-zA-Z0-9.]/g, '_');
-
-                    progressBar.style.width = '50%';
-
-                    // Upload to Firebase Storage
-                    var storageRef = window.storageUtils.ref(window.storage, filename);
-                    await window.storageUtils.uploadBytes(storageRef, file);
-
-                    progressBar.style.width = '80%';
-
-                    // Get download URL
-                    var downloadURL = await window.storageUtils.getDownloadURL(storageRef);
-
-                    progressBar.style.width = '100%';
-
-                    // Show result
-                    setTimeout(function() {
-                        document.getElementById('url-upload-progress').style.display = 'none';
-                        document.getElementById('generated-url').value = downloadURL;
-                        document.getElementById('url-result').style.display = 'block';
-
-                        // Show preview
-                        var preview = document.getElementById('url-image-preview');
-                        preview.src = downloadURL;
-                        preview.style.display = 'block';
-                    }, 300);
-
-                    console.log('✅ Image uploaded:', downloadURL);
-
-                } catch (error) {
-                    console.error('❌ Upload failed:', error);
-                    document.getElementById('url-upload-progress').style.display = 'none';
-                    alert('업로드 실패: ' + error.message);
-                }
-
-                // Reset input
-                input.value = '';
-            });
-        }
-
-        function copyImageUrl() {
-            var urlInput = document.getElementById('generated-url');
-            urlInput.select();
-            urlInput.setSelectionRange(0, 99999);
-            document.execCommand('copy');
-
-            // Show success message
-            document.getElementById('copy-success').style.display = 'block';
-            setTimeout(function() {
-                document.getElementById('copy-success').style.display = 'none';
-            }, 2000);
-        }
-
-        function loadPostsForManagement() {
-            var container = document.getElementById('posts-table');
-            
-            if (posts.length === 0) {
-                container.innerHTML = '<div class="no-posts-admin">' +
-                    '<i class="fas fa-inbox"></i>' +
-                    '<p>No posts yet.</p>' +
-                '</div>';
-                return;
-            }
-
-            var postsHTML = '';
-            for (var i = 0; i < posts.length; i++) {
-                var post = posts[i];
-                postsHTML += '<div class="post-item">' +
-                    '<div class="post-info">' +
-                        '<div class="post-item-title">' + post.title + '</div>' +
-                        '<div class="post-item-meta">' + post.category + ' • ' + formatDate(post.date) + ' • ' + post.views + ' views</div>' +
-                    '</div>' +
-                    '<div class="post-actions">' +
-                        '<button class="btn btn-small btn-edit" onclick="editPost(\'' + post.firebaseId + '\')">' +
-                            '<i class="fas fa-edit"></i> Edit' +
-                        '</button>' +
-                        '<button class="btn btn-small btn-delete" onclick="deletePostFromFirestore(\'' + post.firebaseId + '\')">' +
-                            '<i class="fas fa-trash"></i> Delete' +
-                        '</button>' +
-                    '</div>' +
-                '</div>';
-            }
-            
-            container.innerHTML = postsHTML;
-        }
-
-        function editPost(firebaseId) {
-            var post = null;
-            for (var i = 0; i < posts.length; i++) {
-                if (posts[i].firebaseId === firebaseId) {
-                    post = posts[i];
-                    break;
-                }
-            }
-            
-            if (!post) return;
-            
-            showCreateForm();
-            
-            editingPostId = firebaseId;
-            document.getElementById('modal-title').textContent = 'Edit Post';
-            document.getElementById('submit-btn').innerHTML = '<i class="fas fa-save"></i> Update Post';
-            document.getElementById('submit-btn').onclick = updatePost;
-            
-            document.getElementById('post-title').value = post.title;
-            document.getElementById('post-category').value = post.category;
-            document.getElementById('post-excerpt').value = post.excerpt;
-            document.getElementById('post-content').value = post.content;
-            
-            if (post.image) {
-                var preview = document.getElementById('image-preview');
-                preview.src = post.image;
-                preview.style.display = 'block';
-                document.querySelector('.image-upload').classList.add('has-image');
-            }
-        }
-
-        function closeAdmin() {
-            document.getElementById('admin-modal').classList.remove('active');
-            clearForm();
-        }
-
-        function clearForm() {
-            editingPostId = null;
-            window._pendingImageFile = null;
-            document.getElementById('post-title').value = '';
-            document.getElementById('post-excerpt').value = '';
-            document.getElementById('post-content').value = '';
-            document.getElementById('post-category').value = '논문작성법';
-            document.getElementById('image-input').value = '';
-            document.getElementById('image-preview').style.display = 'none';
-            document.querySelector('.image-upload').classList.remove('has-image');
-            
-            document.getElementById('modal-title').textContent = 'Create New Post';
-            document.getElementById('submit-btn').innerHTML = '<i class="fas fa-save"></i> Publish Post';
-            document.getElementById('submit-btn').onclick = createPost;
-        }
-
-        // Image compression function
-        function compressImage(file, maxWidth = 1200, quality = 0.8) {
-            return new Promise((resolve) => {
-                const canvas = document.createElement('canvas');
-                const ctx = canvas.getContext('2d');
-                const img = new Image();
-                
-                img.onload = function() {
-                    // Calculate new dimensions
-                    let { width, height } = img;
-                    if (width > maxWidth) {
-                        height = (height * maxWidth) / width;
-                        width = maxWidth;
-                    }
-                    
-                    canvas.width = width;
-                    canvas.height = height;
-                    
-                    // Draw and compress
-                    ctx.drawImage(img, 0, 0, width, height);
-                    const compressedDataUrl = canvas.toDataURL('image/jpeg', quality);
-                    
-                    console.log('Image compressed:', {
-                        originalSize: (file.size / 1024).toFixed(1) + 'KB',
-                        compressedSize: (compressedDataUrl.length * 0.75 / 1024).toFixed(1) + 'KB'
-                    });
-                    
-                    resolve(compressedDataUrl);
-                };
-                
-                img.src = URL.createObjectURL(file);
-            });
-        }
-
-        function setupImageUpload() {
-            document.getElementById('image-input').addEventListener('change', async function(e) {
-                var file = e.target.files[0];
-                if (file) {
-                    if (file.size > 10 * 1024 * 1024) {
-                        alert('File size exceeds 10MB limit.');
-                        return;
-                    }
-                    
-                    // Compress image before displaying preview
-                    const compressedDataUrl = await compressImage(file);
-
-                    var preview = document.getElementById('image-preview');
-                    preview.src = compressedDataUrl;
-                    preview.style.display = 'block';
-                    document.querySelector('.image-upload').classList.add('has-image');
-
-                    // Firebase Storage 업로드를 위해 파일 정보 보관
-                    window._pendingImageFile = { dataUrl: compressedDataUrl, filename: file.name };
-
-                    console.log('Image compressed and ready for upload');
-                }
-            });
-        }
-
-        async function createPost() {
-            var title = document.getElementById('post-title').value.trim();
-            var category = document.getElementById('post-category').value;
-            var excerpt = document.getElementById('post-excerpt').value.trim();
-            var content = document.getElementById('post-content').value.trim();
-            var imagePreview = document.getElementById('image-preview');
-
-            if (!title || !excerpt || !content) {
-                alert('Please fill in all required fields.');
-                return;
-            }
-
-            var submitBtn = document.getElementById('submit-btn');
-            submitBtn.disabled = true;
-
-            // 이미지가 있으면 Firebase Storage에 업로드 후 URL 사용
-            var imageValue = null;
-            if (window._pendingImageFile) {
-                try {
-                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 이미지 업로드 중...';
-                    var { dataUrl, filename } = window._pendingImageFile;
-                    var res = await fetch(dataUrl);
-                    var blob = await res.blob();
-                    var storagePath = 'blog-images/' + Date.now() + '_' + filename;
-                    var storageRef = window.storageUtils.ref(window.storage, storagePath);
-                    await window.storageUtils.uploadBytes(storageRef, blob);
-                    imageValue = await window.storageUtils.getDownloadURL(storageRef);
-                    window._pendingImageFile = null;
-                } catch (uploadErr) {
-                    console.error('Storage 업로드 실패:', uploadErr);
-                    alert('이미지 업로드에 실패했습니다: ' + uploadErr.message);
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<i class="fas fa-save"></i> Publish Post';
-                    return;
-                }
-            }
-
-            var newPost = {
-                title: title,
-                category: category,
-                excerpt: excerpt,
-                content: content,
-                date: new Date().toISOString().split('T')[0],
-                views: 0,
-                image: imageValue,
-                createdAt: new Date()
-            };
-
-            submitBtn.disabled = false;
-            await savePostToFirestore(newPost);
-        }
-
-        async function updatePost() {
-            var title = document.getElementById('post-title').value.trim();
-            var category = document.getElementById('post-category').value;
-            var excerpt = document.getElementById('post-excerpt').value.trim();
-            var content = document.getElementById('post-content').value.trim();
-            var imagePreview = document.getElementById('image-preview');
-
-            if (!title || !excerpt || !content) {
-                alert('Please fill in all required fields.');
-                return;
-            }
-
-            var submitBtn = document.getElementById('submit-btn');
-            submitBtn.disabled = true;
-
-            var updateData = {
-                title: title,
-                category: category,
-                excerpt: excerpt,
-                content: content,
-                updatedAt: new Date()
-            };
-
-            // 새로 선택한 이미지가 있으면 Firebase Storage에 업로드
-            if (window._pendingImageFile) {
-                try {
-                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 이미지 업로드 중...';
-                    var { dataUrl, filename } = window._pendingImageFile;
-                    var res = await fetch(dataUrl);
-                    var blob = await res.blob();
-                    var storagePath = 'blog-images/' + Date.now() + '_' + filename;
-                    var storageRef = window.storageUtils.ref(window.storage, storagePath);
-                    await window.storageUtils.uploadBytes(storageRef, blob);
-                    updateData.image = await window.storageUtils.getDownloadURL(storageRef);
-                    window._pendingImageFile = null;
-                } catch (uploadErr) {
-                    console.error('Storage 업로드 실패:', uploadErr);
-                    alert('이미지 업로드에 실패했습니다: ' + uploadErr.message);
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<i class="fas fa-save"></i> Update Post';
-                    return;
-                }
-            } else if (imagePreview.style.display === 'block' && imagePreview.src.startsWith('https://')) {
-                // 기존 Firebase Storage URL 유지
-                updateData.image = imagePreview.src;
-            }
-
-            submitBtn.disabled = false;
-            await updatePostInFirestore(editingPostId, updateData);
-        }
-
-        // Display functions
-        var validCategories = ['논문작성법', '연구방법론', '과학탐구', '대입준비'];
-
-        function loadPosts() {
-            var container = document.getElementById('posts-container');
-            // 유효한 카테고리만 표시
-            var validPosts = posts.filter(function(post) {
-                return validCategories.indexOf(post.category) !== -1;
-            });
-            var filteredPosts = currentFilter === 'all'
-                ? validPosts
-                : validPosts.filter(function(post) { return post.category === currentFilter; });
-
-            if (filteredPosts.length === 0) {
-                var noPostsTitle = currentFilter === 'all' ? 'No Posts Yet' : 'No ' + currentFilter + ' Posts';
-                var noPostsText = currentFilter === 'all' ? 'Start sharing your insights!' : 'Create your first ' + currentFilter.toLowerCase() + ' post!';
-                
-                container.innerHTML = '<div class="no-posts">' +
-                    '<i class="fas fa-search"></i>' +
-                    '<h3>' + noPostsTitle + '</h3>' +
-                    '<p>' + noPostsText + '</p>' +
-                    '<button class="btn btn-primary" onclick="showAdmin()">' +
-                        '<i class="fas fa-plus"></i>' +
-                        'Create Post' +
-                    '</button>' +
-                '</div>';
-                return;
-            }
-
-            var postsHTML = '';
-            for (var i = 0; i < filteredPosts.length; i++) {
-                var post = filteredPosts[i];
-                var imageHTML = '';
-                var imageClass = '';
-                
-                if (post.image) {
-                    imageHTML = '<img src="' + post.image + '" alt="' + post.title + '" itemprop="image">';
-                    imageClass = ' has-image';
-                } else {
-                    imageHTML = '<div class="category-icon">' + getCategoryIcon(post.category) + '</div>';
-                }
-                
-                postsHTML += '<article class="post-card" onclick="showPost(\'' + (post.firebaseId || post.id) + '\')" itemscope itemtype="https://schema.org/BlogPosting">' +
-                    '<div class="post-image' + imageClass + '">' + imageHTML + '</div>' +
-                    '<div class="post-content">' +
-                        '<span class="post-category" itemprop="articleSection">' + post.category + '</span>' +
-                        '<h2 class="post-title" itemprop="headline">' + post.title + '</h2>' +
-                        '<p class="post-excerpt" itemprop="description">' + post.excerpt + '</p>' +
-                        '<div class="post-meta">' +
-                            '<div class="post-date">' +
-                                '<i class="fas fa-calendar"></i>' +
-                                '<time datetime="' + post.date + '" itemprop="datePublished">' + formatDate(post.date) + '</time>' +
-                            '</div>' +
-                            '<div class="post-views">' +
-                                '<i class="fas fa-eye"></i>' +
-                                '<span itemprop="interactionStatistic" itemscope itemtype="https://schema.org/InteractionCounter">' +
-                                    '<meta itemprop="interactionType" content="https://schema.org/ReadAction">' +
-                                    '<span itemprop="userInteractionCount">' + post.views + '</span>' +
-                                '</span> views' +
-                            '</div>' +
-                        '</div>' +
-                        '<meta itemprop="author" content="Yudam">' +
-                        '<meta itemprop="dateModified" content="' + post.date + '">' +
-                    '</div>' +
-                '</article>';
-            }
-
-            container.innerHTML = postsHTML;
-        }
-
-        function showPost(id) {
-            var post = null;
-            for (var i = 0; i < posts.length; i++) {
-                if (posts[i].firebaseId === id || posts[i].id == id) {
-                    post = posts[i];
-                    break;
-                }
-            }
-            if (!post) return;
-
-            // Increment views and update Firebase
-            post.views++;
-            if (isFirebaseReady && post.firebaseId) {
-                window.firestore.updateDoc(
-                    window.firestore.doc(window.db, "posts", post.firebaseId),
-                    { views: post.views }
-                ).catch(console.error);
-            }
-
-            currentPost = post;
-            currentView = 'post';
-
-            document.title = post.title + ' | Yudam\'s Life';
-            document.querySelector('meta[name="description"]').content = post.excerpt;
-
-            var container = document.getElementById('posts-container');
-            
-            var imageHTML = '';
-            if (post.image) {
-                imageHTML = '<div style="text-align: center; margin-bottom: 2rem;">' +
-                  '<img src="' + post.image + '" alt="' + post.title + '" itemprop="image" class="article-featured-image">' +
-                  '</div>';
-            }
-            
-            container.innerHTML = '<article class="article-view" itemscope itemtype="https://schema.org/BlogPosting">' +
-                '<a href="#" class="back-btn" onclick="showHome()">' +
-                    '<i class="fas fa-arrow-left"></i>' +
-                    'Back to Posts' +
-                '</a>' +
-                '<div class="article-header">' +
-                    '<h2 class="article-title" itemprop="headline">' + post.title + '</h2>' +
-                    '<div class="article-meta">' +
-                        '<span><i class="fas fa-folder"></i> <span itemprop="articleSection">' + post.category + '</span></span>' +
-                        '<span><i class="fas fa-calendar"></i> <time datetime="' + post.date + '" itemprop="datePublished">' + formatDate(post.date) + '</time></span>' +
-                        '<span><i class="fas fa-eye"></i> ' + post.views + ' views</span>' +
-                    '</div>' +
-                '</div>' +
-                imageHTML +
-                '<div class="article-body" itemprop="articleBody">' +
-                    post.content +
-                '</div>' +
-                '<meta itemprop="author" content="Yudam">' +
-                '<meta itemprop="dateModified" content="' + post.date + '">' +
-                '<meta itemprop="publisher" content="Yudam\'s Life">' +
-            '</article>';
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            updatePopularPosts();
-
-            if (typeof gtag !== 'undefined') {
-                gtag('config', 'G-KTLD09Z6DB', {
-                    page_title: post.title,
-                    page_location: window.location.origin + '/posts/' + post.id,
-                    content_group1: post.category
-                });
-                
-                gtag('event', 'page_view', {
-                    'event_category': 'content',
-                    'event_label': post.title,
-                    'custom_parameter_1': post.category
-                });
-            }
-        }
-
-        function showHome() {
-            currentView = 'home';
-            currentPost = null;
-            
-            document.title = "고등학생 과학논문 코칭 | 10년 대학강사의 논문 작성 가이드";
-            document.querySelector('meta[name="description"]').content = "10년 경력 대학 강사가 알려주는 고등학생 과학논문 작성법. R&E, 과학탐구, 소논문 작성부터 대입 준비까지 체계적인 코칭을 제공합니다.";
-            
-            loadPosts();
-        }
-
-        function showCategory(category) {
-            filterPosts(category);
-        }
-
-        function filterPosts(filter) {
-            currentFilter = filter;
-            currentView = 'home';
-            
-            var buttons = document.querySelectorAll('.category-btn');
-            for (var i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove('active');
-            }
-            
-            if (filter === 'all') {
-                document.querySelector('.category-btn').classList.add('active');
-            } else {
-                var targetBtn = null;
-                for (var i = 0; i < buttons.length; i++) {
-                    var btnText = buttons[i].textContent;
-                    if (btnText.includes(filter === 'Self-Development' ? 'Growth' : filter)) {
-                        targetBtn = buttons[i];
-                        break;
-                    }
-                }
-                if (targetBtn) targetBtn.classList.add('active');
-            }
-
-            loadPosts();
-
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'category_filter', {
-                    'event_category': 'navigation',
-                    'event_label': filter,
-                    'value': 1
-                });
-            }
-        }
-
-        function getCategoryIcon(category) {
-            var icons = {
-                '논문작성법': '<i class="fas fa-pen-fancy"></i>',
-                '연구방법론': '<i class="fas fa-microscope"></i>',
-                '과학탐구': '<i class="fas fa-flask"></i>',
-                '대입준비': '<i class="fas fa-graduation-cap"></i>'
-            };
-            return icons[category] || '<i class="fas fa-book"></i>';
-        }
-
-        function formatDate(dateString) {
-            var date = new Date(dateString);
-            return date.toLocaleDateString('ko-KR', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            });
-        }
-
-        function updateStats() {
-            // 유효한 카테고리의 포스트만 카운트
-            var validPosts = posts.filter(function(post) {
-                return validCategories.indexOf(post.category) !== -1;
-            });
-            var totalPostsEl = document.getElementById('total-posts');
-            if (totalPostsEl) {
-                totalPostsEl.textContent = validPosts.length;
-            }
-            var totalViews = 0;
-            for (var i = 0; i < validPosts.length; i++) {
-                totalViews += validPosts[i].views;
-            }
-            var totalViewsEl = document.getElementById('total-views');
-            if (totalViewsEl) {
-                totalViewsEl.textContent = totalViews.toLocaleString();
-            }
-        }
-
-        function updateCategoryCounts() {
-            var categories = ['논문작성법', '연구방법론', '과학탐구', '대입준비'];
-            for (var i = 0; i < categories.length; i++) {
-                var category = categories[i];
-                var count = 0;
-                for (var j = 0; j < posts.length; j++) {
-                    if (posts[j].category === category) {
-                        count++;
-                    }
-                }
-                var element = document.getElementById('count-' + category);
-                if (element) {
-                    element.textContent = count;
-                }
-            }
-        }
-
-        function updatePopularPosts() {
-            var popularContainer = document.getElementById('popular-posts');
-            // 유효한 카테고리의 포스트만 필터링
-            var validPosts = posts.filter(function(post) {
-                return validCategories.indexOf(post.category) !== -1;
-            });
-            var sortedPosts = validPosts.slice().sort(function(a, b) { return b.views - a.views; }).slice(0, 5);
-            
-            if (sortedPosts.length === 0) {
-                popularContainer.innerHTML = '<li class="popular-post">' +
-                    '<div class="popular-post-title">No posts yet</div>' +
-                    '<div class="popular-post-meta">Create your first post!</div>' +
-                '</li>';
-                return;
-            }
-
-            var popularHTML = '';
-            for (var i = 0; i < sortedPosts.length; i++) {
-                var post = sortedPosts[i];
-                popularHTML += '<li class="popular-post" onclick="showPost(\'' + (post.firebaseId || post.id) + '\')">' +
-                    '<div class="popular-post-title">' + post.title + '</div>' +
-                    '<div class="popular-post-meta">' + post.views + ' views • ' + formatDate(post.date) + '</div>' +
-                '</li>';
-            }
-
-            popularContainer.innerHTML = popularHTML;
-        }
-
-        function updateStructuredData() {
-            var structuredData = {
-                "@context": "https://schema.org",
-                "@type": "Blog",
-                "name": "고등학생 과학논문 코칭",
-                "description": "10년 경력 대학 강사가 운영하는 고등학생 과학논문 작성 코칭 서비스",
-                "url": "https://youdam.com/",
-                "author": {
-                    "@type": "Person",
-                    "name": "Youdam",
-                    "url": "https://youdam.com/about"
-                },
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "고등학생 과학논문 코칭",
-                    "logo": {
-                        "@type": "ImageObject",
-                        "url": "https://youdam.com/images/logo.png",
-                        "width": 600,
-                        "height": 315
-                    },
-                    "url": "https://youdam.com/"
-                },
-                "mainEntityOfPage": {
-                    "@type": "WebPage",
-                    "@id": "https://youdam.com/"
-                },
-                "inLanguage": "ko-KR",
-                "copyrightYear": "2026",
-                "copyrightHolder": {
-                    "@type": "Person",
-                    "name": "Youdam"
-                },
-                "keywords": ["고등학생 논문", "과학논문", "R&E", "소논문", "과학탐구", "대입준비", "논문작성법"],
-                "blogPost": []
-            };
-
-            for (var i = 0; i < posts.length; i++) {
-                var post = posts[i];
-                structuredData.blogPost.push({
-                    "@type": "BlogPosting",
-                    "headline": post.title,
-                    "description": post.excerpt,
-                    "datePublished": post.date,
-                    "dateModified": post.date,
-                    "author": {
-                        "@type": "Person",
-                        "name": "Yudam",
-                        "url": "https://youdam.com/about"
-                    },
-                    "publisher": {
-                        "@type": "Organization",
-                        "name": "고등학생 과학논문 코칭",
-                        "logo": {
-                            "@type": "ImageObject",
-                            "url": "https://youdam.com/images/logo.png",
-                            "width": 600,
-                            "height": 315
-                        }
-                    },
-                    "mainEntityOfPage": {
-                        "@type": "WebPage",
-                        "@id": "https://youdam.com/posts/" + post.id
-                    },
-                    "articleSection": post.category,
-                    "wordCount": post.content.replace(/<[^>]*>/g, '').split(' ').length,
-                    "interactionStatistic": {
-                        "@type": "InteractionCounter",
-                        "interactionType": "https://schema.org/ReadAction",
-                        "userInteractionCount": post.views
-                    },
-                    "image": post.image ? {
-                        "@type": "ImageObject",
-                        "url": post.image,
-                        "width": 1200,
-                        "height": 630
-                    } : {
-                        "@type": "ImageObject",
-                        "url": "https://youdam.com/images/default-post-image.jpg",
-                        "width": 1200,
-                        "height": 630
-                    },
-                    "url": "https://youdam.com/posts/" + post.id
-                });
-            }
-
-            var existingScript = document.querySelector('script[type="application/ld+json"]');
-            if (existingScript) {
-                existingScript.textContent = JSON.stringify(structuredData, null, 2);
-            }
-        }
-
-        function setupSearch() {
-            var searchInput = document.getElementById('search-input');
-            var searchTimeout;
-            
-            searchInput.addEventListener('input', function(e) {
-                clearTimeout(searchTimeout);
-                searchTimeout = setTimeout(function() {
-                    var query = e.target.value.toLowerCase().trim();
-                    
-                    if (query === '') {
-                        loadPosts();
-                        return;
-                    }
-
-                    var filtered = [];
-                    for (var i = 0; i < posts.length; i++) {
-                        var post = posts[i];
-                        if (post.title.toLowerCase().indexOf(query) !== -1 ||
-                            post.excerpt.toLowerCase().indexOf(query) !== -1 ||
-                            post.category.toLowerCase().indexOf(query) !== -1 ||
-                            post.content.toLowerCase().indexOf(query) !== -1) {
-                            filtered.push(post);
-                        }
-                    }
-
-                    displayFilteredPosts(filtered, 'Search results for "' + query + '"');
-
-                    if (typeof gtag !== 'undefined') {
-                        gtag('event', 'search', {
-                            'search_term': query,
-                            'event_category': 'engagement'
-                        });
-                    }
-                }, 300);
-            });
-        }
-
-        function displayFilteredPosts(filteredPosts, title) {
-            var container = document.getElementById('posts-container');
-            
-            if (filteredPosts.length === 0) {
-                container.innerHTML = '<div class="no-posts">' +
-                    '<i class="fas fa-search"></i>' +
-                    '<h3>No Results Found</h3>' +
-                    '<p>Try different keywords or browse all posts</p>' +
-                    '<button class="btn btn-primary" onclick="clearSearch()">' +
-                        '<i class="fas fa-times"></i>' +
-                        'Clear Search' +
-                    '</button>' +
-                '</div>';
-                return;
-            }
-
-            var postsHTML = '';
-            for (var i = 0; i < filteredPosts.length; i++) {
-                var post = filteredPosts[i];
-                var imageHTML = '';
-                var imageClass = '';
-                
-                if (post.image) {
-                    imageHTML = '<img src="' + post.image + '" alt="' + post.title + '" itemprop="image">';
-                    imageClass = ' has-image';
-                } else {
-                    imageHTML = '<div class="category-icon">' + getCategoryIcon(post.category) + '</div>';
-                }
-                
-                postsHTML += '<article class="post-card" onclick="showPost(\'' + (post.firebaseId || post.id) + '\')" itemscope itemtype="https://schema.org/BlogPosting">' +
-                    '<div class="post-image' + imageClass + '">' + imageHTML + '</div>' +
-                    '<div class="post-content">' +
-                        '<span class="post-category" itemprop="articleSection">' + post.category + '</span>' +
-                        '<h2 class="post-title" itemprop="headline">' + post.title + '</h2>' +
-                        '<p class="post-excerpt" itemprop="description">' + post.excerpt + '</p>' +
-                        '<div class="post-meta">' +
-                            '<div class="post-date">' +
-                                '<i class="fas fa-calendar"></i>' +
-                                '<time datetime="' + post.date + '" itemprop="datePublished">' + formatDate(post.date) + '</time>' +
-                            '</div>' +
-                            '<div class="post-views">' +
-                                '<i class="fas fa-eye"></i>' +
-                                post.views + ' views' +
-                            '</div>' +
-                        '</div>' +
-                        '<meta itemprop="author" content="Yudam">' +
-                    '</div>' +
-                '</article>';
-            }
-
-            container.innerHTML = postsHTML;
-        }
-
-        function clearSearch() {
-            document.getElementById('search-input').value = '';
-            loadPosts();
-        }
-
-        document.getElementById('admin-modal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeAdmin();
-            }
-        });
-
-        window.addEventListener('load', function() {
-            if ('IntersectionObserver' in window) {
-                var imageObserver = new IntersectionObserver(function(entries, observer) {
-                    entries.forEach(function(entry) {
-                        if (entry.isIntersecting) {
-                            var img = entry.target;
-                            if (img.dataset.src) {
-                                img.src = img.dataset.src;
-                                img.removeAttribute('data-src');
-                            }
-                            observer.unobserve(img);
-                        }
-                    });
-                });
-
-                var images = document.querySelectorAll('img');
-                images.forEach(function(img) {
-                    imageObserver.observe(img);
-                });
-            }
-
-            if (typeof gtag !== 'undefined') {
-                var maxScroll = 0;
-                window.addEventListener('scroll', function() {
-                    var scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
-                    if (scrollPercent > maxScroll && scrollPercent % 25 === 0) {
-                        maxScroll = scrollPercent;
-                        gtag('event', 'scroll_depth', {
-                            'event_category': 'engagement',
-                            'value': scrollPercent
-                        });
-                    }
-                });
-            }
-        });
-
-        console.log('✅ 고등학생 과학논문 코칭 블로그 로드 완료');
-    </script>
-    <!-- Firebase SDK (lazy loaded after first paint) -->
-    <script type="module">
-        (async function() {
-            try {
-                const [
-                    { initializeApp },
-                    { getAnalytics },
-                    { getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc, query, orderBy, where, limit, startAfter },
-                    { getStorage, ref, uploadBytes, getDownloadURL }
-                ] = await Promise.all([
-                    import('https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js'),
-                    import('https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js'),
-                    import('https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js'),
-                    import('https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js')
-                ]);
-
-                const firebaseConfig = {
-                    apiKey: "AIzaSyA-I1lfNy57idBTkj2NYxt2-yHQvHJGPlM",
-                    authDomain: "youdammain.firebaseapp.com",
-                    projectId: "youdammain",
-                    storageBucket: "youdammain.firebasestorage.app",
-                    messagingSenderId: "923242680713",
-                    appId: "1:923242680713:web:fb85da2af29598ec775158",
-                    measurementId: "G-KTLD09Z6DB"
-                };
-
-                const app = initializeApp(firebaseConfig);
-                const analytics = getAnalytics(app);
-                const db = getFirestore(app);
-                const storage = getStorage(app);
-
-                window.db = db;
-                window.storage = storage;
-                window.firestore = {
-                    collection, addDoc, getDocs, doc, updateDoc, deleteDoc, query, orderBy, where, limit, startAfter
-                };
-                window.storageUtils = { ref, uploadBytes, getDownloadURL };
-
-                console.log("🔥 Firebase connected successfully!");
-            } catch (e) {
-                console.error("Firebase load failed:", e);
-            }
-        })();
-    </script>
-
-    <!-- Naver Analytics -->
-    <script async type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
-    <script type="text/javascript">
-    if(!wcs_add) var wcs_add = {};
-    wcs_add["wa"] = "6e3835670e2324";
-    if(window.wcs) { wcs_do(); }
-    </script>
-
-    <!-- Cookie Consent Banner -->
-    <div id="cookie-consent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1e293b;color:#fff;padding:1rem 1.5rem;z-index:10000;box-shadow:0 -2px 10px rgba(0,0,0,0.2);font-size:0.9rem;">
-        <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
-            <p style="margin:0;flex:1;min-width:250px;line-height:1.5;">이 웹사이트는 Google Analytics 및 Google AdSense를 통해 쿠키를 사용합니다. 사이트 이용 시 쿠키 사용에 동의하게 됩니다. <a href="/privacy-policy" style="color:#60a5fa;text-decoration:underline;">개인정보처리방침</a></p>
-            <div style="display:flex;gap:0.5rem;flex-shrink:0;">
-                <button onclick="acceptCookies()" style="background:#2563eb;color:#fff;border:none;padding:0.5rem 1.5rem;border-radius:6px;cursor:pointer;font-size:0.9rem;font-weight:600;">모두 허용</button>
-                <button onclick="rejectCookies()" style="background:#475569;color:#fff;border:none;padding:0.5rem 1.5rem;border-radius:6px;cursor:pointer;font-size:0.9rem;font-weight:600;">모두 거부</button>
-            </div>
-        </div>
-    </div>
-    <script>
-    (function(){
-        var consent = localStorage.getItem('cookie_consent');
-        if (consent === 'accepted') {
-            updateConsent(true);
-        } else if (consent === 'rejected') {
-            updateConsent(false);
-        } else {
-            document.getElementById('cookie-consent').style.display = 'block';
-        }
-    })();
-    function updateConsent(granted) {
-        if (typeof gtag === 'function') {
-            gtag('consent', 'update', {
-                'analytics_storage': granted ? 'granted' : 'denied',
-                'ad_storage': granted ? 'granted' : 'denied',
-                'ad_user_data': granted ? 'granted' : 'denied',
-                'ad_personalization': granted ? 'granted' : 'denied'
-            });
-        }
-    }
-    function acceptCookies() {
-        localStorage.setItem('cookie_consent', 'accepted');
-        updateConsent(true);
-        document.getElementById('cookie-consent').style.display = 'none';
-    }
-    function rejectCookies() {
-        localStorage.setItem('cookie_consent', 'rejected');
-        updateConsent(false);
-        document.getElementById('cookie-consent').style.display = 'none';
-    }
-    </script>
+    <section class="view" id="canvas">
+<div class="page-head">
+<div>
+<div class="eyebrow">RESEARCH WORKSPACE</div>
+<h1>Model canvas</h1>
+<p>모델의 형태가 달라도 같은 scientific contract로 연결합니다.</p>
+</div>
+<button class="primary" id="addModel">+ Import model</button>
+</div>
+<div class="canvas-board" id="canvasBoard">
+<svg class="connections" viewBox="0 0 1000 500" preserveAspectRatio="none">
+<path d="M180 135 C320 135 310 240 460 240"/>
+<path d="M180 365 C320 365 310 260 460 260"/>
+<path d="M570 250 C700 250 690 135 830 135"/>
+<path d="M570 250 C700 250 690 365 830 365"/>
+</svg>
+<div class="canvas-node equation" style="left:4%;top:12%">
+<span>ƒx</span>
+<small>THEORY</small>
+<b>Analytical Thermal</b>
+<em>validated</em>
+</div>
+<div class="canvas-node code" style="left:4%;top:64%">
+<span>Py</span>
+<small>EXECUTABLE</small>
+<b>User Python Model</b>
+<em>validated</em>
+</div>
+<div class="canvas-node orchestra" style="left:40%;top:38%">
+<span>✦</span>
+<small>ORCHESTRATOR</small>
+<b>DSE Engine</b>
+<em>128 candidates</em>
+</div>
+<div class="canvas-node data" style="right:4%;top:12%">
+<span>HF</span>
+<small>DATA MODEL</small>
+<b>High Fidelity CSV</b>
+<em>mapped</em>
+</div>
+<div class="canvas-node experiment" style="right:4%;top:64%">
+<span>EX</span>
+<small>EXPERIMENT</small>
+<b>Lab Measurements</b>
+<em>12 samples</em>
+</div>
+</div>
+<div class="contract-strip">
+<span>Core contract</span>
+<b>inputs 6</b>
+<b>outputs 3</b>
+<b>validity 4</b>
+<b>lineage complete</b>
+<em>PASS</em>
+</div>
+</section>
+
+    <section class="view" id="run">
+<div class="page-head">
+<div>
+<div class="eyebrow">DSE ORCHESTRA · HBM THERMAL DESIGN PACK</div>
+<h1>Run explorer</h1>
+<p id="packDescription">설계 범위를 입력하면 결정론적 데모 모델이 후보를 계산하고 Pareto front를 다시 생성합니다.</p>
+</div>
+<button class="primary" id="runButton">▶ Run simulation</button>
+</div>
+<form class="parameter-bar" id="parameterForm">
+  <label>Expansion pack <select id="packSelect"><option value="hbm">HBM Thermal</option><option value="etch">Cryogenic Etch</option><option value="quantum">Quantum Device</option></select></label>
+  <label>Microbump pitch <span><input id="pitchMin" type="number" value="30" min="20" max="60">–<input id="pitchMax" type="number" value="50" min="20" max="60"> μm</span></label>
+  <label>TIM thickness <span><input id="timMin" type="number" value="12" min="5" max="40">–<input id="timMax" type="number" value="28" min="5" max="40"> μm</span></label>
+  <label>Sample count <span><input id="sampleCount" type="number" value="128" min="16" max="500"></span></label>
+<button type="button" class="ghost" id="exportButton">Export CSV</button>
+</form>
+<p class="model-note">DEMO MODEL · 제품 흐름 검증용 결정론적 근사식입니다. 실제 공정·소자 판단에는 검증된 solver와 측정 데이터를 연결하세요.</p>
+<div class="grid-run">
+<article class="panel chart-panel">
+<header>
+<div>
+<span class="overline">PARETO FRONT</span>
+<h2 id="chartTitle">Peak temperature vs. cost</h2>
+</div>
+<div class="legend">
+<span class="l1">● Analytical</span>
+<span class="l2">● Python</span>
+<span class="l3">● High fidelity</span>
+</div>
+</header>
+<div class="chart" id="chart">
+<div class="axis-y">Peak temp (°C)</div>
+<div class="axis-x">Compute cost →</div>
+<svg viewBox="0 0 700 350">
+<path class="gridline" d="M60 40H680M60 110H680M60 180H680M60 250H680M60 320H680"/>
+<path class="pareto" d="M90 75 C180 95 190 150 280 165 S410 225 475 245 S590 270 650 295"/>
+<g id="points">
+</g>
+</svg>
+</div>
+</article>
+<article class="panel run-config">
+<span class="overline">RUN CONFIGURATION</span>
+<h2>Fidelity route</h2>
+<div class="route-step active">
+<span>1</span>
+<div>
+<b>Broad scan</b>
+<small>Analytical · 128 pts</small>
+</div>
+<em>done</em>
+</div>
+<div class="route-step active">
+<span>2</span>
+<div>
+<b>Screen</b>
+<small>Python · 42 pts</small>
+</div>
+<em>done</em>
+</div>
+<div class="route-step current">
+<span>3</span>
+<div>
+<b>Refine</b>
+<small>High fidelity · 24 pts</small>
+</div>
+<em>running</em>
+</div>
+<div class="route-step">
+<span>4</span>
+<div>
+<b>Validate</b>
+<small>Experiment · 6 pts</small>
+</div>
+<em>queued</em>
+</div>
+<div class="cost-box">
+<small>PROJECTED COST</small>
+<strong>₩ 184,000</strong>
+<span>63% under budget</span>
+</div>
+</article>
+</div>
+</section>
+
+    <section class="view" id="xray">
+<div class="page-head">
+<div>
+<div class="eyebrow">RESEARCH X-RAY</div>
+<h1>Every result has a reason.</h1>
+<p>결과의 근거, 모델, 변환, 유효 범위를 한눈에 추적합니다.</p>
+</div>
+<span class="status healthy">● Lineage complete</span>
+</div>
+<div class="xray-layout">
+<article class="panel lineage">
+<span class="overline">LINEAGE / CANDIDATE C-017</span>
+<div class="lineage-chain">
+<div>
+<small>INPUT</small>
+<b>pitch = 42 μm</b>
+<span>User specification</span>
+</div>
+<i>→</i>
+<div>
+<small>MODEL</small>
+<b>thermal_solver v2.4</b>
+<span>commit a8f31c</span>
+</div>
+<i>→</i>
+<div>
+<small>ADAPTER</small>
+<b>temp-normalizer</b>
+<span>K → °C</span>
+</div>
+<i>→</i>
+<div>
+<small>OUTPUT</small>
+<b>86.4 °C</b>
+<span>confidence 0.94</span>
+</div>
+</div>
+</article>
+<article class="panel disagreement">
+<span class="overline">MODEL DISAGREEMENT</span>
+<h2>Junction temperature</h2>
+<div class="bars">
+<label>Analytical <span>82.1°</span>
+</label>
+<div>
+<i style="width:62%">
+</i>
+</div>
+<label>Python <span>84.7°</span>
+</label>
+<div>
+<i style="width:70%">
+</i>
+</div>
+<label>High fidelity <span>88.2°</span>
+</label>
+<div>
+<i class="warn" style="width:82%">
+</i>
+</div>
+<label>Experiment <span>86.9°</span>
+</label>
+<div>
+<i style="width:77%">
+</i>
+</div>
+</div>
+<p class="insight">✦ Bandi: 고충실도 모델이 B3 영역에서 평균 +4.1°C 높습니다. TIM 계면 가정을 검토하세요.</p>
+</article>
+</div>
+</section>
+
+    <section class="view" id="westworld">
+<div class="page-head">
+<div>
+<div class="eyebrow">R&D WESTWORLD</div>
+<h1>System observatory</h1>
+<p>정적 graph와 runtime trace를 분리해 시스템의 실제 행동을 검증합니다.</p>
+</div>
+<span class="status healthy">● All gates passing</span>
+</div>
+<div class="gate-grid">
+<article>
+<span>01</span>
+<b>Contract gate</b>
+<strong>PASS</strong>
+<small>28 / 28 checks</small>
+</article>
+<article>
+<span>02</span>
+<b>DSE gate</b>
+<strong>PASS</strong>
+<small>16 / 16 checks</small>
+</article>
+<article>
+<span>03</span>
+<b>Mapping gate</b>
+<strong>PASS</strong>
+<small>42 / 42 checks</small>
+</article>
+<article>
+<span>04</span>
+<b>Trace gate</b>
+<strong>PASS</strong>
+<small>31 / 31 checks</small>
+</article>
+</div>
+<article class="panel trace-panel">
+<header>
+<div>
+<span class="overline">FLIGHT RECORDER</span>
+<h2>Live execution trace</h2>
+</div>
+<button class="ghost" id="replay">Replay trace</button>
+</header>
+<div class="terminal" id="terminal">
+<p>
+<time>14:08:21.042</time>
+<span class="ok">WORLD</span> candidate.batch.created <em>count=128</em>
+</p>
+<p>
+<time>14:08:21.218</time>
+<span class="blue">ENGINE</span> fidelity.route.selected <em>route=adaptive</em>
+</p>
+<p>
+<time>14:08:22.091</time>
+<span class="purple">MODEL</span> analytical.execute.complete <em>duration=0.873s</em>
+</p>
+<p>
+<time>14:08:27.804</time>
+<span class="amber">EYES</span> disagreement.detected <em>region=B3, delta=4.1</em>
+</p>
+<p>
+<time>14:08:28.003</time>
+<span class="ok">BRAIN</span> explanation.generated <em>tokens=184</em>
+</p>
+</div>
+</article>
+</section>
+
+    <section class="view" id="documents">
+<div class="page-head">
+<div>
+<div class="eyebrow">KNOWLEDGE BASE</div>
+<h1>Design documents</h1>
+<p>이 데모의 제품 방향, 구현 계약, 검증 철학을 정의한 원문입니다.</p>
+</div>
+</div>
+<div class="doc-grid">
+<a href="docs/demo-design.md" target="_blank">
+<span>01 / PRODUCT</span>
+<h2>DSE Orchestra<br>Demo v0.1</h2>
+<p>데모 시나리오, 모델 계약, 실행 엔진과 성공 기준.</p>
+<b>36 sections</b>
+<em>Open document →</em>
+</a>
+<a href="docs/orchestra-guide.md" target="_blank">
+<span>02 / VISION</span>
+<h2>DSE Orchestra<br>Guide</h2>
+<p>제품 정체성, multi-fidelity 철학과 연구자 가치.</p>
+<b>24 sections</b>
+<em>Open document →</em>
+</a>
+<a href="docs/frontend-westworld.md" target="_blank">
+<span>03 / SYSTEM</span>
+<h2>Frontend &<br>Westworld</h2>
+<p>UX, control plane, validation harness와 관측 체계.</p>
+<b>64 sections</b>
+<em>Open document →</em>
+</a>
+</div>
+</section>
+  </main>
+  <div class="toast" id="toast">
+</div>
+  <script src="app.js">
+</script>
 </body>
 </html>

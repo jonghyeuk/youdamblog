@@ -1,41 +1,14 @@
 {
-  "name": "yudam-life-blog",
-  "version": "1.0.0",
-  "description": "고등학생 과학논문 코칭 - 10년 경력 대학 강사의 논문 작성 가이드",
-  "main": "public/index.html",
+  "name": "semifab-scientific-ai-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SemiFab DSE Orchestra interactive demo",
   "scripts": {
-    "prebuild": "node scripts/generate-static-pages.js",
-    "build": "npm run prebuild && npm run generate-sitemap && npm run generate-rss",
-    "generate-sitemap": "node scripts/generate-sitemap.js",
-    "generate-rss": "node scripts/generate-rss.js",
-    "serve": "firebase serve",
-    "deploy": "npm run build && firebase deploy",
+    "build": "node -e \"console.log('SemiFab static demo ready')\"",
+    "serve": "firebase serve --only hosting",
     "start": "firebase serve --only hosting",
-    "init": "firebase init"
+    "deploy": "npm run build && firebase deploy --only hosting"
   },
-  "keywords": [
-    "과학논문",
-    "고등학생",
-    "R&E",
-    "논문작성법",
-    "과학탐구",
-    "대입준비"
-  ],
-  "author": "Yudam",
-  "license": "MIT",
-  "devDependencies": {
-    "firebase-tools": "^13.0.0",
-    "sharp": "^0.34.5"
-  },
-  "dependencies": {
-    "firebase-admin": "^12.0.0",
-    "gray-matter": "^4.0.3",
-    "marked": "^13.0.3",
-    "sitemap": "^7.1.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/yourusername/yudam-life-blog"
-  },
-  "homepage": "https://youdam.com"
+  "devDependencies": { "firebase-tools": "^13.0.0" },
+  "license": "MIT"
 }
