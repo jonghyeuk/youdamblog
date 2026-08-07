@@ -1,0 +1,34 @@
+{
+  "policySetId": "semifab.hbm.decision_gates.v1",
+  "modelContractId": "semifab.physics.hbm_thermal.v1",
+  "version": "1.0.0",
+  "gates": [
+    {
+      "id": "validity-envelope",
+      "trigger": "design point is outside benchmarked envelope",
+      "evidenceStates": ["REPORTED", "BENCHMARKED", "CALIBRATED", "VALIDATED", "EXTRAPOLATED"],
+      "actions": ["restrict", "extrapolate", "add_model"],
+      "requiresUserDecision": true
+    },
+    {
+      "id": "fidelity-escalation",
+      "trigger": "model disagreement exceeds threshold",
+      "threshold": { "quantity": "peak_temperature", "value": 3, "unit": "degC" },
+      "actions": ["hf", "focus", "exclude"],
+      "requiresUserDecision": true
+    },
+    {
+      "id": "experiment-selection",
+      "trigger": "shortlist is ready for measurement",
+      "objectives": ["best_performance", "maximum_uncertainty", "information_gain_per_cost"],
+      "actions": ["best", "uncertainty", "information"],
+      "requiresUserDecision": true
+    }
+  ],
+  "audit": {
+    "recordDecision": true,
+    "recordEnvelopeChange": true,
+    "recordCandidateImpact": true,
+    "recordTrace": true
+  }
+}
