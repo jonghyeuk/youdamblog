@@ -58,3 +58,13 @@ contract → validate → simulate → shortlist → experiment → calibrate �
 ```
 
 분야별로 바뀌는 것은 물리 모듈과 입력 contract이며, registry, DSE, trace, calibration 흐름은 재사용한다.
+
+## Guided Research Mode
+
+자동 시연과 별도로 연구자가 다음 세 지점에서 결정을 내리는 모드를 제공한다.
+
+1. **Validity Gate** — benchmark 범위로 제한할지, 외삽할지, 보조 모델을 추가할지 선택한다.
+2. **Fidelity Gate** — 모델 불일치 영역을 고충실도로 승격할지, 집중 탐색할지, 제외할지 선택한다.
+3. **Experiment Gate** — 최고 성능, 최대 불확실성, 정보획득량/비용 중 다음 실험 기준을 선택한다.
+
+선택은 이후 설계공간과 후보 순위를 실제로 변경하며, 최종 JSON의 `decisions`와 `trace`에 기록된다.

@@ -15,6 +15,10 @@
   <style>
     .series-panel{margin-bottom:18px;background:linear-gradient(135deg,#102c59,#174c86 58%,#16a9bd);color:#fff;border:0}.series-head{display:flex;justify-content:space-between;gap:24px;align-items:center}.series-head h2{font-size:20px;margin:6px 0}.series-head p{font-size:10px;color:#c9dcf4;margin:6px 0 0}.series-head .primary{background:#fff;color:#153d73;white-space:nowrap}.series-flow{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin:22px 0 17px;padding:0;list-style:none}.series-flow li{position:relative;padding:11px 8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;min-height:67px}.series-flow li b,.series-flow li small{display:block}.series-flow li b{font-size:9px;margin:7px 0 4px}.series-flow li small{font-size:7px;color:#b8cce6;line-height:1.35}.series-flow li span{font-size:8px;color:#8eabd0}.series-flow li.running{background:rgba(255,255,255,.18);border-color:#8fe7ed}.series-flow li.done{background:rgba(26,215,187,.16);border-color:#58d8ce}.series-flow li.done span{color:#7ff4df}.series-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.series-summary div{background:rgba(5,20,50,.28);padding:10px;border-radius:6px}.series-summary small,.series-summary strong{display:block}.series-summary small{font-size:7px;color:#aac4e2;text-transform:uppercase;letter-spacing:.07em}.series-summary strong{font-size:14px;margin-top:5px}.series-actions{display:flex;justify-content:flex-end;margin-top:10px}.series-actions button{color:#d9efff;border-color:rgba(255,255,255,.3)}@media(max-width:1100px){.series-flow{grid-template-columns:repeat(4,1fr)}}@media(max-width:600px){.series-head{align-items:flex-start;flex-direction:column}.series-flow{grid-template-columns:repeat(2,1fr)}.series-summary{grid-template-columns:repeat(2,1fr)}}
   </style>
+  <style>
+    .series-buttons{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.series-buttons .ghost{color:#fff;border-color:rgba(255,255,255,.45);padding:12px 15px;font-weight:800}.gate-overlay{position:fixed;inset:0;background:rgba(7,20,42,.72);backdrop-filter:blur(8px);z-index:100;display:grid;place-items:center;padding:20px}.gate-dialog{width:min(720px,100%);background:#f8fbff;color:#102c55;border-radius:16px;box-shadow:0 30px 90px rgba(0,0,0,.3);padding:26px}.gate-kicker{font-size:9px;font-weight:900;letter-spacing:.15em;color:#2373df}.gate-dialog h2{font-size:27px;margin:8px 0}.gate-dialog>p{font-size:12px;line-height:1.6;color:#647b99}.gate-context{padding:13px;background:#eaf2ff;border-left:3px solid #1e8fe0;border-radius:6px;font:10px/1.55 "Cascadia Code",monospace;color:#335679;white-space:pre-line;margin:18px 0}.gate-options{display:grid;gap:9px}.gate-option{text-align:left;border:1px solid #ccdcef;background:#fff;border-radius:9px;padding:14px 15px;color:#16375f;cursor:pointer;transition:.2s}.gate-option:hover{border-color:#2e78df;transform:translateY(-1px);box-shadow:0 8px 24px rgba(34,94,175,.1)}.gate-option b,.gate-option small{display:block}.gate-option b{font-size:12px}.gate-option small{font-size:9px;color:#7085a1;margin-top:5px;line-height:1.45}.gate-option.recommended:after{content:"RECOMMENDED";float:right;margin-top:-28px;font-size:7px;background:#dff6f3;color:#078b91;padding:4px 6px;border-radius:8px}.gate-progress{display:flex;gap:6px;margin-top:18px}.gate-progress i{height:3px;background:#d9e5f3;flex:1}.gate-progress i.active{background:linear-gradient(90deg,#2e6ff2,#16b8c4)}
+  </style>
+  <style>[hidden]{display:none!important}</style>
 </head>
 <body>
   <div class="grain">
@@ -284,7 +288,7 @@
 </form>
 <p class="model-note">DEMO MODEL · 제품 흐름 검증용 결정론적 근사식입니다. 실제 공정·소자 판단에는 검증된 solver와 측정 데이터를 연결하세요.</p>
 <article class="panel series-panel" id="hbmSeriesPanel">
-  <div class="series-head"><div><span class="overline">END-TO-END REFERENCE SERIES</span><h2>HBM Thermal · 전체 연구 플로우</h2><p>가상 측정 데이터에서 calibrated candidate와 trace까지 한 번에 실행합니다.</p></div><button class="primary" id="seriesButton">Run full HBM series →</button></div>
+  <div class="series-head"><div><span class="overline">END-TO-END REFERENCE SERIES</span><h2>HBM Thermal · 전체 연구 플로우</h2><p>자동 시연 또는 세 Decision Gate를 직접 통과하는 Guided Mode를 선택하세요.</p></div><div class="series-buttons"><button class="ghost" id="seriesButton">Auto demo</button><button class="primary" id="guidedSeriesButton">Start guided research →</button></div></div>
   <ol class="series-flow" id="seriesFlow">
     <li data-series-step="data"><span>01</span><b>Synthetic data</b><small>120 measurements</small></li>
     <li data-series-step="contract"><span>02</span><b>Contract gate</b><small>units · validity</small></li>
@@ -539,6 +543,7 @@
 </div>
 </section>
   </main>
+  <div class="gate-overlay" id="gateOverlay" hidden><section class="gate-dialog" role="dialog" aria-modal="true" aria-labelledby="gateTitle"><span class="gate-kicker" id="gateKicker">DECISION GATE</span><h2 id="gateTitle">Research decision</h2><p id="gatePrompt"></p><div class="gate-context" id="gateContext"></div><div class="gate-options" id="gateOptions"></div><div class="gate-progress"><i></i><i></i><i></i></div></section></div>
   <div class="toast" id="toast">
 </div>
   <script src="physics/hbm-thermal.js"></script>
