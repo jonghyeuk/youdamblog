@@ -4,7 +4,8 @@
   "private": true,
   "description": "SemiFab DSE Orchestra interactive demo",
   "scripts": {
-    "build": "node -e \"console.log('SemiFab static demo ready')\"",
+    "build": "node --test tests/*.test.cjs && node -e \"console.log('SemiFab static demo ready')\"",
+    "test": "node --test tests/*.test.cjs",
     "serve": "firebase serve --only hosting",
     "start": "firebase serve --only hosting",
     "deploy": "npm run build && firebase deploy --only hosting"

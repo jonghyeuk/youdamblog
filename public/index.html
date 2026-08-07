@@ -12,6 +12,9 @@
 </svg>">
   <link rel="stylesheet" href="styles.css">
   <style>.model-note{font-size:9px;color:#7287a3;margin:-7px 3px 18px}</style>
+  <style>
+    .series-panel{margin-bottom:18px;background:linear-gradient(135deg,#102c59,#174c86 58%,#16a9bd);color:#fff;border:0}.series-head{display:flex;justify-content:space-between;gap:24px;align-items:center}.series-head h2{font-size:20px;margin:6px 0}.series-head p{font-size:10px;color:#c9dcf4;margin:6px 0 0}.series-head .primary{background:#fff;color:#153d73;white-space:nowrap}.series-flow{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin:22px 0 17px;padding:0;list-style:none}.series-flow li{position:relative;padding:11px 8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;min-height:67px}.series-flow li b,.series-flow li small{display:block}.series-flow li b{font-size:9px;margin:7px 0 4px}.series-flow li small{font-size:7px;color:#b8cce6;line-height:1.35}.series-flow li span{font-size:8px;color:#8eabd0}.series-flow li.running{background:rgba(255,255,255,.18);border-color:#8fe7ed}.series-flow li.done{background:rgba(26,215,187,.16);border-color:#58d8ce}.series-flow li.done span{color:#7ff4df}.series-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.series-summary div{background:rgba(5,20,50,.28);padding:10px;border-radius:6px}.series-summary small,.series-summary strong{display:block}.series-summary small{font-size:7px;color:#aac4e2;text-transform:uppercase;letter-spacing:.07em}.series-summary strong{font-size:14px;margin-top:5px}.series-actions{display:flex;justify-content:flex-end;margin-top:10px}.series-actions button{color:#d9efff;border-color:rgba(255,255,255,.3)}@media(max-width:1100px){.series-flow{grid-template-columns:repeat(4,1fr)}}@media(max-width:600px){.series-head{align-items:flex-start;flex-direction:column}.series-flow{grid-template-columns:repeat(2,1fr)}.series-summary{grid-template-columns:repeat(2,1fr)}}
+  </style>
 </head>
 <body>
   <div class="grain">
@@ -280,6 +283,21 @@
 <button type="button" class="ghost" id="exportButton">Export CSV</button>
 </form>
 <p class="model-note">DEMO MODEL · 제품 흐름 검증용 결정론적 근사식입니다. 실제 공정·소자 판단에는 검증된 solver와 측정 데이터를 연결하세요.</p>
+<article class="panel series-panel" id="hbmSeriesPanel">
+  <div class="series-head"><div><span class="overline">END-TO-END REFERENCE SERIES</span><h2>HBM Thermal · 전체 연구 플로우</h2><p>가상 측정 데이터에서 calibrated candidate와 trace까지 한 번에 실행합니다.</p></div><button class="primary" id="seriesButton">Run full HBM series →</button></div>
+  <ol class="series-flow" id="seriesFlow">
+    <li data-series-step="data"><span>01</span><b>Synthetic data</b><small>120 measurements</small></li>
+    <li data-series-step="contract"><span>02</span><b>Contract gate</b><small>units · validity</small></li>
+    <li data-series-step="registry"><span>03</span><b>Model registry</b><small>physics v1</small></li>
+    <li data-series-step="space"><span>04</span><b>Design space</b><small>144 candidates</small></li>
+    <li data-series-step="dse"><span>05</span><b>Physics DSE</b><small>thermal network</small></li>
+    <li data-series-step="shortlist"><span>06</span><b>Shortlist</b><small>top 6</small></li>
+    <li data-series-step="experiment"><span>07</span><b>Virtual experiment</b><small>measurement loop</small></li>
+    <li data-series-step="calibration"><span>08</span><b>Calibration</b><small>trace complete</small></li>
+  </ol>
+  <div class="series-summary" id="seriesSummary"><div><small>Status</small><strong>Ready</strong></div><div><small>Model</small><strong>hbm_thermal.v1</strong></div><div><small>Dataset</small><strong>—</strong></div><div><small>Validation RMSE</small><strong>—</strong></div></div>
+  <div class="series-actions"><button class="ghost" id="seriesExport" disabled>Export series JSON</button></div>
+</article>
 <div class="grid-run">
 <article class="panel chart-panel">
 <header>
@@ -523,6 +541,7 @@
   </main>
   <div class="toast" id="toast">
 </div>
+  <script src="physics/hbm-thermal.js"></script>
   <script src="app.js">
 </script>
 </body>
