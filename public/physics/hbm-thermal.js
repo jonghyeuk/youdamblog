@@ -30,6 +30,25 @@
     }
   }
 
+  function conductivityAt(model, temperatureC, fallback) {
+    if (model == null) return fallback;
+    if (typeof model === 'number') return model;
+    if (model.type === 'constant') return Number(model.value);
+    if (model.type === 'linear') {
+      return Number(model.valueAtReference) + Number(model.slopePerC) * (temperatureC - Number(model.referenceC ?? 25));
+    }
+    if (model.type === 'table' && Array.isArray(model.points) && model.points.length >= 2) {
+      const points = [...model.points].map(point => [Number(point[0]), Number(point[1])]).sort((a, b) => a[0] - b[0]);
+      if (temperatureC <= points[0][0]) return points[0][1];
+      if (temperatureC >= points.at(-1)[0]) return points.at(-1)[1];
+      const upperIndex = points.findIndex(point => point[0] >= temperatureC);
+      const lower = points[upperIndex - 1], upper = points[upperIndex];
+      const fraction = (temperatureC - lower[0]) / (upper[0] - lower[0]);
+      return lower[1] + fraction * (upper[1] - lower[1]);
+    }
+    throw new TypeError('Unsupported conductivity model');
+  }
+
   function simulate(input) {
     const pitchUm = Number(input.pitchUm);
     const timThicknessUm = Number(input.timThicknessUm);
@@ -49,21 +68,25 @@
     const pitchM = pitchUm * 1e-6;
     const timM = timThicknessUm * 1e-6;
     const kSi = Number(input.kSiWmK ?? 130);
-    const kTim = Number(input.kTimWmK ?? 3.2);
+    const kTimFallback = Number(input.kTimWmK ?? 3.2);
     const kBump = Number(input.kBumpWmK ?? 390);
     const activeBumpFraction = Number(input.activeBumpFraction ?? 0.62);
     const bumpCount = Math.max(1, Math.floor(dieAreaM2 / (pitchM * pitchM) * activeBumpFraction));
     const bumpAreaM2 = Math.PI * Math.pow(bumpDiameterM / 2, 2);
 
     const rDie = stackLayers * dieThicknessM / (kSi * effectiveAreaM2);
-    const rTim = timM / (kTim * effectiveAreaM2);
     const rBumps = bumpHeightM / (kBump * bumpAreaM2 * bumpCount);
     const rInterface = 0.018 * (stackLayers + 1);
     const rSpreading = 0.105 + 0.0012 * Math.abs(pitchUm - 40);
-    const totalResistanceKW = rDie + rTim + rBumps + rInterface + rSpreading;
-
+    let kTim = conductivityAt(input.kTimModel, ambientC, kTimFallback);
+    let rTim = timM / (kTim * effectiveAreaM2);
+    let totalResistanceKW = rDie + rTim + rBumps + rInterface + rSpreading;
     let peakTempC = ambientC + powerW * totalResistanceKW;
     for (let i = 0; i < 6; i += 1) {
+      kTim = conductivityAt(input.kTimModel, peakTempC, kTimFallback);
+      if (!Number.isFinite(kTim) || kTim <= 0) throw new RangeError('TIM conductivity must stay positive');
+      rTim = timM / (kTim * effectiveAreaM2);
+      totalResistanceKW = rDie + rTim + rBumps + rInterface + rSpreading;
       const leakageMultiplier = 1 + Math.max(0, peakTempC - 55) * 0.0028;
       peakTempC = ambientC + powerW * leakageMultiplier * totalResistanceKW;
     }
@@ -75,6 +98,7 @@
       totalResistanceKW,
       bumpCount,
       componentsKW: { die: rDie, tim: rTim, bumps: rBumps, interfaces: rInterface, spreading: rSpreading },
+      activeFunctions: { timConductivity: input.kTimModel?.type ?? 'constant', effectiveKTimWmK: kTim },
       contractId: CONTRACT.id,
       valid: true
     };
@@ -109,5 +133,5 @@
     });
   }
 
-  return Object.freeze({ CONTRACT, simulate, syntheticDataset });
+  return Object.freeze({ CONTRACT, conductivityAt, simulate, syntheticDataset });
 });

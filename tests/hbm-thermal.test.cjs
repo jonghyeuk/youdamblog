@@ -29,3 +29,17 @@ test('synthetic HBM dataset is deterministic and physically bounded', () => {
 test('validity gate rejects unsupported design points', () => {
   assert.throws(() => model.simulate({ pitchUm: 10, timThicknessUm: 20, powerW: 55, stackLayers: 8 }), RangeError);
 });
+
+test('replaceable k(T) function changes the TIM contribution', () => {
+  const constant = model.simulate({ pitchUm: 40, timThicknessUm: 20, powerW: 55, stackLayers: 8 });
+  const temperatureDependent = model.simulate({
+    pitchUm: 40,
+    timThicknessUm: 20,
+    powerW: 55,
+    stackLayers: 8,
+    kTimModel: { type: 'linear', referenceC: 25, valueAtReference: 3.2, slopePerC: -0.008 }
+  });
+  assert.equal(temperatureDependent.activeFunctions.timConductivity, 'linear');
+  assert.notEqual(temperatureDependent.componentsKW.tim, constant.componentsKW.tim);
+  assert.ok(temperatureDependent.peakTempC > constant.peakTempC);
+});

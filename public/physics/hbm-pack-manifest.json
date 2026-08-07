@@ -1,0 +1,33 @@
+{
+  "packId": "semifab.pack.hbm_thermal.v1",
+  "systemModel": "HBM Thermal",
+  "implementation": "reduced 0D steady-state thermal resistance network",
+  "anatomy": {
+    "physics": [
+      { "id": "heat-generation", "name": "Heat Generation", "relation": "Q = P_dynamic + P_leakage(T)", "status": "active", "editability": "parameterized" },
+      { "id": "fourier-conduction", "name": "Fourier Heat Conduction", "relation": "q = -k grad(T)", "reduction": "R = L / (k A)", "status": "active", "editability": "locked_physics" },
+      { "id": "layer-network", "name": "Layer Thermal Resistance", "relation": "R_total = sum(R_i)", "status": "active", "editability": "locked_physics" },
+      { "id": "parallel-bumps", "name": "Micro-bump Parallel Conduction", "relation": "R_eq = R_bump / N_active", "status": "active", "editability": "parameterized" },
+      { "id": "interface-resistance", "name": "Interface Resistance", "relation": "Delta T = q R_interface", "status": "active", "editability": "replaceable_function" },
+      { "id": "spreading", "name": "Thermal Spreading", "relation": "R_spread = f(geometry, pitch)", "status": "active", "editability": "replaceable_function" },
+      { "id": "convection", "name": "Convection Boundary", "relation": "q = h A (T_surface - T_ambient)", "status": "extension", "editability": "replaceable_function" },
+      { "id": "anisotropic", "name": "Anisotropic Conductivity", "relation": "q = -K grad(T)", "status": "extension", "editability": "parameterized" }
+    ],
+    "materials": [
+      { "id": "silicon", "name": "Silicon", "property": "k_Si", "default": "130 W/(m K)", "source": "material library", "editability": "parameterized" },
+      { "id": "tim", "name": "TIM", "property": "k_TIM(T)", "default": "constant 3.2 W/(m K)", "alternatives": ["linear k(T)", "CSV table", "calibrated surrogate"], "editability": "replaceable_function" },
+      { "id": "copper-bump", "name": "Copper Micro-bump", "property": "k_Cu", "default": "390 W/(m K)", "editability": "parameterized" },
+      { "id": "underfill", "name": "Underfill", "property": "k_underfill", "status": "extension", "editability": "replaceable_function" }
+    ],
+    "geometry": ["die thickness", "effective thermal area", "TIM thickness", "stack count", "bump pitch", "bump diameter", "bump height"],
+    "boundaries": ["ambient temperature", "equivalent heat sink", "optional convection coefficient"],
+    "outputs": ["junction temperature", "thermal resistance", "temperature gradient", "component resistance contributions"]
+  },
+  "mergeRules": ["reuse", "merge", "replace", "add", "compare"],
+  "modificationPolicy": {
+    "locked_physics": "fork required; governing relation cannot be overwritten in place",
+    "parameterized": "parameter changes create a new configuration revision",
+    "replaceable_function": "user function or table creates a derived model",
+    "validationDowngrade": "VALIDATED or BENCHMARKED becomes USER_MODIFIED / REQUIRES_REVIEW after a functional change"
+  }
+}

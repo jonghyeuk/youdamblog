@@ -68,3 +68,48 @@ contract → validate → simulate → shortlist → experiment → calibrate �
 3. **Experiment Gate** — 최고 성능, 최대 불확실성, 정보획득량/비용 중 다음 실험 기준을 선택한다.
 
 선택은 이후 설계공간과 후보 순위를 실제로 변경하며, 최종 JSON의 `decisions`와 `trace`에 기록된다.
+
+## Physics Pack과 Model Anatomy
+
+HBM Thermal Pack은 하나의 black-box 함수가 아니라 다음 계층으로 구성된다.
+
+```text
+HBM Thermal System
+├─ Heat generation
+│  └─ input power + temperature leakage
+├─ Heat transport
+│  ├─ Fourier conduction
+│  ├─ series layer resistance
+│  └─ parallel micro-bump conduction
+├─ Interface / materials
+│  ├─ TIM conductivity k(T)
+│  ├─ contact resistance
+│  ├─ silicon
+│  └─ copper bumps
+├─ Geometry
+│  ├─ die / TIM thickness
+│  ├─ stack count
+│  └─ bump pitch / diameter / height
+└─ Boundary
+   ├─ ambient temperature
+   ├─ equivalent heat sink
+   └─ optional convection
+```
+
+Model Anatomy 화면은 각 submodel의 governing relation, 축약 방식, evidence, 수정 권한을 공개한다.
+
+### 수정 등급
+
+- **Locked Physics** — 지배관계를 원본에서 수정할 수 없으며 fork가 필요하다.
+- **Parameterized Model** — 계수, 재료값, geometry와 boundary를 조절할 수 있다.
+- **Replaceable Function** — 사용자 함수, 온도 표 또는 calibrated surrogate로 교체할 수 있다.
+
+TIM의 기본 관계는 `R_TIM = t_TIM / (k_TIM A)`다. `k_TIM`은 상수, 선형 `k(T)`, 온도 표로 교체 가능하며 교체 후 반복 열계산에 실제 반영된다.
+
+### Pack merge
+
+Pack 설치는 파일 복사가 아니라 프로젝트에 이미 존재하는 모델과의 `reuse`, `merge`, `replace`, `add`, `compare` 과정이다. 충돌은 자동 덮어쓰기하지 않고 연구자에게 보여준다.
+
+### Model fork와 검증 강등
+
+사용자가 함수를 교체하면 원본 모델을 보존하고 Derived Model을 만든다. Golden test가 통과하더라도 기존 evidence는 부분 상속만 하며 상태는 `USER_MODIFIED / REQUIRES_REVIEW`로 변경된다.
