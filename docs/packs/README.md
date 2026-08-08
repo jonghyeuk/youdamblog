@@ -23,6 +23,7 @@
 | [Quantum Device](./quantum-device-status.md) | P1 | 시연용 deterministic objective | 없음 | 소자 범위 확정 후 첫 governing model |
 
 Quantum fabrication 장비와 process 요구사항은 [Quantum Fabrication Requirements](./quantum-fabrication-requirements.md)에 별도로 정리한다.
+Quantum Pack의 초전도·실리콘 스핀 이중 구조는 [Quantum Dual-Track Architecture](./quantum-dual-track-architecture.md)를 따른다.
 
 ## 공통 Pack 완료 조건
 

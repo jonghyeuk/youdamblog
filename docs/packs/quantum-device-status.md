@@ -5,7 +5,7 @@
 
 ## 제품 목표
 
-양자소자의 geometry, material, electrostatic/control parameter와 측정 데이터를 연결해 목표 동작점, 민감도, 공정 변동 위험과 다음 측정 후보를 탐색한다.
+기존 반도체 미세공정 인프라를 활용하는 **초전도 기반 양자소자**와 **실리콘 스핀 기반 양자소자**의 geometry, material, process, equipment, measurement를 연결한다. 상세 구조는 [Quantum Dual-Track Architecture](./quantum-dual-track-architecture.md)를 따른다.
 
 ## 현재 구현
 
@@ -15,16 +15,14 @@
 - Pareto scatter, 후보 표, CSV export
 - 결정론적으로 반복 가능한 UI 계산
 
-## 가장 먼저 결정할 문제
+## 확정된 Pack 범위
 
-현재 `Quantum Device`는 범위가 지나치게 넓다. 다음 중 첫 vertical을 하나만 선택해야 한다.
+Quantum Fab Pack은 두 track을 지원한다.
 
-1. Superconducting Josephson junction / transmon
-2. Silicon/SiGe quantum dot
-3. Single-electron device
-4. Cryogenic SFQ device
+1. **Superconducting Track** — Josephson junction, resonator, transmon/superconducting circuit
+2. **Silicon Spin Track** — Si-MOS 또는 Si/SiGe quantum dot, charge sensor, spin control structure
 
-현재 UI 변수인 junction area와 critical current density는 **Josephson junction / superconducting device**에 가장 가깝다. 별도 결정이 없다면 첫 Pack을 `Josephson Junction Device Pack`으로 좁힌다.
+두 track은 Shared Fabrication Core와 장비 registry를 재사용하지만 device physics와 validity를 섞지 않는다. 구현은 Superconducting P2 vertical을 먼저 완료한 뒤 Silicon Spin으로 진행한다.
 
 ## 아직 실제가 아닌 부분
 
@@ -60,13 +58,13 @@ Quantum Device System
    └─ fabrication sensitivity
 ```
 
-## Next Task — Pack scope decision + Core Contract
+## Next Task — Shared Core + Superconducting Track Contract
 
 사용자가 제공한 공정 장비 목록과 해석은 [Quantum Fabrication Requirements](./quantum-fabrication-requirements.md)에 정리했다. 이후 Quantum Pack 작업은 해당 문서의 장비 capability와 12-step reference process flow를 함께 사용한다.
 
-### 권장 첫 scope
+### 첫 구현 vertical
 
-`Josephson Junction / Transmon Reduced Design Pack`
+`Superconducting Josephson Junction / Transmon Reduced Design Track`
 
 ### 입력 후보
 
@@ -98,17 +96,19 @@ Coherence time을 첫 버전에서 직접 예측하지 않는다. 충분한 loss
 
 ## Roadmap
 
-1. 소자 scope 확정
-2. Core/quantity/validity contract
-3. 12-step fabrication process contract
+1. Shared Fabrication Core contract
+2. Superconducting Core/quantity/validity contract
+3. 12-step superconducting fabrication process contract
 4. Equipment capability registry와 mapping
 5. Josephson/transmon reduced model
 6. 단위 및 상수 registry
 7. Synthetic fabrication distribution
 8. Model Anatomy와 capacitance/Jc replaceable functions
-9. Golden Cases와 uncertainty
-10. Guided Gates와 Westworld 연결
-11. SPICE/QuTiP/외부 eigensolver adapter
+9. Superconducting Golden Cases와 uncertainty
+10. Silicon Spin Core/quantity/validity contract
+11. Quantum-dot reduced electrostatic/capacitance model
+12. Guided Gates와 Westworld cross-track blast radius
+13. SPICE/QuTiP/외부 eigensolver adapter
 
 ## P2 승격 기준
 
@@ -122,4 +122,4 @@ Coherence time을 첫 버전에서 직접 예측하지 않는다. 충분한 loss
 
 ## 다음 세션 시작 문장
 
-> `docs/packs/quantum-device-status.md`를 읽고 Quantum Device의 첫 scope를 Josephson/Transmon으로 확정할지 결정한 뒤 Core Contract를 작성한다. 현재 frequency error 식은 제품 시연용 placeholder로 취급한다.
+> `docs/packs/quantum-dual-track-architecture.md`와 `quantum-device-status.md`를 읽고 Shared Fabrication Core 및 Superconducting Track Contract부터 작성한다. Silicon Spin은 동일 Pack의 두 번째 track이며 제외하지 않는다. 현재 frequency error 식은 placeholder로 취급한다.

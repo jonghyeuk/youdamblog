@@ -18,7 +18,7 @@ Metrology & Evidence
     ↓ 측정값으로 model calibration/validation
 ```
 
-첫 vertical은 기존 상태 문서의 권장안대로 `Superconducting Josephson Junction / Transmon`을 사용한다. 이후 quantum dot과 다른 소자 유형은 별도 Pack으로 분리한다.
+Pack은 `Superconducting Device Track`과 `Silicon Spin Device Track`을 함께 지원한다. 공통 공정 인프라는 공유하되 각 track의 물리모델, 핵심 quantity, validity와 측정 protocol은 분리한다. 구현 우선순위는 Superconducting Track이 먼저다.
 
 ## 장비군과 역할
 
@@ -183,4 +183,3 @@ Decision
 4. `device requirement → process step → equipment` mapping UI
 5. 누락 capability와 incompatibility Decision Gate
 6. 공정 variation을 device parameter distribution으로 전달하는 lineage
-
