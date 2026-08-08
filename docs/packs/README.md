@@ -22,6 +22,8 @@
 | [Cryogenic Etch](./cryogenic-etch-status.md) | P1 | 시연용 deterministic objective | 없음 | SF6/O2 reduced process model과 contract |
 | [Quantum Device](./quantum-device-status.md) | P1 | 시연용 deterministic objective | 없음 | 소자 범위 확정 후 첫 governing model |
 
+Quantum fabrication 장비와 process 요구사항은 [Quantum Fabrication Requirements](./quantum-fabrication-requirements.md)에 별도로 정리한다.
+
 ## 공통 Pack 완료 조건
 
 모든 Pack은 다음 산출물을 갖는다.
@@ -46,4 +48,3 @@
 3. 문서의 `Next Task` 하나만 선택한다.
 4. 구현 후 자동 테스트와 브라우저 end-to-end 테스트를 수행한다.
 5. 완료한 항목과 새 위험을 Pack 문서에 갱신한다.
-

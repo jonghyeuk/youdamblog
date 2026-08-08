@@ -62,6 +62,8 @@ Quantum Device System
 
 ## Next Task — Pack scope decision + Core Contract
 
+사용자가 제공한 공정 장비 목록과 해석은 [Quantum Fabrication Requirements](./quantum-fabrication-requirements.md)에 정리했다. 이후 Quantum Pack 작업은 해당 문서의 장비 capability와 12-step reference process flow를 함께 사용한다.
+
 ### 권장 첫 scope
 
 `Josephson Junction / Transmon Reduced Design Pack`
@@ -98,13 +100,15 @@ Coherence time을 첫 버전에서 직접 예측하지 않는다. 충분한 loss
 
 1. 소자 scope 확정
 2. Core/quantity/validity contract
-3. Josephson/transmon reduced model
-4. 단위 및 상수 registry
-5. Synthetic fabrication distribution
-6. Model Anatomy와 capacitance/Jc replaceable functions
-7. Golden Cases와 uncertainty
-8. Guided Gates와 Westworld 연결
-9. SPICE/QuTiP/외부 eigensolver adapter
+3. 12-step fabrication process contract
+4. Equipment capability registry와 mapping
+5. Josephson/transmon reduced model
+6. 단위 및 상수 registry
+7. Synthetic fabrication distribution
+8. Model Anatomy와 capacitance/Jc replaceable functions
+9. Golden Cases와 uncertainty
+10. Guided Gates와 Westworld 연결
+11. SPICE/QuTiP/외부 eigensolver adapter
 
 ## P2 승격 기준
 
@@ -119,4 +123,3 @@ Coherence time을 첫 버전에서 직접 예측하지 않는다. 충분한 loss
 ## 다음 세션 시작 문장
 
 > `docs/packs/quantum-device-status.md`를 읽고 Quantum Device의 첫 scope를 Josephson/Transmon으로 확정할지 결정한 뒤 Core Contract를 작성한다. 현재 frequency error 식은 제품 시연용 placeholder로 취급한다.
-
