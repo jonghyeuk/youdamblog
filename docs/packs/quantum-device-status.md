@@ -15,6 +15,9 @@
 - Josephson–Transmon을 Pack 중심이 아닌 선택형 첫 reference template로 재정의
 - 질문·근거 입력에서 Initial Variables, Evidence Gap, First Route, Next Question을 만드는 1차 진단 지도 데모
 - 반복 연구 원칙은 [Guided Research Mapping](../guided-research-mapping.md)에 기록
+- Guided 진단의 target·범위·candidate count가 실제 DSE 입력으로 전달
+- 하드코딩 Pareto/금액 제거: 실제 후보 frontier와 fidelity별 Compute Units 표시
+- Evolving Experiment Map: ACTIVE/FIXED/MISSING 5차원 상태, 세 영역 분기, Map 1 → Map 2 집중탐색
 
 초전도 트랙은 한 사이클이 실행되지만 **실험 검증 완료 제품 모델은 아니다.** Capacitance는 lumped input이며 EM field solve와 coherence-time 예측은 포함하지 않는다. Silicon Spin 트랙은 여전히 contract 설계 단계다.
 

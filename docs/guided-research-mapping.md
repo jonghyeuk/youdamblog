@@ -65,4 +65,6 @@ Josephson–Transmon은 첫 실행 템플릿일 뿐 Quantum Pack의 중심 객�
 
 ## 현재 데모와 향후 구현
 
-현재 Guided Research는 로컬 규칙 기반 진단 데모이며 실제 외부 LLM 호출을 하지 않는다. 다음 구현은 source citation, multi-hypothesis proposal, 질문 응답 history, map diff, evidence-aware stop condition을 포함하는 LLM adapter다.
+현재 Guided Research는 로컬 규칙 기반 진단 데모이며 실제 외부 LLM 호출을 하지 않는다. 그러나 진단 결과의 target, 입력 범위, 후보 수와 evidence 상태는 실제 DSE 설정에 반영된다. Run 결과에서 실제 후보 기반 Pareto frontier, Compute Units, ACTIVE/FIXED/MISSING 차원, 영역별 후보 분기와 Map 1 → Map 2 범위 축소를 확인할 수 있다.
+
+다음 구현은 source citation, multi-hypothesis proposal, 질문 응답 history, 독립 evidence ingestion과 evidence-aware stop condition을 포함하는 LLM adapter다.
