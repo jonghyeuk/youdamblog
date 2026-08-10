@@ -98,7 +98,8 @@ async function runQuantumSeries(){
   }catch(error){toast(`Quantum series failed: ${error.message}`)}finally{button.disabled=false;button.textContent='Run quantum series again →'}
 }
 $$('[data-view]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.view)));$$('[data-go]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.go)));
-$('#packSelect').addEventListener('change',setPack);
+$('#packSelect').addEventListener('change',event=>{setPack();$('#topPackSelect').value=event.target.value});
+$('#topPackSelect').addEventListener('change',event=>{$('#packSelect').value=event.target.value;setPack();go('run')});
 $('#seriesButton').addEventListener('click',runHbmSeries);
 $('#guidedSeriesButton').addEventListener('click',runGuidedHbmSeries);
 $('#quantumSeriesButton').addEventListener('click',runQuantumSeries);
