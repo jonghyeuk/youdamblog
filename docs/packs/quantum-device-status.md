@@ -11,6 +11,10 @@
 - seed 고정 synthetic wafer 96개와 virtual cryogenic measurement
 - Golden test 및 범위 거부 테스트
 - `public/physics/quantum-pack-manifest.json`: shared core와 두 track 상태 공개
+- Quantum 진입을 Template, Guided Research, Import 세 모드로 분리
+- Josephson–Transmon을 Pack 중심이 아닌 선택형 첫 reference template로 재정의
+- 질문·근거 입력에서 Initial Variables, Evidence Gap, First Route, Next Question을 만드는 1차 진단 지도 데모
+- 반복 연구 원칙은 [Guided Research Mapping](../guided-research-mapping.md)에 기록
 
 초전도 트랙은 한 사이클이 실행되지만 **실험 검증 완료 제품 모델은 아니다.** Capacitance는 lumped input이며 EM field solve와 coherence-time 예측은 포함하지 않는다. Silicon Spin 트랙은 여전히 contract 설계 단계다.
 

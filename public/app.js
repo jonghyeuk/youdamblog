@@ -82,7 +82,7 @@ async function runGuidedHbmSeries(){
 const quantumNarratives={contract:['계약과 단위를 검사합니다.','잘못된 단위나 모델 적용범위를 실행 전에 차단합니다.'],fabrication:['공정 capability를 연결합니다.','계산값이 어떤 노광·증착·측정 단계에서 만들어지는지 연결합니다.'],device:['Josephson/transmon 물리를 계산합니다.','공정 손잡이가 Ic·EJ·EC·f01으로 전달되는 과정을 보여줍니다.'],dse:['128개 설계 후보를 비교합니다.','모든 후보를 비싼 solver로 돌리기 전에 유망 영역을 압축합니다.'],wafer:['96개 가상 소자 편차를 생성합니다.','단일 최적점이 아니라 제조 편차에 견디는 설계를 평가합니다.'],measure:['가상 극저온 측정을 대조합니다.','예측과 측정 residual을 통해 다음 보정 대상을 찾습니다.'],trace:['Westworld lineage를 닫습니다.','결과가 어떤 입력·모델·판정을 거쳤는지 재현 가능하게 남깁니다.']};
 function quantumStep(name,state,detail){const item=$(`[data-quantum-step="${name}"]`);item.classList.remove('running','done');if(state)item.classList.add(state);if(detail)item.querySelector('small').textContent=detail;if(state==='running'){const copy=quantumNarratives[name];$('#quantumNarrator').innerHTML=`<span>NOW · ${item.querySelector('span').textContent}</span><div><b>${copy[0]}</b><small>연구자에게 주는 도움 · ${copy[1]}</small></div>`}}
 async function runQuantumSeries(){
-  const button=$('#quantumSeriesButton');button.disabled=true;button.textContent='Running quantum series…';
+  const button=$('#quantumSeriesButton');button.disabled=true;button.textContent='Running superconducting template…';
   $$('#quantumSeriesFlow li').forEach(item=>item.classList.remove('running','done'));
   const trace=[],stamp=(event,payload={})=>trace.push({sequence:trace.length+1,event,payload,at:new Date().toISOString()});
   try{
@@ -98,11 +98,28 @@ async function runQuantumSeries(){
     $('#terminal').innerHTML=trace.map(item=>`<p><time>${new Date(item.at).toLocaleTimeString('ko-KR',{hour12:false})}</time><span class="purple">QUANTUM</span> ${item.event} <em>${JSON.stringify(item.payload)}</em></p>`).join('');
     $('#decisionAudit').innerHTML=`<div class="audit-row"><span>QUANTUM PACK</span><b>Superconducting vertical · ${best.id}</b><em>P2 EXECUTABLE</em></div><div class="audit-row"><span>VALIDITY</span><b>EJ/EC ${best.physics.ejEcRatio.toFixed(1)} · transmon limit PASS</b><em>BENCHMARKED RELATIONS</em></div><div class="audit-row"><span>LIMIT</span><b>EM solve · coherence prediction excluded</b><em>NOT VALIDATED</em></div>`;
     $('#quantumNarrator').innerHTML='<span>COMPLETE</span><div><b>첫 번째 양자소자 연구 지형도가 완성됐습니다.</b><small>유망 후보와 wafer 편차를 확인하고, 다음 단계로 정밀 EM 해석·실제 극저온 측정 또는 결과 JSON 내보내기를 선택하세요.</small></div>';$('#quantumExport').disabled=false;toast('양자소자 기준 시리즈가 완료됐습니다.');
-  }catch(error){toast(`Quantum series failed: ${error.message}`)}finally{button.disabled=false;button.textContent='Run quantum series again →'}
+  }catch(error){toast(`Superconducting template failed: ${error.message}`)}finally{button.disabled=false;button.textContent='Run superconducting template again →'}
 }
+let currentResearchRoute='general';
+function setQuantumMode(mode){$$('[data-quantum-mode]').forEach(button=>button.classList.toggle('active',button.dataset.quantumMode===mode));$$('[data-quantum-mode-panel]').forEach(panel=>panel.hidden=panel.dataset.quantumModePanel!==mode)}
+function createResearchMap(){
+  const question=$('#researchQuestion').value.trim(),context=$('#researchContext').value.trim(),goal=$('#researchGoal').value,evidence=$('#researchEvidence').value,text=`${question} ${context}`.toLowerCase();if(!question){toast('먼저 연구 질문을 한 문장으로 적어주세요.');$('#researchQuestion').focus();return}
+  const evidenceLabel={none:'아이디어만 있음 · REPORTED 이전',paper:'문헌 근거 · REPORTED',code:'실행 모델 · BENCHMARK 필요',csv:'CSV 데이터 · MAPPING 필요',measurement:'독립 측정 · CALIBRATION 후보'}[evidence];let diagnosis,variables,gap,route,next,executable=false;
+  if(/식각|etch|profile|selectivity|sidewall/.test(text)){currentResearchRoute='etch';diagnosis='Quantum Fab 단위 식각 연구';variables='온도 · 압력 · gas ratio · bias · material stack';gap='Profile/SEM 측정과 장비별 validity range';route='Cryogenic Etch reduced scan → SEM 보강';next='어떤 막질과 목표 profile을 다루나요?';executable=true}
+  else if(/스핀|spin|quantum dot|양자점|sige|mos/.test(text)){currentResearchRoute='spin';diagnosis='Silicon Spin 소자 연구';variables='Gate geometry · oxide · voltage · interface · tunnel barrier';gap='실행 electrostatic model과 charge-stability 측정';route='이론·capacitance model 보강 우선';next='Si-MOS와 Si/SiGe 중 어느 구조인가요?'}
+  else if(/조셉슨|josephson|transmon|junction|산화|oxidation|주파수|frequency/.test(text)){currentResearchRoute='superconducting';diagnosis='초전도 Josephson–Transmon 연구';variables='Junction area · Jc · CΣ · oxidation proxy';gap='실제 junction resistance와 spectroscopy CSV';route='Reduced DSE → EM capacitance → cryogenic test';next='목표 f01과 허용 wafer spread는 얼마인가요?';executable=true}
+  else{currentResearchRoute='general';diagnosis='Quantum 자유 연구 · 추가 진단 필요';variables='Geometry · material · process · measurement 후보';gap='Target quantity와 실행 모델이 아직 불명확';route='질문 구체화 → quantity contract → model mapping';next='무엇을 바꾸고 어떤 결과를 개선하려 하나요?'}
+  const confidence=evidence==='none'?'LOW PRIOR · 넓은 탐색 권장':evidence==='measurement'?'MEDIUM-HIGH PRIOR · 독립 검증 분리 필요':'MEDIUM PRIOR · 근거 범위 확인 필요';$('#mapDiagnosis').textContent=diagnosis;$('#mapConfidence').textContent=`${confidence} · 현재 근거: ${evidenceLabel} · 목적: ${goal}`;$('#mapGrid').innerHTML=`<div><small>Initial variables</small><b>${variables}</b></div><div><small>Evidence gap</small><b>${gap}</b></div><div><small>First route</small><b>${route}</b></div><div><small>Next question</small><b>${next}</b></div>`;$('#applyResearchMap').textContent=executable?'Use map as next run →':'Save map · model required';$('#researchMap').hidden=false;$('#researchMap').animate([{opacity:.1,transform:'translateY(-8px)'},{opacity:1,transform:'none'}],{duration:380,fill:'both'});toast('1차 진단 지도와 Evidence Gap을 만들었습니다.')
+}
+function applyResearchMap(){if(currentResearchRoute==='etch'){$('#packSelect').value='etch';$('#topPackSelect').value='etch';setPack();updateRunGuide();go('run');toast('식각 초기 지도를 DSE 입력 범위에 적용했습니다.')}else if(currentResearchRoute==='superconducting'){$('#packSelect').value='quantum';$('#topPackSelect').value='quantum';setPack();pitchMin.value=.04;pitchMax.value=.22;timMin.value=50;timMax.value=180;sampleCount.value=128;calculate();updateRunGuide();setQuantumMode('template');go('run');toast('초전도 초기 지도를 실행 가능한 템플릿에 적용했습니다.')}else{toast('초기 지도는 저장됐지만 실행 모델 계약이 먼저 필요합니다.')}}
 $$('[data-view]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.view)));$$('[data-go]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.go)));
 $('#packSelect').addEventListener('change',event=>{setPack();updateRunGuide();$('#topPackSelect').value=event.target.value});
 $('#topPackSelect').addEventListener('change',event=>{$('#packSelect').value=event.target.value;setPack();updateRunGuide();go('run')});
+$$('[data-quantum-mode]').forEach(button=>button.addEventListener('click',()=>setQuantumMode(button.dataset.quantumMode)));
+$('[data-template="fab"]').addEventListener('click',()=>{setQuantumMode('guided');$('#researchGoal').value='process';if(!$('#researchQuestion').value)$('#researchQuestion').value='양자소자 공정에서 단위공정 조건과 측정 결과의 관계를 탐색하고 싶다';toast('Shared Fab Core는 Guided Research에서 필요한 공정 블록을 선택합니다.')});
+$('#createResearchMap').addEventListener('click',createResearchMap);
+$('#reviseResearchMap').addEventListener('click',()=>{$('#researchMap').hidden=true;$('#researchQuestion').focus()});
+$('#applyResearchMap').addEventListener('click',applyResearchMap);
 $('#seriesButton').addEventListener('click',runHbmSeries);
 $('#guidedSeriesButton').addEventListener('click',runGuidedHbmSeries);
 $('#quantumSeriesButton').addEventListener('click',runQuantumSeries);
