@@ -1,0 +1,9 @@
+{
+  "schema_version": "0.1",
+  "object_id": "user.example.tim-kt",
+  "version": "0.1.0",
+  "visibility": "private",
+  "model_type": "replaceable_function",
+  "scientific_status": "REPORTED",
+  "title": "Example temperature-dependent TIM conductivity"
+}

@@ -1,0 +1,28 @@
+{
+  "pack_id": "semifab.pack.quantum_fab.v1",
+  "version": "0.2.0-demo",
+  "status": "P2_EXECUTABLE_DEMO",
+  "shared_core": [
+    "semifab.capability.lithography.ebeam",
+    "semifab.capability.deposition.superconductor",
+    "semifab.capability.surface.clean",
+    "semifab.capability.cryogenic.measurement"
+  ],
+  "tracks": {
+    "superconducting": {
+      "status": "EXECUTABLE_REDUCED_PHYSICS",
+      "active_model": "semifab.physics.quantum.transmon_reduced.v1",
+      "quantities": ["Ic", "EJ", "EC", "f01", "anharmonicity", "EJ_EC_ratio", "fabrication_sensitivity"]
+    },
+    "silicon_spin": {
+      "status": "CONTRACT_DESIGN_ONLY",
+      "active_model": null,
+      "planned_quantities": ["charging_energy", "lever_arm", "cross_capacitance", "tunnel_coupling", "operating_window"]
+    }
+  },
+  "scientific_limits": [
+    "No coherence-time prediction is made.",
+    "Capacitance is a lumped input, not an electromagnetic field solution.",
+    "Synthetic wafer measurements are demonstration data, not lab validation."
+  ]
+}

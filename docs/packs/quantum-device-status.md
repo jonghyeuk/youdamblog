@@ -1,7 +1,18 @@
 # Quantum Device Pack — Development Status
 
 마지막 업데이트: 2026-08-08  
-현재 성숙도: **P1 — Interactive Demo**
+현재 성숙도: **P2 — Executable Reduced-Physics Demo (Superconducting vertical)**
+
+## 2026-08-10 실행 데모 업데이트
+
+- `public/physics/quantum-transmon.js`: Josephson/transmon reduced-physics 실행 모듈
+- 독립 contract와 validity range: junction area, Jc, total capacitance, temperature
+- 계산 출력: Ic, EJ, EC, f01, anharmonicity, EJ/EC, 공정 편차 민감도
+- seed 고정 synthetic wafer 96개와 virtual cryogenic measurement
+- Golden test 및 범위 거부 테스트
+- `public/physics/quantum-pack-manifest.json`: shared core와 두 track 상태 공개
+
+초전도 트랙은 한 사이클이 실행되지만 **실험 검증 완료 제품 모델은 아니다.** Capacitance는 lumped input이며 EM field solve와 coherence-time 예측은 포함하지 않는다. Silicon Spin 트랙은 여전히 contract 설계 단계다.
 
 ## 제품 목표
 

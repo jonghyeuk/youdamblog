@@ -1,0 +1,6 @@
+{
+  "vectors": [
+    { "input": { "temperature": 25 }, "expected": { "thermal_conductivity": 3.2 }, "tolerance": 0.001 },
+    { "input": { "temperature": 75 }, "expected": { "thermal_conductivity": 2.8 }, "tolerance": 0.001 }
+  ]
+}

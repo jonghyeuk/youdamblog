@@ -23,6 +23,9 @@
   <style>
     .anatomy-stats{display:grid;grid-template-columns:repeat(6,1fr);border:1px solid var(--line);background:#fff;border-radius:10px;margin-bottom:18px}.anatomy-stats div{padding:14px;border-right:1px solid var(--line)}.anatomy-stats div:last-child{border:0}.anatomy-stats small,.anatomy-stats strong{display:block}.anatomy-stats small{font-size:7px;color:#748ba6;text-transform:uppercase}.anatomy-stats strong{font-size:18px;margin-top:6px}.anatomy-grid{display:grid;grid-template-columns:320px 1fr;gap:18px}.model-tree{padding:18px}.tree-group{margin-bottom:16px}.tree-group>span{display:block;font-size:8px;color:#7990aa;font-weight:900;letter-spacing:.1em;margin-bottom:7px}.tree-button{display:flex;width:100%;align-items:center;gap:8px;border:0;background:transparent;padding:8px;border-radius:6px;color:#315579;text-align:left;font-size:10px;cursor:pointer}.tree-button:hover,.tree-button.active{background:#eaf2ff;color:#176ed9}.tree-button i{width:7px;height:7px;border-radius:50%;background:#16b8c4}.tree-button.extension i{background:#b9c8db}.tree-button em{font-style:normal;font-size:7px;margin-left:auto;color:#7b8fa7}.model-inspector h2{font-size:24px}.inspector-badges{display:flex;gap:6px;margin:10px 0}.inspector-badges span{font-size:7px;padding:5px 7px;border-radius:8px;background:#e6f0ff;color:#236dc7}.equation-box{font:14px/1.5 "Cascadia Code",monospace;background:#102445;color:#d8e8ff;padding:18px;border-radius:8px;margin:18px 0}.inspector-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.inspector-grid div{padding:12px;background:#f4f8fe;border-radius:7px}.inspector-grid small,.inspector-grid b{display:block}.inspector-grid small{font-size:7px;color:#7c91aa;text-transform:uppercase}.inspector-grid b{font-size:10px;margin-top:5px}.anatomy-bottom{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.merge-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;margin:16px 0}.merge-model{padding:13px;background:#f5f8fd;border:1px solid #d9e4f1;border-radius:8px}.merge-model small,.merge-model b{display:block}.merge-model small{font-size:7px;color:#788da6}.merge-model b{font-size:10px;margin-top:5px}.merge-arrow{color:#e28c36}.merge-actions{display:flex;gap:6px;flex-wrap:wrap}.function-form{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:15px 0}.function-form label{font-size:8px;color:#6e85a0}.function-form input,.function-form select{display:block;width:100%;margin-top:5px;border:1px solid #ccdaeb;background:#f8fbff;padding:8px;border-radius:6px;color:#1a416d}.fork-result{padding:12px;background:#f2f7ff;border-left:3px solid #2c76df;font-size:9px;line-height:1.6}.fork-result strong{color:#d07827}.function-actions{display:flex;gap:8px;margin-top:10px}@media(max-width:1000px){.anatomy-stats{grid-template-columns:repeat(3,1fr)}.anatomy-grid,.anatomy-bottom{grid-template-columns:1fr}}@media(max-width:600px){.anatomy-stats{grid-template-columns:repeat(2,1fr)}.inspector-grid{grid-template-columns:1fr}}
   </style>
+  <style>
+    .quantum-panel{margin-bottom:18px;border:1px solid #b9cff0;background:linear-gradient(145deg,#fbfdff,#eef4ff)}.quantum-panel .series-flow li{background:#fff;border-color:#d5e2f4}.quantum-panel .series-flow li span{color:#4679c4}.quantum-panel .series-flow li small{color:#6d82a0}.quantum-panel .series-flow li.done{background:#e7f8f5;border-color:#72d3c8}.quantum-panel .series-flow li.running{background:#eaf1ff;border-color:#4d83e9}.quantum-anatomy{display:grid;grid-template-columns:1fr 1.2fr;gap:12px;margin:18px 0}.quantum-equations,.quantum-readout{padding:14px;border-radius:8px;background:#102445;color:#dbeaff}.quantum-equations code{display:block;font-size:10px;line-height:1.8;color:#bfe0ff}.quantum-readout{background:#fff;color:#14365f;border:1px solid #d4e1f2;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.quantum-readout div{padding:8px;background:#f3f7fd;border-radius:6px}.quantum-readout small,.quantum-readout strong{display:block}.quantum-readout small{font-size:7px;color:#7389a5;text-transform:uppercase}.quantum-readout strong{font-size:13px;margin-top:5px}.readiness-strip{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.readiness-strip span{font-size:8px;padding:6px 8px;border-radius:12px;background:#e7f1ff;color:#2469c6}.readiness-strip .pending{background:#fff0dc;color:#a7631f}.packaging-strip{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:12px;padding:10px 12px;background:#fff;border:1px solid #d6e3f3;border-radius:8px}.packaging-strip b{font-size:9px;margin-right:auto}.packaging-strip code{font-size:8px;color:#58718f}.packaging-strip a{text-decoration:none}@media(max-width:800px){.quantum-anatomy{grid-template-columns:1fr}.quantum-readout{grid-template-columns:repeat(2,1fr)}.packaging-strip code{width:100%}}
+  </style>
 </head>
 <body>
   <div class="grain">
@@ -307,6 +310,26 @@
   <div class="series-summary" id="seriesSummary"><div><small>Status</small><strong>Ready</strong></div><div><small>Model</small><strong>hbm_thermal.v1</strong></div><div><small>Dataset</small><strong>—</strong></div><div><small>Validation RMSE</small><strong>—</strong></div></div>
   <div class="series-actions"><button class="ghost" id="seriesExport" disabled>Export series JSON</button></div>
 </article>
+<article class="panel quantum-panel" id="quantumSeriesPanel" hidden>
+  <div class="series-head"><div><span class="overline">EXECUTABLE QUANTUM REFERENCE SERIES</span><h2>Josephson Junction → Transmon</h2><p>공정 변수에서 소자 물리량을 계산하고, 가상 wafer 편차와 cryogenic 측정 루프까지 실행합니다.</p></div><div class="series-buttons"><a class="ghost" href="physics/quantum-pack-manifest.json" target="_blank">Pack manifest</a><button class="primary" id="quantumSeriesButton">Run quantum series →</button></div></div>
+  <div class="readiness-strip"><span>SUPERCONDUCTING · P2 EXECUTABLE</span><span>SHARED FAB CORE · CONNECTED</span><span class="pending">SILICON SPIN · CONTRACT ONLY</span></div>
+  <div class="packaging-strip"><b>Bring your own paper · code · CSV</b><code>npm install -g . → semifab-packager validate → pack</code><a class="ghost" href="downloads/semifab-model-packaging-kit-v0.1.zip" download>Download Packaging Kit</a><button class="ghost" id="copyPackagingPrompt">Copy LLM prompt</button></div>
+  <div class="quantum-anatomy">
+    <div class="quantum-equations"><code>Ic = Jc · A</code><code>EJ = ℏIc / 2e</code><code>EC = e² / 2CΣ</code><code>f01 ≈ (√8EJEC − EC) / h</code><code>α ≈ −EC / h</code></div>
+    <div class="quantum-readout" id="quantumReadout"><div><small>Status</small><strong>Ready</strong></div><div><small>f01</small><strong>— GHz</strong></div><div><small>Anharmonicity</small><strong>— MHz</strong></div><div><small>EJ / EC</small><strong>—</strong></div><div><small>Wafer spread</small><strong>— MHz</strong></div><div><small>Evidence</small><strong>BENCHMARKED</strong></div></div>
+  </div>
+  <ol class="series-flow" id="quantumSeriesFlow">
+    <li data-quantum-step="contract"><span>01</span><b>Physics contract</b><small>units · validity</small></li>
+    <li data-quantum-step="fabrication"><span>02</span><b>Fab mapping</b><small>E-beam · deposition</small></li>
+    <li data-quantum-step="device"><span>03</span><b>Device physics</b><small>Ic · EJ · EC</small></li>
+    <li data-quantum-step="dse"><span>04</span><b>Design space</b><small>128 candidates</small></li>
+    <li data-quantum-step="wafer"><span>05</span><b>Virtual wafer</b><small>96 devices</small></li>
+    <li data-quantum-step="measure"><span>06</span><b>Cryogenic test</b><small>synthetic readout</small></li>
+    <li data-quantum-step="trace"><span>07</span><b>Westworld trace</b><small>lineage closed</small></li>
+  </ol>
+  <p class="model-note">SCIENTIFIC LIMIT · Capacitance는 lumped input이며 EM field solve와 coherence-time 예측은 포함하지 않습니다. 가상 측정값은 제품 흐름 검증용입니다.</p>
+  <div class="series-actions"><button class="ghost" id="quantumExport" disabled>Export quantum series JSON</button></div>
+</article>
 <div class="grid-run">
 <article class="panel chart-panel">
 <header>
@@ -570,6 +593,7 @@
   <div class="toast" id="toast">
 </div>
   <script src="physics/hbm-thermal.js?v=2"></script>
+  <script src="physics/quantum-transmon.js?v=1"></script>
   <script src="app.js">
 </script>
 </body>
