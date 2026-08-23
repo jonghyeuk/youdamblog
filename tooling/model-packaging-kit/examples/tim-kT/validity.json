@@ -1,4 +1,0 @@
-{
-  "domains": [{ "quantity": "temperature", "min": 20, "max": 120, "unit": "degC", "status": "REPORTED" }],
-  "extrapolation": "forbidden_by_default"
-}

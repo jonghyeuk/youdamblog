@@ -1,5 +1,0 @@
-{
-  "governing_relation": "R_TIM(T) = thickness / (k_TIM(T) * area)",
-  "implementation": { "kind": "linear_function", "expression": "k = k_ref + slope * (T - T_ref)" },
-  "parameters": { "k_ref": 3.2, "T_ref": 25, "slope": -0.008 }
-}

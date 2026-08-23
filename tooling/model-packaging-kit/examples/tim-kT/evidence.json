@@ -1,4 +1,0 @@
-{
-  "claims": [{ "id": "claim.example.tim-k-decreases", "status": "REPORTED", "evidence_refs": ["evidence.example-001"] }],
-  "evidence": [{ "id": "evidence.example-001", "type": "user_document", "title": "Replace with actual source", "license": "UNKNOWN" }]
-}

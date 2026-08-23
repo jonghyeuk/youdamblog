@@ -1,4 +1,0 @@
-{
-  "inputs": [{ "name": "temperature", "unit": "degC", "type": "number" }],
-  "outputs": [{ "name": "thermal_conductivity", "unit": "W/(m*K)", "type": "number" }]
-}
