@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#f6f2e8">
   <meta name="description" content="별별상점 — 가입 없이 3분, 오늘의 변명 제작소에서 내 변명 생존력을 확인해 봐.">
+  <meta name="keywords" content="별별상점, 무료 웹게임, 미니게임, 변명 게임, 대화형 게임, 친구 게임, 3분 게임">
+  <meta name="author" content="별별상점">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <link rel="canonical" href="https://youdam.com/">
   <meta property="og:title" content="별별상점 — 심심할 틈을 살짝 훔쳐갈게">
   <meta property="og:description" content="오늘의 변명 제작소에서 내 변명 생존력을 확인해 봐.">
   <meta property="og:type" content="website">
@@ -12,7 +16,45 @@
   <meta property="og:image" content="https://youdam.com/og.png">
   <meta name="twitter:card" content="summary_large_image">
   <title>별별상점 — 심심할 틈을 훔치는 3분 게임</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20260823-geo">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://youdam.com/#website",
+        "url": "https://youdam.com/",
+        "name": "별별상점",
+        "alternateName": "Byeolbyeol Arcade",
+        "description": "가입이나 설치 없이 3분 동안 즐기는 짧고 이상한 한국어 웹게임 아케이드",
+        "inLanguage": "ko-KR"
+      },
+      {
+        "@type": "VideoGame",
+        "@id": "https://youdam.com/#excuse-game",
+        "name": "오늘의 변명 제작소",
+        "url": "https://youdam.com/",
+        "description": "상황을 선택하고 변명을 조립한 뒤 꼬리 질문에 답해 변명 생존력을 확인하는 무료 대화형 웹게임",
+        "applicationCategory": "Game",
+        "gamePlatform": "Web browser",
+        "playMode": "SinglePlayer",
+        "inLanguage": "ko-KR",
+        "isAccessibleForFree": true,
+        "audience": { "@type": "PeopleAudience", "suggestedMinAge": 13, "suggestedMaxAge": 24 },
+        "publisher": { "@id": "https://youdam.com/#website" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "별별상점은 어떤 사이트인가요?", "acceptedAnswer": { "@type": "Answer", "text": "별별상점은 설치와 가입 없이 브라우저에서 바로 즐기는 짧은 한국어 웹게임을 모아둔 무료 미니게임 아케이드입니다." } },
+          { "@type": "Question", "name": "오늘의 변명 제작소는 어떻게 플레이하나요?", "acceptedAnswer": { "@type": "Answer", "text": "곤란한 상황을 고르고 변명 문장을 조립한 다음 꼬리 질문에 답하면 변명 생존력 점수와 공유 가능한 결과 카드를 받을 수 있습니다." } },
+          { "@type": "Question", "name": "별별상점 게임은 무료인가요?", "acceptedAnswer": { "@type": "Answer", "text": "네. 현재 공개된 별별상점 게임은 가입이나 결제 없이 무료로 플레이할 수 있습니다." } }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <nav class="topbar"><a class="brand" href="#top"><span>✦</span>별별상점</a><div><a href="#games">놀거리</a><button data-start>랜덤으로 놀기 ↗</button></div></nav>
@@ -21,11 +63,23 @@
       <div class="hero-copy"><small>NO DOWNLOAD · JUST PLAY</small><h1>심심할 틈을<br><em>살짝 훔쳐갈게.</em></h1><p>설명은 짧게, 재미는 바로. 친구에게 링크 하나만 던지면 같이 웃을 수 있는 이상하고 귀여운 놀이터.</p><div class="hero-actions"><button class="primary" data-start>오늘의 게임 시작 →</button><span>가입 없이 · 3분이면 충분</span></div></div>
       <div class="hero-art"><div class="blob"></div><div class="phone"><b>별별상점</b><i>오늘 학원 늦은 이유는?</i><i>고양이가 가방을<br>인질로 잡았어요.</i><strong>ㅋㅋㅋ 12</strong></div><label>오늘 뭐하지?</label><label>3분 순삭</label></div>
     </section>
-    <section class="collection" id="games"><header><div><small>PICK YOUR WEIRD</small><h2>지금 뭐 하고 놀래?</h2></div><p>짧지만 자꾸 생각나는 것들만<br>한 칸씩 채워두는 중이에요.</p></header><div class="cards" id="cards"></div></section>
+    <section class="collection" id="games"><header><div><small>PICK YOUR WEIRD</small><h2>지금 뭐 하고 놀래?</h2></div><p>짧지만 자꾸 생각나는 것들만<br>한 칸씩 채워두는 중이에요.</p></header><div class="cards" id="cards">
+      <article class="card"><button class="card-visual" data-game="0"><span class="card-no">#01</span><span class="card-icon">💬</span><span class="card-tag">지금 플레이</span></button><div class="card-info"><h3>오늘의 변명 제작소</h3><p>곤란한 순간을 웃기게 탈출하는 3분짜리 순발력 테스트</p><button data-game="0">↗</button></div></article>
+      <article class="card"><button class="card-visual" data-game="1"><span class="card-no">#02</span><span class="card-icon">⌨️</span><span class="card-tag">곧 오픈</span></button><div class="card-info"><h3>퇴근까지 10분</h3><p>메신저 답장만 잘하면 오늘은 진짜 칼퇴할 수 있다</p><button data-game="1">↗</button></div></article>
+      <article class="card"><button class="card-visual" data-game="2"><span class="card-no">#03</span><span class="card-icon">👻</span><span class="card-tag">곧 오픈</span></button><div class="card-info"><h3>유령 민원 상담소</h3><p>말 많은 귀신들의 황당한 민원을 해결해 주세요</p><button data-game="2">↗</button></div></article>
+      <article class="card"><button class="card-visual" data-game="3"><span class="card-no">#04</span><span class="card-icon">💔</span><span class="card-tag">곧 오픈</span></button><div class="card-info"><h3>이별 메시지 검수관</h3><p>남의 연애는 원래 잘 보인다. 문제의 문장을 고쳐보자</p><button data-game="3">↗</button></div></article>
+      <article class="card"><button class="card-visual" data-game="4"><span class="card-no">#05</span><span class="card-icon">🧚</span><span class="card-tag">곧 오픈</span></button><div class="card-info"><h3>말대꾸 요정</h3><p>화면 구석에서 은근히 킹받게 응원하는 작은 친구</p><button data-game="4">↗</button></div></article>
+    </div></section>
     <section class="teaser" id="excuse"><small>OPEN NOW · 01</small><div><b>오늘의 변명 제작소</b><h2>위기를 센스로<br>탈출할 준비됐어?</h2><p>상황을 고르고, 가장 그럴듯한 변명을 만든 다음 꼬리 질문을 버텨보세요. 당신의 뻔뻔함을 점수로 알려드림.</p><button class="primary" data-start>변명 만들러 가기 →</button></div><aside><span>오늘의 위기</span><strong>친구 생일을<br>깜빡했다!</strong><hr><small>생존 확률</small><em>23%</em></aside></section>
+    <section class="about-arcade" aria-labelledby="about-title">
+      <div><small>ABOUT BYEOLBYEOL</small><h2 id="about-title">별별상점은<br>무슨 가게야?</h2></div>
+      <div><p><strong>별별상점</strong>은 설치나 가입 없이 링크 하나로 바로 시작하는 무료 한국어 웹게임 아케이드예요. 긴 설명 대신 3분 안에 규칙을 이해하고, 결과를 친구와 공유할 수 있는 가볍고 대화적인 게임을 만듭니다.</p><p>첫 게임 <strong>오늘의 변명 제작소</strong>에서는 지각, 답장 실종, 생일 망각 같은 곤란한 상황을 고르고 변명을 조립합니다. 마지막 꼬리 질문까지 버티면 나만의 변명 생존력과 결과 이미지가 완성돼요.</p></div>
+    </section>
+    <section class="faq" aria-labelledby="faq-title"><small>QUICK ANSWERS</small><h2 id="faq-title">궁금한 것만<br>빠르게 알려줄게.</h2><div class="faq-grid"><details open><summary>별별상점은 어떤 사이트야?</summary><p>브라우저에서 바로 즐기는 짧고 이상한 무료 미니게임을 모은 곳이에요.</p></details><details><summary>회원가입이나 설치가 필요해?</summary><p>둘 다 필요 없어요. 모바일과 PC에서 링크만 열면 바로 플레이할 수 있어요.</p></details><details><summary>오늘의 변명 제작소는 어떻게 해?</summary><p>상황 선택, 변명 조립, 꼬리 질문의 세 단계를 지나면 변명 생존력 점수가 나와요.</p></details><details><summary>결과를 친구에게 보낼 수 있어?</summary><p>공유 버튼으로 링크를 보내거나 결과 카드를 PNG 이미지로 저장할 수 있어요.</p></details></div></section>
   </main>
+  <footer><a class="brand" href="#top"><span>✦</span>별별상점</a><p>짧고 이상한 재미를 한 칸씩 채웁니다.</p><small>© 2026 별별상점 · 무료 웹게임 아케이드</small></footer>
   <div class="toast" id="toast" hidden></div>
   <div class="game-shell" id="game" hidden><section class="game-window"><header><button id="close">← 나가기</button><b>오늘의 변명 제작소</b><span id="counter">1 / 4</span></header><div class="progress"><i id="progress"></i></div><div class="game-body" id="gameBody"></div></section></div>
-  <script src="app.js"></script>
+  <script src="app.js?v=20260823-geo"></script>
 </body>
 </html>
