@@ -45,6 +45,20 @@
         "publisher": { "@id": "https://youdam.com/#website" }
       },
       {
+        "@type": "VideoGame",
+        "@id": "https://youdam.com/#some-message-game",
+        "name": "썸메시지: 오늘 데이트 가능?",
+        "url": "https://youdam.com/",
+        "description": "소개팅, 꽃집, 카페, 동아리 등 다양한 만남 이후 첫 메시지와 답장을 선택해 데이트 성사 확률을 확인하는 무료 대화형 웹게임",
+        "applicationCategory": "Game",
+        "gamePlatform": "Web browser",
+        "playMode": "SinglePlayer",
+        "inLanguage": "ko-KR",
+        "isAccessibleForFree": true,
+        "audience": { "@type": "PeopleAudience", "suggestedMinAge": 16, "suggestedMaxAge": 24 },
+        "publisher": { "@id": "https://youdam.com/#website" }
+      },
+      {
         "@type": "FAQPage",
         "mainEntity": [
           { "@type": "Question", "name": "별별상점은 어떤 사이트인가요?", "acceptedAnswer": { "@type": "Answer", "text": "별별상점은 설치와 가입 없이 브라우저에서 바로 즐기는 짧은 한국어 웹게임을 모아둔 무료 미니게임 아케이드입니다." } },
@@ -65,7 +79,7 @@
     </section>
     <section class="collection" id="games"><header><div><small>PICK YOUR WEIRD</small><h2>지금 뭐 하고 놀래?</h2></div><p>짧지만 자꾸 생각나는 것들만<br>한 칸씩 채워두는 중이에요.</p></header><div class="cards" id="cards">
       <article class="card"><button class="card-visual" data-game="0"><span class="card-no">#01</span><span class="card-icon">💬</span><span class="card-tag">지금 플레이</span></button><div class="card-info"><h3>오늘의 변명 제작소</h3><p>곤란한 순간을 웃기게 탈출하는 3분짜리 순발력 테스트</p><button data-game="0">↗</button></div></article>
-      <article class="card"><button class="card-visual" data-game="1"><span class="card-no">#02</span><span class="card-icon">⌨️</span><span class="card-tag">곧 오픈</span></button><div class="card-info"><h3>퇴근까지 10분</h3><p>메신저 답장만 잘하면 오늘은 진짜 칼퇴할 수 있다</p><button data-game="1">↗</button></div></article>
+      <article class="card"><button class="card-visual" data-game="1"><span class="card-no">#02</span><span class="card-icon">💘</span><span class="card-tag">지금 플레이</span></button><div class="card-info"><h3>썸메시지</h3><p>첫 메시지부터 데이트 약속까지, 이 대화의 성공 확률은?</p><button data-game="1">↗</button></div></article>
       <article class="card"><button class="card-visual" data-game="2"><span class="card-no">#03</span><span class="card-icon">👻</span><span class="card-tag">곧 오픈</span></button><div class="card-info"><h3>유령 민원 상담소</h3><p>말 많은 귀신들의 황당한 민원을 해결해 주세요</p><button data-game="2">↗</button></div></article>
       <article class="card"><button class="card-visual" data-game="3"><span class="card-no">#04</span><span class="card-icon">💔</span><span class="card-tag">곧 오픈</span></button><div class="card-info"><h3>이별 메시지 검수관</h3><p>남의 연애는 원래 잘 보인다. 문제의 문장을 고쳐보자</p><button data-game="3">↗</button></div></article>
       <article class="card"><button class="card-visual" data-game="4"><span class="card-no">#05</span><span class="card-icon">🧚</span><span class="card-tag">곧 오픈</span></button><div class="card-info"><h3>말대꾸 요정</h3><p>화면 구석에서 은근히 킹받게 응원하는 작은 친구</p><button data-game="4">↗</button></div></article>
@@ -80,6 +94,8 @@
   <footer><a class="brand" href="#top"><span>✦</span>별별상점</a><p>짧고 이상한 재미를 한 칸씩 채웁니다.</p><small>© 2026 별별상점 · 무료 웹게임 아케이드</small></footer>
   <div class="toast" id="toast" hidden></div>
   <div class="game-shell" id="game" hidden><section class="game-window"><header><button id="close">← 나가기</button><b>오늘의 변명 제작소</b><span id="counter">1 / 5</span></header><div class="progress"><i id="progress"></i></div><div class="game-body" id="gameBody"></div></section></div>
-  <script src="app.js?v=20260824-route"></script>
+  <div class="game-shell flirt-shell" id="flirtGame" hidden><section class="game-window"><header><button id="flirtClose">← 나가기</button><b>썸메시지 · 오늘 데이트 가능?</b><span id="flirtCounter">1 / 5</span></header><div class="progress flirt-progress"><i id="flirtProgress"></i></div><div class="game-body" id="flirtBody"></div></section></div>
+  <script src="app.js?v=20260824-date"></script>
+  <script src="flirt.js?v=20260824-date"></script>
 </body>
 </html>
