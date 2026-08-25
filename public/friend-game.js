@@ -22,8 +22,8 @@ let friendStep=0,friendWorld=0,friendScore=0,friendDark=0,friendChoice=-1,friend
 const friendModal=document.querySelector('#friendGame'),friendBody=document.querySelector('#friendBody');
 const fw=()=>friendWorlds[friendWorld];
 function orderedResponses(stage){const list=responseSets[stage].map((x,i)=>({text:x[0],why:x[1],safe:i===1,role:i===1?'safe':i===2?'mirror':'passive'}));const shift=(friendWorld+stage)%3;return list.slice(shift).concat(list.slice(0,shift))}
-function openFriend(){friendModal.hidden=false;document.body.style.overflow='hidden';renderFriend()}
-function closeFriend(){friendModal.hidden=true;document.body.style.overflow='';resetFriend()}
+function openFriend(){friendModal.hidden=false;document.body.style.overflow='hidden';history.replaceState(null,'','#play-friend');renderFriend()}
+function closeFriend(){friendModal.hidden=true;document.body.style.overflow='';if(location.hash==='#play-friend')history.replaceState(null,'','#games');resetFriend()}
 function resetFriend(){friendStep=0;friendWorld=0;friendScore=0;friendDark=0;friendChoice=-1;friendHistory=[]}
 function renderFriend(){
  const shown=Math.min(friendStep+1,10);document.querySelector('#friendCounter').textContent=`${shown} / 10`;document.querySelector('#friendProgress').style.width=`${shown*10}%`;
@@ -34,4 +34,4 @@ function renderFriend(){
 
 document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.game==='2'){e.preventDefault();e.stopImmediatePropagation();openFriend();return}if(b.dataset.friendWorld!==undefined){friendWorld=+b.dataset.friendWorld;renderFriend()}if(b.dataset.friendChoice!==undefined){friendChoice=+b.dataset.friendChoice;renderFriend()}if(b.matches('[data-friend-next]')&&!b.disabled){if(friendStep>0&&friendStep<=8){const chosen=orderedResponses(friendStep-1)[friendChoice];friendHistory.push(chosen);if(chosen.safe)friendScore++;if(chosen.role==='mirror')friendDark++}friendStep++;friendChoice=-1;renderFriend()}if(b.matches('[data-friend-reset]')){resetFriend();renderFriend()}if(b.matches('[data-friend-share]'))shareFriend()},true);
 document.querySelector('#friendClose').onclick=closeFriend;
-async function shareFriend(){const n=Math.round(friendScore/8*100),reverse=Math.round(friendDark/8*100),text=friendDark>=5?`반전 엔딩 해금… 피해야 할 친구가 나였어? 가면친구 싱크로율 ${reverse}%!`:`${fw().title}에서 내 위험 신호 감지율은 ${n}%! 별별상점 ‘이런 친구는 피해라’ 10단계 탈출게임`;if(navigator.share)try{await navigator.share({title:'이런 친구는 피해라',text,url:location.href});return}catch{}await navigator.clipboard.writeText(`${text} ${location.href}`);notify('링크 복사 완료 ✓')}
+async function shareFriend(){const n=Math.round(friendScore/8*100),reverse=Math.round(friendDark/8*100),text=friendDark>=5?`반전 엔딩 해금… 피해야 할 친구가 나였어? 가면친구 싱크로율 ${reverse}%!`:`${fw().title}에서 내 위험 신호 감지율은 ${n}%! 별별상점 ‘이런 친구는 피해라’ 10단계 탈출게임`,url=`${location.origin}${location.pathname}#play-friend`;if(navigator.share)try{await navigator.share({title:'이런 친구는 피해라',text,url});return}catch{}await navigator.clipboard.writeText(`${text} ${url}`);notify('게임 바로가기 복사 완료 ✓')}
