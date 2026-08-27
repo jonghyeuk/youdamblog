@@ -40,5 +40,6 @@ friendWorlds.splice(0,friendWorlds.length,
  {icon:'📱',title:'온라인 투자·취미방',place:'온라인 모임',cast:'정보가 많은 운영자',intro:'유용한 자료를 무료로 나누며 빠르게 신뢰를 얻은 사람.',beats:['사는 지역과 자산 상황을 맞혀보겠다며 묻는다.','회원의 개인 메시지를 캡처해 보내준다.','얼굴 공개를 거절하자 숨기는 게 있냐고 한다.','내 글을 자기 이름으로 다른 방에 올린다.','다른 채팅방에 참여하자 충성심을 확인한다.','문제가 생기자 내 계정이 자료를 지웠다고 주장한다.','접속 기록을 보여주자 해킹당했을 것이라며 말을 바꾼다.','직접 만나 휴대전화를 확인하면 된다며 장소를 통보한다.']}
 );
 
+games[1]=['02','바람필 확률','직장·동창·동호회 속 경계 선택으로 알아보는 당신의 바람기','지금 플레이','🌪️'];
 games[4]=['05','말대꾸 요정','칭찬과 농담 뒤에 숨은 말의 가시를 읽는 12단계 심리게임','지금 플레이','🪞'];
 document.querySelector('#cards').innerHTML=games.map((g,i)=>`<article class="card"><button class="card-visual" data-game="${i}"><span class="card-no">#${g[0]}</span><span class="card-icon">${g[4]}</span><span class="card-tag">${g[3]}</span></button><div class="card-info"><h3>${g[1]}</h3><p>${g[2]}</p><button data-game="${i}">↗</button></div></article>`).join('');

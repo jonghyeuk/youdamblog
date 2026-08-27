@@ -46,8 +46,8 @@
       },
       {
         "@type": "VideoGame",
-        "@id": "https://youdam.com/#some-message-game",
-        "name": "썸메시지: 오늘 데이트 가능?",
+        "@id": "https://youdam.com/#affair-probability-game",
+        "name": "바람필 확률: 당신의 바람기",
         "url": "https://youdam.com/",
         "description": "지인 소개, 문화센터, 걷기 모임, 동창회 등 중년의 다양한 만남에서 대화와 약속의 흐름을 선택하는 무료 웹게임",
         "applicationCategory": "Game",
@@ -79,7 +79,7 @@
     </section>
     <section class="collection" id="games"><header><div><small>LIFE, PEOPLE & WORDS</small><h2>오늘은 어떤 이야기를<br>풀어볼까요?</h2></div><p>살아본 사람이라 더 잘 보이는 장면들.<br>정답보다 내 선택을 들여다보는 게임입니다.</p></header><div class="cards" id="cards">
       <article class="card"><button class="card-visual" data-game="0"><span class="card-no">#01</span><span class="card-icon">💬</span><span class="card-tag">지금 플레이</span></button><div class="card-info"><h3>오늘의 변명 제작소</h3><p>곤란한 순간을 웃기게 탈출하는 3분짜리 순발력 테스트</p><button data-game="0">↗</button></div></article>
-      <article class="card"><button class="card-visual" data-game="1"><span class="card-no">#02</span><span class="card-icon">💘</span><span class="card-tag">지금 플레이</span></button><div class="card-info"><h3>썸메시지</h3><p>첫 메시지부터 데이트 약속까지, 이 대화의 성공 확률은?</p><button data-game="1">↗</button></div></article>
+      <article class="card"><button class="card-visual" data-game="1"><span class="card-no">#02</span><span class="card-icon">🌪️</span><span class="card-tag">지금 플레이</span></button><div class="card-info"><h3>바람필 확률</h3><p>직장·동창·동호회 속 경계 선택으로 알아보는 당신의 바람기</p><button data-game="1">↗</button></div></article>
       <article class="card"><button class="card-visual" data-game="2"><span class="card-no">#03</span><span class="card-icon">👻</span><span class="card-tag">곧 오픈</span></button><div class="card-info"><h3>유령 민원 상담소</h3><p>말 많은 귀신들의 황당한 민원을 해결해 주세요</p><button data-game="2">↗</button></div></article>
       <article class="card"><button class="card-visual" data-game="3"><span class="card-no">#04</span><span class="card-icon">💔</span><span class="card-tag">곧 오픈</span></button><div class="card-info"><h3>이별 메시지 검수관</h3><p>남의 연애는 원래 잘 보인다. 문제의 문장을 고쳐보자</p><button data-game="3">↗</button></div></article>
       <article class="card"><button class="card-visual" data-game="4"><span class="card-no">#05</span><span class="card-icon">🧚</span><span class="card-tag">곧 오픈</span></button><div class="card-info"><h3>말대꾸 요정</h3><p>화면 구석에서 은근히 킹받게 응원하는 작은 친구</p><button data-game="4">↗</button></div></article>
@@ -94,7 +94,7 @@
   <footer><a class="brand" href="#top"><span>✦</span>별별상점</a><p>짧고 이상한 재미를 한 칸씩 채웁니다.</p><small>© 2026 별별상점 · 무료 웹게임 아케이드</small></footer>
   <div class="toast" id="toast" hidden></div>
   <div class="game-shell" id="game" hidden><section class="game-window"><header><button id="close">✦ 별별상점 홈</button><b>오늘의 변명 제작소</b><span id="counter">1 / 5</span></header><div class="progress"><i id="progress"></i></div><div class="game-body" id="gameBody"></div></section></div>
-  <div class="game-shell flirt-shell" id="flirtGame" hidden><section class="game-window"><header><button id="flirtClose">✦ 별별상점 홈</button><b>썸메시지 · 오늘 데이트 가능?</b><span id="flirtCounter">1 / 7</span></header><div class="progress flirt-progress"><i id="flirtProgress"></i></div><div class="game-body" id="flirtBody"></div></section></div>
+  <div class="game-shell affair-shell" id="flirtGame" hidden><section class="game-window"><header><button id="flirtClose">✦ 별별상점 홈</button><b>바람필 확률 · 당신의 바람기</b><span id="flirtCounter">1 / 7</span></header><div class="progress affair-progress"><i id="flirtProgress"></i></div><div class="game-body" id="flirtBody"></div></section></div>
   <div class="game-shell friend-shell" id="friendGame" hidden><section class="game-window"><header><button id="friendClose">✦ 별별상점 홈</button><b>이런 친구는 피해라</b><span id="friendCounter">1 / 10</span></header><div class="progress friend-progress"><i id="friendProgress"></i></div><div class="game-body" id="friendBody"></div></section></div>
   <div class="game-shell fairy-shell" id="fairyGame" hidden><section class="game-window"><header><button id="fairyClose">✦ 별별상점 홈</button><b>말대꾸 요정 · 말의 가시 감별소</b><span id="fairyCounter">1 / 12</span></header><div class="progress fairy-progress"><i id="fairyProgress"></i></div><div class="game-body" id="fairyBody"></div></section></div>
   <script src="app.js?v=20260825-deeplink"></script>
@@ -102,6 +102,7 @@
 <script src="flirt-steps.js?v=20260825-context2"></script>
 <script src="friend-game.js?v=20260825-deeplink"></script>
 <script src="mature-content.js?v=20260826-mature"></script>
+<script src="affair-game.js?v=20260827-first"></script>
 <script src="fairy-game.js?v=20260826-mature"></script>
 <script src="game-router.js?v=20260826-mature"></script>
 </body>
