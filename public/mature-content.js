@@ -41,5 +41,6 @@ friendWorlds.splice(0,friendWorlds.length,
 );
 
 games[1]=['02','바람필 확률','직장·동창·동호회 속 경계 선택으로 알아보는 당신의 바람기','지금 플레이','🌪️'];
+games[3]=['04','부부싸움 판결소','남편과 아내의 시점으로 같은 싸움을 따라가며 책임을 점검합니다','지금 플레이','⚖️'];
 games[4]=['05','말대꾸 요정','칭찬과 농담 뒤에 숨은 말의 가시를 읽는 12단계 심리게임','지금 플레이','🪞'];
 document.querySelector('#cards').innerHTML=games.map((g,i)=>`<article class="card"><button class="card-visual" data-game="${i}"><span class="card-no">#${g[0]}</span><span class="card-icon">${g[4]}</span><span class="card-tag">${g[3]}</span></button><div class="card-info"><h3>${g[1]}</h3><p>${g[2]}</p><button data-game="${i}">↗</button></div></article>`).join('');
