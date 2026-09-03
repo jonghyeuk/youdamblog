@@ -5,6 +5,7 @@ function openGameFromLink(){
   if(location.hash==='#play-fairy')openFairy();
   if(location.hash==='#play-couple')openCouple();
   if(location.hash.startsWith('#play-rpg'))rpgOpen();
+  if(location.hash.startsWith('#play-travel'))travelOpen();
 }
 window.addEventListener('hashchange',openGameFromLink);
 openGameFromLink();

@@ -55,4 +55,5 @@ function wrap(text,x,y,max,line,ctx){let out='',yy=y;text.split(' ').forEach(w=>
 
 document.addEventListener('click',e=>{const t=e.target.closest('button');if(!t)return;if(t.matches('[data-rpg-start]')){rpgStep=0;rpgRender()}if(t.dataset.rpgAnswer!==undefined){rpgAnswers[rpgStep]=+t.dataset.rpgAnswer;rpgRender()}if(t.matches('[data-rpg-next]')&&!t.disabled){rpgStep++;rpgRender()}if(t.matches('[data-rpg-invite]'))rpgShare();if(t.matches('[data-rpg-save]'))rpgSave();if(t.matches('[data-rpg-reset]'))rpgReset()});
 document.querySelector('#rpgClose').addEventListener('click',rpgClose);
+document.addEventListener('click',e=>{const t=e.target.closest('button');if(t&&t.dataset.game==='6'){e.preventDefault();e.stopImmediatePropagation();rpgOpen()}},true);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!rpgGame.hidden)rpgClose()});
