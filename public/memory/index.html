@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f7efe1">
+  <meta name="description" content="그때의 노래와 풍경을 떠올리고, 오늘의 안부를 한 장에 담아 보내는 별별상점의 무료 추억 서비스입니다.">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <link rel="canonical" href="https://youdam.com/memory/">
+  <meta property="og:title" content="추억 한 장 — 그때 그 노래, 오늘 그 마음">
+  <meta property="og:description" content="매일 한 편의 추억 이야기와 질문을 읽고, 내 답을 가족과 친구에게 보내보세요.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://youdam.com/memory/">
+  <meta property="og:image" content="https://youdam.com/og.png">
+  <meta property="og:locale" content="ko_KR">
+  <title>추억 한 장 | 그때 그 노래, 오늘 그 마음</title>
+  <link rel="stylesheet" href="/memory/memory.css?v=20261019-1">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"CollectionPage",
+    "name":"추억 한 장",
+    "description":"노래와 생활 풍경으로 지난날을 떠올리고 가족과 친구에게 안부를 보내는 무료 추억 콘텐츠",
+    "url":"https://youdam.com/memory/",
+    "inLanguage":"ko-KR",
+    "isPartOf":{"@type":"WebSite","name":"별별상점","url":"https://youdam.com/"}
+  }
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">✦ 별별상점</a>
+    <nav aria-label="주요 메뉴"><a href="#today">오늘의 추억</a><a href="#archive">지난 이야기</a></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">매일 한 곡 · 한 편 · 한 질문</p>
+        <h1>그때 그 노래,<br><em>오늘 그 마음.</em></h1>
+        <p class="lead">잠시 잊고 있던 장면을 꺼내 보세요. 긴 글을 쓰지 않아도 괜찮습니다. 내 기억 하나를 골라 가족과 친구에게 안부처럼 보낼 수 있습니다.</p>
+        <a class="primary" href="#today">오늘의 추억 열기</a>
+      </div>
+      <div class="hero-scene" aria-label="라디오와 찻잔이 놓인 따뜻한 창가 풍경">
+        <span class="sun"></span><span class="curtain"></span>
+        <div class="radio"><i></i><b>FM 88.7</b><span>♪</span></div>
+        <div class="cup">♨</div><div class="postcard">보고 싶은 사람에게<br><strong>오늘, 안부 한 장</strong></div>
+      </div>
+    </section>
+
+    <section class="today" id="today" aria-live="polite">
+      <div class="section-heading"><div><p class="eyebrow">TODAY'S MEMORY</p><h2>오늘의 추억</h2></div><p id="todayDate"></p></div>
+      <article class="memory-card" id="memoryCard">
+        <div class="memory-art" id="memoryArt"><span id="memoryIcon"></span><small id="memoryEra"></small></div>
+        <div class="memory-copy">
+          <p class="category" id="memoryCategory"></p>
+          <h3 id="memoryTitle"></h3>
+          <p class="story" id="memoryStory"></p>
+          <div class="song-note"><span>♬</span><div><small>함께 떠올릴 노래</small><strong id="memorySong"></strong></div></div>
+          <fieldset><legend id="memoryQuestion"></legend><div class="answers" id="memoryAnswers"></div></fieldset>
+          <div class="actions"><button class="primary" id="shareButton" disabled>내 기억을 안부로 보내기</button><button class="secondary" id="copyButton">링크 복사</button></div>
+          <p class="privacy-note">선택한 답은 이 기기에만 저장되며 서버로 전송하지 않습니다.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="archive" id="archive">
+      <div class="section-heading"><div><p class="eyebrow">MEMORY ARCHIVE</p><h2>지난 이야기</h2></div><p>마음이 머무는 장면을 골라보세요.</p></div>
+      <div class="archive-grid" id="archiveGrid"></div>
+    </section>
+
+    <section class="promise">
+      <p class="eyebrow">OUR PROMISE</p><h2>서두르지 않아도<br>편안하게 볼 수 있도록.</h2>
+      <div><p><strong>큰 글씨와 단순한 화면</strong><br>가입이나 설치 없이 링크만 누르면 바로 읽을 수 있습니다.</p><p><strong>직접 만든 이야기</strong><br>인터넷 글을 복사하지 않고, 우리 세대의 생활 장면을 새롭게 씁니다.</p><p><strong>안부가 되는 공유</strong><br>자극적인 전달보다 한 사람을 떠올리게 하는 질문을 만듭니다.</p></div>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="/">✦ 별별상점</a><p>추억 한 장 · 그때 그 노래, 오늘 그 마음</p><small>© 2026 별별상점</small></footer>
+  <div class="toast" id="toast" hidden></div>
+  <script src="/memory/memory-content.js?v=20261019-1"></script>
+  <script src="/memory/memory.js?v=20261019-1"></script>
+</body>
+</html>
